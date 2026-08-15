@@ -33,7 +33,7 @@ Spread the rest face down in the middle — this is the pond.
 
 ## Playing a turn
 
-Ask **one specific player** for **one specific rank**: "Priya, do you have any
+Ask **one specific player** for **one specific rank**: "Siyu, do you have any
 sevens?"
 
 You must already hold at least one card of that rank. This is the rule that

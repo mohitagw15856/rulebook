@@ -77,7 +77,7 @@ for (const g of games) {
 
     // Long verbatim quotations *from a publisher*. Quotation marks alone mean
     // nothing here — a teach script is mostly lines to say out loud, and
-    // "Priya, do you have any sevens?" is the author's own writing. What
+    // "Siyu, do you have any sevens?" is the author's own writing. What
     // matters is a long quote presented as somebody else's text, so the check
     // only fires when there is an attribution just before it.
     const ATTRIBUTION = /(according to|the rulebook|official rules?|the rules? (state|say)|publisher|Mattel|Hasbro|Ravensburger|Kosmos|states:|reads:|quote:)[^.]{0,80}$/i;

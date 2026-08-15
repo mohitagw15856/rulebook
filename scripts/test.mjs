@@ -277,12 +277,12 @@ t('rank gives a title at every score', () => {
 // --- scoreboard ------------------------------------------------------------
 t('tally counts right and wrong per person', () => {
   const rows = [
-    { called: 'Dave', right: false }, { called: 'Dave', right: false },
-    { called: 'Priya', right: true }, { called: 'Dave', right: true },
+    { called: 'Mohit', right: false }, { called: 'Mohit', right: false },
+    { called: 'Siyu', right: true }, { called: 'Mohit', right: true },
   ];
   const table = tally(rows);
-  eq(table[0].name, 'Priya');
-  eq(table.find((p) => p.name === 'Dave'), { name: 'Dave', right: 1, wrong: 2, total: 3, pct: 33 });
+  eq(table[0].name, 'Siyu');
+  eq(table.find((p) => p.name === 'Mohit'), { name: 'Mohit', right: 1, wrong: 2, total: 3, pct: 33 });
 });
 t('tally ignores rows with no name', () => eq(tally([{ right: true }]).length, 0));
 

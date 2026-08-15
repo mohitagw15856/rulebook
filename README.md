@@ -92,8 +92,10 @@ Settles it **and logs who called it.**
 Then `rulebook record` shows the standings:
 
 ```
-Priya   ████████░░   80%   8-2
-Dave    ██░░░░░░░░   22%   2-7
+Siyu    ████████░░   80%  8-2
+Mohit   ██░░░░░░░░   22%  2-7
+
+Mohit has been wrong 7 times. Someone should tell them.
 ```
 
 </td></tr>
