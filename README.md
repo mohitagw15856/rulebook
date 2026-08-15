@@ -14,6 +14,8 @@
   <a href="#things-everyone-plays-that-are-not-in-the-rulebook"><img alt="6 fake rules everyone plays" src="https://img.shields.io/badge/rules%20everyone%20plays%20that%20aren't%20real-6-c02b2b?style=flat-square"></a>
   <img alt="zero dependencies" src="https://img.shields.io/badge/dependencies-0-0f5138?style=flat-square">
   <img alt="works offline" src="https://img.shields.io/badge/works-offline-0f5138?style=flat-square">
+  <a href="https://www.npmjs.com/package/@mohitagw15856/rulebook"><img alt="npm" src="https://img.shields.io/npm/v/@mohitagw15856/rulebook?style=flat-square&color=c02b2b&label=npm"></a>
+  <a href="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml"><img alt="ci" src="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml/badge.svg"></a>
 </p>
 
 <p align="center">
