@@ -14,6 +14,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { load, fmtDuration, minutes, PREVALENCE } from '../lib/registry.mjs';
+import { search } from '../lib/search.mjs';
 
 const argv = process.argv.slice(2);
 const COLOR = process.stdout.isTTY && !process.env.NO_COLOR;
@@ -47,29 +48,6 @@ ${games.length} games, ${games.reduce((a, g) => a + g.rulings.length, 0)} ruling
   process.exit(code);
 }
 
-// ---------------------------------------------------------------------------
-// ruling — the reason this CLI exists
-// ---------------------------------------------------------------------------
-function scoreMatch(ruling, query) {
-  const q = query.toLowerCase().replace(/[^a-z0-9+ ]/g, ' ').split(/\s+/).filter((w) => w.length > 1);
-  if (!q.length) return 0;
-  const haystacks = [
-    [ruling.question, 3],
-    [(ruling.asked_as || []).join(' | '), 4],
-    [ruling.id.replace(/-/g, ' '), 3],
-    [ruling.verdict, 1],
-    [ruling.house_rule || '', 1],
-  ];
-  let total = 0;
-  for (const [text, weight] of haystacks) {
-    const t = String(text).toLowerCase();
-    for (const word of q) if (t.includes(word)) total += weight;
-    // An exact phrase match in the asked-as list is worth a lot.
-    if (weight === 4 && t.includes(query.toLowerCase())) total += 25;
-  }
-  return total;
-}
-
 function cmdRuling(args) {
   const game = byName(args[0]);
   if (!game) {
@@ -84,10 +62,7 @@ function cmdRuling(args) {
     return;
   }
 
-  const ranked = game.rulings
-    .map((r) => ({ r, s: scoreMatch(r, query) }))
-    .filter((x) => x.s > 0)
-    .sort((a, b) => b.s - a.s);
+  const ranked = search(game.rulings, query);
 
   if (!ranked.length) {
     console.log(`\nNothing in ${game.name} matches ${bold(query)}.\n`);

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Tests for the scoring engines.
+// Tests for the scoring engines and the ruling search.
 //
-// Scoring is the one part of this repo that can be objectively wrong, so it is
-// the part that gets tested. Every case below is a real situation somebody has
-// argued about at a table.
+// These are the two parts of this repo that can be objectively wrong, so they
+// are the parts that get tested. Every case below is a real situation somebody
+// has argued about at a table, or a bug that actually shipped.
 
 import { parseHand, parseCard } from '../lib/cards.mjs';
 import { evaluate, compare } from '../games/poker-texas-holdem/score.mjs';
@@ -11,6 +11,8 @@ import { analyse } from '../games/rummy-gin/score.mjs';
 import { score as scrabble } from '../games/scrabble/score.mjs';
 import { score as uno } from '../games/uno/score.mjs';
 import { score as pablo } from '../games/pablo/score.mjs';
+import { search, scoreMatch } from '../lib/search.mjs';
+import { load } from '../lib/registry.mjs';
 
 let pass = 0;
 const fails = [];
@@ -133,10 +135,50 @@ t('black kings are worth zero', () => eq(pablo(parseHand('Ks Kc 3h 2d')).total, 
 t('red kings are worth their full ten', () => eq(pablo(parseHand('Kh Kd')).total, 20));
 t('ace is one', () => eq(pablo(parseHand('Ad 4s')).total, 5));
 
+// --- ruling search ---------------------------------------------------------
+// Every case here is a question somebody would actually type.
+const games = load();
+const g = (slug) => games.find((x) => x.slug === slug).rulings;
+const top = (slug, q) => search(g(slug), q)[0]?.r.id;
+
+t('finds the Uno stacking ruling from the phrase people use', () => {
+  eq(top('uno', 'can I stack a draw 2'), 'stacking-draw-cards');
+  eq(top('uno', 'stacking'), 'stacking-draw-cards');
+  eq(top('uno', '+2 on +2'), 'stacking-draw-cards');
+});
+t('finds Free Parking from two words', () => {
+  eq(top('monopoly', 'free parking'), 'free-parking-jackpot');
+});
+t('finds the draw-until-playable ruling', () => {
+  eq(top('uno', 'do you keep drawing until you can play'), 'draw-until-playable');
+});
+
+// This one is here because CI caught it. The query shares only the word "do"
+// with a Uno ruling, and an early version of the search called that a match.
+t('an unrelated question matches nothing', () => {
+  eq(search(g('uno'), 'how do I fold a paper crane').length, 0);
+  eq(search(g('catan'), 'what should we have for dinner').length, 0);
+  eq(search(g('chess'), 'is it going to rain').length, 0);
+});
+t('a query made entirely of function words matches nothing', () => {
+  eq(search(g('uno'), 'can you do the what if').length, 0);
+  eq(search(g('monopoly'), 'is it that they should').length, 0);
+});
+t('but a real content word still matches, even in a vague question', () => {
+  // "what happens when you" is vague; "happens" is not a function word and it
+  // hits a real question, so this should match rather than draw a blank.
+  eq(search(g('monopoly'), 'what happens when you go bankrupt').length > 0, true);
+});
+t('a single word buried in one verdict is not a match', () => {
+  // "internet" appears in the Uno stacking verdict and nowhere else.
+  eq(scoreMatch(g('uno').find((r) => r.id === 'stacking-draw-cards'), 'internet'), 0);
+});
+t('an empty query matches nothing', () => eq(search(g('uno'), '').length, 0));
+
 // ---------------------------------------------------------------------------
 if (fails.length) {
   console.error(`\n✗ ${fails.length} failing, ${pass} passing\n`);
   for (const f of fails) console.error(`  ✗ ${f}\n`);
   process.exit(1);
 }
-console.log(`✓ ${pass} scoring tests passing`);
+console.log(`✓ ${pass} tests passing`);
