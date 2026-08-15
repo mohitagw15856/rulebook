@@ -22,50 +22,58 @@
     <path d="M20 0 V340 M60 0 V340 M100 0 V340 M140 0 V340 M180 0 V340 M220 0 V340 M260 0 V340 M300 0 V340 M340 0 V340 M380 0 V340 M420 0 V340 M460 0 V340 M500 0 V340 M540 0 V340 M580 0 V340 M620 0 V340 M660 0 V340 M700 0 V340 M740 0 V340 M780 0 V340 M820 0 V340 M860 0 V340 M900 0 V340 M940 0 V340 M980 0 V340 M1020 0 V340 M1060 0 V340 M1100 0 V340 M1140 0 V340 M1180 0 V340 M1220 0 V340 M1260 0 V340"/>
   </g>
 
-  <!-- fanned cards, right side -->
+  <!-- Fanned cards. Centres at 980/1065/1150; with a 62x90 half-size and at
+       most 18 degrees of rotation the widest extent is 1150+79 = 1229, which
+       keeps them clear of the 1280 edge. -->
   <g filter="url(#drop)">
-    <g transform="translate(1010 178) rotate(-22)">
+    <g transform="translate(980 168) rotate(-18)">
       <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#faf7f0" stroke="#d9d2c2" stroke-width="2"/>
-      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#1b1b1b">K</text>
-      <text x="0" y="18" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#1b1b1b">♠</text>
+      <text x="-44" y="-54" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#1b1b1b">K</text>
+      <text x="0" y="24" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#1b1b1b">♠</text>
     </g>
-    <g transform="translate(1092 168) rotate(-4)">
+    <g transform="translate(1065 158) rotate(-3)">
       <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
-      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#c02b2b">A</text>
-      <text x="0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="62" fill="#c02b2b">♥</text>
+      <text x="-44" y="-54" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#c02b2b">A</text>
+      <text x="0" y="26" text-anchor="middle" font-family="Georgia, serif" font-size="62" fill="#c02b2b">♥</text>
     </g>
-    <g transform="translate(1176 180) rotate(14)">
+    <g transform="translate(1150 170) rotate(12)">
       <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#faf7f0" stroke="#d9d2c2" stroke-width="2"/>
-      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" fill="#1b1b1b">+2</text>
-      <circle cx="0" cy="6" r="34" fill="#e8b93f" fill-opacity="0.25"/>
-      <text x="0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1b1b1b">?</text>
+      <text x="-44" y="-54" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" fill="#1b1b1b">+2</text>
+      <circle cx="0" cy="10" r="34" fill="#e8b93f" fill-opacity="0.25"/>
+      <text x="0" y="26" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1b1b1b">?</text>
     </g>
   </g>
 
-  <!-- dice, lower left -->
+  <!-- Dice, in the empty middle where nothing else lives -->
   <g filter="url(#drop)">
-    <g transform="translate(96 268) rotate(-12)">
+    <g transform="translate(742 214) rotate(-12)">
       <rect x="-27" y="-27" width="54" height="54" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
       <circle cx="-12" cy="-12" r="5" fill="#1b1b1b"/><circle cx="12" cy="-12" r="5" fill="#1b1b1b"/>
       <circle cx="0" cy="0" r="5" fill="#1b1b1b"/>
       <circle cx="-12" cy="12" r="5" fill="#1b1b1b"/><circle cx="12" cy="12" r="5" fill="#1b1b1b"/>
     </g>
-    <g transform="translate(168 280) rotate(9)">
+    <g transform="translate(818 238) rotate(9)">
       <rect x="-27" y="-27" width="54" height="54" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
       <circle cx="-12" cy="-12" r="5" fill="#c02b2b"/><circle cx="12" cy="12" r="5" fill="#c02b2b"/>
     </g>
   </g>
 
-  <!-- wordmark -->
-  <text x="88" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="bold" fill="url(#gold)">rulebook</text>
-  <rect x="90" y="160" width="440" height="3" rx="1.5" fill="#e8b93f" fill-opacity="0.55"/>
-  <text x="90" y="200" font-family="Helvetica, Arial, sans-serif" font-size="27" fill="#eaf4ee" fill-opacity="0.92">Settle the argument.</text>
-  <text x="90" y="234" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#9fd3b8">The rules, the house rules, and which of them are actually real.</text>
+  <!-- Wordmark. Georgia bold at 84 makes "rulebook" roughly 370 wide from
+       x=80, so the rule beneath it is drawn to match rather than guessed. -->
+  <text x="80" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="84" font-weight="bold" fill="url(#gold)">rulebook</text>
+  <rect x="82" y="152" width="380" height="3" rx="1.5" fill="#e8b93f" fill-opacity="0.55"/>
 
-  <!-- verdict chip -->
-  <g transform="translate(90 258)">
-    <rect x="0" y="0" width="292" height="34" rx="17" fill="#0a2a1f" stroke="#e8b93f" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="82" y="192" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#eaf4ee">Settle the argument.</text>
+  <text x="82" y="222" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#9fd3b8">The rules, the house rules, and which of them are actually real.</text>
+
+  <!-- Verdict chip. 20 caps at 15px with tracking is about 175 wide, so the
+       pill is 232 including the dot and the padding either side. -->
+  <g transform="translate(82 246)">
+    <rect x="0" y="0" width="232" height="34" rx="17" fill="#0a2a1f" stroke="#e8b93f" stroke-opacity="0.5" stroke-width="1.5"/>
     <circle cx="20" cy="17" r="6" fill="#e8b93f"/>
-    <text x="36" y="23" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#ffe9a8">NOT AN OFFICIAL RULE · played by all</text>
+    <text x="36" y="23" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="0.5" fill="#ffe9a8">NOT AN OFFICIAL RULE</text>
   </g>
+  <text x="326" y="269" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#7fbfa2">· and everybody plays it</text>
+
+  <text x="82" y="312" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#6faa8d">36 games · 196 rulings · zero dependencies · works offline</text>
 </svg>

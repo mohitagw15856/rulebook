@@ -3,209 +3,286 @@
 </p>
 
 <p align="center">
-  <b>Somebody just played a Draw Four and the table has stopped.</b><br>
-  Someone says you cannot stack. Someone says you always could.<br>
-  <b>One of them is right, and it is not who you think.</b>
+  <a href="https://mohitagw15856.github.io/rulebook/"><b>🎲 Open the site</b></a> ·
+  <a href="#try-it-in-ten-seconds"><b>⌨️ Use the CLI</b></a> ·
+  <a href="#the-wall-of-shame"><b>🔥 The wall of shame</b></a> ·
+  <a href="#add-an-argument"><b>✍️ Add a ruling</b></a>
 </p>
 
 <p align="center">
-  <a href="#the-games"><img alt="36 games" src="https://img.shields.io/badge/games-36-0f5138?style=flat-square"></a>
-  <a href="#every-ruling-on-file"><img alt="196 rulings" src="https://img.shields.io/badge/rulings-196-e8b93f?style=flat-square"></a>
-  <a href="#things-everyone-plays-that-are-not-in-the-rulebook"><img alt="6 rules everyone plays that aren't real" src="https://img.shields.io/badge/rules%20everyone%20plays%20that%20aren't%20real-6-c02b2b?style=flat-square"></a>
+  <img alt="36 games" src="https://img.shields.io/badge/games-36-0f5138?style=flat-square">
+  <img alt="196 rulings" src="https://img.shields.io/badge/rulings-196-e8b93f?style=flat-square">
   <img alt="zero dependencies" src="https://img.shields.io/badge/dependencies-0-0f5138?style=flat-square">
   <img alt="works offline" src="https://img.shields.io/badge/works-offline-0f5138?style=flat-square">
   <a href="https://www.npmjs.com/package/@mohitagw15856/rulebook"><img alt="npm" src="https://img.shields.io/npm/v/@mohitagw15856/rulebook?style=flat-square&color=c02b2b&label=npm"></a>
   <a href="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml"><img alt="ci" src="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml/badge.svg"></a>
 </p>
 
-<h3 align="center">
-  <a href="https://mohitagw15856.github.io/rulebook/">🎲&nbsp; Open the site &nbsp;→&nbsp; mohitagw15856.github.io/rulebook</a>
-</h3>
+---
 
-<p align="center">
-  <b>Search every ruling, plan the evening, run the scorers — nothing to install.</b><br>
-  <sub>Works offline on the phone in your hand while everyone waits.</sub>
-</p>
+## You are wrong about at least one of these
 
-<p align="center">
-  <img src="assets/demo.gif" alt="rulebook in the terminal" width="760">
-</p>
+| You probably think | Actually |
+|---|---|
+| 🃏 You can stack a +2 on a +2 in Uno | **No.** Never could. Mattel said so out loud in 2019 and the internet refused to accept it |
+| 🎩 Free Parking pays out the tax pile | **No.** It has never done anything, in any edition, ever |
+| 🃏 You draw until you get a playable card | **No.** You draw exactly one and move on |
+| 🌾 You can trade whenever you like in Catan | **No.** Only on the active player's turn, and only with them |
+| 🎩 Landing exactly on Go pays double | **No.** It never has |
+
+Everybody plays these. Nobody checked.
+
+**That gap is the whole project.** Rules are easy to find — every box has them.
+*Rulings* are not: what to do at 9pm when your uncle is certain, you are
+certain, and the box is in the loft.
+
+---
+
+## Try it in ten seconds
 
 ```console
-$ npx @mohitagw15856/rulebook ruling uno "can I stack a draw 2"
+$ npx @mohitagw15856/rulebook uno "can I stack a draw 2"
+```
 
+```
 Can you stack a Draw Two on a Draw Two, or a Draw Four on a Draw Four?
 ● NOT AN OFFICIAL RULE   played by almost everyone, almost everywhere
 
   No. Under the published rules there is no stacking. A player hit with a Draw
   Two draws two cards and loses their turn — they cannot pass the penalty
   along. Mattel stated this publicly in May 2019 and a large part of the
-  internet refused to believe it. Note that the official UNO mobile game does
-  offer stacking as a setting, which is not the same as it being in the card
-  game's rules.
+  internet refused to believe it.
+
+  The house version
+
+  The near-universal house version lets you answer a Draw Two with your own
+  Draw Two, passing an accumulating penalty around the table until someone
+  cannot respond and draws the entire pile.
 ```
+
+Nothing to install, nothing to sign up for, no network calls.
 
 ---
 
-## What this is
+## 🎉 It runs your game night now
 
-Rules are easy to find. **Rulings are not.**
+<table>
+<tr><td width="50%">
 
-Every published rulebook tells you how the game starts. None of them tells you
-what to do when your uncle insists that landing on Free Parking pays out the
-tax pile, that you can stack a +2, or that you can trade on someone else's turn
-in Catan.
-
-None of those three is a real rule. All three are played constantly.
-
-rulebook records both: what the rulebook says, and what the world actually
-plays — clearly labelled, so the table can pick one and get on with it.
-
-## Game night, from arrival to the last round
+**Before anyone arrives**
 
 ```console
-$ rulebook night --people 6 --hours 3          # plan the whole evening
-$ rulebook ruling monopoly "free parking"      # settle it
-$ rulebook ref uno "stacking"                  # settle it, and log who was right
-$ rulebook quiz                                # official rule, or made up?
-$ rulebook record                              # who has been right, all year
+$ rulebook night --people 6 --hours 3
 ```
+
+Builds a real evening — an opener while people
+turn up, the heaviest game that actually fits,
+and something light for when nobody can think.
+Counts the teach time, which everyone forgets.
+
+</td><td width="50%">
+
+**Mid-argument**
+
+```console
+$ rulebook ref uno "stacking"
+```
+
+Settles it **and logs who called it.**
+Then `rulebook record` shows the standings:
+
+```
+Priya   ████████░░   80%   8-2
+Dave    ██░░░░░░░░   22%   2-7
+```
+
+</td></tr>
+<tr><td>
+
+**When the table goes quiet**
+
+```console
+$ rulebook quiz
+```
+
+Ten rulings. Official, or made up? You guess.
+Ends with a title you have earned, such as
+*Has Been Playing It Wrong For Years*.
+
+</td><td>
+
+**For the slow player**
+
+```console
+$ rulebook timer --minutes 2
+```
+
+```
+01:12  ████████████░░░░░░  
+```
+
+No further comment.
+
+</td></tr>
+</table>
 
 | | |
 |---|---|
-| **`night`** | Builds an actual evening — an opener while people arrive, the heaviest game that fits, a closer for when nobody can think. Counts the teach time, because everyone forgets to. |
-| **`ref`** | Settles the argument *and remembers who called it*. Over a few months this produces the funniest file on your computer. |
-| **`record`** | The scoreboard. `Dave 2–7 (22%)`. |
-| **`quiz`** | Ten rulings, official or house rule, you guess. Ends with a title you have earned, such as *Has Been Playing It Wrong For Years*. |
-| **`hottest`** | The rules most likely to stop a game, ranked. A house rule everybody plays sits at the top, because nobody involved thinks it is one. |
-| **`timer`** | For the player who takes four minutes over a two-minute turn. |
-| **`odds`** | The numbers people guess wrong — Catan's dice, blackjack's dealer, poker's outs. |
+| 🔥 `hottest` | The rules most likely to stop a game, ranked |
+| 🎲 `odds` | Catan's dice, blackjack's dealer, poker's outs — computed, not remembered |
+| 📋 `about <game>` | The honest facts: real playtime, **downtime between your turns**, the age it actually works at, and when it's fair to give up |
+| 🧮 `score` | Poker hands, gin deadwood, Scrabble premiums, Uno and Pablo totals |
+| 🗣️ `teach <game> --live` | Walks the teach script one beat at a time, against the clock |
+| 🔍 `find --players 5 --kids 7` | What fits tonight — filtered on **real** playtime, not the box |
 
-## Take it away from the screen
+---
+
+## 🖨️ Print it and put it in the box
 
 ```console
-$ rulebook card catan --out catan.svg      # A4, four panels, folds into the box lid
-$ rulebook qr uno --ruling stacking-draw-cards
+$ rulebook card catan --out catan.svg
 ```
 
-The reference card carries setup by player count, the turn, the rules your table
-gets wrong, and a QR code to the full ruling list. The QR encoder is written
-from the specification in about 250 lines with no dependencies, and was verified
-against a real barcode scanner rather than assumed to work.
+One A4 sheet. Fold it twice, leave it in the lid. Setup by player count, the
+turn, the four rules your table gets wrong, and a QR code to every ruling.
 
-## Your table's constitution
+<details>
+<summary>The QR encoder is written from scratch, and it didn't work at first</summary>
 
-Every group plays differently. Say so once, in a `.rulebookrc`, and every ruling
-answers with *your* version first and the published rule second:
+<br>
+
+No dependencies means no QR library, so it's ~250 lines implementing byte mode,
+error correction level M, Reed–Solomon over GF(256), and mask selection.
+
+The first version produced something that looked *exactly* like a QR code and
+was completely unscannable — the format-information bits were in the wrong
+cells. I found out by decoding it with a real barcode scanner rather than
+trusting my eyes. `rulebook qr <game>` prints one straight to your terminal.
+
+</details>
+
+---
+
+## 🏠 Your table's constitution
+
+Every group plays differently. Say so **once**, in a `.rulebookrc`, and every
+ruling answers with *your* version first and the published rule second:
 
 ```yaml
 table: The Thursday Lot
 house_rules:
-  uno/stacking-draw-cards: yes        # we stack, and we know it is not real
+  uno/stacking-draw-cards: yes        # we stack, and we know it isn't real
   monopoly/free-parking-jackpot: no   # we play it properly
   ludo/blocking-two-tokens: yes
 ```
 
-Commit it. Send it to anyone joining game night. See
-[`.rulebookrc.example`](.rulebookrc.example).
+Commit it. Send it to anyone joining game night. It settles more arguments
+before they start than any amount of looking things up afterwards.
 
-## The rest of the commands
+---
 
-| | |
-|---|---|
-| `rulebook ruling <game> "<q>"` | Settles it. Searches the phrasings people actually shout. |
-| `rulebook about <game>` | The honest facts — real playtime, downtime between turns, the age it works at, variants, and when it is fair to give up. |
-| `rulebook score <game> "<cards>"` | Poker hands, gin deadwood, Scrabble premiums, Uno and Pablo totals. |
-| `rulebook teach <game> --live` | Walks the teach script one beat at a time, against the clock. |
-| `rulebook find --players 5 --kids 7` | What fits tonight, filtered on real playtime and the age a game genuinely works at. |
-| `rulebook list` | Everything on file. |
-
-Install it, because game night has no wifi:
-
-```console
-$ npm install -g @mohitagw15856/rulebook
-$ rulebook uno "wild draw four"
-```
-
-Zero dependencies. Zero network calls. The entire registry ships in the package,
-because the moment you need a ruling is the moment somebody has already picked
-up the cards and is waiting.
-
-## The website
+## 🌐 The website
 
 **[mohitagw15856.github.io/rulebook](https://mohitagw15856.github.io/rulebook/)**
 
-Same data, same code — the registry is inlined at build time and the scoring
-engines and the ruling matcher are the *same modules*, imported as plain ESM.
-No bundler, no second implementation that can drift from the terminal.
+Same data, same code — the scoring engines and the search are the *same
+modules*, imported as plain ESM. No bundler, no second implementation that can
+quietly disagree with the terminal.
 
-It also does things the terminal cannot: search every game's rulings at once,
-show which rules are played differently in different countries, and keep a
-round-by-round scorepad. It installs as an app, caches itself, and works with no
-signal.
+It also does things the terminal can't:
 
-Every ruling has its own link. Paste one into the group chat and it unfurls with
-the verdict:
+- 🔎 Search **every game's rulings at once**
+- 🌍 See which rules are played differently in **different countries**
+- 📊 A bar chart of how much every box lies about playtime *(Monopoly: +120 min)*
+- 🧾 A round-by-round **scorepad** that saves to your device
+- 📴 Installs as an app and **works with no signal**
+
+Every ruling has its own link that unfurls with the verdict — paste one into
+the group chat and let it do the arguing:
 
 ```
 https://mohitagw15856.github.io/rulebook/r/uno/stacking-draw-cards/
 ```
 
-## Add a game, or settle one more argument
+---
 
-One game is one folder. One argument is one entry in a YAML file — no code, no
-build step, and there is
+## ✍️ Add an argument
+
+**This is the valuable bit, and it takes two minutes.** One entry in one YAML
+file. No code, no build step, and
 [a form](https://github.com/mohitagw15856/rulebook/issues/new?template=good-first-ruling.yml)
-if you would rather not touch YAML at all.
+if you'd rather not touch YAML at all.
 
 ```yaml
 - id: free-parking-jackpot
   question: Does landing on Free Parking pay you the money in the middle?
   asked_as:
-    - free parking money
+    - free parking money           # ← how people actually type it
     - do you get the tax money on free parking
   kind: house-rule
   official: false
-  prevalence: near-universal
+  prevalence: near-universal       # ← how many people play it anyway
   verdict: >
     No, and it never has been — not in any edition of the rules...
-  house_rule: >
-    Fines and taxes go into a pot in the middle...
 ```
 
-`asked_as` matters most: it is how search finds your ruling when somebody types
-what they would actually shout across the table.
+`asked_as` matters most. It's how search finds your ruling when somebody types
+what they'd genuinely shout across a table.
 
-Run `npm run ci` before opening a PR. It validates the schema, checks the prose
-is your own, runs the tests, and rebuilds this file.
+Run `npm run ci` before opening a PR — it validates, checks your prose is your
+own, runs 61 tests and rebuilds this file. **[CONTRIBUTING.md](CONTRIBUTING.md)**
+has the rest.
 
-**[CONTRIBUTING.md](CONTRIBUTING.md)** has the whole thing.
+<details>
+<summary>Adding a whole game, or a scorer</summary>
 
-## About the rules themselves
+<br>
 
-How a game is played is not copyrightable — that is the idea/expression split,
-and the US Copyright Office says so directly in 37 CFR 202.1(b). A publisher's
-*wording* is another matter entirely.
+One game is one folder: `game.yml`, `rules.md`, `rulings.yml`, `teach.md`, and
+optionally `score.mjs` and `odds.mjs`. Copy the closest existing game —
+`npm run validate` names every missing field, so there's no schema to memorise.
 
-So every word of rules in this repo is written from scratch by someone who
-understood the game, and `npm run check` enforces it: no copyright notices, no
-® or ™, no long quotations of anyone else's text, no sentence appearing in two
-games. It has caught me twice.
+The fields people skip and shouldn't: **`downtime`** (how long between *your*
+turns — the honest measure of whether a game is bearable, and nobody publishes
+it), **`min_age`** (the age it genuinely works at, not the age on the box), and
+**`concession`** (when it's fair to stop).
 
-Game names and trademarks belong to their owners; nothing here is affiliated
-with or endorsed by any publisher.
+</details>
+
+---
+
+## ⚖️ About the rules themselves
+
+**How a game is played isn't copyrightable.** That's the idea/expression split —
+settled since *Baker v. Selden* (1879) and stated flatly in 37 CFR 202.1(b),
+which excludes "the idea for a game" from copyright.
+
+**A publisher's wording is.** So every word of rules here was written from
+scratch by someone who understood the game, and `npm run check` enforces it: no
+copyright notices, no ® or ™, no long quotations, no sentence appearing in two
+games.
+
+It has caught me twice. That's the point of having it.
+
+> Game names and trademarks belong to their owners. Nothing here is affiliated
+> with or endorsed by any publisher.
 
 Code is MIT. The game data is CC BY 4.0 — take it, build something.
 
+---
+
 <!-- Everything below this line is generated by scripts/build.mjs. Edit games/, not this. -->
 
-## The games
+## Every game on file
+
+<details>
+<summary><b>All 36 games</b> — who they suit, what they really take, and how many arguments each one starts</summary>
 
 ### Card games
 
 | Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |
 |---|---|---|---|---|---|---|---|
-| **[Blackjack](docs/games/blackjack.md)** | 1–7 (best 4) | 20 min | **30 min** | 4 min | ●●○○○ | 70% | 5 |
+| **[Blackjack](docs/games/blackjack.md)** | 1–7 (best 4) | 20 min | **30 min** | 4 min | ●●○○○ | 70% | 5 🎲 |
 | **[Coup](docs/games/coup.md)** | 2–6 (best 5) | 15 min | **25 min** | 6 min | ●●○○○ | 35% | 6 |
 | **[Crazy Eights](docs/games/crazy-eights.md)** | 2–7 (best 4) | 20 min | **25 min** | 90 sec | ●○○○○ | 88% | 3 |
 | **[Cribbage](docs/games/cribbage.md)** | 2–4 (best 2) | 30 min | **30 min** | 12 min | ●●○○○ | 40% | 5 |
@@ -214,19 +291,19 @@ Code is MIT. The game data is CC BY 4.0 — take it, build something.
 | **[Hearts](docs/games/hearts.md)** | 3–6 (best 4) | 45 min | **60 min** | 5 min | ●●○○○ | 45% | 5 |
 | **[Jaipur](docs/games/jaipur.md)** | 2–2 (best 2) | 30 min | **30 min** | 5 min | ●●○○○ | 45% | 6 |
 | **[Love Letter](docs/games/love-letter.md)** | 2–4 (best 4) | 20 min | **20 min** | 3 min | ●○○○○ | 60% | 6 |
-| **[Pablo](docs/games/pablo.md)** | 2–6 (best 4) | 20 min | **35 min** | 4 min | ●●○○○ | 65% | 4 · 🧮 |
-| **[Texas Hold'em](docs/games/poker-texas-holdem.md)** | 2–10 (best 6) | 60 min | **2 hr** | 8 min | ●●●○○ | 45% | 6 · 🧮 |
-| **[Gin Rummy](docs/games/rummy-gin.md)** | 2–2 (best 2) | 30 min | **40 min** | 5 min | ●●○○○ | 55% | 5 · 🧮 |
+| **[Pablo](docs/games/pablo.md)** | 2–6 (best 4) | 20 min | **35 min** | 4 min | ●●○○○ | 65% | 4 🧮 |
+| **[Texas Hold'em](docs/games/poker-texas-holdem.md)** | 2–10 (best 6) | 60 min | **2 hr** | 8 min | ●●●○○ | 45% | 6 🧮 🎲 |
+| **[Gin Rummy](docs/games/rummy-gin.md)** | 2–2 (best 2) | 30 min | **40 min** | 5 min | ●●○○○ | 55% | 5 🧮 |
 | **[Indian Rummy](docs/games/rummy-indian.md)** | 2–6 (best 4) | 30 min | **45 min** | 6 min | ●●○○○ | 60% | 5 |
 | **[Spades](docs/games/spades.md)** | 2–6 (best 4) | 30 min | **50 min** | 6 min | ●●○○○ | 40% | 5 |
 | **[The Mind](docs/games/the-mind.md)** | 2–4 (best 3) | 20 min | **25 min** | 90 sec | ●○○○○ | 45% | 5 |
-| **[Uno](docs/games/uno.md)** | 2–10 (best 4) | 30 min | **45 min** | 3 min | ●○○○○ | 85% | 7 · 🧮 |
+| **[Uno](docs/games/uno.md)** | 2–10 (best 4) | 30 min | **45 min** | 3 min | ●○○○○ | 85% | 7 🧮 |
 
 ### Board games
 
 | Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |
 |---|---|---|---|---|---|---|---|
-| **[Catan](docs/games/catan.md)** | 3–4 (best 4) | 60 min | **90 min** | 15 min | ●●○○○ | 50% | 6 |
+| **[Catan](docs/games/catan.md)** | 3–4 (best 4) | 60 min | **90 min** | 15 min | ●●○○○ | 50% | 6 🎲 |
 | **[Cluedo](docs/games/cluedo.md)** | 3–6 (best 4) | 45 min | **50 min** | 7 min | ●●○○○ | 55% | 6 |
 | **[Ludo](docs/games/ludo.md)** | 2–4 (best 4) | 30 min | **45 min** | 3 min | ●○○○○ | 92% | 5 |
 | **[Monopoly](docs/games/monopoly.md)** | 2–8 (best 4) | 60 min | **3 hr** | 10 min | ●●○○○ | 70% | 6 |
@@ -239,7 +316,7 @@ Code is MIT. The game data is CC BY 4.0 — take it, build something.
 | Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |
 |---|---|---|---|---|---|---|---|
 | **[Codenames Duet](docs/games/codenames-duet.md)** | 2–4 (best 2) | 15 min | **25 min** | 5 min | ●●○○○ | 30% | 6 |
-| **[Scrabble](docs/games/scrabble.md)** | 2–4 (best 2) | 60 min | **75 min** | 6 min | ●●○○○ | 40% | 6 · 🧮 |
+| **[Scrabble](docs/games/scrabble.md)** | 2–4 (best 2) | 60 min | **75 min** | 6 min | ●●○○○ | 40% | 6 🧮 |
 
 ### Party games
 
@@ -260,24 +337,26 @@ Code is MIT. The game data is CC BY 4.0 — take it, build something.
 
 | Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |
 |---|---|---|---|---|---|---|---|
-| **[Yahtzee](docs/games/yahtzee.md)** | 1–10 (best 4) | 30 min | **30 min** | 4 min | ●○○○○ | 75% | 5 |
+| **[Yahtzee](docs/games/yahtzee.md)** | 1–10 (best 4) | 30 min | **30 min** | 4 min | ●○○○○ | 75% | 5 🎲 |
 
 ### Abstract strategy
 
 | Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |
 |---|---|---|---|---|---|---|---|
 | **[Azul](docs/games/azul.md)** | 2–4 (best 2) | 45 min | **40 min** | 6 min | ●●○○○ | 30% | 6 |
-| **[Backgammon](docs/games/backgammon.md)** | 2–2 (best 2) | 30 min | **25 min** | 10 min | ●●●○○ | 45% | 6 |
+| **[Backgammon](docs/games/backgammon.md)** | 2–2 (best 2) | 30 min | **25 min** | 10 min | ●●●○○ | 45% | 6 🎲 |
 | **[Battleship](docs/games/battleship.md)** | 2–2 (best 2) | 20 min | **20 min** | 90 sec | ●○○○○ | 65% | 5 |
 | **[Chess](docs/games/chess.md)** | 2–2 (best 2) | 30 min | **45 min** | 10 min | ●●●●○ | 0% | 6 |
 | **[Hive](docs/games/hive.md)** | 2–2 (best 2) | 20 min | **25 min** | 4 min | ●●●○○ | 0% | 6 |
 
-🧮 = has a scorer you can run.
+🧮 scorer · 🎲 odds table · **bold** playtime is the real one
 
-## Things everyone plays that are not in the rulebook
+</details>
 
-Every one of these is a house rule. None of them is official. Most people
-have played them their whole lives without knowing that.
+## The wall of shame
+
+Every one of these is a house rule. **None of them is official.** Most people
+have played them their whole lives without ever knowing that.
 
 | Game | "Rule" | The actual rule |
 |---|---|---|
@@ -289,6 +368,9 @@ have played them their whole lives without knowing that.
 | Uno | Do you keep drawing until you get a card you can play? | No. Officially you draw exactly one card. If it can be played you may play it immediately; if not, your turn ends. |
 
 ## Every ruling on file
+
+<details>
+<summary><b>All 196 rulings</b> — every argument in the registry, official or not</summary>
 
 | Game | Question | Official? | How widely played |
 |---|---|---|---|
@@ -488,6 +570,8 @@ have played them their whole lives without knowing that.
 | [Yahtzee](docs/games/yahtzee.md) | Does a large straight also count as a small straight? | ✅ yes | near universal |
 | [Yahtzee](docs/games/yahtzee.md) | Can you skip a turn if nothing fits? | ✅ yes | near universal |
 | [Yahtzee](docs/games/yahtzee.md) | Does three of a kind score just the three matching dice? | ✅ yes | common |
+
+</details>
 
 ## Who has settled an argument here
 
