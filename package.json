@@ -1,7 +1,7 @@
 {
   "name": "@mohitagw15856/rulebook",
-  "version": "0.1.0",
-  "description": "Settle the argument. Board and card game rules, the house rules everyone plays, and which of them are actually real.",
+  "version": "0.2.0",
+  "description": "Settle the argument. 36 board and card games, 196 rulings, the house rules everyone plays and which are actually real. Plus a party mode, a dispute tracker and printable reference cards.",
   "type": "module",
   "bin": {
     "rulebook": "bin/rulebook.mjs"
@@ -14,6 +14,7 @@
     "bin/",
     "lib/",
     "games/",
+    ".rulebookrc.example",
     "LICENSE",
     "LICENSE-DATA"
   ],
