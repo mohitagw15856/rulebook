@@ -19,9 +19,13 @@
   <a href="https://mohitagw15856.github.io/rulebook/"><img alt="live site" src="https://img.shields.io/badge/site-live-35f5d0?style=flat-square"></a>
 </p>
 
+<h3 align="center">
+  <a href="https://mohitagw15856.github.io/rulebook/">🎲&nbsp; Open the site &nbsp;→&nbsp; mohitagw15856.github.io/rulebook</a>
+</h3>
+
 <p align="center">
-  <b><a href="https://mohitagw15856.github.io/rulebook/">→ Settle an argument right now, in your browser ←</a></b><br>
-  <sub>No install. Works on your phone at the table.</sub>
+  <b>Search every ruling, filter the games, run the scorers — nothing to install.</b><br>
+  <sub>Works on the phone in your hand while everyone waits.</sub>
 </p>
 
 <p align="center">

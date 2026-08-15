@@ -18,180 +18,138 @@ const esc = (s) =>
 const fmt = (d) => {
   const m = String(d).match(/^(\d+(?:\.\d+)?)(s|m|h)$/);
   if (!m) return String(d);
-  return { s: `${m[1]} sec`, m: `${m[1]} min`, h: `${m[1]} hr` }[m[2]];
+  return { s: `${m[1]}s`, m: `${m[1]} min`, h: `${m[1]} hr` }[m[2]];
 };
 const mins = (d) => {
   const m = String(d).match(/^(\d+(?:\.\d+)?)(s|m|h)$/);
   if (!m) return Infinity;
   return { s: +m[1] / 60, m: +m[1], h: +m[1] * 60 }[m[2]];
 };
-const pips = (w) => '●'.repeat(Math.round(w)) + '○'.repeat(5 - Math.round(w));
-
-const PREVALENCE = {
-  'near-universal': 'played by almost everyone, almost everywhere',
-  common: 'widespread but far from universal',
-  regional: 'standard in some places, unheard of in others',
-  rare: 'occasional, or specific to one group',
+// "2–2 · best 2" is nonsense. A fixed-count game is just its count.
+const players = (p) => {
+  if (p.min === p.max) return String(p.min);
+  return `${p.min}–${p.max}${p.best ? ` · best ${p.best}` : ''}`;
 };
 
-// Every ruling, with its game attached, so search can run across the lot.
+const dots = (w) =>
+  `<span class="dots">${Array.from({ length: 5 }, (_, i) => `<i class="${i < Math.round(w) ? 'f' : ''}"></i>`).join('')}</span>`;
+
+const PREVALENCE = {
+  'near-universal': 'played almost everywhere',
+  common: 'widespread, not universal',
+  regional: 'standard in some places only',
+  rare: 'occasional',
+};
+
 const ALL = DATA.games.flatMap((g) => g.rulings.map((r) => ({ ...r, _game: g })));
+const HOUSE = ALL.filter((r) => !r.official);
+const UNIVERSAL = HOUSE.filter((r) => r.prevalence === 'near-universal');
 
 // ---------------------------------------------------------------------------
-// The synthwave horizon
+// Chrome: scroll progress, sticky nav, spotlight, reveals
 // ---------------------------------------------------------------------------
-function horizon() {
-  const cv = $('#grid');
-  if (!cv || REDUCED) return;
-  const ctx = cv.getContext('2d');
-  let w, h, t = 0;
-
-  const size = () => {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    w = cv.width = innerWidth * dpr;
-    h = cv.height = innerHeight * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function chrome() {
+  const bar = $('#progress');
+  const nav = $('#nav');
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+    nav.classList.toggle('stuck', scrollY > 12);
   };
-  size();
-  addEventListener('resize', size, { passive: true });
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  const draw = () => {
-    const W = innerWidth, H = innerHeight;
-    const hz = H * 0.62; // horizon line
-    ctx.clearRect(0, 0, W, H);
-    ctx.lineWidth = 1;
-
-    // Receding horizontal lines, spaced so they bunch towards the horizon.
-    for (let i = 0; i < 26; i++) {
-      const p = ((i + (t % 1)) / 26) ** 2.6;
-      const y = hz + p * (H - hz);
-      ctx.strokeStyle = `rgba(53,245,208,${0.32 * (1 - p) + 0.03})`;
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(W, y);
-      ctx.stroke();
-    }
-    // Verticals converging on the vanishing point.
-    for (let i = -18; i <= 18; i++) {
-      ctx.strokeStyle = `rgba(53,245,208,${0.13 - Math.abs(i) * 0.004})`;
-      ctx.beginPath();
-      ctx.moveTo(W / 2, hz);
-      ctx.lineTo(W / 2 + i * W * 0.14, H);
-      ctx.stroke();
-    }
-    // The glow sitting on the horizon.
-    const g = ctx.createLinearGradient(0, hz - 90, 0, hz);
-    g.addColorStop(0, 'rgba(232,185,63,0)');
-    g.addColorStop(1, 'rgba(232,185,63,0.14)');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, hz - 90, W, 90);
-
-    t += 0.006;
-    requestAnimationFrame(draw);
-  };
-  draw();
-}
-
-// ---------------------------------------------------------------------------
-// Small flourishes
-// ---------------------------------------------------------------------------
-function typeOut() {
-  const el = $('#type-out');
-  const lines = ['settle the argument.', 'no, that is not a real rule.', 'the box is lying about the playtime.'];
-  if (REDUCED) {
-    el.textContent = lines[0];
-    return;
+  if (!REDUCED) {
+    const spot = $('#spot');
+    addEventListener('pointermove', (e) => {
+      spot.style.opacity = 1;
+      spot.style.left = `${e.clientX}px`;
+      spot.style.top = `${e.clientY}px`;
+    }, { passive: true });
   }
-  let li = 0, ci = 0, back = false;
-  const tick = () => {
-    const line = lines[li];
-    ci += back ? -1 : 1;
-    el.textContent = line.slice(0, ci);
-    let wait = back ? 34 : 58;
-    if (!back && ci === line.length) {
-      back = true;
-      wait = 2600;
-    } else if (back && ci === 0) {
-      back = false;
-      li = (li + 1) % lines.length;
-      wait = 420;
-    }
-    setTimeout(tick, wait);
-  };
-  tick();
-}
 
-function cursorGlow() {
-  const el = $('#glow');
-  if (REDUCED) return;
-  addEventListener('pointermove', (e) => {
-    el.style.opacity = 1;
-    el.style.left = e.clientX + 'px';
-    el.style.top = e.clientY + 'px';
-  }, { passive: true });
-}
-
-function reveals() {
   const io = new IntersectionObserver(
-    (entries) => entries.forEach((en) => en.isIntersecting && en.target.classList.add('in')),
-    { threshold: 0.08 }
+    (es) => es.forEach((en) => en.isIntersecting && en.target.classList.add('in')),
+    { threshold: 0.06, rootMargin: '0px 0px -6% 0px' }
   );
   $$('.reveal').forEach((el) => io.observe(el));
 }
 
-// Counters that run up to their value the first time they scroll into view.
-function stats() {
-  const houseRules = ALL.filter((r) => !r.official);
-  const universal = houseRules.filter((r) => r.prevalence === 'near-universal');
-  const overrun = DATA.games.reduce((a, g) => a + (mins(g.playtime_actual) - mins(g.playtime_box)), 0);
+// Cards that light up and tilt slightly towards the pointer.
+function interactive(el, tilt = true) {
+  if (REDUCED) return;
+  el.addEventListener('pointermove', (e) => {
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    el.style.setProperty('--mx', `${x}px`);
+    el.style.setProperty('--my', `${y}px`);
+    if (tilt) {
+      const rx = ((y / r.height) - 0.5) * -5;
+      const ry = ((x / r.width) - 0.5) * 5;
+      el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-5px)`;
+    }
+  });
+  el.addEventListener('pointerleave', () => {
+    if (tilt) el.style.transform = '';
+  });
+}
 
-  const rows = [
-    [DATA.games.length, 'games'],
-    [ALL.length, 'rulings'],
-    [universal.length, 'fake rules everyone plays'],
-    [Math.round(overrun), 'minutes the boxes lie by'],
-  ];
-  $('#stats').innerHTML = rows
-    .map(([n, l]) => `<div class="stat"><b data-to="${n}">0</b><span>${l}</span></div>`)
-    .join('');
-
-  $('#foot-stats').textContent =
-    `${DATA.games.length} games · ${ALL.length} rulings · ${universal.length} of them house rules almost everyone plays`;
-
+// Count up when scrolled into view.
+function countUp(el, to) {
+  if (REDUCED) {
+    el.textContent = to;
+    return;
+  }
   const io = new IntersectionObserver((es) => {
     es.forEach((en) => {
       if (!en.isIntersecting) return;
-      io.unobserve(en.target);
-      const to = +en.target.dataset.to;
-      if (REDUCED) {
-        en.target.textContent = to;
-        return;
-      }
+      io.unobserve(el);
       const t0 = performance.now();
       const step = (now) => {
-        const p = Math.min(1, (now - t0) / 1200);
-        // ease-out so it lands rather than stops
-        en.target.textContent = Math.round(to * (1 - (1 - p) ** 3));
+        const p = Math.min(1, (now - t0) / 1300);
+        el.textContent = Math.round(to * (1 - (1 - p) ** 3));
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
     });
-  });
-  $$('.stat b').forEach((el) => io.observe(el));
+  }, { threshold: 0.2 });
+  io.observe(el);
+}
+
+// ---------------------------------------------------------------------------
+function eyebrow() {
+  $('#eyebrow').innerHTML =
+    `<span class="dot"></span> <b>${ALL.length}</b> rulings across <b>${DATA.games.length}</b> games · works offline`;
+}
+
+function stats() {
+  const overrun = DATA.games.reduce((a, g) => a + (mins(g.playtime_actual) - mins(g.playtime_box)), 0);
+  const rows = [
+    [DATA.games.length, 'games', false],
+    [ALL.length, 'rulings', false],
+    [UNIVERSAL.length, 'played by all, real by none', true],
+    [Math.round(overrun), 'minutes the boxes lie by', true],
+  ];
+  $('#stats').innerHTML = rows
+    .map(([n, l, hl]) => `<div class="stat${hl ? ' hl' : ''}"><b data-to="${n}">0</b><span>${l}</span></div>`)
+    .join('');
+  $$('.stat b').forEach((el) => countUp(el, +el.dataset.to));
+
+  $('#foot-stats').textContent =
+    `${DATA.games.length} games · ${ALL.length} rulings · ${UNIVERSAL.length} of them house rules almost everyone plays`;
 }
 
 // ---------------------------------------------------------------------------
 // Settle it
 // ---------------------------------------------------------------------------
 function verdictCard(r, i) {
-  const cls = r.official ? 'yes' : 'no';
-  const label = r.official ? 'OFFICIAL RULE' : 'NOT AN OFFICIAL RULE';
-  const colour = r.official ? 'var(--cyan)' : 'var(--gold)';
+  const accent = r.official ? 'var(--mint)' : 'var(--gold)';
   return `
-  <article class="verdict" style="--official:${colour};animation-delay:${i * 60}ms">
+  <article class="verdict" style="--accent:${accent};animation-delay:${i * 55}ms">
     <div class="game">${esc(r._game.name)}</div>
     <h3>${esc(r.question)}</h3>
-    <span class="badge ${cls}">${label}</span>
+    <span class="badge">${r.official ? 'OFFICIAL RULE' : 'NOT AN OFFICIAL RULE'}</span>
     <span class="prev">${PREVALENCE[r.prevalence] || r.prevalence}</span>
     <p>${esc(r.verdict)}</p>
     ${r.house_rule ? `<div class="lbl">The house version</div><p>${esc(r.house_rule)}</p>` : ''}
@@ -211,15 +169,16 @@ function settle() {
       out.innerHTML = '';
       return;
     }
-    // Same matcher the CLI uses, run over every game's rulings at once.
-    const hits = search(ALL, q).slice(0, 6);
+    // The same matcher the CLI uses, run over every game's rulings at once —
+    // which is the one thing the terminal cannot do.
+    const hits = search(ALL, q).slice(0, 5);
     out.innerHTML = hits.length
       ? hits.map((x, i) => verdictCard(x.r, i)).join('')
       : `<div class="miss">
            <b>Nothing on file matches that.</b>
-           <p>If it is a real dispute, that is a gap worth filing —
+           If it's a real dispute, that's a gap worth filing —
            <a href="https://github.com/mohitagw15856/rulebook/issues/new" rel="noopener">open an issue</a>
-           and it becomes part of the registry.</p>
+           and it becomes part of the registry.
          </div>`;
   };
 
@@ -229,26 +188,78 @@ function settle() {
       input.value = b.dataset.q;
       render();
       input.focus();
+      out.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
     })
   );
+
+  // "/" focuses the search from anywhere, the way every good search does.
+  addEventListener('keydown', (e) => {
+    if (e.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+      e.preventDefault();
+      input.focus();
+      input.select();
+    }
+  });
 }
 
 // ---------------------------------------------------------------------------
-// The wall of rules that are not rules
-// ---------------------------------------------------------------------------
 function fakes() {
-  const universal = ALL.filter((r) => !r.official && r.prevalence === 'near-universal');
-  $('#fakes').innerHTML = universal
-    .map(
-      (r) => `
+  $('#ticker').innerHTML = [...UNIVERSAL, ...UNIVERSAL, ...UNIVERSAL]
+    .map((r) => `<span>${esc(r._game.name)} — ${esc(r.question)}</span>`)
+    .join('');
+
+  $('#fakes').innerHTML = UNIVERSAL.map(
+    (r) => `
     <article class="fake">
       <div class="stamp">NOT REAL</div>
       <div class="game">${esc(r._game.name)}</div>
       <h4>${esc(r.question)}</h4>
-      <p>${esc(r.verdict.slice(0, 210))}${r.verdict.length > 210 ? '…' : ''}</p>
+      <p>${esc(r.verdict.slice(0, 190))}${r.verdict.length > 190 ? '…' : ''}</p>
     </article>`
-    )
-    .join('');
+  ).join('');
+  $$('.fake').forEach((el) => interactive(el, false));
+}
+
+// ---------------------------------------------------------------------------
+// The box is lying
+// ---------------------------------------------------------------------------
+function lying() {
+  const rows = DATA.games
+    .map((g) => ({ g, box: mins(g.playtime_box), real: mins(g.playtime_actual) }))
+    .sort((a, b) => b.real - b.box - (a.real - a.box));
+  const max = Math.max(...rows.map((r) => r.real));
+
+  $('#bars').innerHTML =
+    rows
+      .map(({ g, box, real }) => {
+        const over = Math.round(real - box);
+        return `
+      <div class="bar">
+        <div class="n">${esc(g.name)}</div>
+        <div class="track2">
+          <div class="real" data-w="${(real / max) * 100}"></div>
+          <div class="box"  data-w="${(box / max) * 100}"></div>
+        </div>
+        <div class="over ${over > 0 ? '' : 'none'}">${over > 0 ? `+${over} min` : 'honest'}</div>
+      </div>`;
+      })
+      .join('') +
+    `<div class="barkey">
+       <span><i style="background:rgba(255,255,255,.13)"></i>what the box claims</span>
+       <span><i style="background:var(--gold)"></i>what it actually takes</span>
+     </div>`;
+
+  // Grow the bars once the section is on screen.
+  const io = new IntersectionObserver((es) => {
+    es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      io.disconnect();
+      $$('#bars .real, #bars .box').forEach((el, i) => {
+        setTimeout(() => (el.style.width = `${el.dataset.w}%`), REDUCED ? 0 : i * 22);
+      });
+    });
+  }, { threshold: 0.15 });
+  io.observe($('#bars'));
 }
 
 // ---------------------------------------------------------------------------
@@ -257,52 +268,44 @@ function fakes() {
 function games() {
   const grid = $('#grid-games');
   const none = $('#nogames');
+  const state = { players: '', minutes: '', weight: '', type: '' };
 
   const draw = () => {
-    const p = +$('#f-players').value || null;
-    const m = +$('#f-minutes').value || null;
-    const w = +$('#f-weight').value || null;
-    const ty = $('#f-type').value;
-
-    let list = DATA.games.filter(
-      (g) =>
-        (!p || (p >= g.players.min && p <= g.players.max)) &&
-        (!m || mins(g.playtime_actual) <= m) &&
-        (!w || g.weight <= w) &&
-        (!ty || g.type === ty)
-    );
-    list.sort((a, b) => mins(a.playtime_actual) - mins(b.playtime_actual));
+    const list = DATA.games
+      .filter(
+        (g) =>
+          (!state.players || (+state.players >= g.players.min && +state.players <= g.players.max)) &&
+          (!state.minutes || mins(g.playtime_actual) <= +state.minutes) &&
+          (!state.weight || g.weight <= +state.weight) &&
+          (!state.type || g.type === state.type)
+      )
+      .sort((a, b) => mins(a.playtime_actual) - mins(b.playtime_actual));
 
     none.hidden = list.length > 0;
     grid.innerHTML = list
       .map((g, i) => {
         const over = Math.round(mins(g.playtime_actual) - mins(g.playtime_box));
         return `
-      <article class="gcard" data-slug="${g.slug}" style="animation-delay:${i * 45}ms" tabindex="0">
-        <div class="cnt">${g.rulings.length} rulings</div>
-        <div class="fam">${esc(g.type)} · ${esc(g.family)}</div>
+      <article class="gcard" data-slug="${g.slug}" style="animation-delay:${i * 40}ms" tabindex="0" role="button">
+        <div class="top">
+          <span class="fam">${esc(g.type)} · ${esc(g.family)}</span>
+          <span class="cnt">${g.rulings.length}</span>
+        </div>
         <h3>${esc(g.name)}</h3>
-        <dl>
-          <dt>players</dt><dd>${g.players.min}–${g.players.max}${g.players.best ? ` (best ${g.players.best})` : ''}</dd>
-          <dt>box says</dt><dd>${fmt(g.playtime_box)}</dd>
-          <dt>really</dt><dd class="${over > 0 ? 'over' : ''}">${fmt(g.playtime_actual)}${over > 0 ? ` — over by ${over}` : ''}</dd>
+        <dl class="meta">
+          <dt>players</dt><dd>${players(g.players)}</dd>
+          <dt>box</dt><dd>${fmt(g.playtime_box)}</dd>
+          <dt>really</dt><dd class="${over > 0 ? 'lie' : ''}">${fmt(g.playtime_actual)}${over > 0 ? ` (+${over})` : ''}</dd>
           <dt>teach</dt><dd>${fmt(g.teach_time)}</dd>
-          <dt>weight</dt><dd class="pips">${pips(g.weight)}</dd>
-          <dt>luck</dt><dd>${g.luck}%</dd>
+          <dt>brain</dt><dd>${dots(g.weight)}</dd>
         </dl>
+        ${g.hasScore ? '<div class="scorer">↓ has a scorer</div>' : ''}
       </article>`;
       })
       .join('');
 
-    // Pointer-tracked glow, so the cards feel lit rather than flat.
     $$('.gcard').forEach((c) => {
-      if (!REDUCED) {
-        c.addEventListener('pointermove', (e) => {
-          const r = c.getBoundingClientRect();
-          c.style.setProperty('--mx', `${e.clientX - r.left}px`);
-          c.style.setProperty('--my', `${e.clientY - r.top}px`);
-        });
-      }
+      interactive(c);
       c.addEventListener('click', () => openGame(c.dataset.slug));
       c.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -313,16 +316,20 @@ function games() {
     });
   };
 
-  $$('.filters select').forEach((s) => s.addEventListener('change', draw));
-  $('#f-reset').addEventListener('click', () => {
-    $$('.filters select').forEach((s) => (s.value = ''));
-    draw();
+  $$('.fgroup').forEach((group) => {
+    const key = group.dataset.filter;
+    $$('.pill', group).forEach((p) =>
+      p.addEventListener('click', () => {
+        $$('.pill', group).forEach((x) => x.classList.remove('on'));
+        p.classList.add('on');
+        state[key] = p.dataset.v;
+        draw();
+      })
+    );
   });
   draw();
 }
 
-// ---------------------------------------------------------------------------
-// Game detail
 // ---------------------------------------------------------------------------
 function openGame(slug) {
   const g = DATA.games.find((x) => x.slug === slug);
@@ -331,20 +338,23 @@ function openGame(slug) {
 
   $('#m-body').innerHTML = `
     <h2 id="m-title">${esc(g.name)}</h2>
-    <p style="color:var(--dim);margin-top:0">${esc(g.objective)}</p>
+    <p>${esc(g.objective)}</p>
 
     <table>
-      <tr><td>players</td><td>${g.players.min}–${g.players.max}${g.players.best ? `, best at ${g.players.best}` : ''}</td></tr>
+      <tr><td>players</td><td>${players(g.players)}</td></tr>
       <tr><td>box says</td><td>${fmt(g.playtime_box)}</td></tr>
-      <tr><td>actually takes</td><td>${fmt(g.playtime_actual)}${over > 0 ? ` <span style="color:var(--gold)">— over by ${over} min</span>` : ''}</td></tr>
+      <tr><td>really takes</td><td>${fmt(g.playtime_actual)}${over > 0 ? ` <b style="color:var(--gold)">— over by ${over} min</b>` : ''}</td></tr>
       <tr><td>teach time</td><td>${fmt(g.teach_time)}</td></tr>
-      <tr><td>weight</td><td><span class="pips">${pips(g.weight)}</span> ${g.weight} / 5</td></tr>
+      <tr><td>brain</td><td>${dots(g.weight)} ${g.weight} / 5</td></tr>
       <tr><td>luck</td><td>${g.luck}% chance, ${100 - g.luck}% skill</td></tr>
     </table>
 
     <h3>How many players changes what</h3>
     <table>${g.setup_by_players
-      .map((s) => `<tr><td>${esc(s.players)}</td><td>${esc(s.setup)}${s.note ? `<br><span style="color:var(--dim);font-size:.86em">${esc(s.note)}</span>` : ''}</td></tr>`)
+      .map(
+        (s) =>
+          `<tr><td>${esc(s.players)}</td><td>${esc(s.setup)}${s.note ? `<br><span style="color:var(--dimmer);font-size:.88em">${esc(s.note)}</span>` : ''}</td></tr>`
+      )
       .join('')}</table>
 
     <h3>A turn</h3>
@@ -358,9 +368,9 @@ function openGame(slug) {
           .map(
             (r) => `<div class="rul ${r.official ? 'off' : ''}">
               <b>${esc(r.question)}</b>
-              <span>${r.official ? 'official rule' : 'not an official rule'} · ${PREVALENCE[r.prevalence] || ''}</span>
+              <span class="k">${r.official ? 'official' : 'not official'} · ${PREVALENCE[r.prevalence] || ''}</span>
               <p>${esc(r.verdict)}</p>
-              ${r.house_rule ? `<p><em style="color:var(--magenta)">The house version:</em> ${esc(r.house_rule)}</p>` : ''}
+              ${r.house_rule ? `<p><b style="color:var(--pink);display:inline">The house version:</b> ${esc(r.house_rule)}</p>` : ''}
             </div>`
           )
           .join('')}`
@@ -377,7 +387,7 @@ function openGame(slug) {
       : ''}
 
     <h3>At the table</h3>
-    <p style="font-family:var(--mono);font-size:.88rem;color:var(--gold-l)">
+    <p style="font-family:var(--mono);font-size:.86rem;color:var(--mint)">
       $ rulebook ruling ${esc(g.slug)} "…"${g.hasScore ? `<br>$ rulebook score ${esc(g.slug)} "…"` : ''}
     </p>`;
 
@@ -403,7 +413,6 @@ function modal() {
 // ---------------------------------------------------------------------------
 async function scorers() {
   const withScore = DATA.games.filter((g) => g.hasScore);
-  let current = withScore[0];
   let mod = null;
 
   $('#score-tabs').innerHTML = withScore
@@ -411,10 +420,10 @@ async function scorers() {
     .join('');
 
   const load = async (g) => {
-    current = g;
     mod = await import(`./games/${g.slug}/score.mjs`);
     $('#score-label').textContent = mod.usage;
-    $('#score-in').placeholder = (mod.examples?.[0] || '').replace(/^rulebook score \S+ /, '').replace(/^"|"$/g, '');
+    const first = (mod.examples?.[0] || '').replace(/^rulebook score \S+ /, '');
+    $('#score-in').placeholder = first.replace(/^"|"$/g, '');
     $('#score-in').value = '';
     $('#score-out').textContent = '';
     $('#score-out').classList.remove('err');
@@ -432,8 +441,8 @@ async function scorers() {
     );
   };
 
-  // Split on spaces but keep quoted groups together, which is what a shell
-  // would hand the CLI — the modules expect argv, so we give them argv.
+  // Split on spaces but keep quoted groups together — the modules expect argv,
+  // so we hand them argv exactly as a shell would.
   const argv = (s) => (s.match(/"[^"]*"|\S+/g) || []).map((a) => a.replace(/^"|"$/g, ''));
 
   const run = () => {
@@ -458,19 +467,17 @@ async function scorers() {
   $('#score-go').addEventListener('click', run);
   $('#score-in').addEventListener('keydown', (e) => e.key === 'Enter' && run());
 
-  await load(current);
+  await load(withScore[0]);
 }
 
-// ---------------------------------------------------------------------------
-// The terminal, typing itself out
 // ---------------------------------------------------------------------------
 function terminal() {
   const el = $('#term');
   const script = [
-    ['p', '$ '], ['c', 'npx @mohitagw15856/rulebook ruling uno "can I stack a draw 2"\n'],
+    ['p', '$ '], ['c', 'npx @mohitagw15856/rulebook uno "can I stack a draw 2"\n'],
     ['o', '\nCan you stack a Draw Two on a Draw Two, or a Draw Four on a Draw Four?\n'],
     ['g', '● NOT AN OFFICIAL RULE   played by almost everyone, almost everywhere\n\n'],
-    ['o', '  No. Under the published rules there is no stacking. A player hit with\n  a Draw Two draws two cards and loses their turn.\n\n'],
+    ['o', '  No. Under the published rules there is no stacking. A player hit\n  with a Draw Two draws two cards and loses their turn.\n\n'],
     ['p', '$ '], ['c', 'rulebook score poker "Ah Ad Kc Kh 2s" vs "Qs Qh Qd 7c 3d"\n'],
     ['o', '\nHand 1: Two pair — aces and kings\nHand 2: Three of a kind — queens\n\n'],
     ['g', 'Hand 2 wins.\n\n'],
@@ -495,16 +502,15 @@ function terminal() {
         const [cls, text] = script[si];
         if (ci === 0) el.insertAdjacentHTML('beforeend', `<span class="${cls}"></span>`);
         const span = el.lastElementChild;
-        // Commands type character by character; output lands in one go, the
-        // way real output does.
+        // Commands type out; output lands in one go, the way real output does.
         if (cls === 'c') {
           span.textContent = text.slice(0, ++ci);
           if (ci >= text.length) { si++; ci = 0; }
-          setTimeout(tick, 26);
+          setTimeout(tick, 24);
         } else {
           span.textContent = text;
           si++; ci = 0;
-          setTimeout(tick, cls === 'p' ? 90 : 520);
+          setTimeout(tick, cls === 'p' ? 80 : 500);
         }
       };
       tick();
@@ -513,25 +519,25 @@ function terminal() {
   io.observe(el);
 }
 
-function copyBtn() {
-  $('#copy').addEventListener('click', async () => {
-    await navigator.clipboard.writeText($('#install-cmd').textContent);
-    const b = $('#copy');
-    b.textContent = 'copied';
-    setTimeout(() => (b.textContent = 'copy'), 1400);
-  });
+function copyBtns() {
+  $$('.copy').forEach((b) =>
+    b.addEventListener('click', async () => {
+      await navigator.clipboard.writeText($(`#${b.dataset.t}`).textContent);
+      b.textContent = 'copied';
+      setTimeout(() => (b.textContent = 'copy'), 1400);
+    })
+  );
 }
 
 // ---------------------------------------------------------------------------
-horizon();
-typeOut();
-cursorGlow();
-reveals();
+chrome();
+eyebrow();
 stats();
 settle();
 fakes();
+lying();
 games();
 modal();
 terminal();
-copyBtn();
+copyBtns();
 scorers();

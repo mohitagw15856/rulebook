@@ -13,148 +13,162 @@
 </head>
 <body>
 
-<!-- The synthwave horizon, drawn on canvas behind everything. -->
-<canvas id="grid" aria-hidden="true"></canvas>
-<div class="scanlines" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
-<div class="cursor-glow" id="glow" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="spot" id="spot" aria-hidden="true"></div>
 
-<header class="hero">
-  <div class="suits" aria-hidden="true">
-    <span style="--x:6%;--d:0s;--s:1.2">♠</span>
-    <span style="--x:22%;--d:3s;--s:.8">♥</span>
-    <span style="--x:41%;--d:6s;--s:1.4">♦</span>
-    <span style="--x:63%;--d:1.5s;--s:.9">♣</span>
-    <span style="--x:79%;--d:4.5s;--s:1.1">♠</span>
-    <span style="--x:92%;--d:7.5s;--s:.7">♥</span>
+<nav class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="2" width="14" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 7h6M7 11h6M7 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </span>
+    rulebook
+  </a>
+  <div class="navlinks">
+    <a href="#settle">Settle</a>
+    <a href="#fake">Fake rules</a>
+    <a href="#games">Games</a>
+    <a href="#score">Score</a>
+    <a href="#install">Install</a>
   </div>
+  <a class="btn sm" href="https://github.com/mohitagw15856/rulebook">GitHub ↗</a>
+</nav>
 
-  <div class="deal" aria-hidden="true">
-    <div class="pcard c1"><b>K</b><i>♠</i></div>
-    <div class="pcard c2 red"><b>A</b><i>♥</i></div>
-    <div class="pcard c3"><b>+2</b><i>?</i></div>
-  </div>
+<!-- ---------------------------------------------------------------- -->
+<header class="hero" id="top">
+  <div class="eyebrow" id="eyebrow"></div>
 
-  <h1 class="glitch" data-text="rulebook">rulebook</h1>
-  <p class="tagline"><span id="type-out"></span><span class="caret" aria-hidden="true"></span></p>
-  <p class="sub">
-    Somebody just played a Draw Four and the table has stopped.<br>
-    One of them is right, and <em>it is not who you think.</em>
+  <h1 class="kinetic">
+    <span class="w">Settle</span>
+    <span class="w">the</span>
+    <span class="w grad">argument.</span>
+  </h1>
+
+  <p class="hero-sub">
+    Somebody just played a Draw Four and the table has stopped. Someone says you
+    can't stack. Someone says you always could.
+    <b>One of them is right, and it isn't who you think.</b>
   </p>
 
-  <div class="hero-cta">
-    <a class="btn primary" href="#settle">Settle an argument</a>
-    <a class="btn" href="#games">Browse the games</a>
-    <a class="btn ghost" href="https://github.com/mohitagw15856/rulebook">Source</a>
+  <!-- The search is the product. It goes at the top, not three scrolls down. -->
+  <div class="ask" id="settle">
+    <div class="ask-field">
+      <svg class="ask-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="can I stack a draw 2…" aria-label="Ask a rules question">
+      <kbd class="hint">/</kbd>
+    </div>
+    <div class="chips" id="examples">
+      <button data-q="can I stack a draw 2">stacking a +2</button>
+      <button data-q="free parking money">free parking money</button>
+      <button data-q="trading on other players turns">trading off-turn</button>
+      <button data-q="forget to say uno">forgetting to say uno</button>
+      <button data-q="touch move">touch-move in chess</button>
+      <button data-q="one word clue">two-word clues</button>
+    </div>
   </div>
 
+  <div id="verdicts" class="verdicts" aria-live="polite"></div>
+
   <div class="stats" id="stats"></div>
-  <div class="scrollhint" aria-hidden="true"><span></span></div>
 </header>
 
 <main>
 
-<!-- ------------------------------------------------------------------ -->
-<section id="settle" class="reveal">
-  <h2 class="sec"><span class="num">01</span> Settle it</h2>
-  <p class="lede">
-    Type the argument the way it gets said at the table. This searches every
-    ruling in the registry, not just one game.
-  </p>
-
-  <div class="searchbox">
-    <input id="q" type="search" autocomplete="off" spellcheck="false"
-           placeholder="can I stack a draw 2" aria-label="Ask a rules question">
-    <div class="beam" aria-hidden="true"></div>
-  </div>
-
-  <div class="chips" id="examples">
-    <button data-q="can I stack a draw 2">can I stack a draw 2</button>
-    <button data-q="free parking money">free parking money</button>
-    <button data-q="trading on other players turns">trading on someone else's turn</button>
-    <button data-q="is it a word if it is not in the dictionary">is that even a word</button>
-    <button data-q="touch move">I touched it but I didn't move it</button>
-    <button data-q="one word clue">can a clue be two words</button>
-  </div>
-
-  <div id="verdicts" class="verdicts" aria-live="polite"></div>
-</section>
-
-<!-- ------------------------------------------------------------------ -->
+<!-- ---------------------------------------------------------------- -->
 <section id="fake" class="reveal">
-  <h2 class="sec"><span class="num">02</span> Rules that are not rules</h2>
-  <p class="lede">
-    Every one of these is a house rule. None of them is official. Most people
-    have played them their whole lives without knowing that.
-  </p>
+  <div class="head">
+    <span class="tag">01 — the good part</span>
+    <h2>Rules everyone plays<br><em>that were never rules</em></h2>
+    <p class="lede">
+      Not one of these appears in any published rulebook. All of them are played
+      constantly. That gap is the whole reason this exists.
+    </p>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
   <div id="fakes" class="fakes"></div>
 </section>
 
-<!-- ------------------------------------------------------------------ -->
+<!-- ---------------------------------------------------------------- -->
+<section id="lying" class="reveal">
+  <div class="head">
+    <span class="tag">02 — the honest clock</span>
+    <h2>The box is lying to you</h2>
+    <p class="lede">
+      Every playtime here is recorded twice: what the box claims, and what it
+      actually takes. <em>Filter on the second one.</em>
+    </p>
+  </div>
+  <div class="bars" id="bars"></div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
 <section id="games" class="reveal">
-  <h2 class="sec"><span class="num">03</span> What should we play?</h2>
-  <p class="lede">
-    Filtered on the time a game <em>actually</em> takes, not the number on
-    the box. The gap between those two is why game night overruns.
-  </p>
+  <div class="head">
+    <span class="tag">03 — tonight</span>
+    <h2>What should we play?</h2>
+  </div>
 
   <div class="filters">
-    <label>Players
-      <select id="f-players">
-        <option value="">any</option>
-        <option>2</option><option>3</option><option>4</option>
-        <option>5</option><option>6</option><option>7</option><option>8</option>
-      </select>
-    </label>
-    <label>Under
-      <select id="f-minutes">
-        <option value="">any length</option>
-        <option value="20">20 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">1 hour</option>
-        <option value="90">1.5 hours</option>
-      </select>
-    </label>
-    <label>Max weight
-      <select id="f-weight">
-        <option value="">any</option>
-        <option value="1.5">1.5 — trivial</option>
-        <option value="2">2 — light</option>
-        <option value="3">3 — medium</option>
-        <option value="5">5 — anything</option>
-      </select>
-    </label>
-    <label>Type
-      <select id="f-type">
-        <option value="">all</option>
-        <option value="card">card</option>
-        <option value="board">board</option>
-        <option value="word">word</option>
-        <option value="party">party</option>
-        <option value="abstract">abstract</option>
-      </select>
-    </label>
-    <button id="f-reset" class="btn tiny">reset</button>
+    <div class="fgroup" data-filter="players">
+      <span>Players</span>
+      <button class="pill on" data-v="">any</button>
+      <button class="pill" data-v="2">2</button>
+      <button class="pill" data-v="3">3</button>
+      <button class="pill" data-v="4">4</button>
+      <button class="pill" data-v="5">5</button>
+      <button class="pill" data-v="6">6</button>
+      <button class="pill" data-v="8">8</button>
+    </div>
+    <div class="fgroup" data-filter="minutes">
+      <span>Under</span>
+      <button class="pill on" data-v="">any</button>
+      <button class="pill" data-v="20">20m</button>
+      <button class="pill" data-v="30">30m</button>
+      <button class="pill" data-v="45">45m</button>
+      <button class="pill" data-v="60">1h</button>
+      <button class="pill" data-v="90">1.5h</button>
+    </div>
+    <div class="fgroup" data-filter="weight">
+      <span>Brain</span>
+      <button class="pill on" data-v="">any</button>
+      <button class="pill" data-v="1.5">easy</button>
+      <button class="pill" data-v="2">light</button>
+      <button class="pill" data-v="3">medium</button>
+    </div>
+    <div class="fgroup" data-filter="type">
+      <span>Type</span>
+      <button class="pill on" data-v="">all</button>
+      <button class="pill" data-v="card">card</button>
+      <button class="pill" data-v="board">board</button>
+      <button class="pill" data-v="word">word</button>
+      <button class="pill" data-v="party">party</button>
+      <button class="pill" data-v="abstract">abstract</button>
+    </div>
   </div>
 
   <div id="grid-games" class="game-grid"></div>
   <p id="nogames" class="empty" hidden>
-    Nothing fits. Loosen a filter — these are real playtimes, so they run
-    longer than you expect.
+    Nothing fits. Loosen a filter — these are real playtimes, so they run longer
+    than you'd like.
   </p>
 </section>
 
-<!-- ------------------------------------------------------------------ -->
+<!-- ---------------------------------------------------------------- -->
 <section id="score" class="reveal">
-  <h2 class="sec"><span class="num">04</span> Scoring, settled</h2>
-  <p class="lede">
-    The same scoring engines the CLI uses, running here in your browser.
-    Nothing is sent anywhere.
-  </p>
+  <div class="head">
+    <span class="tag">04 — no arithmetic arguments</span>
+    <h2>Scoring, settled</h2>
+    <p class="lede">
+      The <em>same</em> engines the command line uses, imported straight from the
+      repo and running on your device. Nothing is sent anywhere.
+    </p>
+  </div>
 
-  <div class="tabs" id="score-tabs"></div>
-  <div class="scorer">
+  <div class="panel">
+    <div class="seg" id="score-tabs"></div>
     <label id="score-label" for="score-in"></label>
     <div class="score-row">
       <input id="score-in" autocomplete="off" spellcheck="false">
@@ -165,26 +179,37 @@
   </div>
 </section>
 
-<!-- ------------------------------------------------------------------ -->
-<section id="cli" class="reveal">
-  <h2 class="sec"><span class="num">05</span> At the table, offline</h2>
-  <p class="lede">
-    The wifi at your friend's flat is not going to hold. The whole registry
-    ships inside the package — no network calls, ever.
-  </p>
-  <div class="terminal">
-    <div class="tbar"><i></i><i></i><i></i><span>zsh</span></div>
-    <pre id="term" class="tbody"></pre>
+<!-- ---------------------------------------------------------------- -->
+<section id="install" class="reveal">
+  <div class="head">
+    <span class="tag">05 — at the table</span>
+    <h2>The wifi will not hold</h2>
+    <p class="lede">
+      The whole registry ships inside the package. No network calls, ever —
+      because the moment you need a ruling is the moment everyone is waiting.
+    </p>
   </div>
-  <div class="install">
-    <code id="install-cmd">npm install -g @mohitagw15856/rulebook</code>
-    <button class="btn tiny" id="copy">copy</button>
+
+  <div class="split">
+    <div class="terminal">
+      <div class="tbar"><i></i><i></i><i></i><span>zsh</span></div>
+      <pre id="term" class="tbody"></pre>
+    </div>
+    <div class="installs">
+      <div class="cmd"><code id="c1">npx @mohitagw15856/rulebook uno "stacking"</code><button class="copy" data-t="c1">copy</button></div>
+      <div class="cmd"><code id="c2">npm i -g @mohitagw15856/rulebook</code><button class="copy" data-t="c2">copy</button></div>
+      <ul class="feats">
+        <li><b>0</b> dependencies</li>
+        <li><b>0</b> network calls</li>
+        <li><b>68</b> rulings offline</li>
+        <li><b>5</b> scoring engines</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 </main>
 
-<!-- Game detail, opened from the grid -->
 <div class="modal" id="modal" hidden>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <button class="close" id="m-close" aria-label="Close">×</button>
@@ -193,13 +218,12 @@
 </div>
 
 <footer>
-  <p>
-    <strong>rulebook</strong> — <span id="foot-stats"></span>
-  </p>
+  <div class="fbrand">rulebook</div>
+  <p id="foot-stats"></p>
   <p class="fine">
-    How a game is played is not copyrightable; a publisher's wording is. Every
-    word of rules here was written from scratch, and CI enforces it. Game names
-    and trademarks belong to their owners. Not affiliated with any publisher.
+    How a game is played isn't copyrightable; a publisher's wording is. Every word
+    of rules here was written from scratch, and CI enforces it. Game names and
+    trademarks belong to their owners. Not affiliated with any publisher.
   </p>
   <p class="fine">
     Code MIT · data CC BY 4.0 ·
