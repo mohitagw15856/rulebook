@@ -1,0 +1,79 @@
+rulings:
+  - id: the-mind-no-communication
+    question: What exactly counts as communicating?
+    asked_as:
+      - can I gesture the mind
+      - what am I allowed to say
+      - is tapping allowed
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Anything intended to convey information about your cards is forbidden —
+      speech, numbers, counting, tapping, deliberate gestures, mouthing, and
+      agreed signals of any kind. The only permitted signal is how long you choose
+      to wait before playing, which is deliberately ambiguous.
+    effect: >
+      Groups that permit small signals find the game becomes trivially easy and
+      loses the tension that is its only mechanism.
+  - id: the-mind-discard-lower-cards
+    question: What happens to lower cards when someone plays out of order?
+    asked_as:
+      - mistake the mind
+      - do I discard lower cards
+      - lost a life what now
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Every player discards all cards lower than the one just played, face up so
+      the whole group can see them. The group loses one life and play continues
+      from the card that was played, rather than restarting the level.
+    effect: >
+      Because the discards are revealed, a mistake gives the group real
+      information, which sometimes makes a level easier to finish afterwards.
+  - id: the-mind-throwing-star-agreement
+    question: Can one player use a throwing star alone?
+    asked_as:
+      - throwing star rules
+      - who decides on a star
+      - unanimous star
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. Any player may propose one by raising a hand, but every player must
+      agree before it is used. Since agreeing is done by raising a hand rather
+      than speaking, the proposal itself carries no forbidden information.
+  - id: the-mind-simultaneous-play
+    question: What if two players play at exactly the same moment?
+    asked_as:
+      - two cards at once
+      - simultaneous play the mind
+      - both played together
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Resolve them in ascending order as though they had been played correctly. If
+      the higher was placed first, that is a mistake and costs a life; if the group
+      genuinely cannot tell which landed first, the friendly convention is to
+      accept it and continue.
+  - id: the-mind-looking-at-cards
+    question: Can you rearrange or hold your cards where others might see?
+    asked_as:
+      - can others see my cards
+      - holding cards the mind
+      - fanning my hand
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Your cards are yours alone and must be kept hidden. Deliberately exposing
+      one is communication and is forbidden, though nobody is expected to police
+      an accidental flash — return it to your hand and carry on.

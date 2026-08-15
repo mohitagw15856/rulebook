@@ -1,0 +1,79 @@
+rulings:
+  - id: skull-own-stack-first
+    question: Which discs do you flip first when you win the bid?
+    asked_as:
+      - do I flip my own first
+      - order of flipping skull
+      - can I start with someone else
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Your entire own stack, from the top down, before touching anybody else's.
+      Only when your own discs are all revealed may you choose from other players,
+      and then always from the top of a stack.
+    effect: >
+      This single rule is what stops the game being trivial. Without it, hiding
+      your skull and bidding aggressively would win every round.
+  - id: skull-losing-a-disc
+    question: Who chooses which disc you lose?
+    asked_as:
+      - which disc do I lose
+      - losing discs skull
+      - do I pick what I lose
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      If you flipped your own skull, you choose which of your discs to remove. If
+      you flipped somebody else's, they take one of yours at random without
+      looking at it. Either way the removed disc is not revealed, so the table
+      never learns whether you still hold your skull.
+    effect: >
+      The uncertainty about whether an opponent still has a skull is the main
+      source of late-game bluffing.
+  - id: skull-bid-more-than-discs
+    question: Can you bid more discs than are on the table?
+    asked_as:
+      - maximum bid skull
+      - bid higher than total
+      - how high can I bid
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The maximum possible bid is the total number of discs currently placed
+      by all players combined. Bidding the full total is legal and is a common way
+      to end a round decisively.
+  - id: skull-pass-then-rejoin
+    question: Can you rejoin the bidding after passing?
+    asked_as:
+      - can I bid again after passing
+      - passing skull bidding
+      - re-enter auction
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. A pass removes you from the bidding permanently for that round. This is
+      why the decision to pass early carries real weight rather than being a
+      delaying tactic.
+  - id: skull-last-disc-player
+    question: Can a player with one disc still win?
+    asked_as:
+      - one disc left
+      - can I win with a single disc
+      - down to last disc
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, and they are frequently the most dangerous player at the table. A
+      single disc is either a flower they can safely bid one on, or a skull that
+      nobody can be certain about. Elimination only comes when the last disc is
+      lost.

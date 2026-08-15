@@ -1,0 +1,86 @@
+rulings:
+  - id: spades-bags-penalty
+    question: What happens to tricks you win beyond your bid?
+    asked_as:
+      - what are bags
+      - overtricks spades
+      - sandbagging rule
+      - why did I lose 100 points
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Each one scores a single point immediately and adds a bag to your running
+      count. When that count reaches ten, the partnership loses a hundred points
+      and the counter drops back by ten. The small reward is a trap.
+    effect: >
+      It is the rule that turns Spades from a race into a game of control, since
+      deliberately dumping a trick is often correct.
+  - id: spades-table-talk
+    question: Can you signal to your partner?
+    asked_as:
+      - table talk spades
+      - can I tell my partner what I have
+      - partner signals
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Communicating your hand outside of the bid and the cards you play is
+      cheating, not strategy. Everything your partner learns must come from what
+      they can see on the table.
+    house_rule: >
+      Some social games permit a single agreed remark after bidding, such as
+      declaring a void suit. It is not part of the game and should be agreed
+      before dealing rather than mid-hand.
+  - id: spades-blind-nil
+    question: Is blind nil a real bid?
+    asked_as:
+      - blind nil
+      - bidding nil without looking
+      - double nil
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [North America]
+    verdict: >
+      Not part of the base game, though it is so widespread in North American
+      play that many players have never met a game without it.
+    house_rule: >
+      A partnership at least a hundred behind may bid nil before looking at their
+      cards, for double the usual reward and double the penalty. Partners are
+      typically allowed to exchange two cards afterwards.
+    effect: >
+      It gives a losing side a genuine comeback path, at the cost of some very
+      short, very swingy hands.
+  - id: spades-leading-spades
+    question: When can spades be led?
+    asked_as:
+      - can I lead spades
+      - spades broken
+      - leading trump
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Once a spade has been played by somebody unable to follow the suit led,
+      spades are broken and may be led freely. Before that they may only be
+      played when you cannot follow, or when your hand holds nothing else.
+  - id: spades-nil-partner-tricks
+    question: If your partner bids nil, do their tricks count against you?
+    asked_as:
+      - partner bid nil
+      - nil partner scoring
+      - who takes tricks when partner is nil
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The nil bidder must take none. Their partner plays their own bid entirely
+      separately and is expected to cover the nil by winning tricks the nil
+      bidder would otherwise be forced to take. The two contracts are scored on
+      their own terms.

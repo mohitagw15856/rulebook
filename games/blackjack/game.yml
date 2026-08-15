@@ -13,6 +13,10 @@ luck: 70
 components:
   - One to eight standard 52-card decks
   - Chips or counters for betting
+downtime: 45s
+min_age: 8
+concession: >
+  Anyone may leave between hands. That is the whole appeal — the game has no arc to interrupt, so walking away after a round costs nobody anything.
 objective: >
   Beat the dealer's hand without going over 21.
 setup_by_players:

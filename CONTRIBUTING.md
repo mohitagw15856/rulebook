@@ -51,6 +51,16 @@ version. `"free parking money"` beats `"Free Parking payout clarification"`.
 from whether it is official. `near-universal` means almost everyone, almost
 everywhere. Be honest; `rare` is a fine and useful answer.
 
+**`regions`** — where it is played, if it is not everywhere. Use place names:
+`[India]`, `[North America]`, `[United Kingdom]`. `global` means no regional
+pattern. These build the "played differently around the world" section, and
+they are how two people who have both always been right discover why.
+
+There is no field for how much an argument a ruling causes — that is derived.
+A house rule almost everybody plays is automatically the hottest thing in the
+registry, because both sides are certain and the person who sounds wrong is
+right. See `rulebook hottest`.
+
 **`official`** — true or false, no hedging. If you cannot establish it, say so
 in the verdict rather than guessing.
 
@@ -84,6 +94,15 @@ A few fields people skip, and shouldn't:
   both. `rulebook find` filters on the real one.
 - **`teach_time`** — how long to explain it before anyone plays a turn.
 - **`weight`** 1–5 and **`luck`** 0–100 — your honest judgement.
+- **`downtime`** — how long between *your* turns. This is the honest measure of
+  whether a game is tolerable to sit through, and nobody publishes it. It is
+  why Monopoly is hated and Codenames is not.
+- **`min_age`** — the age it genuinely works at, which is usually not the age
+  printed on the box. `rulebook find --kids 7` depends on you being honest here.
+- **`concession`** — when it is fair to stop. Every game has an answer and none
+  of them print it.
+- **`variants`** — official variants and well-known regional versions, each with
+  a `name` and what it `changed`.
 - **`substitutions`** — what to do when a piece is lost, which is the most
   common reason a game does not get played.
 - **`accessibility`** — colour pairs, print size, dexterity. Say which colours
@@ -99,8 +118,18 @@ question every new player asks. Lines to say out loud are welcome.
 
 Optional. Export `usage`, `examples`, and `run(args)` returning an array of
 lines. Look at `games/scrabble/score.mjs` for the shape. Anything you add here
-needs a test in `scripts/test.mjs` — scoring is the one part of this repo that
-can be objectively wrong.
+needs a test in `scripts/test.mjs` — scoring is one of the two parts of this
+repo that can be objectively wrong.
+
+These modules are loaded unchanged by the website as plain ESM, so they must
+have no Node imports. If you need to parse cards, import `lib/cards.mjs`.
+
+### odds.mjs
+
+Also optional. Export `title`, `rows()` returning `{label, pct, note}`, and a
+`notes` array. Compute the numbers where you reasonably can — `games/catan/odds.mjs`
+derives the dice table rather than hard-coding it, which means it cannot drift.
+Where you cite published figures instead, say so in the note.
 
 ---
 

@@ -1,0 +1,93 @@
+rulings:
+  - id: duet-fifteen-not-eighteen
+    question: How many agents are there in total?
+    asked_as:
+      - how many agents duet
+      - fifteen agents
+      - do we find eighteen
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Fifteen. Each key shows nine agents, but three of them overlap between the
+      two sides, so the combined total is fifteen rather than eighteen. Finding an
+      overlapping word from the second side returns a turn token rather than
+      counting again.
+  - id: duet-assassin-asymmetry
+    question: Can a word be an assassin for one player and an agent for the other?
+    asked_as:
+      - assassin on one side
+      - different keys duet
+      - can my agent be their assassin
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes, and this is the central design of the game. A word can be a perfectly
+      safe agent on your key and an instant loss on your partner's. You are never
+      permitted to warn them, and being unable to is the point.
+  - id: duet-clue-word-on-table
+    question: Can your clue be a word visible on the table?
+    asked_as:
+      - clue word on board
+      - can I use a visible word
+      - illegal clues codenames
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. No clue may be any word currently visible in the grid, including as part
+      of a compound. Once a word has been covered by an agent or bystander card it
+      becomes legal to use.
+  - id: duet-compound-words
+    question: Are compound words and proper nouns allowed as clues?
+    asked_as:
+      - two word clues
+      - compound clue codenames
+      - can I say a name
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The published rules require a single word, with proper nouns permitted at
+      the group's discretion. Hyphenated and compound words sit in a genuine grey
+      area that the rulebook acknowledges rather than settles.
+    house_rule: >
+      Most pairs allow established compounds such as seatbelt, and allow well-known
+      proper nouns. Stricter play allows neither.
+    effect: >
+      Agreeing before the first clue matters far more than which way you decide,
+      because a mid-mission dispute costs a turn and the mood.
+  - id: duet-extra-guess
+    question: How many guesses does your partner get?
+    asked_as:
+      - number of guesses duet
+      - bonus guess
+      - can they guess one more
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The number you said, plus one. They may also stop at any point before
+      that. The extra guess is intended for picking up an agent from a previous
+      clue that was left behind.
+  - id: duet-zero-clue
+    question: Can you give a clue for zero?
+    asked_as:
+      - zero clue duet
+      - clue for none
+      - can I say 0
+    kind: clarification
+    official: true
+    prevalence: rare
+    regions: [global]
+    verdict: >
+      Yes. A clue of zero tells your partner that none of the words relating to it
+      are yours, which is a way of steering them away from danger without naming
+      it. They may then guess as many times as they like, which makes it a genuine
+      gamble rather than a free warning.

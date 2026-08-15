@@ -1,0 +1,79 @@
+rulings:
+  - id: cribbage-muggins
+    question: Can you claim points your opponent missed?
+    asked_as:
+      - muggins rule
+      - can I steal missed points
+      - what if they miscount
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Not in the ordinary friendly game, where a player who undercounts simply
+      loses those points and nobody profits.
+    house_rule: >
+      Under muggins, an opponent who spots the omission may call it and peg the
+      missed points themselves. It must be agreed before the game starts, and
+      tournament play generally uses it.
+    effect: >
+      It sharpens the game enormously and makes it considerably less friendly.
+      Teaching a beginner with muggins switched on is close to cruelty.
+  - id: cribbage-run-order
+    question: Does a run have to be played in order during the pegging?
+    asked_as:
+      - runs in order cribbage
+      - does a run need to be sequential
+      - 5 7 6 run
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The cards must form a run when taken together, but the order they were
+      laid in is irrelevant. Five, seven, six scores a run of three. A card that
+      breaks the sequence ends the opportunity.
+  - id: cribbage-crib-flush
+    question: Does a four-card flush score in the crib?
+    asked_as:
+      - crib flush rules
+      - flush in the box
+      - four card flush crib
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. A hand scores four for a four-card flush, but the crib requires all
+      five cards including the starter to share a suit before it scores anything.
+    effect: >
+      It is the single most commonly misplayed scoring rule in the game, and it
+      quietly changes what you should throw away.
+  - id: cribbage-his-heels
+    question: What happens when the starter card is a jack?
+    asked_as:
+      - jack turned up cribbage
+      - his heels
+      - two for his heels
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The dealer immediately pegs two, before any cards are played. This is
+      separate from the point scored for holding the jack matching the starter's
+      suit, which is counted later and belongs to whoever holds that jack.
+  - id: cribbage-count-before-win
+    question: If your opponent reaches 121 first, do you still count your hand?
+    asked_as:
+      - game ends mid count
+      - do we finish counting
+      - who counts first
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The game ends the instant a player pegs the final hole, even in the
+      middle of a count. This is exactly why the non-dealer counts first, and it
+      is the reason a close endgame is decided before the cards are.

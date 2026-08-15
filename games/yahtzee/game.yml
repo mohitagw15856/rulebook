@@ -1,0 +1,55 @@
+name: Yahtzee
+type: dice
+family: dice-and-categories
+players:
+  min: 1
+  max: 10
+  best: 4
+playtime_box: 30m
+playtime_actual: 30m
+teach_time: 4m
+weight: 1.4
+luck: 75
+components:
+  - Five dice and a cup
+  - A pad of score sheets, one column per player
+downtime: 40s
+min_age: 6
+concession: >
+  There is nothing to concede. Every player fills the same thirteen boxes
+  regardless of what anyone else rolls, so a losing position costs nothing to
+  finish and the last few rounds are often the funniest part.
+objective: >
+  Fill thirteen scoring categories with dice combinations, choosing which
+  category to spend each roll on.
+setup_by_players:
+  - players: "1"
+    setup: Play the full thirteen rounds and chase a personal best. Around 250 is a strong solo score.
+    note: Genuinely fine alone, which almost nothing else here manages.
+  - players: "2-4"
+    setup: One score column each, taking turns in order.
+    note: The comfortable range. Turns are quick enough that nobody drifts off.
+  - players: "5-10"
+    setup: Extra score sheets. Consider two dice sets passed in opposite directions to halve the waiting.
+    note: Playable but the gap between your turns stretches badly past six players.
+turn_structure:
+  - Roll all five dice.
+  - Set aside any you want to keep and reroll the rest.
+  - Reroll once more if you wish — three rolls in total, and no more.
+  - Enter the result in exactly one unused category, even if it scores zero.
+win_condition: >
+  After thirteen rounds every category is full. Add the upper and lower
+  sections, including the thirty-five point bonus if the upper section reached
+  sixty-three. Highest total wins.
+substitutions: >
+  Any five dice work, and score sheets are trivially reproduced on plain paper —
+  the categories are the game, not the pad. A missing die genuinely stops play,
+  so a spare is worth keeping in the box.
+accessibility: >
+  Reading five scattered dice quickly is the main visual demand; larger dice and
+  a shallow tray help considerably. The score sheet involves repeated addition
+  across two sections, which is the part young children need help with rather
+  than the rolling.
+sources:
+  - https://www.hasbro.com/common/instruct/Yahtzee.pdf
+verified: null

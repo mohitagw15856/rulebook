@@ -1,0 +1,64 @@
+name: Charades
+type: party
+family: acting-and-guessing
+players:
+  min: 4
+  max: 20
+  best: 8
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 2m
+weight: 1
+luck: 35
+components:
+  - Slips of paper and something to write with
+  - A container to draw from
+  - A timer, which every phone already has
+downtime: 60s
+min_age: 6
+concession: >
+  It ends when the room's energy drops, not at a score. Somebody should say
+  "last round each" out loud rather than letting it fizzle, because charades
+  that stops cleanly is remembered far better than charades that trails off.
+objective: >
+  Act out a title or phrase without speaking, while your team tries to guess it
+  before time runs out.
+setup_by_players:
+  - players: "4-6"
+    setup: Two teams of two or three. Everybody writes two or three slips.
+    note: Works, but each person performs constantly, which is exhausting for the shy and wonderful for the rest.
+  - players: "7-12"
+    setup: Two teams. Aim for around three slips per person in the bowl.
+    note: The best range. Long enough between turns to recover, short enough that nobody is bored.
+  - players: "13-20"
+    setup: Three or four teams rotating, otherwise the wait becomes unbearable.
+    note: Above about fourteen, consider splitting into two entirely separate games in different rooms.
+turn_structure:
+  - Draw a slip and read it silently.
+  - Signal the category and the number of words before acting.
+  - Act without speaking, mouthing words, or pointing at objects in the room.
+  - Your team guesses aloud until they get it or the timer ends.
+win_condition: >
+  Highest number of correct guesses across an agreed number of rounds. Most
+  tables stop keeping score halfway through, which is not a failure of the game.
+substitutions: >
+  There is nothing to substitute. Paper, a bowl and a phone timer are the whole
+  requirement, and any of the three can be improvised.
+accessibility: >
+  It is a physical game and excludes anyone who cannot perform standing
+  movement, though seated charades works perfectly well if the group agrees to
+  it. It is also loud and fast, which can be genuinely difficult for players who
+  need time to process speech. Allowing a player to pass without penalty removes
+  most of the social pressure.
+variants:
+  - name: Whole-room guessing
+    changed: >
+      Drop the teams and let anyone guess. Chaotic, much faster, and better for
+      groups where people are still learning each other's names.
+  - name: Written by the other team
+    changed: >
+      Each team writes the slips their opponents will perform. Produces far more
+      obscure and far funnier clues, and requires trust.
+sources:
+  - https://en.wikipedia.org/wiki/Charades
+verified: null

@@ -6,6 +6,7 @@
 // that disagrees with the data is worse than no README.
 
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { load, validate, fmtDuration, minutes, TYPES, PREVALENCE } from '../lib/registry.mjs';
 
@@ -43,6 +44,8 @@ for (const g of games) {
   p.push(`| **Box says** | ${fmtDuration(g.playtime_box)} |`);
   p.push(`| **Actually takes** | ${fmtDuration(g.playtime_actual)} |`);
   p.push(`| **Teach time** | ${fmtDuration(g.teach_time)} |`);
+  p.push(`| **Between your turns** | ${fmtDuration(g.downtime)} |`);
+  p.push(`| **Works at age** | ${g.min_age}+ |`);
   p.push(`| **Weight** | ${stars(g.weight)} ${g.weight} / 5 |`);
   p.push(`| **Luck** | ${g.luck}% chance, ${100 - g.luck}% skill |`);
   p.push(`| **Family** | ${g.family} |`);
@@ -117,6 +120,17 @@ for (const g of games) {
     for (const e of g.editions) p.push(`| ${e.name} | ${e.year || '—'} | ${oneLine(e.changed)} |`);
     p.push('');
   }
+
+  if (g.variants?.length) {
+    p.push('## Variants worth knowing');
+    p.push('');
+    for (const v of g.variants) p.push(`**${v.name}** — ${oneLine(v.changed)}`, '');
+  }
+
+  p.push('## When it is fair to stop');
+  p.push('');
+  p.push(oneLine(g.concession));
+  p.push('');
 
   p.push('## When a piece goes missing');
   p.push('');
@@ -197,6 +211,41 @@ for (const r of allRulings) {
 }
 out.push('');
 
+// Everyone who has ever landed a change, straight from git rather than a list
+// somebody has to remember to update.
+function contributors() {
+  try {
+    const raw = execFileSync('git', ['log', '--format=%aN|%aE'], { cwd: ROOT, encoding: 'utf8' });
+    const seen = new Map();
+    for (const line of raw.split('\n')) {
+      const [name, email] = line.split('|');
+      if (!name || /\[bot\]|noreply@/.test(email || '')) continue;
+      seen.set(name, (seen.get(name) || 0) + 1);
+    }
+    return [...seen.entries()].sort((a, b) => b[1] - a[1]);
+  } catch {
+    return []; // a tarball with no git history is a perfectly valid checkout
+  }
+}
+
+const people = contributors();
+if (people.length) {
+  out.push('## Who has settled an argument here');
+  out.push('');
+  out.push(
+    people
+      .map(([name, n]) => `**${name}** ${n > 1 ? `<sub>${n}</sub>` : ''}`)
+      .join(' · ')
+  );
+  out.push('');
+  out.push(
+    `${allRulings.length} rulings on file. ` +
+      '[Add the one your table argues about](https://github.com/mohitagw15856/rulebook/issues/new?template=good-first-ruling.yml) — ' +
+      'it is one entry, no code, and no build step.'
+  );
+  out.push('');
+}
+
 out.push('## By the numbers');
 out.push('');
 out.push('| | |');
@@ -206,6 +255,11 @@ out.push(`| Rulings | ${allRulings.length} |`);
 out.push(`| Of those, not official rules | ${houseRules.length} |`);
 out.push(`| Not official, yet played nearly everywhere | ${universal.length} |`);
 out.push(`| Games with a runnable scorer | ${games.filter((g) => g.hasScore).length} |`);
+out.push(`| Games with an odds table | ${games.filter((g) => g.hasOdds).length} |`);
+out.push(`| Documented variants | ${games.reduce((a, g) => a + (g.variants?.length || 0), 0)} |`);
+out.push(`| Rulings that are region-specific | ${allRulings.filter((r) => (r.regions || []).some((x) => x !== 'global')).length} |`);
+out.push(`| Games playable with a six-year-old | ${games.filter((g) => g.min_age <= 6).length} |`);
+out.push(`| Games needing nothing but people | ${games.filter((g) => /nothing at all|Slips of paper/i.test((g.components || []).join(' '))).length} |`);
 // Compare in minutes, not in whatever unit each game happens to be written in.
 const overrun = games.reduce((a, g) => a + (minutes(g.playtime_actual) - minutes(g.playtime_box)), 0);
 const worst = games

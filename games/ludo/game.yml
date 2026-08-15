@@ -1,0 +1,77 @@
+name: Ludo
+type: board
+family: roll-and-move
+players:
+  min: 2
+  max: 4
+  best: 4
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 3m
+weight: 1
+luck: 92
+components:
+  - A cross-shaped board with four coloured bases and a central home
+  - Four tokens in each of four colours
+  - One die
+downtime: 30s
+min_age: 4
+concession: >
+  A player with every token still in base after twenty minutes is entitled to
+  stop, and it is kinder to let them. Nothing in the game rewards persistence,
+  so nobody is giving up an advantage by leaving.
+objective: >
+  Get all four of your tokens around the board and into the home column before
+  the other players manage it.
+setup_by_players:
+  - players: "2"
+    setup: Play opposite colours rather than adjacent ones, so both players travel the same distance before meeting.
+    note: Two-player Ludo is far less chaotic and correspondingly less fun; consider giving each player two colours instead.
+  - players: "3"
+    setup: One colour sits out. The unused base is simply ignored.
+    note: The player between the two others gets captured noticeably more often, which is worth rotating seats over.
+  - players: "4"
+    setup: One colour each, four tokens each, all starting in base.
+    note: The count the board was drawn for.
+turn_structure:
+  - Roll the die.
+  - A six lets you bring a token out of base onto your starting square, and earns another roll.
+  - Otherwise move any one token that many squares along the track.
+  - Landing exactly on an opponent's token sends it back to their base.
+win_condition: >
+  Move all four of your tokens the whole way round and up your home column. The
+  final approach requires an exact roll, which is where most games are actually
+  decided.
+substitutions: >
+  Everything here is replaceable. Tokens can be coins, buttons or torn paper,
+  and the board can be drawn. A missing die is the only genuine stopper, and a
+  phone will do.
+accessibility: >
+  The four colours are traditionally red, green, yellow and blue, and the red
+  and green pairing is the worst possible choice for the most common form of
+  colour blindness. Marking tokens with shapes or letters solves it entirely.
+  The tokens themselves are small and fiddly to lift from a crowded square.
+editions:
+  - name: Pachisi
+    year: 1896
+    changed: >
+      Ludo is the simplified commercial descendant of the much older Indian game
+      Pachisi, which uses cowrie shells rather than a die and has a longer,
+      more tactical track.
+  - name: Parcheesi and Sorry
+    year: 1934
+    changed: >
+      Regional descendants with meaningfully different rules — Parcheesi uses two
+      dice and blockades, Sorry replaces the die with cards. Do not mix rule sets.
+variants:
+  - name: Doubling up
+    changed: >
+      Two of your tokens on one square form a block that opponents cannot pass.
+      Standard in Indian and Parcheesi play, absent from most British sets.
+  - name: Capture to enter home
+    changed: >
+      A player must capture at least one opposing token before any of their own
+      may enter the home column. Lengthens the game considerably.
+sources:
+  - https://www.mastersofgames.com/rules/ludo-rules.htm
+verified: null

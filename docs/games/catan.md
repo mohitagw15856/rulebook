@@ -8,6 +8,8 @@
 | **Box says** | 60 min |
 | **Actually takes** | 90 min |
 | **Teach time** | 15 min |
+| **Between your turns** | 3 min |
+| **Works at age** | 10+ |
 | **Weight** | ●●○○○ 2.3 / 5 |
 | **Luck** | 50% chance, 50% skill |
 | **Family** | trading-and-building |
@@ -206,6 +208,10 @@ the box was balanced for.
 | Edition | Year | What changed |
 |---|---|---|
 | 4th and 5th edition | 2015 | The 5th edition changed the art and box, made the sea frame standard, and adjusted some component counts. The rules of play are essentially the same, so mixed-edition games work fine. |
+
+## When it is fair to stop
+
+Do not concede Catan. A trailing player still controls who gets the wheat, and quitting hands the game to whoever they were blocking. If you must stop, agree to end at a lower points target instead.
 
 ## When a piece goes missing
 

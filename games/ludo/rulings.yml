@@ -1,0 +1,81 @@
+rulings:
+  - id: ludo-three-sixes
+    question: What happens if you roll three sixes in a row?
+    asked_as:
+      - three sixes ludo
+      - do I lose my turn on three sixes
+      - rolling sixes repeatedly
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Your turn ends at once and the third six is forfeited entirely — you do not
+      move for it. The first two sixes and their moves stand.
+    house_rule: >
+      A harsh and fairly common version sends the token you last moved back to
+      base as well.
+    effect: >
+      Without any limit, a hot streak could theoretically last forever, which is
+      why some cap exists in nearly every rule set.
+  - id: ludo-exact-roll-home
+    question: Do you need an exact roll to get home?
+    asked_as:
+      - exact number to finish
+      - overshoot home ludo
+      - can I go past home
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. A token must land precisely on the home square. If your roll would
+      take it past, that token cannot move and you must move a different one, or
+      forfeit the move if nothing else is legal.
+  - id: ludo-blocking-two-tokens
+    question: Can two of your tokens block opponents from passing?
+    asked_as:
+      - blocking ludo
+      - two pieces on one square
+      - can I make a wall
+    kind: house-rule
+    official: false
+    prevalence: regional
+    regions: [India, South Asia]
+    verdict: >
+      Not in the standard British commercial rules, where tokens simply stack and
+      opponents pass freely.
+    house_rule: >
+      Two of your own tokens on a single square form a blockade that no opponent
+      may pass or land on. This is standard in Indian play and in Parcheesi.
+    effect: >
+      It introduces the only genuine strategy the game has, and lengthens it
+      substantially. Tables that grew up with it find blockade-free Ludo shapeless.
+  - id: ludo-capture-safe-squares
+    question: Are the starting squares safe from capture?
+    asked_as:
+      - safe squares ludo
+      - star squares
+      - can I be taken on my start
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      In most sets yes — the marked squares, usually starred, protect any token
+      standing on them. Boards vary in how many safe squares they print, so agree
+      which markings count before the first capture rather than after it.
+  - id: ludo-must-move
+    question: Can you decline to move if every option is bad?
+    asked_as:
+      - do I have to move
+      - can I pass my turn
+      - forced move ludo
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      If a legal move exists you must make one, even when it walks a token onto a
+      square where it will obviously be captured. Only when no token can legally
+      move does the turn pass without action.

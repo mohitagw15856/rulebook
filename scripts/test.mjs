@@ -12,7 +12,11 @@ import { score as scrabble } from '../games/scrabble/score.mjs';
 import { score as uno } from '../games/uno/score.mjs';
 import { score as pablo } from '../games/pablo/score.mjs';
 import { search, scoreMatch } from '../lib/search.mjs';
-import { load } from '../lib/registry.mjs';
+import { load, heat } from '../lib/registry.mjs';
+import { encode, toSvg } from '../lib/qr.mjs';
+import { shuffled, quizQuestions, planNight, hottest, rank } from '../lib/party.mjs';
+import { tally } from '../lib/store.mjs';
+import { referenceCard } from '../lib/refcard.mjs';
 
 let pass = 0;
 const fails = [];
@@ -174,6 +178,128 @@ t('a single word buried in one verdict is not a match', () => {
   eq(scoreMatch(g('uno').find((r) => r.id === 'stacking-draw-cards'), 'internet'), 0);
 });
 t('an empty query matches nothing', () => eq(search(g('uno'), '').length, 0));
+
+
+// --- QR encoder ------------------------------------------------------------
+// Verified end to end against Chrome's BarcodeDetector when it was written;
+// these guard the structure so a refactor cannot silently stop it scanning.
+const qrAt = (m, r, c) => (r < 0 || c < 0 || r >= m.length || c >= m.length ? 0 : m[r][c]);
+const hasFinder = (m, r, c) =>
+  qrAt(m, r, c) === 1 && qrAt(m, r + 6, c) === 1 && qrAt(m, r, c + 6) === 1 &&
+  qrAt(m, r + 3, c + 3) === 1 && qrAt(m, r + 1, c + 1) === 0;
+
+t('QR picks the smallest version that fits', () => {
+  eq((encode('hi').length - 17) / 4, 1);
+  eq((encode('x'.repeat(40)).length - 17) / 4, 3);
+});
+t('QR emits only binary modules', () => {
+  eq(encode('https://example.com/a/b').flat().filter((v) => v !== 0 && v !== 1).length, 0);
+});
+t('QR places all three finder patterns', () => {
+  const m = encode('https://mohitagw15856.github.io/rulebook/#uno/stacking-draw-cards');
+  eq([hasFinder(m, 0, 0), hasFinder(m, 0, m.length - 7), hasFinder(m, m.length - 7, 0)], [true, true, true]);
+});
+t('QR sets the dark module, which is never optional', () => {
+  const m = encode('rulebook');
+  eq(m[m.length - 8][8], 1);
+});
+t('QR timing patterns alternate from the finder', () => {
+  const m = encode('rulebook');
+  eq([m[6][8], m[6][9], m[8][6], m[9][6]], [1, 0, 1, 0]);
+});
+t('QR refuses input it cannot encode rather than truncating', () =>
+  throws(() => encode('x'.repeat(400)), /too long/));
+t('QR svg is self-contained and sized', () => {
+  const svg = toSvg(encode('rulebook'));
+  eq(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), true);
+  eq(/<script|href=|url\(/.test(svg), false);
+});
+
+// --- derived heat ----------------------------------------------------------
+t('a universally played house rule is the hottest thing in the registry', () => {
+  const universal = { official: false, prevalence: 'near-universal' };
+  const officialRare = { official: true, prevalence: 'rare' };
+  eq(heat(universal) > heat(officialRare), true);
+});
+t('official rules rank below house rules at equal prevalence', () => {
+  eq(heat({ official: true, prevalence: 'common' }) < heat({ official: false, prevalence: 'common' }), true);
+});
+
+// --- party -----------------------------------------------------------------
+t('the shuffle is deterministic for a given seed', () => {
+  const a = shuffled([1, 2, 3, 4, 5, 6, 7, 8], 42);
+  const b = shuffled([1, 2, 3, 4, 5, 6, 7, 8], 42);
+  const c2 = shuffled([1, 2, 3, 4, 5, 6, 7, 8], 43);
+  eq(a, b);
+  eq(a.join() !== c2.join(), true);
+});
+t('the shuffle keeps every element', () => {
+  eq(shuffled([1, 2, 3, 4, 5], 9).sort((x, y) => x - y), [1, 2, 3, 4, 5]);
+});
+t('a quiz mixes official rules in rather than being all trick questions', () => {
+  const qs = quizQuestions(10, 5);
+  eq(qs.length, 10);
+  const official = qs.filter((q) => q.answer).length;
+  eq(official > 0 && official < 10, true);
+});
+t('the night planner never exceeds its own budget', () => {
+  for (const hours of [1, 2, 3, 4]) {
+    for (const people of [2, 4, 6, 8]) {
+      const p = planNight({ people, hours });
+      eq(p.total <= p.budget, true, `${people}p/${hours}h overran: ${p.total} > ${p.budget} — `);
+    }
+  }
+});
+t('the night planner respects a youngest player', () => {
+  const p = planNight({ people: 4, hours: 3, kids: 6 });
+  const games = load();
+  for (const s of p.slots) {
+    const g = games.find((x) => x.slug === s.game.slug);
+    eq(g.min_age <= 6, true, `${g.name} needs age ${g.min_age} — `);
+  }
+});
+t('the night planner never repeats a game', () => {
+  const p = planNight({ people: 4, hours: 4 });
+  eq(new Set(p.slots.map((s) => s.game.slug)).size, p.slots.length);
+});
+t('the night planner returns nothing rather than lying when nothing fits', () => {
+  eq(planNight({ people: 40, hours: 3 }).slots.length, 0);
+});
+t('hottest is sorted and non-empty', () => {
+  const h = hottest(10);
+  eq(h.length, 10);
+  eq(h.every((r, i) => i === 0 || h[i - 1].heat >= r.heat), true);
+});
+t('rank gives a title at every score', () => {
+  for (const p of [0, 25, 50, 70, 80, 100]) eq(typeof rank(p), 'string');
+});
+
+// --- scoreboard ------------------------------------------------------------
+t('tally counts right and wrong per person', () => {
+  const rows = [
+    { called: 'Dave', right: false }, { called: 'Dave', right: false },
+    { called: 'Priya', right: true }, { called: 'Dave', right: true },
+  ];
+  const table = tally(rows);
+  eq(table[0].name, 'Priya');
+  eq(table.find((p) => p.name === 'Dave'), { name: 'Dave', right: 1, wrong: 2, total: 3, pct: 33 });
+});
+t('tally ignores rows with no name', () => eq(tally([{ right: true }]).length, 0));
+
+// --- reference card --------------------------------------------------------
+t('every game produces a printable reference card', () => {
+  for (const g of load()) {
+    const svg = referenceCard(g);
+    eq(svg.startsWith('<svg'), true, `${g.name}: `);
+    eq(svg.endsWith('</svg>'), true, `${g.name}: `);
+    // No external anything — it has to print from a plain file.
+    eq(/<script|xlink:href|https?:\/\/[^"]*\.(png|jpg|svg)/.test(svg), false, `${g.name}: `);
+  }
+});
+t('the reference card escapes game text rather than injecting it', () => {
+  const g = { ...load()[0], name: 'Bad <script>alert(1)</script>' };
+  eq(referenceCard(g).includes('<script>'), false);
+});
 
 // ---------------------------------------------------------------------------
 if (fails.length) {

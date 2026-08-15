@@ -1,0 +1,70 @@
+name: Werewolf
+type: social
+family: social-deduction
+players:
+  min: 7
+  max: 20
+  best: 12
+playtime_box: 30m
+playtime_actual: 40m
+teach_time: 5m
+weight: 1.6
+luck: 30
+components:
+  - Nothing at all, though a deck of cards makes role dealing easier
+  - One person willing to moderate and not play
+downtime: 0s
+min_age: 10
+concession: >
+  Nobody may leave mid-game. A player who walks out takes hidden information
+  with them and breaks the deduction for everyone still playing. Eliminated
+  players may leave the circle but should stay silent rather than commentate.
+objective: >
+  The villagers must identify and eliminate every werewolf. The werewolves must
+  reduce the villagers to their own number without being caught.
+setup_by_players:
+  - players: "7-9"
+    setup: Two werewolves, one seer, one doctor, the rest villagers.
+    note: Below seven the werewolves win too easily, because a single wrong vote is a quarter of the village.
+  - players: "10-14"
+    setup: Three werewolves, plus seer, doctor and one more special role such as the hunter.
+    note: The sweet spot. Enough people for real argument, few enough that everyone gets to speak.
+  - players: "15-20"
+    setup: Four or five werewolves and several special roles. A second moderator helps.
+    note: Discussion becomes unmanageable above about sixteen unless somebody enforces speaking order.
+turn_structure:
+  - Night falls and everybody closes their eyes.
+  - The moderator wakes the werewolves, who silently agree on a victim.
+  - The moderator wakes any special roles in turn.
+  - Day breaks, the moderator announces who died, and the village debates and votes to eliminate one person.
+win_condition: >
+  Villagers win when the last werewolf is eliminated. Werewolves win when their
+  number equals the number of surviving villagers, at which point they can no
+  longer be outvoted.
+substitutions: >
+  There is nothing to lose. Roles can be dealt with playing cards, written on
+  torn paper, or assigned by the moderator tapping shoulders in the dark. The
+  game genuinely requires no equipment whatsoever.
+accessibility: >
+  The game depends on closing your eyes and on hearing quiet instructions, which
+  makes it difficult for players with hearing loss and unworkable for anyone who
+  cannot see the moderator's gestures. A written-card variant, where the
+  moderator passes notes rather than speaking, solves most of this. It is also
+  intensely verbal and fast, which some players find genuinely stressful rather
+  than fun.
+variants:
+  - name: Mafia
+    changed: >
+      The same game with a crime theme instead of a folklore one. Mafia rather
+      than werewolves, detective rather than seer. Mechanically identical.
+  - name: One Night
+    changed: >
+      A single night and day, with roles that swap during the night. No player
+      elimination, so nobody sits out. A different and much shorter game.
+  - name: No moderator
+    changed: >
+      App-driven versions narrate the night automatically so nobody has to sit
+      out. Widely used and generally an improvement for small groups.
+sources:
+  - https://en.wikipedia.org/wiki/Mafia_(party_game)
+verified: null

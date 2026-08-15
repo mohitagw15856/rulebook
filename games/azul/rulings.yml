@@ -1,0 +1,88 @@
+rulings:
+  - id: azul-must-take-all-of-colour
+    question: Can you take just some of the tiles of a colour?
+    asked_as:
+      - do I take all the tiles
+      - can I take two of three
+      - partial draft azul
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. You take every tile of the chosen colour from that display or from the
+      centre, however many there are. Being forced to take four when you can only
+      use two is the central tension of the game.
+  - id: azul-overflow-to-floor
+    question: What happens to tiles that do not fit in your pattern line?
+    asked_as:
+      - overflow tiles azul
+      - floor line rules
+      - too many tiles
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      They go straight to your floor line and subtract points at the end of the
+      round, on an increasing scale. You may also choose to send tiles to the
+      floor deliberately, which is occasionally the correct play.
+  - id: azul-colour-already-on-wall
+    question: Can you fill a pattern line with a colour already on your wall in that row?
+    asked_as:
+      - repeat colour azul
+      - colour already placed
+      - illegal pattern line
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. If that colour already sits in the corresponding row of your wall, that
+      pattern line is closed to it permanently. Any tiles of that colour you take
+      must go somewhere else or onto the floor.
+    effect: >
+      This restriction tightens dramatically in the last two rounds and is what
+      turns the endgame into a series of forced bad choices.
+  - id: azul-first-player-marker-penalty
+    question: Does taking from the centre first cost you?
+    asked_as:
+      - first player marker azul
+      - starting player penalty
+      - centre tile rules
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. The first player to draft from the centre each round takes the starting
+      player marker onto their floor line, costing one point, and leads the next
+      round. It is a small price and often worth paying deliberately.
+  - id: azul-incomplete-lines-carry-over
+    question: Do unfinished pattern lines stay for the next round?
+    asked_as:
+      - incomplete rows azul
+      - do partial lines clear
+      - carry over tiles
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. Pattern lines that are not full remain exactly as they are into the
+      next round, keeping their colour and their tiles. Only completed lines send
+      a tile to the wall and clear.
+  - id: azul-game-end-timing
+    question: Does the game stop the instant someone completes a row?
+    asked_as:
+      - when does azul end
+      - end of game trigger
+      - do we finish the round
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The current round is played to its end, including all wall placement and
+      scoring, and the game finishes after that. It does not stop mid-round, so a
+      player can still complete a row of their own in the same round.

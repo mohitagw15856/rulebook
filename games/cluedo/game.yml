@@ -1,0 +1,77 @@
+name: Cluedo
+type: board
+family: deduction
+players:
+  min: 3
+  max: 6
+  best: 4
+playtime_box: 45m
+playtime_actual: 50m
+teach_time: 7m
+weight: 1.9
+luck: 55
+components:
+  - A board of nine rooms joined by corridors
+  - Six character tokens and six miniature weapons
+  - Twenty-one cards split into suspects, weapons and rooms
+  - A confidential case envelope and a detective notepad per player
+downtime: 50s
+min_age: 8
+concession: >
+  Never concede Cluedo. A player who has been eliminated by a wrong accusation
+  still holds cards and must keep answering suggestions, so leaving the table
+  breaks the game for everyone else.
+objective: >
+  Work out which suspect, weapon and room are hidden in the case envelope, and
+  say so before anybody else does.
+setup_by_players:
+  - players: "3"
+    setup: Eighteen cards split six each after the envelope is filled.
+    note: Deduction is much slower with three, since each suggestion reveals less. Consider dealing four cards face up to speed it along.
+  - players: "4"
+    setup: Four or five cards each. The standard, comfortable game.
+    note: The count where the maths of elimination works best.
+  - players: "5-6"
+    setup: Three cards each. Information moves quickly and games are short.
+    note: With six, a careless suggestion can hand somebody the solution outright.
+turn_structure:
+  - Roll and move along corridors or through a secret passage into a room.
+  - On entering a room, suggest a suspect and weapon alongside that room.
+  - The named suspect and weapon are physically moved into the room with you.
+  - Each player in turn to your left privately shows you one card that disproves the suggestion, if they hold any.
+win_condition: >
+  Make a correct accusation and reveal the envelope. Get it wrong and you are
+  out of the running, though you remain in the game to disprove others.
+substitutions: >
+  Weapon tokens are decoration and can be anything, including scraps of paper
+  with names on. Losing a card from the deck ruins the game outright — the
+  twenty-one cards are the puzzle. The notepads are trivially replaced.
+accessibility: >
+  Tracking shown cards on a small printed grid is the main barrier; larger
+  hand-ruled grids on plain paper work far better than the supplied pads. The
+  weapon miniatures are small and easily lost, and the character colours include
+  a green and a red that are difficult to tell apart.
+editions:
+  - name: Clue (North America)
+    year: 1949
+    changed: >
+      The same game under a different name, with Reverend Green becoming Mr Green
+      and the rooms renamed slightly. Rules are identical.
+  - name: 2016 refresh
+    year: 2016
+    changed: >
+      Replaced some characters and added optional intrigue cards. The core
+      deduction is untouched and mixed-edition play is fine if you agree which
+      character list you are using.
+variants:
+  - name: Face-up leftovers
+    changed: >
+      With three players, deal any cards that will not divide evenly face up in
+      the middle rather than reshuffling. Everybody eliminates them at once.
+  - name: Accusation from anywhere
+    changed: >
+      Allow an accusation to be made from any square rather than requiring the
+      accused room. Speeds up endgames considerably.
+sources:
+  - https://www.hasbro.com/common/instruct/clue.pdf
+verified: null

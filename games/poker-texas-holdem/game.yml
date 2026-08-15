@@ -14,6 +14,10 @@ components:
   - Standard 52-card deck
   - Chips in at least three denominations
   - A dealer button
+downtime: 30s
+min_age: 12
+concession: >
+  Announce your last hand before it is dealt, never after you win one. Leaving immediately after a big pot is the single rudest thing you can do at a home game.
 objective: >
   Win chips, either by holding the best five-card hand at showdown or by making
   everyone else fold.

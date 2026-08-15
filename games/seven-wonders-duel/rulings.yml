@@ -1,0 +1,90 @@
+rulings:
+  - id: duel-instant-win-priority
+    question: Do military and science wins end the game immediately?
+    asked_as:
+      - instant win duel
+      - do I win straight away
+      - military supremacy
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. Pushing the military marker into your opponent's capital, or collecting
+      six different scientific symbols, ends the game the moment it happens. The
+      age is abandoned, points are not counted, and it does not matter how far
+      ahead your opponent was on victory points.
+  - id: duel-no-direct-trading
+    question: Can you buy resources from your opponent?
+    asked_as:
+      - trading with opponent
+      - buying resources duel
+      - how does trade work
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. All purchases are from the bank. The cost is two coins plus one for each
+      copy of that resource your opponent produces, so their production raises your
+      prices without ever giving them income.
+    effect: >
+      Building a resource your opponent depends on is a purely defensive play that
+      costs them coins every turn without benefiting you directly.
+  - id: duel-discard-for-coins
+    question: How many coins do you get for discarding a card?
+    asked_as:
+      - selling a card duel
+      - discard for money
+      - how much do I get
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Two coins, plus one for each yellow commercial card you have already built.
+      A player with three yellow cards therefore collects five, which makes
+      discarding a genuine strategy rather than a last resort.
+  - id: duel-wonder-limit
+    question: Can both players build all four of their wonders?
+    asked_as:
+      - how many wonders get built
+      - seventh wonder rule
+      - wonder limit duel
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. Only seven wonders may be constructed in total across both players, so
+      as soon as the seventh is built the eighth becomes permanently unbuildable.
+      Racing to finish your fourth wonder can strand your opponent's.
+  - id: duel-taking-covered-cards
+    question: Can you take a card that is partly covered?
+    asked_as:
+      - which cards are available
+      - covered cards duel
+      - accessible card rule
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. A card must have nothing overlapping it at all to be taken. Removing a
+      card reveals whatever it was covering, and face-down cards are turned up at
+      that moment.
+  - id: duel-science-token-pairs
+    question: When do you get a progress token?
+    asked_as:
+      - progress token rules
+      - matching science symbols
+      - how to get tokens
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Immediately upon acquiring your second copy of the same scientific symbol.
+      You then choose any available token from the five laid out. Note that
+      duplicate symbols do not count towards the six needed for a scientific
+      victory, which requires six different ones.

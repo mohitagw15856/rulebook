@@ -1,0 +1,17 @@
+# Labels this repo uses. Applied with:
+#   gh label create <name> --color <colour> --description "<desc>"
+- name: ruling
+  color: "e8b93f"
+  description: A disputed rule to add or correct
+- name: game
+  color: "0f5138"
+  description: A whole new game
+- name: good first issue
+  color: "4ff0c0"
+  description: One entry, no code, no build step
+- name: needs-source
+  color: "ff6b6b"
+  description: The claim is plausible but nothing backs it up yet
+- name: regional
+  color: "9d7bff"
+  description: Played differently in different places

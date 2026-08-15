@@ -13,6 +13,10 @@ luck: 60
 components:
   - Two standard decks including jokers, for up to four players
   - A third deck for five or six players
+downtime: 50s
+min_age: 9
+concession: >
+  A player who is clearly out of it can drop for a fixed penalty rather than play the hand out, which is a rule rather than a courtesy.
 objective: >
   Arrange all thirteen cards into valid sets and runs, including at least two
   runs of which one contains no joker.

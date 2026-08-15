@@ -156,6 +156,7 @@ function verdictCard(r, i) {
     ${r.effect ? `<div class="lbl">What it changes</div><p>${esc(r.effect)}</p>` : ''}
     ${r.regions && !r.regions.includes('global') ? `<p class="src">Played mostly in: ${esc(r.regions.join(', '))}</p>` : ''}
     ${r.source ? `<p class="src">Source: <a href="${esc(r.source)}" rel="noopener">${esc(r.source)}</a></p>` : ''}
+    <button class="share" data-share="${esc(r._game.slug)}/${esc(r.id)}">share this ruling</button>
   </article>`;
 }
 
@@ -182,11 +183,20 @@ function settle() {
          </div>`;
   };
 
-  input.addEventListener('input', render);
+  const rerender = () => {
+    render();
+    $$('#verdicts .share').forEach((b) =>
+      b.addEventListener('click', () => {
+        const [gs, rid] = b.dataset.share.split('/');
+        copyShare(b, shareLink(gs, rid));
+      })
+    );
+  };
+  input.addEventListener('input', rerender);
   $$('#examples button').forEach((b) =>
     b.addEventListener('click', () => {
       input.value = b.dataset.q;
-      render();
+      rerender();
       input.focus();
       out.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
     })
@@ -331,7 +341,7 @@ function games() {
 }
 
 // ---------------------------------------------------------------------------
-function openGame(slug) {
+function openGame(slug, focusRuling = null) {
   const g = DATA.games.find((x) => x.slug === slug);
   if (!g) return;
   const over = Math.round(mins(g.playtime_actual) - mins(g.playtime_box));
@@ -345,6 +355,8 @@ function openGame(slug) {
       <tr><td>box says</td><td>${fmt(g.playtime_box)}</td></tr>
       <tr><td>really takes</td><td>${fmt(g.playtime_actual)}${over > 0 ? ` <b style="color:var(--gold)">— over by ${over} min</b>` : ''}</td></tr>
       <tr><td>teach time</td><td>${fmt(g.teach_time)}</td></tr>
+      <tr><td>between turns</td><td>${fmt(g.downtime)}${mins(g.downtime) >= 3 ? ' <b style="color:var(--gold)">— long enough to lose people</b>' : ''}</td></tr>
+      <tr><td>works at age</td><td>${g.min_age}+</td></tr>
       <tr><td>brain</td><td>${dots(g.weight)} ${g.weight} / 5</td></tr>
       <tr><td>luck</td><td>${g.luck}% chance, ${100 - g.luck}% skill</td></tr>
     </table>
@@ -366,15 +378,25 @@ function openGame(slug) {
     ${g.rulings.length
       ? `<h3>Settle the argument</h3>${g.rulings
           .map(
-            (r) => `<div class="rul ${r.official ? 'off' : ''}">
+            (r) => `<div class="rul ${r.official ? 'off' : ''}" id="r-${esc(r.id)}">
               <b>${esc(r.question)}</b>
               <span class="k">${r.official ? 'official' : 'not official'} · ${PREVALENCE[r.prevalence] || ''}</span>
               <p>${esc(r.verdict)}</p>
               ${r.house_rule ? `<p><b style="color:var(--pink);display:inline">The house version:</b> ${esc(r.house_rule)}</p>` : ''}
+              <button class="share" data-share="${esc(g.slug)}/${esc(r.id)}">share this ruling</button>
             </div>`
           )
           .join('')}`
       : ''}
+
+    ${g.variants?.length
+      ? `<h3>Variants worth knowing</h3>${g.variants
+          .map((v) => `<p><b style="color:var(--ink)">${esc(v.name)}</b> — ${esc(v.changed)}</p>`)
+          .join('')}`
+      : ''}
+
+    <h3>When it is fair to stop</h3>
+    <p>${esc(g.concession)}</p>
 
     <h3>When a piece goes missing</h3>
     <p>${esc(g.substitutions)}</p>
@@ -395,6 +417,56 @@ function openGame(slug) {
   m.hidden = false;
   document.body.style.overflow = 'hidden';
   $('#m-close').focus();
+
+  $$('#m-body .share').forEach((b) =>
+    b.addEventListener('click', () => {
+      const [gs, rid] = b.dataset.share.split('/');
+      copyShare(b, shareLink(gs, rid));
+    })
+  );
+
+  if (focusRuling) {
+    const el = $(`#r-${CSS.escape(focusRuling)}`, $('#m-body'));
+    if (el) {
+      el.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
+      el.classList.add('lit');
+    }
+  }
+  // Keep the address bar honest so the link is copyable from there too.
+  if (location.hash !== `#${slug}${focusRuling ? '/' + focusRuling : ''}`) {
+    history.replaceState(null, '', `#${slug}${focusRuling ? '/' + focusRuling : ''}`);
+  }
+}
+
+// A link straight to one ruling, so an argument can be settled in a group chat
+// rather than in person. This is how most of them actually happen.
+function shareLink(gameSlug, rulingId) {
+  return `${location.origin}${location.pathname}#${gameSlug}${rulingId ? '/' + rulingId : ''}`;
+}
+
+async function copyShare(btn, url) {
+  try {
+    if (navigator.share && matchMedia('(pointer: coarse)').matches) {
+      await navigator.share({ url, title: 'rulebook' });
+      return;
+    }
+    await navigator.clipboard.writeText(url);
+    const was = btn.textContent;
+    btn.textContent = 'link copied';
+    setTimeout(() => (btn.textContent = was), 1500);
+  } catch {
+    /* the user dismissed the share sheet; nothing to report */
+  }
+}
+
+// #catan or #catan/robber-seven-discard
+function routeFromHash() {
+  const raw = decodeURIComponent(location.hash.replace(/^#/, ''));
+  if (!raw || raw.includes('=')) return;
+  const [slug, rulingId] = raw.split('/');
+  const game = DATA.games.find((g) => g.slug === slug);
+  if (!game) return;
+  openGame(slug, rulingId);
 }
 
 function modal() {
@@ -406,6 +478,8 @@ function modal() {
   $('#m-close').addEventListener('click', close);
   m.addEventListener('click', (e) => e.target === m && close());
   addEventListener('keydown', (e) => e.key === 'Escape' && !m.hidden && close());
+  addEventListener('hashchange', routeFromHash);
+  routeFromHash();
 }
 
 // ---------------------------------------------------------------------------
@@ -529,6 +603,170 @@ function copyBtns() {
   );
 }
 
+
+// ---------------------------------------------------------------------------
+// Around the world — rules that are standard somewhere and unknown elsewhere
+// ---------------------------------------------------------------------------
+function regions() {
+  const byRegion = new Map();
+  for (const r of ALL) {
+    const list = (r.regions || []).filter((x) => x && x !== 'global');
+    for (const region of list) {
+      if (!byRegion.has(region)) byRegion.set(region, []);
+      byRegion.get(region).push(r);
+    }
+  }
+  const el = $('#regions');
+  if (!byRegion.size) {
+    el.innerHTML = '<p class="empty">No region-specific rulings on file yet.</p>';
+    return;
+  }
+  el.innerHTML = [...byRegion.entries()]
+    .sort((a, b) => b[1].length - a[1].length)
+    .map(
+      ([region, rulings]) => `
+      <article class="region">
+        <h4>${esc(region)}</h4>
+        <span class="count">${rulings.length} ruling${rulings.length === 1 ? '' : 's'}</span>
+        <ul>${rulings
+          .map(
+            (r) =>
+              `<li><a href="#${esc(r._game.slug)}/${esc(r.id)}"><b>${esc(r._game.name)}</b> — ${esc(r.question)}</a></li>`
+          )
+          .join('')}</ul>
+      </article>`
+    )
+    .join('');
+}
+
+// ---------------------------------------------------------------------------
+// Scorepad — the back of an envelope, saved
+// ---------------------------------------------------------------------------
+function scorepad() {
+  const KEY = 'rulebook.scorepad.v1';
+  const table = $('#pad');
+  const empty = $('#pad-empty');
+
+  const load2 = () => {
+    try {
+      return JSON.parse(localStorage.getItem(KEY)) || { players: [], rounds: [] };
+    } catch {
+      return { players: [], rounds: [] };
+    }
+  };
+  const save = (s2) => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(s2));
+    } catch {
+      /* private browsing; the pad still works for this session */
+    }
+  };
+
+  let state = load2();
+
+  const totals = () =>
+    state.players.map((_, i) => state.rounds.reduce((a, r) => a + (Number(r[i]) || 0), 0));
+
+  const draw = () => {
+    empty.hidden = state.players.length > 0;
+    if (!state.players.length) {
+      table.innerHTML = '';
+      return;
+    }
+    const t = totals();
+    const lead = Math.max(...t);
+    table.innerHTML =
+      `<thead><tr><th></th>${state.players
+        .map((p, i) => `<th>${esc(p)}<button class="rm" data-rm="${i}" aria-label="Remove ${esc(p)}">×</button></th>`)
+        .join('')}</tr></thead>` +
+      `<tbody>${state.rounds
+        .map(
+          (r, ri) =>
+            `<tr><td class="rn">${ri + 1}</td>${state.players
+              .map(
+                (_, pi) =>
+                  `<td><input inputmode="numeric" value="${r[pi] ?? ''}" data-r="${ri}" data-p="${pi}" aria-label="Round ${ri + 1}"></td>`
+              )
+              .join('')}</tr>`
+        )
+        .join('')}</tbody>` +
+      `<tfoot><tr><td class="rn">Σ</td>${t
+        .map((v, i) => `<td class="tot ${v === lead && lead !== 0 ? 'lead' : ''}">${v}</td>`)
+        .join('')}</tr></tfoot>`;
+
+    $$('#pad input').forEach((inp) =>
+      inp.addEventListener('input', () => {
+        state.rounds[+inp.dataset.r][+inp.dataset.p] = inp.value === '' ? '' : Number(inp.value);
+        save(state);
+        // Only the totals change, so redraw those rather than the whole table —
+        // rebuilding would steal focus mid-typing.
+        const t2 = totals();
+        const lead2 = Math.max(...t2);
+        $$('#pad .tot').forEach((cell, i) => {
+          cell.textContent = t2[i];
+          cell.classList.toggle('lead', t2[i] === lead2 && lead2 !== 0);
+        });
+      })
+    );
+    $$('#pad .rm').forEach((b) =>
+      b.addEventListener('click', () => {
+        const i = +b.dataset.rm;
+        state.players.splice(i, 1);
+        state.rounds.forEach((r) => r.splice(i, 1));
+        save(state);
+        draw();
+      })
+    );
+  };
+
+  const addPlayer = () => {
+    const name = $('#pad-name').value.trim();
+    if (!name) return;
+    state.players.push(name);
+    state.rounds.forEach((r) => r.push(''));
+    if (!state.rounds.length) state.rounds.push(state.players.map(() => ''));
+    $('#pad-name').value = '';
+    save(state);
+    draw();
+  };
+
+  $('#pad-add').addEventListener('click', addPlayer);
+  $('#pad-name').addEventListener('keydown', (e) => e.key === 'Enter' && addPlayer());
+  $('#pad-round').addEventListener('click', () => {
+    if (!state.players.length) return;
+    state.rounds.push(state.players.map(() => ''));
+    save(state);
+    draw();
+  });
+  $('#pad-clear').addEventListener('click', () => {
+    state = { players: [], rounds: [] };
+    save(state);
+    draw();
+  });
+
+  draw();
+}
+
+// ---------------------------------------------------------------------------
+// Offline. Game night is exactly where the wifi fails.
+// ---------------------------------------------------------------------------
+function offline() {
+  const el = $('#offline-state');
+  if (!('serviceWorker' in navigator)) {
+    el.textContent = 'This browser cannot cache the site for offline use.';
+    return;
+  }
+  navigator.serviceWorker
+    .register(new URL('sw.js', location.href).pathname)
+    .then(() => {
+      el.innerHTML = '<b>Saved for offline.</b> Every ruling works with no signal.';
+      el.classList.add('ok');
+    })
+    .catch(() => {
+      el.textContent = 'Offline caching unavailable here.';
+    });
+}
+
 // ---------------------------------------------------------------------------
 chrome();
 eyebrow();
@@ -537,6 +775,9 @@ settle();
 fakes();
 lying();
 games();
+regions();
+scorepad();
+offline();
 modal();
 terminal();
 copyBtns();

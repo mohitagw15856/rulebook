@@ -1,0 +1,65 @@
+name: Dominion
+type: card
+family: deck-building
+players:
+  min: 2
+  max: 4
+  best: 3
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 10m
+weight: 2.4
+luck: 35
+components:
+  - Treasure, victory and curse cards forming the basic supply
+  - Twenty-five kingdom card stacks, of which ten are used per game
+  - Trash pile and mats depending on the set
+downtime: 45s
+min_age: 10
+concession: >
+  A player whose deck has failed to come together by the midpoint is unlikely to
+  win, but the province race can end abruptly and second place is genuinely
+  contested. Playing on costs five minutes, so finish it.
+objective: >
+  Build a deck that buys victory points faster than anyone else, then have the
+  most points when the game ends.
+setup_by_players:
+  - players: "2"
+    setup: Eight of each victory card, eight curses. Three empty supply piles ends the game.
+    note: Fast and sharp. Attack cards are far more punishing with only one opponent.
+  - players: "3"
+    setup: Twelve of each victory card, twenty curses.
+    note: The most balanced count — attacks are spread across two targets rather than aimed at one.
+  - players: "4"
+    setup: Twelve of each victory card, thirty curses. Four empty piles ends the game.
+    note: Long turns and heavy downtime unless everyone shuffles while others play.
+turn_structure:
+  - Action — play one action card, unless a card grants you more.
+  - Buy — play treasures and buy one card, unless a card grants you more.
+  - Clean-up — discard everything and draw a new hand of five.
+win_condition: >
+  The game ends when the province pile empties, or when three supply piles run
+  out — four with four players. Count the victory points in your whole deck;
+  most wins, with fewer turns taken breaking a tie.
+substitutions: >
+  The cards are the entire game. Nothing here can be improvised, and a missing
+  kingdom pile simply means playing without that card, which is fine since only
+  ten of twenty-five are used anyway.
+accessibility: >
+  The card text is dense and every game uses a different ten cards, so the setup
+  requires reading and understanding ten new abilities before the first turn.
+  Laying the ten kingdom cards where everyone can read them, rather than in a
+  tight row, makes a substantial difference. Constant shuffling is a real
+  dexterity demand across a whole game.
+variants:
+  - name: First Game set
+    changed: >
+      The recommended ten cards for a first play — Cellar, Market, Militia, Mine,
+      Moat, Remodel, Smithy, Village, Woodcutter and Workshop. Use it.
+  - name: Colony games
+    changed: >
+      Prosperity adds Platinum and Colony, extending the game and raising the
+      ceiling on a big deck.
+sources:
+  - https://en.wikipedia.org/wiki/Dominion_(card_game)
+verified: null

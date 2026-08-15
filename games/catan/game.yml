@@ -15,6 +15,10 @@ components:
   - 95 resource cards, 25 development cards
   - Roads, settlements and cities in four colours
   - Two dice, the robber, number tokens
+downtime: 3m
+min_age: 10
+concession: >
+  Do not concede Catan. A trailing player still controls who gets the wheat, and quitting hands the game to whoever they were blocking. If you must stop, agree to end at a lower points target instead.
 objective: >
   Be first to ten victory points, earned from settlements, cities, the longest
   road, the largest army and some development cards.

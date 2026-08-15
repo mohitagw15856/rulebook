@@ -1,0 +1,84 @@
+rulings:
+  - id: battleship-ships-touching
+    question: Can two ships be placed next to each other?
+    asked_as:
+      - can ships touch
+      - ships adjacent battleship
+      - do ships need a gap
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      In the standard published rules, yes. Ships may sit side by side as long as
+      they do not overlap. Only diagonal placement and overlapping are forbidden.
+    house_rule: >
+      A widespread house version requires at least one empty square between any
+      two ships, which makes deduction far more powerful because a confirmed miss
+      rules out a large area.
+    effect: >
+      Requiring gaps makes the game noticeably shorter and rewards systematic
+      searching. Allowing contact makes it more of a guessing game and protects
+      clustered fleets.
+  - id: battleship-announce-sinking
+    question: Do you have to say which ship has been sunk?
+    asked_as:
+      - do I say what ship sank
+      - naming the sunk ship
+      - announce sinking
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. When the last square of a ship is hit you must announce both that it
+      has sunk and which ship it was. Concealing it is cheating, though you are
+      never obliged to hint at anything before the final hit.
+  - id: battleship-first-shot-advantage
+    question: Is going first an advantage?
+    asked_as:
+      - who shoots first
+      - first player advantage
+      - is battleship fair
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, unavoidably. Both players need the same number of successful shots, so
+      whoever starts reaches the total first in any tied race. Flip a coin, or
+      play an even number of games and alternate who opens.
+  - id: battleship-extra-shot-on-hit
+    question: Do you get another shot when you score a hit?
+    asked_as:
+      - extra turn on hit
+      - keep shooting after a hit
+      - do hits give another go
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Not in the standard rules, where every turn is exactly one shot regardless
+      of the result.
+    house_rule: >
+      Many tables let a hit earn another shot immediately, continuing until you
+      miss.
+    effect: >
+      It shortens the game a great deal and hugely magnifies the first-player
+      advantage, since a lucky opening run can end things before the second
+      player has properly begun.
+  - id: battleship-diagonal-ships
+    question: Can ships be placed diagonally?
+    asked_as:
+      - diagonal placement
+      - can I put a ship at an angle
+      - diagonal ships allowed
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Every ship lies along a row or a column. Diagonal placement is not
+      permitted in any published version, and allowing it breaks the search
+      logic the whole game rests on.

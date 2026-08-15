@@ -8,6 +8,8 @@
 | **Box says** | 20 min |
 | **Actually takes** | 35 min |
 | **Teach time** | 4 min |
+| **Between your turns** | 45 sec |
+| **Works at age** | 8+ |
 | **Weight** | ●●○○○ 1.6 / 5 |
 | **Luck** | 65% chance, 35% skill |
 | **Family** | memory-and-draw |
@@ -170,6 +172,10 @@ This game has a scorer. `rulebook score pablo "..."` works out the total for you
 | Edition | Year | What changed |
 |---|---|---|
 | Cabo, Golf, Cambio | — | The same game circulates under many names with small differences in card powers and the penalty for a failed call. Pablo, Cabo and Cambio are effectively the same game; four-card Golf is a close cousin without the card powers. |
+
+## When it is fair to stop
+
+Fine to stop after any completed round, since scores carry cleanly and a part-finished round can simply be dropped.
 
 ## When a piece goes missing
 

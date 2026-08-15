@@ -1,0 +1,75 @@
+rulings:
+  - id: yahtzee-second-yahtzee
+    question: What happens if you roll a second Yahtzee?
+    asked_as:
+      - two yahtzees
+      - second yahtzee bonus
+      - joker rules
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      If the Yahtzee box already holds fifty, you score a hundred point bonus and
+      then place the dice elsewhere under the joker rules — the matching upper
+      box if free, otherwise any open lower box, which may be claimed as a full
+      house or straight even though the dice do not form one.
+    effect: >
+      A player who scored their Yahtzee box zero gets no bonus for later ones,
+      which is why writing a zero there is far more costly than it looks.
+  - id: yahtzee-keep-and-reroll
+    question: Can you pick up dice you already set aside?
+    asked_as:
+      - can I reroll kept dice
+      - do set aside dice stay
+      - change my mind yahtzee
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. Setting dice aside is not binding. On your second and third rolls you
+      may reroll any dice you like, including ones you kept earlier. Many players
+      assume kept dice are locked, which quietly costs them points all game.
+  - id: yahtzee-small-straight-five-dice
+    question: Does a large straight also count as a small straight?
+    asked_as:
+      - large straight small straight
+      - can I use a big straight for the small one
+      - straight scoring
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. A small straight needs four consecutive numbers among the five dice,
+      so any large straight contains one. Scoring a forty-point straight in the
+      thirty-point box is legal and occasionally correct.
+  - id: yahtzee-must-score-something
+    question: Can you skip a turn if nothing fits?
+    asked_as:
+      - do I have to score
+      - can I pass yahtzee
+      - forced zero
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Every turn ends with a number written into an unused box, and if
+      nothing qualifies that number is zero. Choosing where to take the damage is
+      part of the game.
+  - id: yahtzee-three-of-a-kind-sum
+    question: Does three of a kind score just the three matching dice?
+    asked_as:
+      - three of a kind scoring
+      - do I add all five dice
+      - four of a kind total
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      You add all five dice, not only the matching ones. Three sixes with a five
+      and a four scores twenty-seven. This is misplayed constantly, almost always
+      in the player's own disfavour.

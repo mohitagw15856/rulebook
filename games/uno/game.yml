@@ -12,6 +12,10 @@ weight: 1.2
 luck: 85
 components:
   - 108-card deck — four colours numbered 0-9, plus Skip, Reverse and Draw Two in each colour, plus four Wild and four Wild Draw Four
+downtime: 25s
+min_age: 6
+concession: >
+  Rounds are short and scores carry, so lower the target rather than stopping. Ending mid-round wastes the one hand somebody had actually engineered.
 objective: >
   Be the first player to get rid of every card in your hand.
 setup_by_players:

@@ -1,0 +1,71 @@
+name: Ticket to Ride
+type: board
+family: set-collection-and-network
+players:
+  min: 2
+  max: 5
+  best: 4
+playtime_box: 60m
+playtime_actual: 70m
+teach_time: 8m
+weight: 1.9
+luck: 45
+components:
+  - A map board with coloured routes between cities
+  - Forty-five plastic trains per player in five colours
+  - A deck of coloured train cards and a deck of destination tickets
+downtime: 60s
+min_age: 8
+concession: >
+  Do not leave early. Your trains block routes other players are counting on,
+  and removing them mid-game rewrites everybody's plans. If the group must stop,
+  score it where it stands — completed tickets count, incomplete ones subtract.
+objective: >
+  Claim railway routes to connect the cities named on your secret destination
+  tickets, scoring for the routes you build and losing points for tickets you
+  fail to finish.
+setup_by_players:
+  - players: "2"
+    setup: Standard rules, but on the original US map only the single track of each double route may be used.
+    note: Two-player is much less about blocking and much more about efficiency; the map feels enormous.
+  - players: "3"
+    setup: Double routes remain restricted to one track on the US map.
+    note: The awkward count. Blocking exists but is not yet the dominant concern.
+  - players: "4-5"
+    setup: Both tracks of every double route are available.
+    note: Where the game is designed to live. Routes run out and the blocking becomes genuinely tense.
+turn_structure:
+  - Draw two train cards, from the five face up or blind from the deck.
+  - Or claim a route by discarding the matching number of cards in the matching colour.
+  - Or draw three new destination tickets and keep at least one.
+win_condition: >
+  When a player is down to two trains or fewer, everybody takes one final turn.
+  Add route points, add completed tickets, subtract incomplete ones, and add ten
+  for the longest continuous path.
+substitutions: >
+  Trains can be replaced with any small markers of a distinct colour, though you
+  need forty-five of each. Losing destination tickets is the real problem — they
+  are the scoring engine and cannot be improvised without the printed distances.
+accessibility: >
+  The route colours include a pink, a red and an orange that are difficult to
+  distinguish under poor lighting, and the board is dense. The trains are small
+  and placing them into narrow route slots is genuinely fiddly for anyone with
+  limited dexterity. The map text is small; a printed city list helps.
+editions:
+  - name: Europe
+    year: 2005
+    changed: >
+      Adds stations, tunnels and ferries, and deals longer tickets. Generally
+      considered the better introduction despite being newer.
+  - name: Nordic Countries
+    year: 2007
+    changed: >
+      Built for two and three players specifically, with a tighter map.
+variants:
+  - name: Ticket draw at the end
+    changed: >
+      Allow one final ticket draw for players who finish early. Non-standard and
+      swingy, but popular in casual play.
+sources:
+  - https://www.daysofwonder.com/tickettoride/en/usa/
+verified: null

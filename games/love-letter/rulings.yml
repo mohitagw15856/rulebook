@@ -1,0 +1,94 @@
+rulings:
+  - id: love-letter-countess-compulsory
+    question: Do you have to play the Countess?
+    asked_as:
+      - countess rule
+      - forced to play countess
+      - countess with king
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes, and it is the only compulsory play in the game. Holding the Countess
+      alongside either the King or the Prince forces you to discard the Countess
+      that turn. You may still play her voluntarily at any other time, which is
+      what makes the bluff work.
+    effect: >
+      Because the play is forced, a Countess discard tells the table you almost
+      certainly held a King or a Prince — unless you played her freely to create
+      exactly that impression.
+  - id: love-letter-prince-princess
+    question: What happens if a Prince forces you to discard the Princess?
+    asked_as:
+      - prince makes me discard princess
+      - forced princess discard
+      - princess eliminated
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      You are eliminated immediately. The Princess removes you from the round
+      whenever she leaves your hand, regardless of who caused it or whether you
+      had any choice. Targeting a suspected Princess holder with a Prince is a
+      legitimate and devastating play.
+  - id: love-letter-guard-naming-guard
+    question: Can a Guard name another Guard?
+    asked_as:
+      - guard on guard
+      - can I guess guard
+      - naming guard
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The Guard's text explicitly excludes itself, which matters because five
+      of the sixteen cards are Guards and allowing it would make the guess far too
+      easy.
+  - id: love-letter-handmaid-last-player
+    question: What if everyone left is protected by a Handmaid?
+    asked_as:
+      - handmaid everyone protected
+      - no legal target
+      - must I target myself
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      If no legal target exists, the card is played with no effect. The Prince is
+      the exception — it must target somebody, and if all opponents are protected
+      you must target yourself, discarding your own remaining card.
+    effect: >
+      This is how a player holding the Princess can be forced to lose the round
+      with nobody having attacked them at all.
+  - id: love-letter-tie-on-deck-out
+    question: Who wins if two players tie on card value at the end?
+    asked_as:
+      - tie love letter
+      - same card value end of round
+      - deck runs out tie
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Add the values of the cards each tied player has discarded during the round;
+      the higher total wins. Some printings instead award a token to each tied
+      player, so check the edition in front of you rather than assuming.
+  - id: love-letter-discard-pile-public
+    question: Can you look back through the discarded cards?
+    asked_as:
+      - can I check discards
+      - are discards face up
+      - reviewing played cards
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. Discards stay face up in front of each player for exactly this reason,
+      and tracking them is the intended skill rather than a memory test. Anyone
+      insisting you play from memory has invented a rule.

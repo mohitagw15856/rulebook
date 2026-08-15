@@ -1,0 +1,48 @@
+name: Jaipur
+type: card
+family: trading-and-set-collection
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 30m
+teach_time: 5m
+weight: 1.5
+luck: 45
+components:
+  - Fifty-five goods cards in six commodities plus camels
+  - Goods tokens in decreasing values, and bonus tokens for large sets
+downtime: 15s
+min_age: 8
+concession: >
+  Each round takes about ten minutes and the match is best of three, so there is
+  no reason to abandon one. A player who has lost the first two rounds has lost
+  the match already and the third need not be played.
+objective: >
+  Sell goods at better moments than your opponent across three rounds, taking
+  the higher-value tokens before they run out.
+setup_by_players:
+  - players: "2"
+    setup: Three camels start in the market alongside two goods cards. Each player is dealt five cards.
+    note: Designed exclusively for two and widely regarded as one of the best two-player card games published.
+turn_structure:
+  - Take a single goods card from the market, or take all the camels, or swap several cards with the market.
+  - Or sell any number of cards of one commodity, taking the top tokens of that type.
+  - Refill the market to five cards.
+win_condition: >
+  Win two rounds out of three to take the match. Each round ends when three
+  token stacks are exhausted or the deck runs out; the higher total takes the
+  round, with the camel bonus going to whoever holds more camels.
+substitutions: >
+  The tokens are the scoring system and their descending values matter, so they
+  cannot be replaced casually — though a written list of the values would do at
+  a pinch. The cards are the game.
+accessibility: >
+  Commodities are distinguished by both colour and illustration, which works
+  well. The tokens are small and stack into piles that need reading from the top
+  down, which is the main visual demand. Turns are short and the whole thing sits
+  in a small space, making it excellent for cramped tables.
+sources:
+  - https://en.wikipedia.org/wiki/Jaipur_(card_game)
+verified: null

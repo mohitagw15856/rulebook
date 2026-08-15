@@ -14,6 +14,10 @@ components:
   - 15x15 board with premium squares
   - 100 letter tiles, 2 of which are blanks
   - Four racks, a bag, a dictionary
+downtime: 2m
+min_age: 9
+concession: >
+  Playing on when you are 150 behind with six tiles left is a formality. Conceding is normal, but finish if anyone is chasing a personal best.
 objective: >
   Score the most points by forming interlocking words on the board.
 setup_by_players:

@@ -8,6 +8,8 @@
 | **Box says** | 30 min |
 | **Actually takes** | 40 min |
 | **Teach time** | 5 min |
+| **Between your turns** | 35 sec |
+| **Works at age** | 8+ |
 | **Weight** | ●●○○○ 2 / 5 |
 | **Luck** | 55% chance, 45% skill |
 | **Family** | draw-and-discard |
@@ -171,6 +173,10 @@ This game has a scorer. `rulebook score rummy-gin "..."` works out the total for
 | Edition | Year | What changed |
 |---|---|---|
 | Oklahoma Gin | — | The first upcard sets the maximum knock value for the hand rather than it always being ten, which makes early hands far tighter. |
+
+## When it is fair to stop
+
+Stop at the end of a hand. Gin is scored across hands to a target, so agreeing a lower target mid-game is more graceful than abandoning it.
 
 ## When a piece goes missing
 

@@ -1,0 +1,96 @@
+rulings:
+  - id: werewolf-dead-players-silent
+    question: Can eliminated players talk?
+    asked_as:
+      - can dead players speak
+      - do the dead talk werewolf
+      - eliminated player rules
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. A player who has been eliminated says nothing for the rest of the game
+      — no hints, no reactions, no knowing looks. They hold information that would
+      resolve the entire puzzle, so their silence is a rule rather than an
+      etiquette point.
+    effect: >
+      Groups that let the dead comment find the game collapses within two rounds,
+      because the eliminated players collectively know almost everything.
+  - id: werewolf-moderator-plays
+    question: Can the moderator also have a role?
+    asked_as:
+      - can the narrator play
+      - moderator role werewolf
+      - does the moderator play
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. The moderator sees every role and every night action, so they cannot
+      take part. Apps that narrate the night exist precisely so that nobody has
+      to sit out.
+  - id: werewolf-parity-win
+    question: Do werewolves have to kill everyone to win?
+    asked_as:
+      - werewolf win condition
+      - when do the wolves win
+      - do wolves need to kill all villagers
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. They win as soon as their number equals the number of remaining
+      villagers, because at parity they can no longer be voted out. Playing on
+      past that point is a formality with a guaranteed result.
+  - id: werewolf-seer-reveals
+    question: Should the seer announce what they know?
+    asked_as:
+      - should the seer claim
+      - seer reveal strategy
+      - when to claim seer
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      It is entirely legal at any time and is a strategic decision rather than a
+      rules question. Claiming early gives the village real information and paints
+      an immediate target; claiming late risks dying with it unspoken. There is no
+      rule either way, and any group insisting otherwise has invented one.
+  - id: werewolf-no-lynch
+    question: Can the village choose not to eliminate anyone?
+    asked_as:
+      - can we skip the vote
+      - no lynch
+      - abstain werewolf
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      In most rule sets the day must end with somebody eliminated, and a tie is
+      broken by a runoff or by the moderator.
+    house_rule: >
+      Many groups allow a no-elimination day, either by majority abstention or by
+      leaving a tie unresolved.
+    effect: >
+      It strongly favours the werewolves, who lose nobody that round while still
+      killing at night. Groups that allow it usually add a rule that it can only
+      happen once.
+  - id: werewolf-wolves-kill-each-other
+    question: Can werewolves eliminate one of their own?
+    asked_as:
+      - can wolves kill wolves
+      - werewolf kills werewolf
+      - wolf self sacrifice
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, and it is occasionally a strong play — sacrificing a wolf who is about
+      to be caught buys enormous credibility for the others. Nothing in the rules
+      restricts the night kill to villagers.

@@ -8,6 +8,8 @@
 | **Box says** | 20 min |
 | **Actually takes** | 25 min |
 | **Teach time** | 90 sec |
+| **Between your turns** | 30 sec |
+| **Works at age** | 5+ |
 | **Weight** | ●○○○○ 1 / 5 |
 | **Luck** | 88% chance, 12% skill |
 | **Family** | shedding |
@@ -125,6 +127,10 @@ sentence long and the game teaches itself from the second turn onward.
 | Edition | Year | What changed |
 |---|---|---|
 | Commercial descendants | 1971 | Uno is a commercial reworking of this public-domain game, replacing suits with colours and adding dedicated action cards. |
+
+## When it is fair to stop
+
+End it whenever. There is no accumulated position to waste, and a hand can be abandoned mid-trick without anyone losing anything they built.
 
 ## When a piece goes missing
 

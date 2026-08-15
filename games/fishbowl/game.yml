@@ -1,0 +1,62 @@
+name: Fishbowl
+type: party
+family: escalating-guessing
+players:
+  min: 6
+  max: 20
+  best: 10
+playtime_box: 40m
+playtime_actual: 55m
+teach_time: 4m
+weight: 1
+luck: 30
+components:
+  - Slips of paper, pens, and a bowl
+  - A timer
+downtime: 45s
+min_age: 10
+concession: >
+  Stop after a completed round rather than mid-round, because the same slips
+  carry across all three rounds and abandoning one wastes the writing everybody
+  did. Finishing round two and stopping is a perfectly respectable end.
+objective: >
+  Get your team to guess as many names from the bowl as possible, across three
+  rounds that use the same slips with progressively harsher restrictions.
+setup_by_players:
+  - players: "6-8"
+    setup: Two teams. Three or four slips each, so roughly twenty-five in the bowl.
+    note: Below six the rounds finish too fast for the escalation to build.
+  - players: "9-14"
+    setup: Two teams, three slips each. Aim for thirty to forty slips total.
+    note: The ideal range, with enough slips that nobody remembers all of them by round three.
+  - players: "15-20"
+    setup: Three teams and two slips each, otherwise a single round takes twenty minutes.
+    note: Cap the bowl at about fifty slips regardless of headcount.
+turn_structure:
+  - One player from the active team takes the bowl and the timer.
+  - They convey as many slips as they can within the time limit, under that round's restriction.
+  - Correctly guessed slips are kept aside; the round ends when the bowl is empty.
+  - Refill the bowl with every slip and move to the next round.
+win_condition: >
+  Add up the slips each team guessed across all three rounds. The highest total
+  wins, though by round three most groups have stopped checking.
+substitutions: >
+  Nothing to lose beyond paper and a bowl, both of which are improvised anyway.
+  A hat, a mug or an upturned hood all work.
+accessibility: >
+  Round three is mimed and excludes anyone who cannot perform physically unless
+  the group agrees to seated play. The first round is purely verbal and the
+  second is a single word, so a player who prefers not to mime can be swapped
+  out of round three without disrupting anything.
+variants:
+  - name: Fourth round, one sound
+    changed: >
+      Add a round where you may make exactly one noise and no movement. Very
+      funny with a group that already knows the slips well.
+  - name: Celebrity
+    changed: >
+      Restrict every slip to a famous person, real or fictional. Narrower and
+      easier for large mixed groups than open-ended phrases.
+sources:
+  - https://en.wikipedia.org/wiki/Celebrity_(game)
+verified: null

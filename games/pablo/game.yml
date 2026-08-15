@@ -12,6 +12,10 @@ weight: 1.6
 luck: 65
 components:
   - Standard 52-card deck with jokers
+downtime: 45s
+min_age: 8
+concession: >
+  Fine to stop after any completed round, since scores carry cleanly and a part-finished round can simply be dropped.
 objective: >
   Finish with the lowest total in front of you, while remembering cards you are
   only allowed to look at twice.

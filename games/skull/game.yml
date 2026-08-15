@@ -1,0 +1,54 @@
+name: Skull
+type: party
+family: bluffing
+players:
+  min: 3
+  max: 6
+  best: 5
+playtime_box: 30m
+playtime_actual: 30m
+teach_time: 3m
+weight: 1.2
+luck: 25
+components:
+  - Four discs per player — three flowers and one skull
+  - A mat per player to stack discs on
+downtime: 25s
+min_age: 10
+concession: >
+  A player down to one disc is still genuinely dangerous, so conceding is both
+  unnecessary and premature. If the group wants to stop, finish the current
+  round and count who is closest to two wins.
+objective: >
+  Win two bidding challenges by successfully flipping the number of flowers you
+  promised, without turning over a skull.
+setup_by_players:
+  - players: "3"
+    setup: Standard four discs each. Bidding is short and reads are difficult with so few players.
+    note: Playable but thin — much of the tension comes from a long bidding chain.
+  - players: "4-5"
+    setup: Standard. Five is the count most players consider ideal.
+    note: Enough players for the bidding to escalate meaningfully without anyone waiting long.
+  - players: "6"
+    setup: Standard. Expect longer bidding rounds and more dramatic collapses.
+    note: Excellent, though the wait between your own decisions lengthens noticeably.
+turn_structure:
+  - In the placing phase, players take turns adding one disc face down to their own stack.
+  - At any point, instead of placing, a player may open the bidding by naming a number of discs they will flip.
+  - Bidding continues upward or players pass, until only one bidder remains.
+  - That player flips discs, starting with their entire own stack, then choosing from others' stacks.
+win_condition: >
+  Two successful challenges wins the game outright. A player who loses all four
+  discs is eliminated.
+substitutions: >
+  Beer mats and coins reproduce this exactly — the game is four tokens per
+  player where one is distinguishable. It is one of the easiest games here to
+  improvise from nothing.
+accessibility: >
+  The discs are chunky and easy to handle, which is unusual and welcome. The
+  game is almost entirely about reading faces and betting behaviour, which makes
+  it a poor fit for players who find that kind of social pressure unpleasant and
+  a superb fit for those who do not.
+sources:
+  - https://en.wikipedia.org/wiki/Skull_(board_game)
+verified: null

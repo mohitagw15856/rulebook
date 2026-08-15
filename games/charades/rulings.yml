@@ -1,0 +1,79 @@
+rulings:
+  - id: charades-pointing-at-objects
+    question: Can you point at something in the room to indicate a word?
+    asked_as:
+      - can I point at things
+      - pointing charades
+      - is pointing allowed
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Pointing at a real object to convey the word for it bypasses the whole
+      activity. You may mime handling an imaginary object freely — the distinction
+      is between representing a thing and simply indicating one.
+    effect: >
+      Groups that allow it find every clue containing a common noun becomes
+      trivial, which flattens the game quickly.
+  - id: charades-sounds-like
+    question: Is "sounds like" allowed?
+    asked_as:
+      - sounds like gesture
+      - can I do rhymes
+      - ear tug charades
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes, and the traditional signal is tugging your earlobe. You then act out a
+      word that rhymes with the one you actually need. It is standard in nearly
+      every tradition, though a few groups ban it for being too powerful.
+  - id: charades-mouthing-words
+    question: Can you mouth the word silently?
+    asked_as:
+      - can I mouth it
+      - silent speaking charades
+      - lip reading
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Forming the word with your lips is treated exactly as speaking it, even
+      with no sound. This is the most frequently broken rule in the game, usually
+      accidentally and in the last ten seconds.
+  - id: charades-guess-counts-partial
+    question: Does a guess count if they say the right words in the wrong order?
+    asked_as:
+      - close enough guess
+      - wrong order title
+      - partial answer charades
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      There is no governing body, so no answer is official. The common convention
+      is that the performer decides, and their decision stands.
+    house_rule: >
+      Stricter groups require the exact title. Looser groups accept anything that
+      demonstrates the guesser clearly knows the answer.
+    effect: >
+      Strictness matters more than which rule you pick — a table that switches
+      standards halfway through will argue about it for the rest of the evening.
+  - id: charades-number-of-words-first
+    question: Do you have to signal the number of words before acting?
+    asked_as:
+      - do I show how many words
+      - opening gestures charades
+      - signalling word count
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      It is conventional rather than compulsory, and skipping it makes the round
+      substantially harder. Most groups treat the word count and category as a
+      courtesy the performer owes their own team.

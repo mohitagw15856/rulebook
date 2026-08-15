@@ -8,6 +8,8 @@
 | **Box says** | 60 min |
 | **Actually takes** | 3 hr |
 | **Teach time** | 10 min |
+| **Between your turns** | 4 min |
+| **Works at age** | 10+ |
 | **Weight** | ●●○○○ 1.7 / 5 |
 | **Luck** | 70% chance, 30% skill |
 | **Family** | roll-and-move |
@@ -193,6 +195,10 @@ strategy in the game.
 | Edition | Year | What changed |
 |---|---|---|
 | The official rules versus the inherited ones | — | The published rules have contained the auction rule and no Free Parking payout since the 1930s. The versions most households play descend from folk rules that were never in any box, and are the direct cause of the game's reputation for lasting forever. |
+
+## When it is fair to stop
+
+Agree a finish time before you start, and when it arrives, count cash plus property value and declare a winner. Almost nobody plays to the bankruptcy of every opponent, and pretending otherwise is how the game got its reputation.
 
 ## When a piece goes missing
 

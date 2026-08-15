@@ -1,0 +1,88 @@
+rulings:
+  - id: cluedo-only-one-disproves
+    question: Does everyone show you a card, or only the first player who can?
+    asked_as:
+      - how many people disprove
+      - does everyone show a card
+      - who answers a suggestion
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Only the first player, going clockwise, who holds any of the three named
+      cards. They show one card and the process stops immediately — the remaining
+      players are not asked at all, and reveal nothing.
+    effect: >
+      Playing it wrong, with everybody showing a card, collapses the game to
+      about four turns and removes almost all of the deduction.
+  - id: cluedo-wrong-accusation
+    question: What happens if your accusation is wrong?
+    asked_as:
+      - wrong accusation cluedo
+      - do I leave the game
+      - can I still play after accusing
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      You are out of contention permanently and take no further turns, but you
+      stay at the table, keep your cards and must continue disproving other
+      players' suggestions. Returning the envelope unchanged is essential.
+  - id: cluedo-suggest-own-card
+    question: Can you name a card that is in your own hand?
+    asked_as:
+      - suggest a card I hold
+      - bluffing in cluedo
+      - can I name my own card
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, and it is a genuine tactic rather than a loophole. Naming a card you
+      hold guarantees that any player who disproves you must be showing you one
+      of the other two, which narrows things down sharply.
+  - id: cluedo-suggestion-in-any-room
+    question: Do you have to be in a room to make a suggestion?
+    asked_as:
+      - suggest from corridor
+      - can I suggest anywhere
+      - room requirement
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      You must be standing in a room, and the room you name must be the one you
+      are in. Corridors allow no suggestions. An accusation, by contrast, may
+      name any room in most editions.
+  - id: cluedo-must-move-when-dragged
+    question: If your character is moved into a room by someone else, can you suggest from there?
+    asked_as:
+      - moved by another player
+      - dragged into a room
+      - do I have to move out
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. On your next turn you may make a suggestion from the room you were
+      pulled into without rolling at all, or you may roll and leave as normal.
+      Being dragged across the board is an opportunity as often as a nuisance.
+  - id: cluedo-secret-passage-then-suggest
+    question: Can you use a secret passage and still make a suggestion?
+    asked_as:
+      - secret passage rules
+      - passage then suggest
+      - corner rooms
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. Taking a passage counts as your entire move, and you may suggest
+      immediately on arrival. Passages are strong precisely because they get you
+      into a room without any dice at all.

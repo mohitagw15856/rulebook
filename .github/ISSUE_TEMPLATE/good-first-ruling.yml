@@ -1,0 +1,84 @@
+name: Good first ruling
+description: The smallest useful contribution — one rule your table argues about
+title: "[ruling] "
+labels: [ruling, good first issue]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a one-entry change and the single most valuable thing you can add.
+        You do not need to write any code, and you do not need to know YAML —
+        fill this in and somebody will turn it into an entry, or copy the block
+        at the bottom and open a pull request yourself.
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      placeholder: Uno
+    validations:
+      required: true
+  - type: input
+    id: question
+    attributes:
+      label: The argument, written the way it gets said
+      placeholder: Can you stack a +2 on a +2?
+    validations:
+      required: true
+  - type: dropdown
+    id: official
+    attributes:
+      label: Is it actually in the published rules?
+      options:
+        - "No — it is a house rule"
+        - "Yes — it is official and people play it wrong"
+        - "I genuinely do not know"
+    validations:
+      required: true
+  - type: dropdown
+    id: prevalence
+    attributes:
+      label: How many people play it your way?
+      options:
+        - Almost everyone, almost everywhere
+        - Widespread but far from universal
+        - Standard where I live, unheard of elsewhere
+        - Just my group
+    validations:
+      required: true
+  - type: textarea
+    id: verdict
+    attributes:
+      label: What is the answer?
+      description: Write it as you would read it out at a table where people are waiting. Lead with the answer.
+    validations:
+      required: true
+  - type: input
+    id: region
+    attributes:
+      label: Where is this played? (optional)
+      placeholder: India, North America, United Kingdom…
+  - type: input
+    id: source
+    attributes:
+      label: Anything backing it up? (optional)
+      description: '"No idea, we have always played it this way" is a genuinely useful answer.'
+  - type: textarea
+    id: yaml
+    attributes:
+      label: Or paste the finished entry
+      description: Optional. If you are comfortable with it, this is exactly what goes in games/<game>/rulings.yml.
+      render: yaml
+      value: |
+        - id: short-kebab-case-id
+          question: Can you stack a +2 on a +2?
+          asked_as:
+            - stacking +2
+            - can I stack a draw two
+          kind: house-rule        # house-rule | clarification
+          official: false
+          prevalence: near-universal
+          regions: [global]
+          verdict: >
+            Lead with the answer. Reasoning afterwards.
+          house_rule: >
+            Required for house-rule entries — describe the version people play.

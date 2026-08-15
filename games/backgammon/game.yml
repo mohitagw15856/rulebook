@@ -1,0 +1,65 @@
+name: Backgammon
+type: abstract
+family: race-and-block
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 25m
+teach_time: 10m
+weight: 2.6
+luck: 45
+components:
+  - A board of twenty-four points in two colours
+  - Fifteen checkers each in two colours
+  - Two dice per player and a dice cup
+  - A doubling cube marked 2, 4, 8, 16, 32 and 64
+downtime: 20s
+min_age: 8
+concession: >
+  Resigning is built into the game rather than being an act of grace. Declining
+  a double is a formal resignation of that game at its current stake, and doing
+  it early in a hopeless race is correct play rather than poor sportsmanship.
+objective: >
+  Move all fifteen of your checkers around the board into your home quarter,
+  then bear them off before your opponent does.
+setup_by_players:
+  - players: "2"
+    setup: The standard opening arrangement — two checkers on your twenty-four point, five on your thirteen, three on your eight and five on your six, mirrored for your opponent.
+    note: Backgammon is a two-player game and every attempt to extend it changes what it is. Chouette is the exception and is played as one player against a team.
+turn_structure:
+  - Roll two dice.
+  - Move one checker the value of one die and another the value of the other, or one checker by both in sequence.
+  - Rolling a double gives you four moves of that number rather than two.
+  - A point held by two or more enemy checkers is closed to you.
+win_condition: >
+  Bear off all fifteen checkers first. Winning while your opponent has borne off
+  none doubles the stake as a gammon, and if they still have a checker in your
+  home board or on the bar it triples as a backgammon.
+substitutions: >
+  Checkers can be coins or draughts pieces without any loss. The doubling cube
+  can be a scrap of paper with a number written on it and a note of who owns it.
+  A missing die genuinely stops play.
+accessibility: >
+  The two checker colours are frequently dark brown and black, which is a poor
+  contrast pairing in low light; sets with a strong light-dark contrast are much
+  easier. Counting pip totals is the main cognitive demand, and there is no
+  shame in doing it aloud. Boards with recessed points make lifting checkers
+  harder for anyone with limited dexterity.
+variants:
+  - name: Chouette
+    changed: >
+      One player takes on several opponents at once, each with their own doubling
+      cube. The standard way to play backgammon with more than two people.
+  - name: Nackgammon
+    changed: >
+      A different starting arrangement that puts more checkers deep in enemy
+      territory, producing longer and more tactical games.
+  - name: Hypergammon
+    changed: >
+      Three checkers each instead of fifteen. Very short, very sharp, and solved
+      by computers.
+sources:
+  - https://www.bkgm.com/rules.html
+verified: null

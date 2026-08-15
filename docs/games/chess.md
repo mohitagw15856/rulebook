@@ -8,6 +8,8 @@
 | **Box says** | 30 min |
 | **Actually takes** | 45 min |
 | **Teach time** | 10 min |
+| **Between your turns** | 1 min |
+| **Works at age** | 7+ |
 | **Weight** | ●●●●○ 3.6 / 5 |
 | **Luck** | 0% chance, 100% skill |
 | **Family** | abstract-strategy |
@@ -180,6 +182,10 @@ have finished a whole game. The first game is about legality, not quality.
 | Edition | Year | What changed |
 |---|---|---|
 | FIDE laws | — | The competitive rules are maintained by FIDE and are periodically revised, mostly on clock handling, illegal-move penalties and tournament conduct. The movement of the pieces has been stable since the fifteenth century. |
+
+## When it is fair to stop
+
+Resigning is normal and, at any level of seriousness, polite. Playing on two pawns down against someone who obviously has it is a way of asking them to prove it, which is fine between friends and tiresome otherwise.
 
 ## When a piece goes missing
 

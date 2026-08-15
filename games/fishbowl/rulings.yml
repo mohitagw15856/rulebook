@@ -1,0 +1,83 @@
+rulings:
+  - id: fishbowl-same-slips-all-rounds
+    question: Do you use the same slips in all three rounds?
+    asked_as:
+      - same papers each round
+      - do we write new slips
+      - refill the bowl
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes, and this is the entire design. Every slip goes back in the bowl at the
+      end of each round. Rounds two and three are only achievable because the room
+      has already heard the whole bowl described once.
+    effect: >
+      Groups that write fresh slips each round find round two nearly impossible
+      and conclude the game is badly designed, when they have simply removed the
+      mechanism that makes it work.
+  - id: fishbowl-one-word-gestures
+    question: Can you gesture while giving your one word in round two?
+    asked_as:
+      - gestures round two
+      - can I point in the one word round
+      - one word plus mime
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. Round two is the word alone. Adding gestures collapses the distinction
+      between round two and round three and removes the escalation the game is
+      built on.
+    house_rule: >
+      Some groups permit gestures in round two and compensate by banning them from
+      round three in favour of statue-like poses.
+  - id: fishbowl-passing-slips
+    question: Can you skip a slip you cannot get?
+    asked_as:
+      - can I pass fishbowl
+      - skipping a slip
+      - put it back in the bowl
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      There is no single authority on this and both versions are widely played.
+    house_rule: >
+      The common version allows unlimited passes, with the slip returning to the
+      bowl. Stricter groups allow one pass per turn, or none at all.
+    effect: >
+      Unlimited passing makes the game gentler and slower, since hard slips
+      circulate until somebody cracks them. Banning it entirely makes a single
+      obscure entry capable of consuming a whole turn.
+  - id: fishbowl-timer-mid-slip
+    question: What happens if the timer goes while a slip is being guessed?
+    asked_as:
+      - timer runs out mid clue
+      - does the last slip count
+      - time expires fishbowl
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The slip is unclaimed and goes back into the bowl. There is no grace period,
+      which is why experienced players glance at the timer before starting a slip
+      they suspect is difficult.
+  - id: fishbowl-saying-part-of-the-phrase
+    question: Can you use part of the phrase on the slip?
+    asked_as:
+      - can I say one of the words
+      - partial phrase clue
+      - using words from the slip
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. No word appearing on the slip may be spoken, in any round where speech
+      is allowed at all. That includes rhymes, spellings and translations of those
+      words. The restriction applies to the whole phrase, not only the main noun.

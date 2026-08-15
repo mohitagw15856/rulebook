@@ -1,0 +1,35 @@
+# Your table's constitution.
+#
+# Copy this to .rulebookrc — here, in a project folder, or in ~/.rulebook/ —
+# and `rulebook ruling` will answer with how YOU play it first, and what the
+# published rules say second.
+#
+# Commit it. Send it to anyone joining game night. It settles more arguments
+# before they start than any amount of looking things up afterwards.
+
+table: The Thursday Lot
+
+# key is <game-slug>/<ruling-id>. Find them with:  rulebook ruling <game>
+house_rules:
+  # We stack. Everyone stacks. We know it is not a real rule.
+  uno/stacking-draw-cards: yes
+
+  # We do not do the Free Parking thing. It is why the game used to take
+  # four hours.
+  monopoly/free-parking-jackpot: no
+
+  # Draw one card and move on.
+  uno/draw-until-playable: no
+
+  # Two of your pieces block the square. Non-negotiable in this house.
+  ludo/blocking-two-tokens: yes
+
+  # Muggins is on. Count your own hand properly.
+  cribbage/muggins: yes
+
+notes:
+  scrabble/dictionary-authority: >
+    Collins, and the phone is the arbiter. Whoever challenges and loses
+    misses their next turn.
+  werewolf/no-lynch: >
+    Allowed exactly once per game, and only by unanimous agreement.

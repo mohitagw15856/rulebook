@@ -8,6 +8,8 @@
 | **Box says** | 15 min |
 | **Actually takes** | 20 min |
 | **Teach time** | 60 sec |
+| **Between your turns** | 40 sec |
+| **Works at age** | 4+ |
 | **Weight** | ●○○○○ 1 / 5 |
 | **Luck** | 80% chance, 20% skill |
 | **Family** | matching |
@@ -127,6 +129,10 @@ game a nine-year-old tolerates and one they want to play again.
 | Edition | Year | What changed |
 |---|---|---|
 | Memory-driven variants | — | Some versions require you to ask for a specific card rather than a rank, turning it into a much harder memory game for older players. |
+
+## When it is fair to stop
+
+Stop the moment the youngest player stops enjoying it. Nothing is lost, and a game abandoned happily is better than one finished grimly.
 
 ## When a piece goes missing
 

@@ -1,0 +1,91 @@
+rulings:
+  - id: hive-one-hive-rule
+    question: What happens if moving a tile would split the hive?
+    asked_as:
+      - one hive rule
+      - can I move a pinned tile
+      - splitting the hive
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      That tile cannot move at all. The hive must be a single connected group both
+      during and after every move, so any tile whose removal would create two
+      separate groups is pinned until something else changes.
+    effect: >
+      Pinning is the main defensive tool in the game, and recognising which of
+      your opponent's tiles are immobilised is most of the skill.
+  - id: hive-queen-by-fourth-turn
+    question: When must the queen bee be placed?
+    asked_as:
+      - queen placement deadline
+      - fourth turn queen
+      - when do I have to play my queen
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      By your fourth turn at the latest, and you may not move any tile until she
+      is on the table. Delaying to the fourth turn is a standard opening choice
+      rather than an oversight, since it maximises your placement flexibility.
+  - id: hive-queen-first-move
+    question: Can you open the game by placing your queen?
+    asked_as:
+      - queen first tile
+      - opening with the queen
+      - tournament rule hive
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Under the base rules, yes. The widely used tournament rule forbids it,
+      because opening with the queen was found to be strong enough to narrow the
+      game.
+    house_rule: >
+      Most experienced players adopt the tournament rule automatically and are
+      surprised to learn it is not in the original rulebook.
+  - id: hive-sliding-rule
+    question: Can a tile move through a narrow gap between two others?
+    asked_as:
+      - sliding rule hive
+      - freedom to move
+      - gap too small
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. A tile must be able to physically slide into its destination without
+      being lifted. If two tiles form a gate too narrow to pass through, the move
+      is illegal. The grasshopper and the beetle are exempt, since one jumps and
+      the other climbs.
+  - id: hive-own-tiles-surround-queen
+    question: Do your own tiles count towards surrounding your queen?
+    asked_as:
+      - can I trap my own queen
+      - own pieces surrounding queen
+      - who wins if I block myself
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. All six neighbouring spaces count regardless of colour, so you can
+      absolutely lose by boxing in your own queen. Forcing an opponent to complete
+      their own surround is a genuine winning technique.
+  - id: hive-both-queens-surrounded
+    question: What if both queens are surrounded at the same time?
+    asked_as:
+      - double surround
+      - both queens trapped
+      - hive draw
+    kind: clarification
+    official: true
+    prevalence: rare
+    regions: [global]
+    verdict: >
+      The game is a draw. This is the only drawn result in Hive and it is
+      genuinely uncommon, requiring a single move to complete both surrounds.

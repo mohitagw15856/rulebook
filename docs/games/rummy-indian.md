@@ -8,6 +8,8 @@
 | **Box says** | 30 min |
 | **Actually takes** | 45 min |
 | **Teach time** | 6 min |
+| **Between your turns** | 50 sec |
+| **Works at age** | 9+ |
 | **Weight** | ●●○○○ 2.3 / 5 |
 | **Luck** | 60% chance, 40% skill |
 | **Family** | draw-and-discard |
@@ -184,6 +186,10 @@ mandatory, and you can drop out of a bad hand.
 | Edition | Year | What changed |
 |---|---|---|
 | Points, pool and deals rummy | — | The same hand rules are used in three tournament formats — points rummy (single hand for stakes), pool rummy (eliminate at 101 or 201), and deals rummy (fixed number of hands). |
+
+## When it is fair to stop
+
+A player who is clearly out of it can drop for a fixed penalty rather than play the hand out, which is a rule rather than a courtesy.
 
 ## When a piece goes missing
 

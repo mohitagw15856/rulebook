@@ -51,6 +51,32 @@ jobs:
       - run: node bin/rulebook.mjs score gin "4c 5c 6c 7c 9h 9d 9s Kh Kd Ks"
       - run: node bin/rulebook.mjs teach catan
       - run: node bin/rulebook.mjs find --players 6 --minutes 30
+      - run: node bin/rulebook.mjs find --players 5 --kids 7
+      - run: node bin/rulebook.mjs about backgammon
+      - run: node bin/rulebook.mjs night --people 6 --hours 3
+      - run: node bin/rulebook.mjs night --people 5 --hours 2 --kids 6
+      - run: node bin/rulebook.mjs hottest
+      - run: node bin/rulebook.mjs odds catan
+      - run: node bin/rulebook.mjs record
+      - run: node bin/rulebook.mjs qr uno --ruling stacking-draw-cards
+      - name: Reference cards generate for every game
+        run: |
+          for g in $(node bin/rulebook.mjs list | awk '{print $1}'); do
+            node bin/rulebook.mjs card "$g" --out "/tmp/$g.svg" >/dev/null
+          done
+          echo "generated $(ls /tmp/*.svg | wc -l) reference cards"
+      - name: The site build is offline-capable and self-contained
+        run: |
+          npm run build:site
+          test -f site/sw.js
+          test -f site/manifest.webmanifest
+          test -f site/r/uno/stacking-draw-cards/index.html
+          grep -q 'og:description' site/r/uno/stacking-draw-cards/index.html
+          # A stray external reference would break the whole offline promise.
+          if grep -rE 'src="https?://|@import url\(https?://' site/index.html site/app.js site/style.css; then
+            echo "::error::the site must not load anything from another host"
+            exit 1
+          fi
       - name: A question with no ruling on file must exit non-zero
         run: |
           if node bin/rulebook.mjs ruling uno "how do I fold a paper crane"; then

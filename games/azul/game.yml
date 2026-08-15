@@ -1,0 +1,61 @@
+name: Azul
+type: abstract
+family: tile-drafting
+players:
+  min: 2
+  max: 4
+  best: 2
+playtime_box: 45m
+playtime_actual: 40m
+teach_time: 6m
+weight: 1.8
+luck: 30
+components:
+  - One hundred tiles in five colours
+  - A player board each, with a pattern grid and a scoring wall
+  - Round factory displays and a bag
+downtime: 25s
+min_age: 8
+concession: >
+  A player who has taken heavy floor penalties two rounds running is unlikely to
+  recover, but rounds are short and the endgame bonuses are large enough that
+  conceding early is usually premature. Finish the round at minimum.
+objective: >
+  Draft tiles and place them on your wall in patterns, scoring for adjacency and
+  for completed rows, columns and colours.
+setup_by_players:
+  - players: "2"
+    setup: Five factory displays.
+    note: Widely considered the best count. The drafting becomes a precise duel where every tile you leave is a tile they take.
+  - players: "3"
+    setup: Seven factory displays.
+    note: Good, though the tile you were counting on is more likely to vanish before your turn.
+  - players: "4"
+    setup: Nine factory displays.
+    note: Playable and pretty, but planning ahead becomes considerably less reliable.
+turn_structure:
+  - Take all tiles of one colour from a single factory display, pushing the rest to the centre.
+  - Or take all tiles of one colour from the centre.
+  - Place them in one pattern line on your board; any that will not fit go to the floor and cost you points.
+  - When all tiles are gone, move one tile from each completed pattern line onto your wall and score it.
+win_condition: >
+  The game ends after the round in which any player completes a horizontal row
+  on their wall. Add bonuses for completed rows, columns and colours, then
+  compare totals.
+substitutions: >
+  The tiles are the game and cannot sensibly be improvised. Player boards are
+  printable. The bag can be any opaque container.
+accessibility: >
+  The five tile colours are distinguished partly by pattern, which helps, but
+  the blue and turquoise are close under warm light. The tiles are chunky and
+  pleasant to handle, which makes this one of the more dexterity-friendly modern
+  games. Scoring involves counting adjacency chains, which is the main
+  arithmetic demand.
+variants:
+  - name: Grey board
+    changed: >
+      The reverse of the player board removes the fixed colour positions, letting
+      you choose where each colour goes on your wall. Substantially harder.
+sources:
+  - https://en.wikipedia.org/wiki/Azul_(board_game)
+verified: null

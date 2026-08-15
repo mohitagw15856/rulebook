@@ -8,6 +8,8 @@
 | **Box says** | 60 min |
 | **Actually takes** | 75 min |
 | **Teach time** | 6 min |
+| **Between your turns** | 2 min |
+| **Works at age** | 9+ |
 | **Weight** | ●●○○○ 2.1 / 5 |
 | **Luck** | 40% chance, 60% skill |
 | **Family** | word-building |
@@ -194,6 +196,10 @@ This game has a scorer. `rulebook score scrabble "..."` works out the total for 
 | Edition | Year | What changed |
 |---|---|---|
 | Word lists | — | There is no single global dictionary. North America uses the TWL/NWL list, most other countries use Collins, and Collins is considerably larger. A word can be legal in one and not the other, which is why the list should be agreed before the first tile is placed. |
+
+## When it is fair to stop
+
+Playing on when you are 150 behind with six tiles left is a formality. Conceding is normal, but finish if anyone is chasing a personal best.
 
 ## When a piece goes missing
 

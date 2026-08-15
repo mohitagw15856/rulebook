@@ -14,6 +14,10 @@ components:
   - 8x8 board
   - 32 pieces in two colours
   - Optional clock
+downtime: 1m
+min_age: 7
+concession: >
+  Resigning is normal and, at any level of seriousness, polite. Playing on two pawns down against someone who obviously has it is a way of asking them to prove it, which is fine between friends and tiresome otherwise.
 objective: >
   Attack the opposing king so that no legal move escapes the attack.
 setup_by_players:

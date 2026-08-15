@@ -1,0 +1,47 @@
+name: 7 Wonders Duel
+type: board
+family: drafting-and-engine-building
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 40m
+teach_time: 12m
+weight: 2.8
+luck: 30
+components:
+  - Three age decks of cards laid out in structured pyramids
+  - Wonder cards, progress tokens, military track and coins
+downtime: 20s
+min_age: 10
+concession: >
+  Two of the three victory conditions end the game instantly, so a losing
+  position can evaporate in one turn. Conceding a civilian defeat on points is
+  reasonable in the third age; conceding while your opponent is two steps from a
+  military victory is simply accepting what is about to happen anyway.
+objective: >
+  Win outright by military or scientific supremacy, or accumulate the most
+  victory points across three ages.
+setup_by_players:
+  - players: "2"
+    setup: Four wonders drafted each, the age one pyramid laid out with the specified face-down rows, military marker centred.
+    note: Built exclusively for two. It is the two-player refinement of 7 Wonders rather than a cut-down version.
+turn_structure:
+  - Take any card that is not covered by another card in the pyramid.
+  - Build it by paying its cost, discard it for coins, or use it to construct one of your wonders.
+  - Reveal any cards the removal has uncovered.
+win_condition: >
+  Push the military marker into your opponent's capital for an immediate win, or
+  collect six different scientific symbols for an immediate win. Otherwise the
+  highest points after three ages takes it.
+substitutions: >
+  Nothing here is improvisable — the card costs and the pyramid structure are
+  the game. Coins can be replaced with any counters.
+accessibility: >
+  The iconography is dense and entirely symbolic, with no text on most cards.
+  The reference sheet is essential and should stay on the table permanently. The
+  pyramid layouts are specific and fiddly to build correctly each age.
+sources:
+  - https://en.wikipedia.org/wiki/7_Wonders_Duel
+verified: null

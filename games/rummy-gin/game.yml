@@ -13,6 +13,10 @@ luck: 55
 components:
   - Standard 52-card deck
   - Paper for scoring
+downtime: 35s
+min_age: 8
+concession: >
+  Stop at the end of a hand. Gin is scored across hands to a target, so agreeing a lower target mid-game is more graceful than abandoning it.
 objective: >
   Arrange your ten cards into sets and runs, then knock before your opponent
   does.

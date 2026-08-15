@@ -1,0 +1,52 @@
+name: Codenames Duet
+type: word
+family: cooperative-word-association
+players:
+  min: 2
+  max: 4
+  best: 2
+playtime_box: 15m
+playtime_actual: 25m
+teach_time: 5m
+weight: 1.5
+luck: 30
+components:
+  - Two hundred double-sided word cards
+  - A double-sided key card holder showing each player a different key
+  - Green agent cards, timer tokens and assassin cards
+downtime: 40s
+min_age: 11
+concession: >
+  A failed mission takes fifteen minutes and the campaign map lets you retry the
+  same node, so there is no reason to abandon one. If you hit the assassin, the
+  mission is simply over and you start another.
+objective: >
+  Find all fifteen agents between you, giving each other one-word clues, before
+  you run out of turns or hit the assassin.
+setup_by_players:
+  - players: "2"
+    setup: Five by five grid of words, key card in the holder so each player sees only their own side.
+    note: The count it was designed for, and one of the best cooperative games for exactly two people.
+  - players: "3-4"
+    setup: Play in two teams sharing each side of the key card, conferring on clues.
+    note: Works well and is more forgiving, though the intimacy that makes the two-player game special is diluted.
+turn_structure:
+  - Give your partner a one-word clue and a number.
+  - They guess words, and you confirm each one against your side of the key.
+  - A correct guess may be followed by another; a wrong one ends the turn.
+  - Play passes and your partner gives you a clue in return.
+win_condition: >
+  Identify all fifteen agents together before the turn tokens run out. Touching
+  the assassin on either key ends the mission in immediate failure.
+substitutions: >
+  The key card holder is essential and cannot be improvised easily, since it must
+  show each player a different pattern. The word cards can be replaced with any
+  twenty-five nouns written on paper.
+accessibility: >
+  The green and beige agent cards are close in value under low light. The game is
+  entirely language-based and assumes fluent shared vocabulary and cultural
+  reference, which makes it hard across a language gap in a way that Codenames
+  Duet's cooperative framing does at least make gentler.
+sources:
+  - https://en.wikipedia.org/wiki/Codenames_(board_game)
+verified: null

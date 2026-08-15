@@ -1,0 +1,57 @@
+name: Spades
+type: card
+family: trick-taking
+players:
+  min: 2
+  max: 6
+  best: 4
+playtime_box: 30m
+playtime_actual: 50m
+teach_time: 6m
+weight: 2.1
+luck: 40
+components:
+  - A standard 52-card deck
+  - A score sheet with a column per partnership
+downtime: 20s
+min_age: 9
+concession: >
+  Partnerships play to five hundred, and a side four hundred behind is not
+  coming back. Agreeing to stop at the end of the current hand is normal; both
+  partners should agree, since one of them may still be enjoying it.
+objective: >
+  Bid how many tricks your partnership will take, then take exactly that many.
+  Overshooting is punished almost as harshly as falling short.
+setup_by_players:
+  - players: "2"
+    setup: Each player draws from the stock in alternation, choosing to keep or discard each card unseen by the opponent, until both hold thirteen. Then bid and play individually.
+    note: A real variant rather than an afterthought, though the bidding loses the partnership tension that defines the game.
+  - players: "3"
+    setup: Remove the two of clubs so seventeen cards deal each. Everyone plays for themselves.
+    note: Cutthroat spades. Perfectly good, but a different game psychologically — nobody is covering for you.
+  - players: "4"
+    setup: Two partnerships sitting opposite each other, thirteen cards each, whole deck dealt.
+    note: The real game. Everything about the bidding maths assumes it.
+  - players: "5-6"
+    setup: Remove low cards until the deck divides evenly and play individually or in three pairs.
+    note: Workable but rarely satisfying; hands get short and bids become coin flips.
+turn_structure:
+  - Each player bids the number of tricks they expect to take, starting left of the dealer.
+  - Partnership bids are added together to form one contract.
+  - Play thirteen tricks, following suit where possible.
+  - Spades are trumps and beat any other suit.
+win_condition: >
+  First partnership to five hundred points. Making your combined bid scores ten
+  per trick bid; every extra trick is a single point that will eventually cost
+  you a hundred.
+substitutions: >
+  Nothing beyond the deck. If a card is lost, the deal no longer divides evenly
+  at four players, which the game cannot tolerate.
+accessibility: >
+  Bidding requires holding a running total across a whole hand, which is harder
+  than it sounds in a noisy room; a visible bid marker per player helps a great
+  deal. Partnership play involves reading a partner across the table, which is
+  a barrier for anyone with limited vision of the far seat.
+sources:
+  - https://www.pagat.com/auctionwhist/spades.html
+verified: null

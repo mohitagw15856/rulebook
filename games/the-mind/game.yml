@@ -1,0 +1,62 @@
+name: The Mind
+type: card
+family: cooperative
+players:
+  min: 2
+  max: 4
+  best: 3
+playtime_box: 20m
+playtime_actual: 25m
+teach_time: 90s
+weight: 1.1
+luck: 45
+components:
+  - One hundred cards numbered one to a hundred
+  - Life tokens and throwing-star tokens
+downtime: 0s
+min_age: 8
+concession: >
+  There is no opponent to concede to. If the group is losing badly, restart at
+  level one rather than abandoning — the game takes twenty minutes and the
+  attempt is the entire point.
+objective: >
+  Play every card in the group's hands in ascending order, without anyone saying
+  a single word.
+setup_by_players:
+  - players: "2"
+    setup: Twelve levels to complete. Start with two lives and one throwing star.
+    note: The quietest version and arguably the tensest, since a single misread ends the run.
+  - players: "3"
+    setup: Ten levels. Three lives, one throwing star.
+    note: The sweet spot. Enough hands for genuine uncertainty without the level count dragging.
+  - players: "4"
+    setup: Eight levels. Four lives, one throwing star.
+    note: Chaotic in a good way, though coordinating four silent people is markedly harder.
+turn_structure:
+  - Each player is dealt a number of cards equal to the current level.
+  - Without speaking, players place cards face up in the middle whenever they believe theirs is the lowest remaining.
+  - If a card is played out of order, the group loses a life and all lower cards are discarded.
+  - Complete the level and deal the next one with an extra card each.
+win_condition: >
+  Complete the final level with at least one life remaining. There is no
+  individual winner and no score beyond how far the group got.
+substitutions: >
+  A deck of a hundred numbered slips reproduces it exactly, and lives can be
+  coins. What cannot be improvised is the silence, which is the actual component.
+accessibility: >
+  The no-talking rule is absolute, which makes this one of the few games here
+  that is fully playable without any shared spoken language. It relies instead
+  on reading hesitation and body language, so it is difficult for players who
+  cannot see the whole table clearly.
+variants:
+  - name: Extreme
+    changed: >
+      The Mind Extreme adds a second ascending and descending row played
+      simultaneously. Substantially harder and a genuinely different game.
+  - name: No stars
+    changed: >
+      Play without throwing stars for a much harsher run. Common among groups who
+      have finished the standard game.
+sources:
+  - https://en.wikipedia.org/wiki/The_Mind_(card_game)
+verified: null

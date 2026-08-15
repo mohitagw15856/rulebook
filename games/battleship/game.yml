@@ -1,0 +1,55 @@
+name: Battleship
+type: abstract
+family: hidden-information-grid
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 20m
+playtime_actual: 20m
+teach_time: 90s
+weight: 1.1
+luck: 65
+components:
+  - Two grids per player, one for your fleet and one for tracking your shots
+  - Five ships per player of lengths five, four, three, three and two
+  - Pegs, or a pencil if you are playing on paper
+downtime: 10s
+min_age: 6
+concession: >
+  Once four of your five ships are sunk, conceding costs nothing and saves five
+  minutes of being shot at. Nobody has ever come back from that position.
+objective: >
+  Find and sink all five of your opponent's hidden ships before they sink yours.
+setup_by_players:
+  - players: "2"
+    setup: Each player secretly places five ships on their own ten by ten grid, horizontally or vertically, never diagonally and never overlapping.
+    note: The only count the game supports. Team play works informally with two people per side conferring.
+turn_structure:
+  - Call out a coordinate, such as B7.
+  - Your opponent answers hit or miss, and must answer honestly.
+  - Mark the result on your tracking grid.
+  - When every square of a ship has been hit, its owner must announce that it has been sunk.
+win_condition: >
+  Sink all five enemy ships. The game is entirely symmetrical, so the player who
+  shoots first has a genuine and unavoidable edge.
+substitutions: >
+  This game does not need its box at all. Two sheets of squared paper per player
+  and a pen reproduce it exactly, which is how most people first played it.
+accessibility: >
+  The plastic pegs are very small and a real dexterity barrier; the paper
+  version avoids this completely and is in no way inferior. Calling and hearing
+  coordinates accurately matters, so agree on a phonetic convention if the room
+  is loud — B and D cause most of the disputes.
+variants:
+  - name: Salvo
+    changed: >
+      You fire one shot per surviving ship each turn instead of a single shot,
+      which shortens the game dramatically and rewards early hits.
+  - name: Moving fleet
+    changed: >
+      Ships may move one square per turn instead of firing. Turns a search puzzle
+      into something closer to a chase.
+sources:
+  - https://www.hasbro.com/common/instruct/battleship.pdf
+verified: null

@@ -12,6 +12,10 @@ weight: 1.0
 luck: 88
 components:
   - Standard 52-card deck (two decks shuffled together for five or more players)
+downtime: 30s
+min_age: 5
+concession: >
+  End it whenever. There is no accumulated position to waste, and a hand can be abandoned mid-trick without anyone losing anything they built.
 objective: >
   Empty your hand before anyone else by matching the top discard by rank or suit.
 setup_by_players:

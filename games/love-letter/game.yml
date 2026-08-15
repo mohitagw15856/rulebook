@@ -1,0 +1,61 @@
+name: Love Letter
+type: card
+family: deduction-microgame
+players:
+  min: 2
+  max: 4
+  best: 4
+playtime_box: 20m
+playtime_actual: 20m
+teach_time: 3m
+weight: 1.3
+luck: 60
+components:
+  - Sixteen cards, numbered one to eight
+  - Tokens of affection, or anything else countable
+downtime: 20s
+min_age: 8
+concession: >
+  A single round takes about two minutes, so there is never a reason to leave
+  mid-round. Stop after any round; the token count carries no partial state.
+objective: >
+  Be the last player standing in a round, or hold the highest card when the deck
+  runs out.
+setup_by_players:
+  - players: "2"
+    setup: Remove three cards face up at the start of each round in addition to the one set aside face down, so both players share more information.
+    note: A genuinely different and sharper game, closer to a duel than a deduction puzzle.
+  - players: "3"
+    setup: Standard setup with one card set aside face down.
+    note: Works well. Elimination is less punishing because rounds are short.
+  - players: "4"
+    setup: Standard setup, one card removed face down and unseen.
+    note: The designed count, and the one where the Guard deduction is at its best.
+turn_structure:
+  - Draw one card, so that you hold two.
+  - Play one of the two and resolve its effect immediately.
+  - Play passes to the left.
+win_condition: >
+  Rounds are won by elimination or by holding the highest-numbered card when the
+  deck is exhausted. Winning a round earns a token, and the match runs to an
+  agreed number of tokens — usually four at two players, three at four.
+substitutions: >
+  The tokens are purely a counter and can be coins, sweets or tally marks. The
+  cards themselves are the game and cannot be improvised without a printout.
+accessibility: >
+  The card text is small and the numbers matter more than the names, so a
+  quick-reference list of the eight cards and their effects placed in the middle
+  of the table removes almost all of the memory burden. Rounds are short, which
+  suits players who find long games tiring.
+variants:
+  - name: Two-player reveal
+    changed: >
+      The official two-player rules remove three extra cards face up, which is a
+      real information change rather than a convenience.
+  - name: Play to a fixed round count
+    changed: >
+      Play exactly seven rounds and count tokens, instead of racing to a target.
+      Makes the length predictable.
+sources:
+  - https://en.wikipedia.org/wiki/Love_Letter_(card_game)
+verified: null

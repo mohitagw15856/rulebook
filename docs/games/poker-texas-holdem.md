@@ -8,6 +8,8 @@
 | **Box says** | 60 min |
 | **Actually takes** | 2 hr |
 | **Teach time** | 8 min |
+| **Between your turns** | 30 sec |
+| **Works at age** | 12+ |
 | **Weight** | ●●●○○ 2.8 / 5 |
 | **Luck** | 45% chance, 55% skill |
 | **Family** | vying |
@@ -193,6 +195,10 @@ This game has a scorer. `rulebook score poker-texas-holdem "..."` works out the 
 | Edition | Year | What changed |
 |---|---|---|
 | Tournament versus cash | — | Tournaments raise the blinds on a timer and you cannot rebuy after the late stage; cash games have fixed blinds and you can leave whenever. The rules of a hand are identical, the correct strategy is not. |
+
+## When it is fair to stop
+
+Announce your last hand before it is dealt, never after you win one. Leaving immediately after a big pot is the single rudest thing you can do at a home game.
 
 ## When a piece goes missing
 

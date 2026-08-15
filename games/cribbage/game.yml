@@ -1,0 +1,54 @@
+name: Cribbage
+type: card
+family: adding-and-melding
+players:
+  min: 2
+  max: 4
+  best: 2
+playtime_box: 30m
+playtime_actual: 30m
+teach_time: 12m
+weight: 2.2
+luck: 40
+components:
+  - A standard 52-card deck
+  - A cribbage board with pegs, which is the scoring system rather than a decoration
+downtime: 15s
+min_age: 9
+concession: >
+  The board makes the gap visible, so a player twenty holes from home against
+  an opponent still in the first street can simply be conceded to. Skunk lines
+  exist precisely so that a hopeless position has a name.
+objective: >
+  Be first to peg 121 points, scored from card combinations during play and
+  from the hands counted afterwards.
+setup_by_players:
+  - players: "2"
+    setup: Six cards each, two discarded by each player into the crib. The crib belongs to the dealer.
+    note: The count the game was designed around, and the only one where the maths of the crib works cleanly.
+  - players: "3"
+    setup: Five cards each plus one dealt straight to the crib; each player discards one.
+    note: Works well and turns the crib into a shared prize rather than a duel.
+  - players: "4"
+    setup: Five cards each in two partnerships, one discard apiece into the dealer's crib.
+    note: Partnership cribbage is a real tradition, though the pegging becomes noticeably more chaotic.
+turn_structure:
+  - Deal, then each player discards into the crib.
+  - Cut the deck to reveal the starter card.
+  - Peg — play cards alternately, adding to a running total that may not exceed thirty-one, scoring as combinations appear.
+  - Count the hands, non-dealer first, then the dealer, then the crib.
+win_condition: >
+  The first player to peg 121 wins the instant they get there, mid-count if
+  necessary. Games do end halfway through somebody's hand, and that is correct.
+substitutions: >
+  The board is only a counter. A pen and paper replaces it entirely, and a
+  missing peg can be a coin or a match. Losing the board is inconvenient, never
+  fatal.
+accessibility: >
+  Standard boards have small holes and small pegs, which is a real dexterity
+  barrier; large-format boards and continuous-track boards exist. The counting
+  is genuinely arithmetic-heavy and happens under mild time pressure, which is
+  the main cognitive load of the game.
+sources:
+  - https://www.pagat.com/adders/crib6.html
+verified: null

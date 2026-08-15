@@ -1,0 +1,89 @@
+rulings:
+  - id: patchwork-turn-order
+    question: Who takes the next turn?
+    asked_as:
+      - whose turn patchwork
+      - do we alternate turns
+      - multiple turns in a row
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Whichever player's time token is furthest back on the track, which means one
+      player may take several consecutive turns. If both tokens share a space, the
+      token physically on top takes the turn.
+    effect: >
+      Buying a cheap, low-time patch repeatedly is a legitimate way to take a
+      string of turns and strip the board of good options before your opponent
+      moves at all.
+  - id: patchwork-three-patch-limit
+    question: Can you buy any patch from the circle?
+    asked_as:
+      - which patches can I buy
+      - three patch rule
+      - choosing from the circle
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Only the three patches immediately clockwise of the neutral token. Everything
+      else in the circle is unavailable until the token has moved past it, and the
+      token only moves when somebody buys.
+  - id: patchwork-rotate-and-flip
+    question: Can patches be rotated or flipped over?
+    asked_as:
+      - rotating patches
+      - can I flip a patch
+      - patch orientation
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, freely. A patch may be turned to any of its orientations and flipped
+      over before being sewn down, provided it fits entirely on your board without
+      overlapping anything already placed.
+  - id: patchwork-empty-square-penalty
+    question: How much does an empty square cost?
+    asked_as:
+      - empty squares scoring
+      - penalty for gaps
+      - unfilled quilt
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Two points each, subtracted from your button total at the end. With
+      eighty-one squares on the board, the penalty dominates the scoring and is the
+      main reason button income alone does not win games.
+  - id: patchwork-seven-by-seven-bonus
+    question: Can both players get the seven-by-seven bonus?
+    asked_as:
+      - special tile patchwork
+      - 7x7 bonus
+      - who gets the bonus tile
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. It goes to the first player to complete a filled seven-by-seven square
+      anywhere on their quilt, and once claimed it is gone. It is worth seven
+      points and is frequently the margin in a close game.
+  - id: patchwork-advance-past-opponent
+    question: How far do you move when you take buttons instead of a patch?
+    asked_as:
+      - advancing on the time track
+      - skip ahead buttons
+      - passing your opponent
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Exactly one space beyond your opponent's token, and you collect one button
+      per space moved. You cannot choose to move further or less, so the payout
+      depends entirely on how far behind you were.

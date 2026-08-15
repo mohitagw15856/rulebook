@@ -1,0 +1,85 @@
+rulings:
+  - id: hearts-broken-to-lead
+    question: When can you lead a heart?
+    asked_as:
+      - when can I lead hearts
+      - hearts broken meaning
+      - can I start with a heart
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Only after a heart has been played on some previous trick by a player who
+      could not follow suit. Until that happens, hearts may be discarded but not
+      led. The exception is a player holding nothing but hearts, who may lead one
+      because there is no alternative.
+  - id: queen-first-trick
+    question: Can the queen of spades be played on the first trick?
+    asked_as:
+      - queen of spades first trick
+      - can I dump the queen straight away
+      - first trick point cards
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. No point card may be played on the opening trick, which means neither
+      hearts nor the queen of spades, unless a player's hand contains nothing
+      else at all.
+    effect: >
+      It stops the queen being disposed of for free before anyone has information,
+      and forces the holder to engineer a moment for her.
+  - id: shooting-the-moon-scoring
+    question: What happens when someone shoots the moon?
+    asked_as:
+      - shooting the moon rules
+      - taking all the hearts
+      - what if I get every heart
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      They must take all thirteen hearts and the queen of spades — every point
+      in the hand, with nothing missed. They then score zero and everybody else
+      takes twenty-six.
+    house_rule: >
+      A widespread option lets the shooter choose instead to subtract twenty-six
+      from their own score, which matters when the other players are already near
+      the losing threshold.
+    effect: >
+      Allowing the choice makes shooting substantially stronger late in a game and
+      changes how aggressively the table blocks it.
+  - id: hearts-passing-before-looking
+    question: Do you look at the cards passed to you before choosing what to pass?
+    asked_as:
+      - passing order hearts
+      - do I see the passed cards first
+      - when do I pick up the pass
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Everyone selects and passes simultaneously, and only then picks up what
+      arrived. Looking first would remove the entire risk of the pass.
+  - id: hearts-jack-of-diamonds
+    question: Is the jack of diamonds worth minus ten?
+    asked_as:
+      - jack of diamonds hearts
+      - minus ten card
+      - is there a good card in hearts
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [North America]
+    verdict: >
+      Not in the standard game, where diamonds are worth nothing at all.
+    house_rule: >
+      A common addition makes the jack of diamonds worth minus ten to whoever
+      takes it, sometimes called Omnibus Hearts.
+    effect: >
+      It gives players a reason to want a trick, which softens a game whose whole
+      texture is avoidance. Purists find it dilutes the point.

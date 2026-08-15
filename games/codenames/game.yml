@@ -15,6 +15,10 @@ components:
   - 40 agent cards in two colours, plus bystanders and one assassin
   - Key cards showing the layout
   - Timer, optional
+downtime: 90s
+min_age: 10
+concession: >
+  Rounds are short enough that finishing is easier than quitting. If the room has lost interest, play the current round out and stop there.
 objective: >
   Guide your team to identify all of your agents from a grid of words, using
   one-word clues, without hitting the assassin.

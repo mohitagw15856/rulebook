@@ -1,0 +1,86 @@
+rulings:
+  - id: jaipur-camels-not-in-hand
+    question: Do camels count towards your hand limit?
+    asked_as:
+      - camel hand limit
+      - do camels count as cards
+      - seven card limit jaipur
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Camels sit face up in your herd, separate from your hand, and are
+      exempt from the seven-card limit entirely. Taking every camel in the market
+      never costs you hand space.
+  - id: jaipur-must-take-all-camels
+    question: Can you take just some of the camels?
+    asked_as:
+      - taking camels
+      - some camels only
+      - partial camel take
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Taking camels means taking every camel currently in the market, and the
+      market is then refilled from the deck. Leaving one behind is not an option.
+    effect: >
+      This makes camels a timing decision — taking them refills the market for
+      your opponent, which is sometimes exactly what you do not want.
+  - id: jaipur-expensive-goods-minimum
+    question: Can you sell a single diamond?
+    asked_as:
+      - selling one diamond
+      - minimum sale jaipur
+      - gold silver selling rules
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Diamonds, gold and silver must be sold two or more at a time. Cheap
+      goods — cloth, spice and leather — may be sold one at a time. A player
+      holding a single diamond and nothing else is genuinely stuck with it.
+  - id: jaipur-swap-includes-camels
+    question: Can you use camels in a swap?
+    asked_as:
+      - swapping with camels
+      - trade camels for goods
+      - exchange rules jaipur
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, and it is the main reason to collect them. A swap exchanges cards from
+      your hand and herd combined for the same number from the market, so a large
+      herd lets you take several valuable goods in one action.
+  - id: jaipur-round-end-three-stacks
+    question: What ends a round?
+    asked_as:
+      - when does a jaipur round end
+      - three empty stacks
+      - deck runs out
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Three goods token stacks running empty, or the deck being unable to refill
+      the market. It ends immediately at that point, so deliberately emptying a
+      third stack while ahead is a legitimate way to close out a round.
+  - id: jaipur-camel-bonus-tie
+    question: Who gets the camel bonus if both players have the same number?
+    asked_as:
+      - camel bonus tie
+      - equal camels
+      - five point camel token
+    kind: clarification
+    official: true
+    prevalence: rare
+    regions: [global]
+    verdict: >
+      Nobody. The five-point camel token is awarded only to the player with
+      strictly more camels, and a tie means it goes unclaimed for that round.

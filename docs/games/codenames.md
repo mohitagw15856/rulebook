@@ -8,6 +8,8 @@
 | **Box says** | 15 min |
 | **Actually takes** | 25 min |
 | **Teach time** | 4 min |
+| **Between your turns** | 90 sec |
+| **Works at age** | 10+ |
 | **Weight** | ●○○○○ 1.3 / 5 |
 | **Luck** | 25% chance, 75% skill |
 | **Family** | word-association |
@@ -173,6 +175,10 @@ it is the only thing this game reliably produces an argument about.
 | Edition | Year | What changed |
 |---|---|---|
 | Codenames Duet | — | A fully cooperative two-player version with a different key card and a shared turn limit, rather than an adaptation of the competitive rules. |
+
+## When it is fair to stop
+
+Rounds are short enough that finishing is easier than quitting. If the room has lost interest, play the current round out and stop there.
 
 ## When a piece goes missing
 

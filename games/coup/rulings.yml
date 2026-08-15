@@ -1,0 +1,91 @@
+rulings:
+  - id: coup-ten-coin-forced
+    question: Do you have to coup when you have ten coins?
+    asked_as:
+      - ten coins rule
+      - forced coup
+      - must I coup at 10
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. Beginning your turn with ten or more coins forces you to launch a coup
+      as your action. You may not take income, use a character, or hold the coins
+      back. It is the rule that guarantees the game ends.
+  - id: coup-successful-challenge-redraw
+    question: What happens when you are challenged and you really had the card?
+    asked_as:
+      - challenged and I had it
+      - do I keep the card
+      - redraw after challenge
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      You reveal it, the challenger loses a card, and then you shuffle your
+      revealed card back into the deck and draw a replacement. You do not keep the
+      revealed card, which means the table's new information about you is
+      immediately worthless.
+    effect: >
+      Being challenged correctly is a strong outcome, and beginners routinely
+      avoid honest claims because they do not realise the card is replaced.
+  - id: coup-challenge-a-block
+    question: Can you challenge someone who blocks you?
+    asked_as:
+      - challenging a block
+      - can I call out a contessa
+      - block challenge coup
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. A block is itself a character claim and is challengeable on exactly the
+      same terms. Claiming a Contessa you do not hold to survive an assassination
+      is one of the most common bluffs in the game, and calling it is often
+      correct.
+  - id: coup-assassin-both-lose
+    question: If your assassination is challenged and fails, do you get the coins back?
+    asked_as:
+      - failed assassination coins
+      - assassin challenged
+      - do I lose the three coins
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. The three coins are spent when you declare the assassination and are not
+      refunded, whether you are challenged successfully, blocked, or anything else.
+      A failed assassin bluff therefore costs you a card and three coins together.
+  - id: coup-assassinated-while-losing-last-card
+    question: If an assassination succeeds against a player with one card, and they challenge and lose, do they lose two?
+    asked_as:
+      - double loss coup
+      - assassinate last card challenge
+      - lose two influence at once
+    kind: clarification
+    official: true
+    prevalence: rare
+    regions: [global]
+    verdict: >
+      A player with a single card who challenges and loses is eliminated by that
+      alone, and the assassination becomes irrelevant. You cannot lose more
+      influence than you hold, so there is no double penalty — only a faster exit.
+  - id: coup-cards-revealed-stay-visible
+    question: When you lose a card, do you choose which one and does everyone see it?
+    asked_as:
+      - which card do I lose
+      - are lost cards face up
+      - do I pick what to reveal
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      You choose which of your cards to reveal, and it stays face up for the rest
+      of the game where everyone can see it. That public information is
+      significant — the table now knows one character you definitely cannot claim
+      honestly, and one more copy of it that is out of the deck.

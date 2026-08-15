@@ -1,0 +1,95 @@
+rulings:
+  - id: backgammon-must-use-both-dice
+    question: Do you have to play both dice if the move is bad for you?
+    asked_as:
+      - do I have to use both numbers
+      - can I skip a die
+      - forced moves backgammon
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. If any legal sequence uses both numbers, you must play one of them.
+      Where only one number can be played, you are required to play the higher.
+      Preferring not to move is never a reason to leave a die unused.
+    effect: >
+      Being forced to break a strong position is a genuine part of the game and
+      one of the main sources of pressure in the bear-in.
+  - id: backgammon-doubling-cube-ownership
+    question: Who can double after a double has been accepted?
+    asked_as:
+      - doubling cube rules
+      - can I redouble
+      - who owns the cube
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Only the player who accepted. Taking a double gives you sole ownership of
+      the cube, and your opponent cannot double again until you have used it. This
+      is what stops a stronger player simply doubling every turn.
+  - id: backgammon-bar-before-anything
+    question: Can you move other checkers while one is on the bar?
+    asked_as:
+      - checker on the bar
+      - can I move if I am hit
+      - bar rules backgammon
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Every checker on the bar must re-enter your opponent's home board before
+      you may move anything else. If you cannot enter, your entire turn is
+      forfeited, and against a well-made board that can happen many turns running.
+  - id: backgammon-beavers
+    question: Can you immediately redouble when offered a double?
+    asked_as:
+      - beaver rule
+      - raccoon backgammon
+      - instant redouble
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Not in the standard rules. Accepting a double gives you the cube, but you
+      cannot use it until your own turn.
+    house_rule: >
+      Under the beaver rule, a player who believes the double was a mistake may
+      accept and immediately redouble while keeping ownership of the cube. Money
+      play uses it often; match play essentially never does.
+    effect: >
+      It punishes bad doubles severely and makes players considerably more
+      cautious about offering the cube at all.
+  - id: backgammon-bear-off-higher-roll
+    question: What happens if you roll higher than any checker you have left?
+    asked_as:
+      - bearing off high roll
+      - roll bigger than my highest point
+      - bear off exact number
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      You bear off a checker from your highest occupied point. This only applies
+      when no point higher than the number rolled is occupied — otherwise you must
+      make a legal move within the home board instead.
+  - id: backgammon-gammon-scoring
+    question: When does a win count double or triple?
+    asked_as:
+      - gammon meaning
+      - backgammon triple
+      - what is a gammon
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      A gammon doubles the stake and happens when the loser has borne off no
+      checkers at all. A backgammon triples it, and requires the loser to still
+      have a checker on the bar or inside the winner's home board. Both are
+      multiplied by whatever the doubling cube stands at.

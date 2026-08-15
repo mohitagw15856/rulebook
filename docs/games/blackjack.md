@@ -8,6 +8,8 @@
 | **Box says** | 20 min |
 | **Actually takes** | 30 min |
 | **Teach time** | 4 min |
+| **Between your turns** | 45 sec |
+| **Works at age** | 8+ |
 | **Weight** | ●●○○○ 1.8 / 5 |
 | **Luck** | 70% chance, 30% skill |
 | **Family** | banking |
@@ -124,7 +126,7 @@ Not a standard casino rule and absent from most tables.
 
 *What it changes:* Shifts the odds noticeably toward the player and rewards hitting on totals you would normally stand on.
 
-*Played mostly in:* United Kingdom, Australia, home games
+*Played mostly in:* United Kingdom, Australia
 
 ```console
 $ rulebook ruling blackjack "five card charlie"
@@ -165,6 +167,10 @@ than they lose, so a fixed dealer turns a game into an arithmetic demonstration.
 | Edition | Year | What changed |
 |---|---|---|
 | Six-to-five payouts | — | Many modern casino tables pay 6:5 on blackjack rather than the traditional 3:2, which roughly triples the house edge. It is the single most important number on the table. |
+
+## When it is fair to stop
+
+Anyone may leave between hands. That is the whole appeal — the game has no arc to interrupt, so walking away after a round costs nobody anything.
 
 ## When a piece goes missing
 

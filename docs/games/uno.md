@@ -8,6 +8,8 @@
 | **Box says** | 30 min |
 | **Actually takes** | 45 min |
 | **Teach time** | 3 min |
+| **Between your turns** | 25 sec |
+| **Works at age** | 6+ |
 | **Weight** | ●○○○○ 1.2 / 5 |
 | **Luck** | 85% chance, 15% skill |
 | **Family** | shedding |
@@ -233,6 +235,10 @@ This game has a scorer. `rulebook score uno "..."` works out the total for you.
 | Edition | Year | What changed |
 |---|---|---|
 | Mattel rule clarification | 2019 | Mattel publicly confirmed that Draw Two and Draw Four cards cannot be stacked, which surprised most of the internet. |
+
+## When it is fair to stop
+
+Rounds are short and scores carry, so lower the target rather than stopping. Ending mid-round wastes the one hand somebody had actually engineered.
 
 ## When a piece goes missing
 

@@ -1,0 +1,48 @@
+name: Patchwork
+type: board
+family: spatial-puzzle
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 30m
+teach_time: 5m
+weight: 1.6
+luck: 20
+components:
+  - Thirty-three fabric patches of varying shapes
+  - A time board and two time tokens
+  - Two nine-by-nine quilt boards and a supply of buttons
+downtime: 20s
+min_age: 8
+concession: >
+  Both players can see the whole board state, so a hopeless quilt is visible to
+  everyone. That said, the game is half an hour and the second half is the
+  interesting part, so finishing is usually worth it.
+objective: >
+  Fill your quilt board with patches while keeping ahead on buttons, and avoid
+  leaving empty squares.
+setup_by_players:
+  - players: "2"
+    setup: Lay the patches in a circle with the neutral token before the smallest. Both players start with five buttons and an empty nine-by-nine board.
+    note: Strictly two-player. There is an official solo variant against an automated opponent.
+turn_structure:
+  - The player furthest back on the time board takes a turn, which means one player can take several in a row.
+  - Buy one of the three patches clockwise of the token and sew it onto your quilt, paying buttons and advancing your time token.
+  - Or advance past your opponent on the time board and collect one button per space moved.
+win_condition: >
+  When both time tokens reach the end, score your buttons and subtract two for
+  every empty square on your quilt. Highest total wins, with the seven-by-seven
+  bonus tile worth seven if you claimed it.
+substitutions: >
+  The patches are the puzzle and cannot be improvised. Buttons can be any counter.
+  The time board is easily drawn on paper.
+accessibility: >
+  The patches are small cardboard polyominoes and manipulating them into tight
+  spaces is a real dexterity demand. The quilt boards are visually clear and the
+  colour distinctions are not load-bearing, which helps. Spatial reasoning is the
+  entire game, so it is a poor fit for anyone who finds that unenjoyable.
+sources:
+  - https://en.wikipedia.org/wiki/Patchwork_(board_game)
+verified: null

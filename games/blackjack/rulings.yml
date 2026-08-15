@@ -65,7 +65,7 @@ rulings:
     kind: house-rule
     official: false
     prevalence: regional
-    regions: [United Kingdom, Australia, home games]
+    regions: [United Kingdom, Australia]
     verdict: >
       Not a standard casino rule and absent from most tables.
     house_rule: >

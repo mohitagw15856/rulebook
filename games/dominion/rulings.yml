@@ -1,0 +1,89 @@
+rulings:
+  - id: dominion-bought-cards-to-discard
+    question: Where does a card you buy go?
+    asked_as:
+      - do bought cards go to my hand
+      - where do purchases go
+      - buying a card dominion
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Onto your discard pile, never into your hand or your draw pile. You will not
+      see it again until your discards are shuffled back, which is exactly why
+      deck size matters so much.
+  - id: dominion-one-action-one-buy
+    question: How many actions and buys do you get?
+    asked_as:
+      - how many actions per turn
+      - multiple buys dominion
+      - can I play two actions
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Exactly one action and one buy per turn, unless a card you play grants more.
+      Treasures are not actions and you may play as many as you like during your
+      buy phase without spending anything.
+  - id: dominion-three-pile-ending
+    question: Which empty piles end the game?
+    asked_as:
+      - three piles empty
+      - how does dominion end
+      - game end condition
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Any three supply piles at two or three players, or any four at four players
+      — including kingdom piles, Curses, and even Coppers. The Province pile
+      emptying ends it on its own regardless of player count.
+    effect: >
+      Deliberately emptying three cheap piles while ahead is a legitimate and
+      frequently decisive strategy that beginners never see coming.
+  - id: dominion-moat-reveal
+    question: Do you have to reveal a Moat to be protected from an attack?
+    asked_as:
+      - moat protection
+      - do I show my reaction card
+      - blocking attacks dominion
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. A Moat only protects you if you reveal it from your hand when the
+      attack is played. Holding it silently does nothing, and there is no
+      retrospective protection once the attack has resolved.
+  - id: dominion-shuffle-timing
+    question: When exactly do you shuffle your discard pile?
+    asked_as:
+      - when do I reshuffle
+      - draw pile empty
+      - shuffle timing dominion
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Only when you need to draw a card and the draw pile is empty. Draw what
+      remains first, then shuffle the discards and continue drawing. Shuffling
+      early, before you need to, changes what you draw and is a genuine error
+      rather than a shortcut.
+  - id: dominion-tie-breaker-turns
+    question: Who wins if two players tie on victory points?
+    asked_as:
+      - dominion tie
+      - equal points
+      - tiebreaker rules
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The player who has taken fewer turns. If they have taken the same number,
+      the game is a genuine tie and both players share the win. This makes the
+      turn order at the end of a close province race quietly important.

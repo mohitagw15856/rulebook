@@ -1,0 +1,65 @@
+name: Coup
+type: card
+family: bluffing-and-elimination
+players:
+  min: 2
+  max: 6
+  best: 5
+playtime_box: 15m
+playtime_actual: 25m
+teach_time: 6m
+weight: 1.7
+luck: 35
+components:
+  - Fifteen character cards, three each of five characters
+  - Coins from a shared treasury
+  - A reference card per player, which every table needs
+downtime: 30s
+min_age: 12
+concession: >
+  Eliminated players are out for the whole game rather than the round, so a
+  short game is a real risk. Playing best of three is the usual fix, and anyone
+  knocked out in the first two minutes should be offered the next deal quickly.
+objective: >
+  Be the last player with any influence remaining, by bluffing about which
+  characters you hold and calling other players' bluffs.
+setup_by_players:
+  - players: "2"
+    setup: Standard deal of two cards each. The official variant gives the starting player one coin instead of two.
+    note: Sharp and fast, but with only one opponent the bluffing becomes a duel of nerve rather than a table read.
+  - players: "3-4"
+    setup: Two cards and two coins each.
+    note: Good. Games run about fifteen minutes and elimination stings less.
+  - players: "5-6"
+    setup: Two cards and two coins each. Consider adding the Inquisitor variant deck if you own it.
+    note: The best range. More players means more possible bluffs and a genuinely uncertain table.
+turn_structure:
+  - Take exactly one action, which may be a general action or a character action.
+  - Any player may challenge a character action by claiming you do not hold that character.
+  - Some actions may instead be blocked by a player claiming a specific counter-character.
+  - Resolve challenges first, then blocks, then the action itself.
+win_condition: >
+  Every other player has lost both cards. Losing a card is permanent, and losing
+  both eliminates you from the game entirely.
+substitutions: >
+  Coins are trivially replaced by anything countable. The character cards are
+  the game. Reference cards are the component people lose first and miss most —
+  writing the five characters and their actions on paper solves it.
+accessibility: >
+  Coup demands holding five characters, their actions and their counters in mind
+  simultaneously, which is a real barrier without the reference card in front of
+  every player. It is also a game about lying to friends, which some players
+  find genuinely uncomfortable rather than fun.
+variants:
+  - name: Inquisitor
+    changed: >
+      Replaces the Ambassador with the Inquisitor, who exchanges one card instead
+      of two and can force a player to reveal a card privately. From the Reformation
+      expansion.
+  - name: Two-player opening
+    changed: >
+      The official two-player rule starts the first player with one coin rather
+      than two, offsetting the first-move advantage.
+sources:
+  - https://en.wikipedia.org/wiki/Coup_(card_game)
+verified: null

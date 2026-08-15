@@ -1,0 +1,91 @@
+rulings:
+  - id: ttr-face-up-locomotive
+    question: Does taking a face-up locomotive cost your whole turn?
+    asked_as:
+      - locomotive draw rules
+      - can I take a locomotive and another card
+      - wild card ticket to ride
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. Taking a locomotive from the five face-up cards uses both of your
+      draws. A locomotive drawn blind from the top of the deck does not — it
+      counts as one ordinary card, and you may still draw a second.
+    effect: >
+      It is the single most commonly misplayed rule in the game, and playing it
+      wrong makes locomotives far too easy to accumulate.
+  - id: ttr-incomplete-tickets-subtract
+    question: Do unfinished tickets cost you points?
+    asked_as:
+      - failed ticket penalty
+      - incomplete destination tickets
+      - do I lose points for tickets
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes, the full face value. A ticket is a two-way bet rather than a bonus, so
+      failing a twenty-point ticket is a forty-point swing against the player who
+      completed a similar one.
+  - id: ttr-double-routes-player-count
+    question: Can one player claim both tracks of a double route?
+    asked_as:
+      - double routes rules
+      - can I take both grey routes
+      - two and three player double routes
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No player may ever claim both tracks of the same double route. In addition,
+      with two or three players on the original US map, only one track of each
+      double route may be used at all — the second is closed for the whole game.
+    effect: >
+      Groups that ignore the player-count restriction find two-player games have
+      almost no tension, since nothing can ever be blocked.
+  - id: ttr-longest-route-tie
+    question: What happens if two players tie for the longest route?
+    asked_as:
+      - longest route tie
+      - who gets the ten points
+      - longest path tied
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Every tied player receives the full ten points. It is not split and it is
+      not decided by a tiebreaker.
+  - id: ttr-longest-route-branching
+    question: Does the longest route count branches?
+    asked_as:
+      - how is longest route measured
+      - can my longest path fork
+      - counting longest route
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. It is the longest single continuous path of trains, traced without
+      reusing any segment and without branching. A sprawling network can easily
+      lose to a shorter but straighter one, so trace it carefully rather than
+      counting your total trains.
+  - id: ttr-hidden-ticket-count
+    question: Can other players see how many tickets you are holding?
+    asked_as:
+      - are ticket counts public
+      - can I ask how many tickets
+      - hidden information ticket to ride
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The number of tickets you hold is public and may be counted by anyone, since
+      they are held openly in hand. Their contents are secret. The same applies to
+      train cards — the count is visible, the colours are not.

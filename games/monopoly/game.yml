@@ -14,6 +14,10 @@ components:
   - Board, 2 dice, tokens
   - 28 title deed cards, 16 Chance and 16 Community Chest cards
   - 32 houses and 12 hotels, play money
+downtime: 4m
+min_age: 10
+concession: >
+  Agree a finish time before you start, and when it arrives, count cash plus property value and declare a winner. Almost nobody plays to the bankruptcy of every opponent, and pretending otherwise is how the game got its reputation.
 objective: >
   Bankrupt everyone else by acquiring property and charging rent.
 setup_by_players:

@@ -9,6 +9,8 @@
 <meta property="og:description" content="Somebody just played a Draw Four and the table has stopped. One of them is right, and it is not who you think.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🃏</text></svg>">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#06070b">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +31,9 @@
     <a href="#settle">Settle</a>
     <a href="#fake">Fake rules</a>
     <a href="#games">Games</a>
+    <a href="#world">World</a>
     <a href="#score">Score</a>
+    <a href="#keep">Scorepad</a>
     <a href="#install">Install</a>
   </div>
   <a class="btn sm" href="https://github.com/mohitagw15856/rulebook">GitHub ↗</a>
@@ -157,9 +161,23 @@
 </section>
 
 <!-- ---------------------------------------------------------------- -->
+<section id="world" class="reveal">
+  <div class="head">
+    <span class="tag">04 — not everyone plays it your way</span>
+    <h2>The same game,<br><em>played differently</em></h2>
+    <p class="lede">
+      Some of these rules are standard in one country and unheard of in the next.
+      If you have ever played with someone from elsewhere and both been certain,
+      this is usually why.
+    </p>
+  </div>
+  <div id="regions" class="regions"></div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
 <section id="score" class="reveal">
   <div class="head">
-    <span class="tag">04 — no arithmetic arguments</span>
+    <span class="tag">05 — no arithmetic arguments</span>
     <h2>Scoring, settled</h2>
     <p class="lede">
       The <em>same</em> engines the command line uses, imported straight from the
@@ -180,9 +198,32 @@
 </section>
 
 <!-- ---------------------------------------------------------------- -->
+<section id="keep" class="reveal">
+  <div class="head">
+    <span class="tag">06 — the back of an envelope, but better</span>
+    <h2>Keep score</h2>
+    <p class="lede">
+      Round-by-round scoring for whatever you are playing. Saved on your device,
+      survives a refresh, and works with no signal at all.
+    </p>
+  </div>
+
+  <div class="panel">
+    <div class="pad-top">
+      <input id="pad-name" placeholder="Add a player…" autocomplete="off" aria-label="Player name">
+      <button id="pad-add" class="btn">Add</button>
+      <button id="pad-round" class="btn primary">Next round</button>
+      <button id="pad-clear" class="btn sm">Clear</button>
+    </div>
+    <div class="pad-wrap"><table id="pad" class="pad"></table></div>
+    <p id="pad-empty" class="empty">Add a couple of players to start a scorepad.</p>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
 <section id="install" class="reveal">
   <div class="head">
-    <span class="tag">05 — at the table</span>
+    <span class="tag">07 — at the table</span>
     <h2>The wifi will not hold</h2>
     <p class="lede">
       The whole registry ships inside the package. No network calls, ever —
@@ -198,6 +239,7 @@
     <div class="installs">
       <div class="cmd"><code id="c1">npx @mohitagw15856/rulebook uno "stacking"</code><button class="copy" data-t="c1">copy</button></div>
       <div class="cmd"><code id="c2">npm i -g @mohitagw15856/rulebook</code><button class="copy" data-t="c2">copy</button></div>
+      <div id="offline-state" class="offline">Checking offline support…</div>
       <ul class="feats">
         <li><b>0</b> dependencies</li>
         <li><b>0</b> network calls</li>

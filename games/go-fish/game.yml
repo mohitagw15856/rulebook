@@ -12,6 +12,10 @@ weight: 1.0
 luck: 80
 components:
   - Standard 52-card deck
+downtime: 40s
+min_age: 4
+concession: >
+  Stop the moment the youngest player stops enjoying it. Nothing is lost, and a game abandoned happily is better than one finished grimly.
 objective: >
   Collect more complete sets of four matching ranks than anyone else.
 setup_by_players:

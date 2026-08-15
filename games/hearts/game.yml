@@ -1,0 +1,56 @@
+name: Hearts
+type: card
+family: trick-taking
+players:
+  min: 3
+  max: 6
+  best: 4
+playtime_box: 45m
+playtime_actual: 60m
+teach_time: 5m
+weight: 2
+luck: 45
+components:
+  - A standard 52-card deck
+  - Paper for scoring, which this game genuinely needs
+downtime: 20s
+min_age: 8
+concession: >
+  Hearts is played to a target score, so the graceful exit is to lower the
+  target rather than abandon the sheet. A player sitting on ninety points is
+  one bad hand from ending it anyway.
+objective: >
+  Avoid taking tricks containing hearts or the queen of spades — unless you
+  decide to take every single one of them, which flips the whole game.
+setup_by_players:
+  - players: "3"
+    setup: Remove the two of diamonds so 51 cards deal evenly, seventeen each.
+    note: Three-handed hearts is loose and shooting the moon becomes noticeably easier.
+  - players: "4"
+    setup: Deal the whole deck, thirteen cards each. Pass three cards left, then right, then across, then not at all, repeating on that cycle.
+    note: The designed count. The passing cycle is what makes the game a game rather than a lottery.
+  - players: "5"
+    setup: Remove the two of diamonds and the two of clubs, ten cards each.
+    note: With five, the queen of spades moves around far less predictably.
+  - players: "6"
+    setup: Remove both black twos and both red twos, eight cards each.
+    note: Hands are short enough that a single mistake decides the round.
+turn_structure:
+  - Pass three cards to the direction this hand calls for, before looking at what you have been passed.
+  - The holder of the two of clubs leads it.
+  - Follow suit if you can; otherwise play anything, subject to the restriction on hearts.
+  - Highest card of the led suit takes the trick and leads the next.
+win_condition: >
+  Play until somebody reaches the agreed target, usually a hundred points. The
+  player with the lowest score at that moment wins, which means the winner is
+  whoever avoided the most damage rather than whoever collected anything.
+substitutions: >
+  Nothing to lose beyond the deck itself. A missing card means a missing card,
+  and the hand cannot be dealt evenly, so retire the deck.
+accessibility: >
+  Scoring is arithmetic-heavy and runs across many hands, so a calculator or a
+  phone is genuinely useful. Distinguishing the queen of spades from the jack
+  at a glance matters more here than in most games; large-index decks help.
+sources:
+  - https://www.pagat.com/reverse/hearts.html
+verified: null

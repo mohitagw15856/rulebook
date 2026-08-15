@@ -1,0 +1,56 @@
+name: Hive
+type: abstract
+family: tile-placement-abstract
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 20m
+playtime_actual: 25m
+teach_time: 4m
+weight: 2.5
+luck: 0
+components:
+  - Twenty-two hexagonal tiles, eleven per player
+  - No board at all
+downtime: 30s
+min_age: 8
+concession: >
+  Resigning a lost position is normal, as in any abstract with no hidden
+  information. Both players can usually see the surround coming three moves out,
+  and playing it through teaches the loser nothing they have not already grasped.
+objective: >
+  Completely surround your opponent's queen bee with tiles of any colour.
+setup_by_players:
+  - players: "2"
+    setup: Each player takes eleven tiles — one queen, two spiders, two beetles, three grasshoppers and three ants. The first tile is placed anywhere.
+    note: Hive is strictly two-player. There is no sensible extension, and the tension comes from perfect information between exactly two people.
+turn_structure:
+  - Place a new tile from your supply, or move a tile already in the hive.
+  - New tiles must touch your own colour and may not touch your opponent's.
+  - The hive must remain fully connected at all times, before and after your move.
+win_condition: >
+  Surround the enemy queen on all six sides. Tiles of either colour count, so
+  your own pieces can trap your own queen. If both queens are surrounded at once,
+  the game is a draw.
+substitutions: >
+  Nothing to lose but tiles, and a lost tile changes the game rather than
+  stopping it. The tiles are chunky bakelite and famously durable; the pocket
+  edition is smaller and lighter.
+accessibility: >
+  There is no board, which means the play area drifts and can spread further than
+  expected — a large flat surface matters more than it sounds. The tiles are
+  substantial and easy to grip, and the two colours are strongly contrasted. The
+  insect symbols are embossed as well as printed, which helps considerably.
+variants:
+  - name: Expansion pieces
+    changed: >
+      The mosquito, ladybug and pillbug each add one tile per player with a new
+      movement rule. The pillbug in particular changes the balance significantly.
+  - name: Tournament rule
+    changed: >
+      Neither player may open with the queen bee, which removes a known strong
+      opening and is standard in competitive play.
+sources:
+  - https://www.gen42.com/games/hive
+verified: null
