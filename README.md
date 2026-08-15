@@ -281,4 +281,5 @@ have played them their whole lives without knowing that.
 | Of those, not official rules | 15 |
 | Not official, yet played nearly everywhere | 6 |
 | Games with a runnable scorer | 5 |
-| Total minutes the boxes are lying by | 30 |
+| Minutes the boxes are collectively lying by | 325 |
+| Worst offender | Monopoly, over by 120 min |

@@ -7,7 +7,7 @@
 
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { load, validate, fmtDuration, TYPES, PREVALENCE } from '../lib/registry.mjs';
+import { load, validate, fmtDuration, minutes, TYPES, PREVALENCE } from '../lib/registry.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const games = load();
@@ -206,12 +206,13 @@ out.push(`| Rulings | ${allRulings.length} |`);
 out.push(`| Of those, not official rules | ${houseRules.length} |`);
 out.push(`| Not official, yet played nearly everywhere | ${universal.length} |`);
 out.push(`| Games with a runnable scorer | ${games.filter((g) => g.hasScore).length} |`);
-out.push(
-  `| Total minutes the boxes are lying by | ${games.reduce(
-    (a, g) => a + (parseInt(fmtDuration(g.playtime_actual)) - parseInt(fmtDuration(g.playtime_box))),
-    0
-  )} |`
-);
+// Compare in minutes, not in whatever unit each game happens to be written in.
+const overrun = games.reduce((a, g) => a + (minutes(g.playtime_actual) - minutes(g.playtime_box)), 0);
+const worst = games
+  .map((g) => ({ g, over: minutes(g.playtime_actual) - minutes(g.playtime_box) }))
+  .sort((a, b) => b.over - a.over)[0];
+out.push(`| Minutes the boxes are collectively lying by | ${Math.round(overrun)} |`);
+out.push(`| Worst offender | ${worst.g.name}, over by ${Math.round(worst.over)} min |`);
 out.push('');
 
 const generated = out.join('\n');
