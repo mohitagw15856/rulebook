@@ -222,7 +222,7 @@ function contributors() {
       if (!name || /\[bot\]|noreply@/.test(email || '')) continue;
       seen.set(name, (seen.get(name) || 0) + 1);
     }
-    return [...seen.entries()].sort((a, b) => b[1] - a[1]);
+    return [...seen.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   } catch {
     return []; // a tarball with no git history is a perfectly valid checkout
   }
@@ -232,11 +232,9 @@ const people = contributors();
 if (people.length) {
   out.push('## Who has settled an argument here');
   out.push('');
-  out.push(
-    people
-      .map(([name, n]) => `**${name}** ${n > 1 ? `<sub>${n}</sub>` : ''}`)
-      .join(' · ')
-  );
+  // Names only, never commit counts. A number that changes with every commit
+  // would make this generated file permanently stale against its own CI check.
+  out.push(people.map(([name]) => `**${name}**`).join(' · '));
   out.push('');
   out.push(
     `${allRulings.length} rulings on file. ` +

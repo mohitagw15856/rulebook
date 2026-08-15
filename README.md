@@ -491,7 +491,7 @@ have played them their whole lives without knowing that.
 
 ## Who has settled an argument here
 
-**Mohit** <sub>6</sub>
+**Mohit**
 
 196 rulings on file. [Add the one your table argues about](https://github.com/mohitagw15856/rulebook/issues/new?template=good-first-ruling.yml) — it is one entry, no code, and no build step.
 
