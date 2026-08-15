@@ -1,0 +1,53 @@
+name: Indian Rummy
+type: card
+family: draw-and-discard
+players:
+  min: 2
+  max: 6
+  best: 4
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 6m
+weight: 2.3
+luck: 60
+components:
+  - Two standard decks including jokers, for up to four players
+  - A third deck for five or six players
+objective: >
+  Arrange all thirteen cards into valid sets and runs, including at least two
+  runs of which one contains no joker.
+setup_by_players:
+  - players: "2"
+    setup: Two decks with jokers. Deal 13 each.
+  - players: "3-4"
+    setup: Two decks with jokers. Deal 13 each. Turn one card face up as the wild joker for the hand.
+    note: Four-handed with two decks is the standard game.
+  - players: "5-6"
+    setup: Three decks with jokers. Deal 13 each.
+    note: Two decks do not contain enough cards for six players at thirteen apiece plus a workable stock.
+turn_structure:
+  - Draw from the closed stock or take the top of the open discard pile.
+  - Arrange cards into sets and sequences.
+  - Discard one card face up to end the turn.
+  - Declare when all thirteen cards are melded and the requirements are met.
+win_condition: >
+  Declare a valid hand of thirteen melded cards containing at least two
+  sequences, one of which must be pure — no joker in it. Opponents score
+  penalty points for their unmelded cards.
+editions:
+  - name: Points, pool and deals rummy
+    changed: >
+      The same hand rules are used in three tournament formats — points rummy
+      (single hand for stakes), pool rummy (eliminate at 101 or 201), and deals
+      rummy (fixed number of hands).
+substitutions: >
+  Two ordinary decks with their jokers are all that is required. If the printed
+  jokers are missing, nominate a rank — commonly twos — as permanent wild cards
+  and say so before dealing.
+accessibility: >
+  Thirteen cards is a wide fan and the main physical barrier; a card holder is
+  genuinely useful. Runs depend on suit, so a four-colour deck helps players
+  with limited colour vision.
+sources:
+  - https://www.pagat.com/rummy/indian.html
+verified: null

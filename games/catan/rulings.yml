@@ -1,0 +1,92 @@
+rulings:
+  - id: robber-seven-discard
+    question: Who discards when a 7 is rolled?
+    asked_as:
+      - who discards on a seven
+      - seven rule catan
+      - do I discard on 7
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Every player holding more than seven resource cards discards half, rounded
+      down — not just the player who rolled, and not only the player being
+      robbed. The roller then moves the robber and steals one card from a player
+      adjacent to its new hex.
+  - id: trading-on-your-turn-only
+    question: Can players trade when it is not their turn?
+    asked_as:
+      - can you trade on other players turns
+      - when can you trade catan
+      - trading rules
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Trades between players may only happen during the active player's trade
+      phase, and every trade must involve the active player. Two other players
+      cannot trade with each other. This single rule is what stops the board
+      from being solved by coalition.
+  - id: longest-road-ties
+    question: What happens to Longest Road when someone ties it?
+    asked_as:
+      - longest road tie
+      - do you take longest road on equal
+      - breaking longest road
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The holder keeps it on a tie — you must exceed the current holder, not
+      match them. If a settlement is built that breaks the holder's road and
+      drops them below five, the card goes to whoever now has the longest, or is
+      set aside if nobody has five.
+  - id: build-during-others-turns
+    question: Can you build on someone else's turn?
+    asked_as:
+      - can you build any time
+      - building out of turn catan
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No, only on your own turn. The exception is the 5-6 player extension,
+      which adds an explicit special build phase precisely because the wait
+      would otherwise be too long.
+  - id: free-resources-house-rule
+    question: Do you collect resources on the first roll of the game for everyone?
+    asked_as:
+      - starting resources catan
+      - do you collect from both settlements
+      - setup resources
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      At setup you collect resources only from your **second** settlement, the
+      one placed on the way back round. Collecting from both is a common error
+      that meaningfully advantages the first player.
+  - id: robber-blocks-nothing-house
+    question: Is the robber allowed to sit on the desert forever?
+    asked_as:
+      - can you put the robber on the desert
+      - robber desert rule
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The published rules require the robber to move to a different hex, and the
+      desert is a legal destination — effectively a pass.
+    house_rule: >
+      Many groups ban parking the robber on the desert, or ban returning it to
+      the hex it just left, to stop a player neutralising the mechanic.
+    effect: >
+      Banning the desert makes 7s meaner and the game more aggressive. It also
+      removes the polite option, which changes the social temperature of the
+      table.

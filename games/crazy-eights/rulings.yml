@@ -1,0 +1,48 @@
+rulings:
+  - id: which-cards-are-special
+    question: Which cards have special powers in Crazy Eights?
+    asked_as:
+      - what do jacks do in crazy eights
+      - crazy eights special cards
+      - does the ace reverse
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      In the base game, only the Eight does anything: it is wild, and you name
+      the suit that follows. Every other card is an ordinary matching card.
+      Almost every group adds powers to other ranks, and almost every group
+      believes theirs are standard.
+  - id: added-action-cards
+    question: Do Twos make the next player draw, and do Queens skip?
+    asked_as:
+      - do twos make you pick up
+      - does the queen skip in crazy eights
+      - jack reverses direction
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Not part of the base game.
+    house_rule: >
+      The common additions are: Two forces the next player to draw two, Queen
+      skips the next player, Ace reverses direction, and Jack is another wild.
+      Which subset a group uses varies wildly from household to household.
+    effect: >
+      Pushes the game toward Uno. Agree the set before dealing, because there is
+      no canonical version to appeal to.
+  - id: draw-until-playable
+    question: Do you draw until you can play, or just one card?
+    asked_as:
+      - how many cards do you draw crazy eights
+      - draw until you can play
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      In the traditional game you draw until you can play, or until the stock
+      runs out — the opposite of Uno, where you draw exactly one. Many groups
+      import the Uno rule without realising they have swapped games.

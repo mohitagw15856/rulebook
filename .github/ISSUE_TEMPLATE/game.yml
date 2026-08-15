@@ -1,0 +1,25 @@
+name: Add a game
+description: A game that should be in the registry
+title: "[game] "
+labels: [game]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Game
+    validations:
+      required: true
+  - type: textarea
+    id: arguments
+    attributes:
+      label: What do people argue about in it?
+      description: This is the part that matters. A game with no disputed rules is a low priority here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: original
+    attributes:
+      label: Ground rule
+      options:
+        - label: If I write it, I will write the rules in my own words and not paste a publisher's text.
+          required: true

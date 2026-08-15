@@ -1,0 +1,36 @@
+name: Settle an argument
+description: A rule your table argues about that is not on file yet
+title: "[ruling] "
+labels: [ruling]
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Which game?
+      placeholder: Uno
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What is the argument?
+      description: Write it the way it gets said at the table.
+      placeholder: Can you stack a +2 on a +2?
+    validations:
+      required: true
+  - type: dropdown
+    id: prevalence
+    attributes:
+      label: How many people play it your way?
+      options:
+        - Almost everyone, almost everywhere
+        - Widespread but far from universal
+        - Standard where I am, unheard of elsewhere
+        - Just my group
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Anything to back it up?
+      description: A publisher page, an official FAQ, a rules forum. Optional — "no idea, we just always played it this way" is a genuinely useful answer.

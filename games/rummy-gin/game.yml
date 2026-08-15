@@ -1,0 +1,44 @@
+name: Gin Rummy
+type: card
+family: draw-and-discard
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 40m
+teach_time: 5m
+weight: 2.0
+luck: 55
+components:
+  - Standard 52-card deck
+  - Paper for scoring
+objective: >
+  Arrange your ten cards into sets and runs, then knock before your opponent
+  does.
+setup_by_players:
+  - players: "2"
+    setup: Deal 10 each. Turn one card face up to start the discard pile; the rest is the stock.
+    note: Gin Rummy is a two-player game by design. For three or more, play Indian Rummy or Oklahoma Gin instead.
+turn_structure:
+  - Draw either the top of the stock or the top of the discard pile.
+  - Discard one card, ending your turn.
+  - You may knock instead of discarding normally, if your unmatched cards total ten or less.
+win_condition: >
+  Knock and score the difference in deadwood, or go gin with no unmatched cards
+  for a bonus. First to 100 points wins the game.
+editions:
+  - name: Oklahoma Gin
+    changed: >
+      The first upcard sets the maximum knock value for the hand rather than it
+      always being ten, which makes early hands far tighter.
+substitutions: >
+  Any deck. If cards are missing, remove whole ranks so runs and sets stay
+  possible, and adjust the target score down.
+accessibility: >
+  Sets and runs depend on rank and suit rather than colour alone, but suit
+  recognition matters for runs — a four-colour deck helps. Holding and
+  rearranging ten cards is the main dexterity load; a card stand solves it.
+sources:
+  - https://www.pagat.com/rummy/ginrummy.html
+verified: null

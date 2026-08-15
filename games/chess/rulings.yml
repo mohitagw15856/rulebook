@@ -1,0 +1,96 @@
+rulings:
+  - id: en-passant
+    question: What is en passant and when can you do it?
+    asked_as:
+      - en passant rule
+      - can you capture a pawn that moved two
+      - passing pawn capture
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      If a pawn advances two squares from its starting position and lands beside
+      an enemy pawn, that pawn may capture it as though it had only moved one
+      square — but **only on the immediately following move**. Miss the chance
+      and it is gone. It is a genuine rule that a great many casual players have
+      never been taught.
+  - id: castling-conditions
+    question: When exactly are you allowed to castle?
+    asked_as:
+      - castling rules
+      - can you castle out of check
+      - castle through check
+      - castling after being in check
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Four conditions, all required: neither the king nor that rook has moved;
+      the squares between them are empty; the king is not currently in check;
+      and the king does not pass through or land on an attacked square. Note
+      what is **not** on the list — the rook may be attacked, and the rook may
+      pass through an attacked square. Both are legal.
+  - id: stalemate-is-a-draw
+    question: If a player cannot move, do they lose?
+    asked_as:
+      - stalemate rules
+      - no legal moves not in check
+      - is stalemate a win
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No — it is a draw. If the player to move has no legal move and is **not**
+      in check, the game is drawn regardless of material. This rule is why a
+      player with a queen and king can still fail to win, and why beginners
+      throw away won positions.
+  - id: pawn-promotion-choice
+    question: Must a promoted pawn become a queen?
+    asked_as:
+      - pawn promotion rules
+      - can you promote to a knight
+      - underpromotion
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. A pawn reaching the far rank must promote, but to any piece except a
+      king — queen, rook, bishop or knight. Promoting to a knight is
+      occasionally the only winning move, because a knight attacks squares a
+      queen cannot. You may have several queens on the board at once.
+  - id: touch-move
+    question: If you touch a piece, must you move it?
+    asked_as:
+      - touch move rule
+      - do you have to move the piece you touch
+      - taking a move back
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      In formal play, yes — touch a piece and you must move it if it has a legal
+      move; touch an opponent's piece and you must capture it if you legally
+      can. Say "j'adoube" or "I adjust" first if you only want to straighten a
+      piece. Casual games usually ignore this, which is fine as long as both
+      players agree before the first move rather than during an argument.
+  - id: fifty-move-and-repetition
+    question: How does a game end in a draw when neither side can win?
+    asked_as:
+      - fifty move rule
+      - threefold repetition
+      - draw by repetition
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Several ways. Threefold repetition — the same position with the same
+      player to move occurs three times — may be claimed as a draw. The
+      fifty-move rule allows a claim after fifty moves by each side with no
+      capture and no pawn move. Insufficient material, such as king against
+      king, is an immediate draw.

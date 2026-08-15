@@ -1,0 +1,87 @@
+rulings:
+  - id: play-the-board
+    question: What if the best hand is the five community cards themselves?
+    asked_as:
+      - play the board
+      - do you have to use your hole cards
+      - best hand is on the table
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      You may play the board. In Texas Hold'em you make the best five cards from
+      any combination of your two and the five shared — including using neither
+      of yours. If the board plays for everyone still in, the pot is split.
+      (This differs from Omaha, where you must use exactly two of your own.)
+  - id: string-betting
+    question: Can you say "I call, and raise"?
+    asked_as:
+      - string bet
+      - can you say call and raise
+      - announcing a raise
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. That is a string bet and it is not allowed. State your full action in
+      one declaration, or push all the chips out in a single motion. The rule
+      exists to stop players fishing for a reaction mid-bet.
+  - id: kicker-decides
+    question: We both have a pair of kings — who wins?
+    asked_as:
+      - what is a kicker
+      - same pair who wins
+      - tie breaker poker
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      The hand is always exactly five cards, so the remaining cards — the
+      kickers — decide it. King-king with an Ace kicker beats king-king with a
+      Queen kicker. If all five cards are equal in rank, the pot is split; suits
+      never break ties in Hold'em.
+  - id: suits-dont-rank
+    question: Does one suit beat another?
+    asked_as:
+      - do suits rank in poker
+      - are spades highest
+      - suit order poker
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Not in Hold'em. Identical hands split the pot. Suit order is used only for
+      administrative decisions in some tournaments, such as awarding an odd chip
+      or deciding seating, never for ranking hands.
+  - id: ace-low-straight
+    question: Is Ace-2-3-4-5 a straight?
+    asked_as:
+      - is ace low a straight
+      - wheel poker
+      - a2345 straight
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. The Ace plays low to make the five-high straight known as the wheel.
+      It is the lowest straight, so it loses to six-high. The Ace cannot wrap
+      around — Q-K-A-2-3 is not a straight.
+  - id: min-raise
+    question: How small can a raise be?
+    asked_as:
+      - minimum raise poker
+      - how much can I raise
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      A raise must be at least the size of the previous bet or raise in that
+      round. If someone bets 10, the smallest raise is to 20. The exception is
+      going all-in for less, which is always allowed but may not reopen the
+      betting.

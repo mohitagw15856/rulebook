@@ -1,0 +1,140 @@
+rulings:
+  - id: stacking-draw-cards
+    question: Can you stack a Draw Two on a Draw Two, or a Draw Four on a Draw Four?
+    asked_as:
+      - can I stack a +2
+      - can you stack draw twos
+      - can you stack draw fours
+      - do draw cards stack
+      - stacking uno
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Under the published rules there is no stacking. A player hit with a
+      Draw Two draws two cards and loses their turn — they cannot pass the
+      penalty along. Mattel stated this publicly in May 2019 and a large part
+      of the internet refused to believe it. Note that the official UNO mobile
+      game does offer stacking as a setting, which is not the same as it being
+      in the card game's rules.
+    house_rule: >
+      The near-universal house version lets you answer a Draw Two with your own
+      Draw Two, passing an accumulating penalty around the table until someone
+      cannot respond and draws the entire pile.
+    effect: >
+      Stacking turns a mild setback into a potential ten-card catastrophe and
+      makes the game swingier and considerably longer.
+    source: https://en.wikipedia.org/wiki/Uno_(card_game)
+
+  - id: wild-draw-four-legality
+    question: Can you play a Wild Draw Four whenever you like?
+    asked_as:
+      - when can I play a wild draw four
+      - is draw four always legal
+      - can you play +4 anytime
+      - challenge draw four
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No — and this is a genuinely official rule that almost nobody plays. You
+      may only play a Wild Draw Four when you hold no card matching the current
+      colour. Numbers and symbols do not count, only colour. The next player may
+      challenge; if the challenge is correct the bluffer draws four instead, and
+      if it is wrong the challenger draws six.
+    effect: >
+      Played properly, the Draw Four becomes a bluffing card with real risk
+      rather than a free nuke.
+
+  - id: saying-uno
+    question: What actually happens if you forget to say "Uno"?
+    asked_as:
+      - forgot to say uno
+      - penalty for not saying uno
+      - when do you say uno
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      You must announce it as you play your second-to-last card. If another
+      player catches you before the next player begins their turn, you draw two
+      cards. Once the next turn has started, you are safe. The penalty is two
+      cards, not four, and it is not automatic — somebody has to catch you.
+
+  - id: draw-until-playable
+    question: Do you keep drawing until you get a card you can play?
+    asked_as:
+      - do you draw until you can play
+      - how many cards do you draw if you cant play
+      - draw one or draw until playable
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Officially you draw exactly one card. If it can be played you may play
+      it immediately; if not, your turn ends.
+    house_rule: >
+      Drawing repeatedly until a playable card appears. This is probably the
+      single most common deviation from the printed rules, and it inflates hand
+      sizes dramatically.
+    effect: >
+      Hands balloon, rounds run long, and the player with bad luck early is
+      buried for the rest of the round.
+
+  - id: finishing-on-action-card
+    question: Can you win by playing an action card as your last card?
+    asked_as:
+      - can you end on a draw two
+      - can you finish on a skip
+      - last card wild
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. The published rules allow you to go out on any card, including a
+      Draw Two, Draw Four, Skip or Reverse — and the next player still suffers
+      the effect, drawing the cards that then count against them in scoring.
+
+  - id: jump-in
+    question: Can you play out of turn if you hold the identical card?
+    asked_as:
+      - jump in uno
+      - can you play out of turn
+      - identical card out of turn
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Not official. Turn order is strict in the published rules.
+    house_rule: >
+      "Jump-in": if you hold a card identical in both colour and value to the
+      top discard, you may slap it down out of turn, and play resumes from you.
+    effect: >
+      Rewards attention and speeds the game up considerably, at the cost of
+      arguments about who put their card down first.
+
+  - id: sevens-and-zeros
+    question: Do Sevens and Zeros swap hands?
+    asked_as:
+      - seven zero rule
+      - do sevens swap hands
+      - zero rotate hands
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [North America, United Kingdom]
+    verdict: >
+      Not official. Sevens and Zeros are ordinary number cards in the printed
+      rules.
+    house_rule: >
+      Playing a Seven lets you swap hands with a player of your choice; playing
+      a Zero rotates every hand one seat in the direction of play.
+    effect: >
+      Adds a large swing and a lot of table talk. It punishes hoarding and is
+      the main reason someone with one card left can suddenly have nine.

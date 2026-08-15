@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-label="rulebook — settle the argument">
+  <defs>
+    <linearGradient id="felt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3d2e"/>
+      <stop offset="0.55" stop-color="#0f5138"/>
+      <stop offset="1" stop-color="#072a20"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9a8"/>
+      <stop offset="1" stop-color="#e8b93f"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="340" fill="url(#felt)"/>
+
+  <!-- felt weave -->
+  <g stroke="#ffffff" stroke-opacity="0.028">
+    <path d="M0 20 H1280 M0 60 H1280 M0 100 H1280 M0 140 H1280 M0 180 H1280 M0 220 H1280 M0 260 H1280 M0 300 H1280"/>
+    <path d="M20 0 V340 M60 0 V340 M100 0 V340 M140 0 V340 M180 0 V340 M220 0 V340 M260 0 V340 M300 0 V340 M340 0 V340 M380 0 V340 M420 0 V340 M460 0 V340 M500 0 V340 M540 0 V340 M580 0 V340 M620 0 V340 M660 0 V340 M700 0 V340 M740 0 V340 M780 0 V340 M820 0 V340 M860 0 V340 M900 0 V340 M940 0 V340 M980 0 V340 M1020 0 V340 M1060 0 V340 M1100 0 V340 M1140 0 V340 M1180 0 V340 M1220 0 V340 M1260 0 V340"/>
+  </g>
+
+  <!-- fanned cards, right side -->
+  <g filter="url(#drop)">
+    <g transform="translate(1010 178) rotate(-22)">
+      <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#faf7f0" stroke="#d9d2c2" stroke-width="2"/>
+      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#1b1b1b">K</text>
+      <text x="0" y="18" text-anchor="middle" font-family="Georgia, serif" font-size="58" fill="#1b1b1b">♠</text>
+    </g>
+    <g transform="translate(1092 168) rotate(-4)">
+      <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
+      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#c02b2b">A</text>
+      <text x="0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="62" fill="#c02b2b">♥</text>
+    </g>
+    <g transform="translate(1176 180) rotate(14)">
+      <rect x="-62" y="-90" width="124" height="180" rx="12" fill="#faf7f0" stroke="#d9d2c2" stroke-width="2"/>
+      <text x="-46" y="-52" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" fill="#1b1b1b">+2</text>
+      <circle cx="0" cy="6" r="34" fill="#e8b93f" fill-opacity="0.25"/>
+      <text x="0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="bold" fill="#1b1b1b">?</text>
+    </g>
+  </g>
+
+  <!-- dice, lower left -->
+  <g filter="url(#drop)">
+    <g transform="translate(96 268) rotate(-12)">
+      <rect x="-27" y="-27" width="54" height="54" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
+      <circle cx="-12" cy="-12" r="5" fill="#1b1b1b"/><circle cx="12" cy="-12" r="5" fill="#1b1b1b"/>
+      <circle cx="0" cy="0" r="5" fill="#1b1b1b"/>
+      <circle cx="-12" cy="12" r="5" fill="#1b1b1b"/><circle cx="12" cy="12" r="5" fill="#1b1b1b"/>
+    </g>
+    <g transform="translate(168 280) rotate(9)">
+      <rect x="-27" y="-27" width="54" height="54" rx="12" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
+      <circle cx="-12" cy="-12" r="5" fill="#c02b2b"/><circle cx="12" cy="12" r="5" fill="#c02b2b"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="88" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="bold" fill="url(#gold)">rulebook</text>
+  <rect x="90" y="160" width="440" height="3" rx="1.5" fill="#e8b93f" fill-opacity="0.55"/>
+  <text x="90" y="200" font-family="Helvetica, Arial, sans-serif" font-size="27" fill="#eaf4ee" fill-opacity="0.92">Settle the argument.</text>
+  <text x="90" y="234" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#9fd3b8">The rules, the house rules, and which of them are actually real.</text>
+
+  <!-- verdict chip -->
+  <g transform="translate(90 258)">
+    <rect x="0" y="0" width="292" height="34" rx="17" fill="#0a2a1f" stroke="#e8b93f" stroke-opacity="0.5" stroke-width="1.5"/>
+    <circle cx="20" cy="17" r="6" fill="#e8b93f"/>
+    <text x="36" y="23" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#ffe9a8">NOT AN OFFICIAL RULE · played by all</text>
+  </g>
+</svg>

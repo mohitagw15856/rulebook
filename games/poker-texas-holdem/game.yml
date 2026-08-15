@@ -1,0 +1,56 @@
+name: Texas Hold'em
+type: card
+family: vying
+players:
+  min: 2
+  max: 10
+  best: 6
+playtime_box: 60m
+playtime_actual: 2h
+teach_time: 8m
+weight: 2.8
+luck: 45
+components:
+  - Standard 52-card deck
+  - Chips in at least three denominations
+  - A dealer button
+objective: >
+  Win chips, either by holding the best five-card hand at showdown or by making
+  everyone else fold.
+setup_by_players:
+  - players: "2"
+    setup: "Heads-up. The button posts the small blind and acts first before the flop, last afterwards — the reverse of every other table size."
+    note: Blind structure is genuinely inverted heads-up, and it catches people out constantly.
+  - players: "3-6"
+    setup: Button, small blind and big blind rotate clockwise each hand. Deal two cards to each player.
+    note: Six-handed is the sweet spot — enough players for action, short enough waits.
+  - players: "7-10"
+    setup: Standard full ring. Same structure; hands play tighter because more players see each flop.
+turn_structure:
+  - Post blinds, deal two private cards to each player.
+  - Betting round before any community cards (pre-flop).
+  - Deal three community cards (the flop), then bet.
+  - Deal a fourth (the turn), then bet.
+  - Deal a fifth (the river), then bet, then show.
+win_condition: >
+  The best five-card hand made from any combination of your two private cards
+  and the five shared cards takes the pot. If everyone else folds first, you win
+  without showing.
+editions:
+  - name: Tournament versus cash
+    changed: >
+      Tournaments raise the blinds on a timer and you cannot rebuy after the
+      late stage; cash games have fixed blinds and you can leave whenever. The
+      rules of a hand are identical, the correct strategy is not.
+substitutions: >
+  Any chips will do — coins, sweets, buttons — provided everyone agrees the
+  denominations before starting. The dealer button can be any distinctive
+  object.
+accessibility: >
+  Suits matter for flushes, and the standard suit colours are two black and two
+  red, which is difficult for some colour vision. Four-colour decks solve this
+  completely and are worth using by default. Chip denominations should differ in
+  size or texture, not only colour.
+sources:
+  - https://www.pagat.com/poker/variants/texasholdem.html
+verified: null

@@ -1,0 +1,47 @@
+name: Blackjack
+type: card
+family: banking
+players:
+  min: 1
+  max: 7
+  best: 4
+playtime_box: 20m
+playtime_actual: 30m
+teach_time: 4m
+weight: 1.8
+luck: 70
+components:
+  - One to eight standard 52-card decks
+  - Chips or counters for betting
+objective: >
+  Beat the dealer's hand without going over 21.
+setup_by_players:
+  - players: "1"
+    setup: One player against the dealer. Fine for learning basic strategy, dull as a social game.
+  - players: "2-7"
+    setup: Each player plays their own hand against the dealer, not against each other.
+    note: Casinos seat seven; at home, more than five makes each player wait too long.
+turn_structure:
+  - Each player is dealt two cards face up; the dealer takes one up and one down.
+  - In turn, each player hits, stands, doubles, or splits.
+  - Going over 21 busts immediately and loses the bet, even if the dealer busts later.
+  - The dealer then reveals and draws to a fixed rule, usually standing on 17.
+win_condition: >
+  Beat the dealer's total without exceeding 21. A two-card 21 is a blackjack and
+  usually pays three to two.
+editions:
+  - name: Six-to-five payouts
+    changed: >
+      Many modern casino tables pay 6:5 on blackjack rather than the traditional
+      3:2, which roughly triples the house edge. It is the single most important
+      number on the table.
+substitutions: >
+  Any deck and any counters work — coins, matches, dried beans. The dealer role
+  can rotate each round so that nobody is stuck as the house all evening.
+accessibility: >
+  Card values are numeric and colour is irrelevant, so colour vision is not
+  needed. Betting and payout arithmetic is the real barrier; a printed payout
+  card helps enormously.
+sources:
+  - https://www.pagat.com/banking/blackjack.html
+verified: null

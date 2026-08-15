@@ -1,0 +1,50 @@
+name: Scrabble
+type: word
+family: word-building
+players:
+  min: 2
+  max: 4
+  best: 2
+playtime_box: 60m
+playtime_actual: 75m
+teach_time: 6m
+weight: 2.1
+luck: 40
+components:
+  - 15x15 board with premium squares
+  - 100 letter tiles, 2 of which are blanks
+  - Four racks, a bag, a dictionary
+objective: >
+  Score the most points by forming interlocking words on the board.
+setup_by_players:
+  - players: "2"
+    setup: Seven tiles each. Two-player is the competitive standard — the board stays open and turns come round fast.
+  - players: "3-4"
+    setup: Seven tiles each. The board closes up faster and premium squares are contested harder.
+    note: With four players, expect long waits and a tighter, lower-scoring board.
+turn_structure:
+  - Form a word using tiles from your rack, connected to what is already on the board.
+  - Score it, including any new words formed as a side effect.
+  - Draw back up to seven tiles.
+  - Alternatively, exchange tiles or pass.
+win_condition: >
+  Play ends when the bag is empty and one player uses their last tile, or after
+  six consecutive scoreless turns. Highest score wins.
+editions:
+  - name: Word lists
+    changed: >
+      There is no single global dictionary. North America uses the TWL/NWL list,
+      most other countries use Collins, and Collins is considerably larger. A
+      word can be legal in one and not the other, which is why the list should
+      be agreed before the first tile is placed.
+substitutions: >
+  Lost tiles can be written on card, but the tile distribution is carefully
+  balanced and a missing high-value letter changes the game. Note the count on
+  the board or in the rules before replacing.
+accessibility: >
+  Premium squares are colour-coded, which is the main barrier — they are also
+  labelled in text on most sets. Tile letters are small; large-print and braille
+  sets exist. A tile rack stand helps players with limited grip.
+sources:
+  - https://scrabble.hasbro.com/en-us/rules
+verified: null

@@ -1,0 +1,73 @@
+rulings:
+  - id: pure-sequence-required
+    question: Can you declare without a pure sequence?
+    asked_as:
+      - what is a pure sequence
+      - do you need a pure run
+      - can you declare with jokers only
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [India]
+    verdict: >
+      No. A valid declaration needs at least two sequences, and at least one of
+      them must be pure — three or more consecutive cards of the same suit with
+      no joker standing in for anything. Declaring without one is an invalid
+      declaration and is penalised heavily, usually the full 80 points.
+  - id: joker-in-sequence
+    question: Can a joker be used inside a run?
+    asked_as:
+      - joker in a sequence
+      - impure sequence
+      - can jokers be used in runs
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [India]
+    verdict: >
+      Yes, in any sequence except the mandatory pure one. A run using a joker is
+      an impure sequence and is perfectly valid — you simply need one clean run
+      elsewhere in the hand.
+  - id: wild-joker-selection
+    question: How is the wild joker chosen?
+    asked_as:
+      - what is the wild joker
+      - cut joker
+      - how is the joker picked
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [India]
+    verdict: >
+      One card is turned face up at the start of the hand. Every card of that
+      rank, in all suits, becomes wild for that hand, in addition to the printed
+      jokers. If the turned card is itself a printed joker, then Aces are
+      commonly used instead.
+  - id: penalty-points
+    question: How many points do you lose when someone else declares?
+    asked_as:
+      - penalty points indian rummy
+      - how much do you lose
+      - 80 points cap
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [India]
+    verdict: >
+      You count the value of your unmelded cards — face cards 10, Ace 10,
+      others face value — capped at 80. If you hold no pure sequence at all, the
+      full 80 applies regardless of what is in your hand, which is why the pure
+      run is the first thing to build.
+  - id: dropping
+    question: Can you quit a hand early?
+    asked_as:
+      - can you drop indian rummy
+      - first drop middle drop
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [India]
+    verdict: >
+      In the pool and points formats, yes. Dropping before your first draw costs
+      20 points; dropping later costs 40. It is a real strategic option with a
+      bad hand, and it does not exist in most Western rummy variants.

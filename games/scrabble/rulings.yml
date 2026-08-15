@@ -1,0 +1,92 @@
+rulings:
+  - id: challenging-words
+    question: What happens when you challenge a word?
+    asked_as:
+      - how does challenging work
+      - challenge rules scrabble
+      - what if the word is not real
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Look it up. If the word is not in the agreed dictionary, the tiles come
+      back and the player scores nothing that turn. If it is valid, the
+      challenger loses their turn under North American tournament rules, while
+      under the standard home rules there is no penalty at all. Agree which
+      before you start — the difference completely changes whether bluffing is
+      viable.
+  - id: blank-tile-value
+    question: What is a blank worth, and can you take it back?
+    asked_as:
+      - blank tile score
+      - is a blank worth points
+      - can you swap a blank later
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Zero, always — even on a triple letter square, and even when the letter it
+      represents is a Z. It still benefits from word multipliers. Once played,
+      the letter it stands for is fixed for the rest of the game, and it cannot
+      be swapped out for the real tile. That last part is a common house rule
+      and is not official.
+  - id: fifty-point-bonus
+    question: When do you get the fifty-point bonus?
+    asked_as:
+      - bingo scrabble
+      - seven tile bonus
+      - 50 point bonus
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      For using all seven tiles from your rack in a single turn — known as a
+      bingo. The bonus is 50 points, added after all multipliers, and it is the
+      single largest swing available. It applies even if you only had seven
+      tiles left.
+  - id: premium-squares-reuse
+    question: Do premium squares keep working on later turns?
+    asked_as:
+      - can you use a triple word twice
+      - do premium squares stay active
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. A premium square only counts on the turn a tile is first placed on it.
+      Words crossing it later score the letters at face value.
+  - id: proper-nouns
+    question: Are proper nouns allowed?
+    asked_as:
+      - can you use names in scrabble
+      - proper nouns allowed
+      - place names scrabble
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No, in the standard game — no names, no abbreviations requiring capitals,
+      no words needing a hyphen or apostrophe. (Hasbro released a separate
+      variant permitting proper nouns, which is a different game rather than a
+      rule change.)
+  - id: two-letter-words
+    question: Are obscure two-letter words really allowed?
+    asked_as:
+      - is qi a word
+      - two letter words scrabble
+      - za valid
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      If they are in the agreed dictionary, yes. QI and ZA are valid in both
+      major word lists and are the highest-value two-letter plays in the game.
+      Learning the two-letter list is the single largest improvement available
+      to a casual player, and it is also the fastest route to an argument with
+      one.

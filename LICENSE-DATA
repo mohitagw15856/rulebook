@@ -1,0 +1,36 @@
+Licence for the game data
+=========================
+
+The code in this repository (bin/, lib/, scripts/, games/*/score.mjs) is MIT
+licensed — see LICENSE.
+
+Everything in games/ that is prose or data — game.yml, rules.md, rulings.yml,
+teach.md — is licensed under the Creative Commons Attribution 4.0 International
+Licence (CC BY 4.0).
+
+    https://creativecommons.org/licenses/by/4.0/
+
+In short: use it, change it, sell it, build on it. Just credit this project.
+
+By contributing you agree to license your contribution on these terms, and you
+confirm that you wrote it yourself rather than copying a publisher's text. See
+CONTRIBUTING.md for why that distinction matters.
+
+
+A note on what is and is not being licensed
+-------------------------------------------
+
+This licence covers *this project's* description of how games are played. It
+does not and cannot cover the games themselves.
+
+How a game is played is not copyrightable — that is the idea/expression
+distinction, settled in US law since Baker v. Selden (1879) and stated directly
+in 37 CFR 202.1(b), which excludes "the idea for a game" from copyright. A
+publisher's rulebook wording, artwork and card text *are* copyrightable, and
+none of that appears here.
+
+Game names, logos and trademarks belong to their respective owners. UNO is a
+trademark of Mattel. Monopoly and Scrabble are trademarks of Hasbro. Catan is a
+trademark of Catan GmbH. Codenames is published by Czech Games Edition. This
+project is not affiliated with, authorised by, or endorsed by any of them, and
+names are used here only to identify the games being described.

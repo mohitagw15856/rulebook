@@ -1,0 +1,76 @@
+rulings:
+  - id: soft-and-hard-hands
+    question: Is an Ace worth 1 or 11?
+    asked_as:
+      - ace value blackjack
+      - soft 17
+      - what is a soft hand
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Both, whichever helps. An Ace counts as 11 unless that would bust you, in
+      which case it counts as 1. A hand containing an Ace still counted as 11 is
+      called "soft" — a soft 17 (Ace plus six) can never bust on one more card,
+      which is why the dealer rule for soft 17 matters so much.
+  - id: player-busts-first
+    question: If both you and the dealer bust, is it a push?
+    asked_as:
+      - both bust blackjack
+      - dealer busts after I bust
+      - do you get money back if dealer busts
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. You lose. The moment you go over 21 your bet is collected, before the
+      dealer plays at all. This ordering is the single largest source of the
+      house edge, and most casual players do not realise it exists.
+  - id: dealer-stands-on-17
+    question: Does the dealer have a choice about hitting?
+    asked_as:
+      - does the dealer have to hit
+      - dealer rules blackjack
+      - hits soft 17
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      None at all. The dealer follows a fixed rule: draw to 16, stand on 17.
+      Whether they hit a *soft* 17 varies by house and is printed on the table.
+      Hitting soft 17 is worse for the player.
+  - id: insurance
+    question: Should you take insurance?
+    asked_as:
+      - is insurance worth it
+      - insurance blackjack
+      - dealer showing ace
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      It is a legal side bet, and for a player not counting cards it is a bad
+      one. It pays 2:1 on a proposition that comes in slightly less than one
+      time in three, so it loses money over time regardless of what you hold.
+  - id: five-card-charlie
+    question: Do five cards under 21 win automatically?
+    asked_as:
+      - five card charlie
+      - five card trick
+      - 5 cards under 21
+    kind: house-rule
+    official: false
+    prevalence: regional
+    regions: [United Kingdom, Australia, home games]
+    verdict: >
+      Not a standard casino rule and absent from most tables.
+    house_rule: >
+      A hand of five cards totalling 21 or less wins immediately, regardless of
+      the dealer's hand.
+    effect: >
+      Shifts the odds noticeably toward the player and rewards hitting on
+      totals you would normally stand on.

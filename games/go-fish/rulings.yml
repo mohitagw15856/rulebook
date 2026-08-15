@@ -1,0 +1,56 @@
+rulings:
+  - id: must-hold-the-rank
+    question: Can you ask for a card you do not already have?
+    asked_as:
+      - can you ask for any card go fish
+      - do you need the card to ask for it
+      - bluffing in go fish
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. You must already hold at least one card of the rank you ask for. This
+      is what makes the game a deduction puzzle rather than a guessing game —
+      every question you ask tells the table something about your hand.
+  - id: extra-turn-on-success
+    question: Do you get another turn if the other player hands cards over?
+    asked_as:
+      - do you go again in go fish
+      - extra turn go fish
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. A successful ask earns you another turn, and you keep going until
+      somebody tells you to go fish. Groups that skip this rule make the game
+      considerably slower and flatter.
+  - id: fishing-what-you-asked-for
+    question: What if you draw the exact card you asked for?
+    asked_as:
+      - draw the card you asked for
+      - lucky catch go fish
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The traditional game simply ends your turn.
+    house_rule: >
+      Many groups let you show the card and take another turn as a reward for
+      the lucky draw.
+    effect: >
+      Small, cheerful, and popular with children. It lengthens turns slightly.
+  - id: running-out-of-cards
+    question: What happens when you run out of cards but the pond is not empty?
+    asked_as:
+      - out of cards go fish
+      - empty hand go fish
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Draw a new card from the pond and carry on. You are only out of the game
+      when both your hand and the pond are empty.

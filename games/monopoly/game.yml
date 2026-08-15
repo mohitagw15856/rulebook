@@ -1,0 +1,55 @@
+name: Monopoly
+type: board
+family: roll-and-move
+players:
+  min: 2
+  max: 8
+  best: 4
+playtime_box: 60m
+playtime_actual: 3h
+teach_time: 10m
+weight: 1.7
+luck: 70
+components:
+  - Board, 2 dice, tokens
+  - 28 title deed cards, 16 Chance and 16 Community Chest cards
+  - 32 houses and 12 hotels, play money
+objective: >
+  Bankrupt everyone else by acquiring property and charging rent.
+setup_by_players:
+  - players: "2"
+    setup: Standard rules. Each player starts with 1500.
+    note: Two-player Monopoly is mostly a trading stalemate; the auction rule matters more than usual because nobody else bids the price up.
+  - players: "3-4"
+    setup: Standard rules and starting cash. This is the count the board is balanced around.
+  - players: "5-8"
+    setup: Standard, but the property runs out fast and turns get long.
+    note: Above five, expect most of the evening to be spent waiting.
+turn_structure:
+  - Roll two dice and move that many spaces.
+  - Act on the space — buy, pay rent, draw a card, or pay a tax.
+  - Any unbought property landed on must be auctioned if the player declines to buy it.
+  - Build, trade or mortgage, then pass the dice.
+win_condition: >
+  Everyone else is bankrupt. Nearly every real game ends by agreement instead,
+  which is not a defect so much as an unwritten rule.
+editions:
+  - name: The official rules versus the inherited ones
+    changed: >
+      The published rules have contained the auction rule and no Free Parking
+      payout since the 1930s. The versions most households play descend from
+      folk rules that were never in any box, and are the direct cause of the
+      game's reputation for lasting forever.
+substitutions: >
+  Money is the component most often lost and the easiest to replace with paper
+  or a phone. Missing houses can be represented by anything of the right size —
+  but note the official rules cap houses at 32, and that cap is a real
+  constraint, not an accident of the box.
+accessibility: >
+  Property groups are identified by colour bands, which is the main barrier for
+  colour vision — the deeds are labelled by name and can be sorted by position.
+  Money handling and repeated arithmetic are the biggest load; a banking app or
+  a dedicated banker helps considerably.
+sources:
+  - https://www.hasbro.com/common/instruct/00009.pdf
+verified: null

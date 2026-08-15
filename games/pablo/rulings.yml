@@ -1,0 +1,75 @@
+rulings:
+  - id: which-name
+    question: Is Pablo the same game as Cabo?
+    asked_as:
+      - is pablo the same as cabo
+      - cambio rules
+      - what is this game called
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Effectively yes. Pablo, Cabo and Cambio are the same game under different
+      names, with small local differences in card powers and penalties. Four-card
+      Golf is a close relative without the special cards. There is no single
+      publisher, which is precisely why every group's version differs.
+  - id: card-powers
+    question: Which cards have powers?
+    asked_as:
+      - what do the cards do in pablo
+      - jack power pablo
+      - queen swap
+      - card powers cabo
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      There is no single authority, so no set is official. The most widely used
+      set is below, and it is worth stating out loud before dealing.
+    house_rule: >
+      Discarding a 7 or 8 lets you look at one of your own cards; a 9 or 10 lets
+      you look at another player's card; a Jack or Queen lets you swap two cards
+      blind; a black King is worth zero. Some groups let the Queen look and then
+      choose whether to swap.
+    effect: >
+      Peek powers reward memory; blind-swap powers reward aggression. Groups
+      that use both play a noticeably sharper game.
+  - id: penalty-for-failed-call
+    question: What happens if you call Pablo and are not lowest?
+    asked_as:
+      - failed pablo call
+      - penalty for calling wrong
+      - what if you call and lose
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Universally penalised, but the size varies.
+    house_rule: >
+      The most common penalty is a flat 10 points added to the caller's score,
+      sometimes plus their hand. Some groups instead double the caller's total.
+    effect: >
+      A large penalty makes calling rare and the game longer; a small one turns
+      it into a race. Agree it before the first round.
+  - id: snapping
+    question: Can you get rid of a card by matching the discard?
+    asked_as:
+      - snapping pablo
+      - matching discard
+      - can you slap a card
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      A widespread addition rather than a base rule.
+    house_rule: >
+      At any time, if the top of the discard pile matches the rank of one of
+      your face-down cards, you may snap it onto the pile and be rid of it. Snap
+      wrongly and you take a penalty card.
+    effect: >
+      Rewards memory sharply and speeds the game up, but disadvantages anyone
+      slower to react. Drop it if that matters at your table.

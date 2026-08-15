@@ -1,0 +1,96 @@
+rulings:
+  - id: free-parking-jackpot
+    question: Do you collect money from Free Parking?
+    asked_as:
+      - free parking money
+      - do you get money on free parking
+      - free parking jackpot
+      - taxes go in the middle
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. Free Parking does nothing at all in the published rules. It is a
+      resting space and pays nothing. This is probably the most widely played
+      rule that has never appeared in any edition of the game.
+    house_rule: >
+      Fines, taxes and sometimes a fixed stake are placed in the middle of the
+      board and collected by whoever lands on Free Parking.
+    effect: >
+      It injects money into a game whose entire design depends on money draining
+      out. It is the single biggest reason Monopoly games last three hours
+      instead of ninety minutes.
+  - id: auction-rule
+    question: What happens if you land on a property and do not buy it?
+    asked_as:
+      - do you have to auction property
+      - monopoly auction rule
+      - what if nobody buys the property
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      It goes to auction immediately, open to every player including the one who
+      declined, starting at any price. Skipping the auction is the other half of
+      why games run long — property stays unsold, monopolies never form, and
+      nobody can win.
+    effect: >
+      Playing the auction rule alone shortens a typical game dramatically.
+  - id: double-rent-unimproved-set
+    question: Do you charge double rent on a full colour group?
+    asked_as:
+      - double rent full set
+      - unimproved monopoly rent
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes — owning every property in a colour group doubles the rent on the
+      undeveloped ones. Many groups miss this and wonder why completing a set
+      before building feels pointless.
+  - id: house-shortage
+    question: Can you run out of houses?
+    asked_as:
+      - house shortage monopoly
+      - only 32 houses
+      - can you build if no houses left
+    kind: clarification
+    official: true
+    prevalence: rare
+    regions: [global]
+    verdict: >
+      Yes, and it is deliberate. There are exactly 32 houses and 12 hotels, and
+      when they run out no more can be built until someone sells. Buying up
+      houses to deny them to opponents is a legitimate and brutal strategy.
+  - id: jail-rent
+    question: Can you collect rent while in jail?
+    asked_as:
+      - collect rent in jail
+      - does jail stop rent
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes. Being in jail stops you moving, not earning. You still collect rent,
+      may still build, trade and mortgage. In the late game, jail is often the
+      safest place on the board.
+  - id: landing-on-go
+    question: Do you get double for landing exactly on Go?
+    asked_as:
+      - double money on go
+      - land on go 400
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. You collect 200 for passing or landing on Go, full stop.
+    house_rule: >
+      Paying 400 for landing exactly on Go.
+    effect: >
+      Another small money injection into an economy designed to contract. Mild
+      on its own, compounding alongside Free Parking.

@@ -1,0 +1,80 @@
+rulings:
+  - id: one-word-one-number
+    question: What exactly is a legal clue?
+    asked_as:
+      - can you give a two word clue
+      - legal clue codenames
+      - can I say more than one word
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Exactly one word and one number, and nothing else — no tone, no gestures,
+      no "this one's a stretch". Proper nouns are allowed if your group agrees;
+      compound words are only legal if they are genuinely written as one word.
+      The number is how many grid words the clue relates to.
+  - id: clue-cannot-be-on-board
+    question: Can your clue be a word visible on the grid?
+    asked_as:
+      - can the clue be on the table
+      - clue word on board
+      - can you use a word in the grid
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The clue may not be any word currently visible in the grid, and you
+      may not use a form of it either. Once a word is covered by an agent card,
+      it becomes usable again.
+  - id: the-bonus-guess
+    question: Do you always get one extra guess?
+    asked_as:
+      - extra guess codenames
+      - can you guess one more
+      - bonus guess rule
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Yes. A team may make one more guess than the number given, provided every
+      guess so far has been correct. This exists so a team can pick up a word
+      they missed from an earlier clue, and it is the mechanism most new players
+      forget they have.
+  - id: zero-and-infinity
+    question: Can you give a clue for zero words?
+    asked_as:
+      - clue for zero
+      - unlimited clue codenames
+      - what does infinity mean
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes to both. A clue of zero means "none of these relate to my words" and
+      lets the team guess as many as they like, using the bonus-guess rule to
+      chase earlier clues. "Unlimited" is used when the team already has several
+      known words outstanding. Both are legal and both are rare enough to
+      surprise people.
+  - id: spelling-and-homophones
+    question: Are homophones and near-spellings allowed?
+    asked_as:
+      - can you use a homophone
+      - does spelling count
+      - sound alike clue
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      The published rules leave this to the group, which is a polite way of
+      saying it is the most argued-about point in the game.
+    house_rule: >
+      Common positions are: homophones always allowed, homophones never allowed,
+      or allowed only if the spelling differs and the meaning is unrelated.
+    effect: >
+      Decide before the first clue. Mid-game is the worst possible time to
+      discover the two teams disagree.

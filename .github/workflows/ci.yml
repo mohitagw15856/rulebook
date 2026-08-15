@@ -1,0 +1,59 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # No install step. This repo has no dependencies.
+      - name: Validate every game against the schema
+        run: npm run validate
+
+      - name: Check the prose is original
+        run: npm run check
+
+      - name: Run the scoring tests
+        run: npm test
+
+      - name: Rebuild the generated files
+        run: npm run build
+
+      - name: Fail if the generated files are stale
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::README.md or docs/games/ is out of date. Run 'npm run ci' and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
+  cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # The commands from the README must actually work.
+      - run: node bin/rulebook.mjs list
+      - run: node bin/rulebook.mjs ruling uno "can I stack a draw 2"
+      - run: node bin/rulebook.mjs ruling monopoly "free parking"
+      - run: node bin/rulebook.mjs score poker "Ah Ad Kc Kh 2s" vs "Qs Qh Qd 7c 3d"
+      - run: node bin/rulebook.mjs score gin "4c 5c 6c 7c 9h 9d 9s Kh Kd Ks"
+      - run: node bin/rulebook.mjs teach catan
+      - run: node bin/rulebook.mjs find --players 6 --minutes 30
+      - name: A question with no ruling on file must exit non-zero
+        run: |
+          if node bin/rulebook.mjs ruling uno "how do I fold a paper crane"; then
+            echo "::error::an unmatched question should have failed"
+            exit 1
+          fi

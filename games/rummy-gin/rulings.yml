@@ -1,0 +1,77 @@
+rulings:
+  - id: what-is-deadwood
+    question: What counts as deadwood?
+    asked_as:
+      - what is deadwood
+      - how do you count unmatched cards
+      - deadwood value
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Any card not part of a completed set (three or more of a rank) or run
+      (three or more in sequence in one suit). Face cards count 10, Aces count
+      1, everything else counts its face value. A card can only belong to one
+      meld — you cannot use the same seven for both a set and a run.
+  - id: knocking-threshold
+    question: When are you allowed to knock?
+    asked_as:
+      - when can you knock
+      - knock with 10 or less
+      - do you have to have gin
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      When your deadwood totals ten or less, after drawing and as your discard.
+      You do not have to wait for gin. Knocking early with a small count is the
+      core strategic decision of the game.
+  - id: undercut
+    question: What happens if the opponent has less deadwood than the knocker?
+    asked_as:
+      - undercut gin rummy
+      - what is an undercut
+      - knocker has more points
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      That is an undercut, and it is why knocking is risky. If the defender's
+      deadwood is equal to or lower than the knocker's, the defender scores the
+      difference plus a bonus of 10 or 25 depending on house convention. The
+      knocker scores nothing.
+  - id: laying-off
+    question: Can you add your cards to the knocker's melds?
+    asked_as:
+      - laying off gin rummy
+      - can you add to opponents melds
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Yes, when defending against a knock — but not against gin. You may extend
+      the knocker's sets and runs with your own unmatched cards to reduce your
+      deadwood. Against a gin hand there is no laying off at all.
+  - id: gin-bonus-size
+    question: How much is going gin worth?
+    asked_as:
+      - gin bonus points
+      - big gin
+      - how much for gin
+    kind: house-rule
+    official: false
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Twenty-five is the most widely used gin bonus, and twenty-five is also the
+      most common undercut bonus, but both vary.
+    house_rule: >
+      Some groups use a 20-point gin bonus, some 25. "Big gin" — going out with
+      all eleven cards melded — is a house addition worth 31 or more where used.
+    effect: >
+      Higher bonuses reward holding out for gin; lower ones reward frequent
+      early knocking. Agree before the first deal.

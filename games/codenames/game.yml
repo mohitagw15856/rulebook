@@ -1,0 +1,55 @@
+name: Codenames
+type: party
+family: word-association
+players:
+  min: 2
+  max: 8
+  best: 6
+playtime_box: 15m
+playtime_actual: 25m
+teach_time: 4m
+weight: 1.3
+luck: 25
+components:
+  - 200 double-sided word cards
+  - 40 agent cards in two colours, plus bystanders and one assassin
+  - Key cards showing the layout
+  - Timer, optional
+objective: >
+  Guide your team to identify all of your agents from a grid of words, using
+  one-word clues, without hitting the assassin.
+setup_by_players:
+  - players: "2"
+    setup: Play the cooperative Duet-style variant, or one clue-giver against the clock. The competitive game does not work with two.
+    note: The base box supports two only as a co-op puzzle, not as the designed game.
+  - players: "4-6"
+    setup: Two teams, one clue-giver each. Lay out a 5x5 grid of words and give both clue-givers the same key card.
+    note: Six is the sweet spot — enough guessers for discussion without gridlock.
+  - players: "7-8"
+    setup: Same structure, larger teams. Expect longer discussion and more table talk.
+    note: Above eight the guessing team cannot converge and the game slows badly.
+turn_structure:
+  - The clue-giver says one word and one number, and nothing else.
+  - Their team guesses words from the grid, one at a time.
+  - A correct guess lets them continue; a wrong one ends the turn immediately.
+  - Guessing the assassin loses the game instantly.
+win_condition: >
+  The first team to identify all of their own agents wins. Touching the assassin
+  loses immediately, regardless of the score.
+editions:
+  - name: Codenames Duet
+    changed: >
+      A fully cooperative two-player version with a different key card and a
+      shared turn limit, rather than an adaptation of the competitive rules.
+substitutions: >
+  Missing word cards barely matter — the grid only needs twenty-five words, and
+  any twenty-five from the set work. A lost key card can be replaced by dealing
+  agent cards face down into a grid and peeking.
+accessibility: >
+  Agent cards are red and blue, the classic problematic pair; the key card is
+  also colour-coded. Mark team cards with shapes, or say the team aloud each
+  turn. The game is entirely verbal otherwise and works well for players with
+  limited mobility.
+sources:
+  - https://czechgames.com/en/codenames/
+verified: null

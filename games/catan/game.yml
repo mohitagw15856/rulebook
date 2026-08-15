@@ -1,0 +1,57 @@
+name: Catan
+type: board
+family: trading-and-building
+players:
+  min: 3
+  max: 4
+  best: 4
+playtime_box: 60m
+playtime_actual: 90m
+teach_time: 15m
+weight: 2.3
+luck: 50
+components:
+  - 19 terrain hexes and surrounding sea frame
+  - 95 resource cards, 25 development cards
+  - Roads, settlements and cities in four colours
+  - Two dice, the robber, number tokens
+objective: >
+  Be first to ten victory points, earned from settlements, cities, the longest
+  road, the largest army and some development cards.
+setup_by_players:
+  - players: "2"
+    setup: Not supported by the base box. The official two-player option is the Catan card game or a variant with a neutral third builder.
+    note: Straight two-player Catan collapses because trading is the engine of the game and there is nobody to trade against.
+  - players: "3-4"
+    setup: Standard board. Each player places two settlements and two roads in a snake order, then collects resources from their second settlement.
+    note: Four players is the designed count; three plays noticeably looser with more open board space.
+  - players: "5-6"
+    setup: Requires the 5-6 player extension, which adds hexes, pieces and a special build phase.
+    note: The base box physically cannot support five without the extension.
+turn_structure:
+  - Roll two dice; every player with a settlement or city on a matching hex collects resources.
+  - A roll of 7 moves the robber, and anyone holding more than seven cards discards half.
+  - Trade with other players or with the bank.
+  - Build roads, settlements, cities, or buy development cards.
+win_condition: >
+  Ten victory points, announced on your own turn. Development-card points are
+  kept hidden until then, which is how games end unexpectedly.
+editions:
+  - name: 4th and 5th edition
+    year: 2015
+    changed: >
+      The 5th edition changed the art and box, made the sea frame standard, and
+      adjusted some component counts. The rules of play are essentially the
+      same, so mixed-edition games work fine.
+substitutions: >
+  Lost number tokens can be replaced by writing numbers on card. A missing
+  robber can be any distinctive object. Resource cards are the one component
+  that genuinely cannot be improvised at reasonable effort.
+accessibility: >
+  Player colours are the main barrier, and red versus green appears in every
+  set — use shape markers or distinct piece sets. The number tokens are small;
+  the dots beneath each number indicate probability and are frequently too small
+  to read, so a printed probability reference helps.
+sources:
+  - https://www.catan.com/
+verified: null

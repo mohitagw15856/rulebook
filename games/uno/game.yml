@@ -1,0 +1,53 @@
+name: Uno
+type: card
+family: shedding
+players:
+  min: 2
+  max: 10
+  best: 4
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 3m
+weight: 1.2
+luck: 85
+components:
+  - 108-card deck — four colours numbered 0-9, plus Skip, Reverse and Draw Two in each colour, plus four Wild and four Wild Draw Four
+objective: >
+  Be the first player to get rid of every card in your hand.
+setup_by_players:
+  - players: "2"
+    setup: Deal 7 each. Reverse behaves exactly like Skip, so the same player takes another turn.
+    note: The two-player game is a short duel and swings hard on a single Draw Four.
+  - players: "3-10"
+    setup: Deal 7 each. Remaining cards form the draw pile; turn the top card face up to start the discard pile.
+    note: Above six players the deck runs thin and reshuffles become frequent.
+turn_structure:
+  - Match the top discard by colour, by number, or by symbol.
+  - A Wild may be played at any time; a Wild Draw Four only when you hold no card of the current colour.
+  - If you cannot or will not play, draw one card. You may play that card immediately if it is legal.
+  - Announce "Uno" when playing your second-to-last card, leaving you with one.
+win_condition: >
+  The round ends the moment one player has no cards left. That player scores the
+  value of every card still held by everyone else. Play to 500 points, or treat
+  each round as its own game.
+editions:
+  - name: Mattel rule clarification
+    year: 2019
+    changed: >
+      Mattel publicly confirmed that Draw Two and Draw Four cards cannot be
+      stacked, which surprised most of the internet.
+    source: https://www.bbc.co.uk/news/newsbeat-48195272
+substitutions: >
+  A standard 52-card deck plays a near-identical game as Crazy Eights: Jack is
+  Skip, Queen is Reverse, Ace is Draw Two, and Eight is Wild. If a single Uno
+  card is lost, remove its three colour-siblings so the deck stays balanced.
+accessibility: >
+  Colour is the primary signal and the four colours are red, yellow, green and
+  blue — the worst possible set for red-green colour blindness. Mark card
+  corners with symbols, or use a deck with colour-blind markings. The number
+  cards are high-contrast and large; the Wild cards are the hardest to read at
+  a glance.
+sources:
+  - https://www.mattelgames.com/en-us/cards/uno
+  - https://en.wikipedia.org/wiki/Uno_(card_game)
+verified: null

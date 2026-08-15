@@ -1,0 +1,232 @@
+#!/usr/bin/env node
+// Generates README.md and one page per game from the YAML.
+//
+// Everything below the marker in README.md is a build artifact. Edit the game
+// files, run `npm run build`, commit both. CI fails if you forget — a README
+// that disagrees with the data is worse than no README.
+
+import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { load, validate, fmtDuration, TYPES, PREVALENCE } from '../lib/registry.mjs';
+
+const ROOT = fileURLToPath(new URL('../', import.meta.url));
+const games = load();
+const errs = validate(games);
+if (errs.length) {
+  console.error('Refusing to build from invalid data:\n');
+  for (const e of errs) console.error(`  ${e}`);
+  process.exit(1);
+}
+
+const allRulings = games.flatMap((g) => g.rulings.map((r) => ({ ...r, game: g })));
+const houseRules = allRulings.filter((r) => !r.official);
+const universal = houseRules.filter((r) => r.prevalence === 'near-universal');
+
+const stars = (w) => '●'.repeat(Math.round(w)) + '○'.repeat(5 - Math.round(w));
+const esc = (s) => String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ').trim();
+const oneLine = (s) => esc(s).replace(/\s+/g, ' ');
+
+// ---------------------------------------------------------------------------
+// Per-game pages
+// ---------------------------------------------------------------------------
+mkdirSync(`${ROOT}docs/games`, { recursive: true });
+
+for (const g of games) {
+  const p = [];
+  p.push(`# ${g.name}`);
+  p.push('');
+  p.push(`> ${oneLine(g.objective)}`);
+  p.push('');
+  p.push('|  |  |');
+  p.push('|---|---|');
+  p.push(`| **Players** | ${g.players.min}–${g.players.max}${g.players.best ? `, best at ${g.players.best}` : ''} |`);
+  p.push(`| **Box says** | ${fmtDuration(g.playtime_box)} |`);
+  p.push(`| **Actually takes** | ${fmtDuration(g.playtime_actual)} |`);
+  p.push(`| **Teach time** | ${fmtDuration(g.teach_time)} |`);
+  p.push(`| **Weight** | ${stars(g.weight)} ${g.weight} / 5 |`);
+  p.push(`| **Luck** | ${g.luck}% chance, ${100 - g.luck}% skill |`);
+  p.push(`| **Family** | ${g.family} |`);
+  p.push('');
+
+  p.push('## How many players changes what');
+  p.push('');
+  p.push('| Players | Setup | Notes |');
+  p.push('|---|---|---|');
+  for (const s of g.setup_by_players) {
+    p.push(`| **${s.players}** | ${oneLine(s.setup)} | ${s.note ? oneLine(s.note) : '—'} |`);
+  }
+  p.push('');
+
+  p.push('## Rules');
+  p.push('');
+  p.push(readFileSync(`${ROOT}${g.__dir}/rules.md`, 'utf8').trim().replace(/^# .*\n+/, ''));
+  p.push('');
+
+  if (g.rulings.length) {
+    p.push('## Settle the argument');
+    p.push('');
+    for (const r of g.rulings) {
+      p.push(`### ${r.question}`);
+      p.push('');
+      p.push(
+        r.official
+          ? `**Official rule.** ${PREVALENCE[r.prevalence]}.`
+          : `**Not an official rule.** ${PREVALENCE[r.prevalence]}.`
+      );
+      p.push('');
+      p.push(oneLine(r.verdict));
+      if (r.house_rule) {
+        p.push('');
+        p.push(`*The house version:* ${oneLine(r.house_rule)}`);
+      }
+      if (r.effect) {
+        p.push('');
+        p.push(`*What it changes:* ${oneLine(r.effect)}`);
+      }
+      if (r.regions?.length && !r.regions.includes('global')) {
+        p.push('');
+        p.push(`*Played mostly in:* ${r.regions.join(', ')}`);
+      }
+      if (r.source) {
+        p.push('');
+        p.push(`Source: <${r.source}>`);
+      }
+      p.push('');
+      p.push(`\`\`\`console\n$ rulebook ruling ${g.slug} "${(r.asked_as || [r.question])[0]}"\n\`\`\``);
+      p.push('');
+    }
+  }
+
+  p.push('## Teaching it');
+  p.push('');
+  p.push(readFileSync(`${ROOT}${g.__dir}/teach.md`, 'utf8').trim().replace(/^# .*\n+/, ''));
+  p.push('');
+
+  if (g.hasScore) {
+    p.push('## Scoring');
+    p.push('');
+    p.push(`This game has a scorer. \`rulebook score ${g.slug} "..."\` works out the total for you.`);
+    p.push('');
+  }
+
+  if (g.editions?.length) {
+    p.push('## Editions');
+    p.push('');
+    p.push('| Edition | Year | What changed |');
+    p.push('|---|---|---|');
+    for (const e of g.editions) p.push(`| ${e.name} | ${e.year || '—'} | ${oneLine(e.changed)} |`);
+    p.push('');
+  }
+
+  p.push('## When a piece goes missing');
+  p.push('');
+  p.push(oneLine(g.substitutions));
+  p.push('');
+  p.push('## Accessibility');
+  p.push('');
+  p.push(oneLine(g.accessibility));
+  p.push('');
+
+  if (g.sources?.length) {
+    p.push('## Sources');
+    p.push('');
+    for (const s of g.sources) p.push(`- <${s}>`);
+    p.push('');
+  }
+
+  p.push('---');
+  p.push('');
+  p.push(`*Generated from [\`${g.__dir}/\`](../../${g.__dir}/). Fix it there, not here.*`);
+  p.push('');
+
+  writeFileSync(`${ROOT}docs/games/${g.slug}.md`, p.join('\n'));
+}
+
+// ---------------------------------------------------------------------------
+// README
+// ---------------------------------------------------------------------------
+const out = [];
+
+out.push('<!-- Everything below this line is generated by scripts/build.mjs. Edit games/, not this. -->');
+out.push('');
+out.push('## The games');
+out.push('');
+
+for (const [type, label] of Object.entries(TYPES)) {
+  const list = games.filter((g) => g.type === type);
+  if (!list.length) continue;
+  out.push(`### ${label}`);
+  out.push('');
+  out.push('| Game | Players | Box says | Actually | Teach | Weight | Luck | Rulings |');
+  out.push('|---|---|---|---|---|---|---|---|');
+  for (const g of list) {
+    out.push(
+      `| **[${g.name}](docs/games/${g.slug}.md)** | ${g.players.min}–${g.players.max}` +
+        `${g.players.best ? ` (best ${g.players.best})` : ''} | ${fmtDuration(g.playtime_box)} | ` +
+        `**${fmtDuration(g.playtime_actual)}** | ${fmtDuration(g.teach_time)} | ${stars(g.weight)} | ` +
+        `${g.luck}% | ${g.rulings.length}${g.hasScore ? ' · 🧮' : ''} |`
+    );
+  }
+  out.push('');
+}
+out.push('🧮 = has a scorer you can run.');
+out.push('');
+
+// The headline table: rules everyone plays that are not rules at all.
+out.push('## Things everyone plays that are not in the rulebook');
+out.push('');
+out.push('Every one of these is a house rule. None of them is official. Most people');
+out.push('have played them their whole lives without knowing that.');
+out.push('');
+out.push('| Game | "Rule" | The actual rule |');
+out.push('|---|---|---|');
+for (const r of universal) {
+  out.push(`| ${r.game.name} | ${esc(r.question)} | ${oneLine(r.verdict).slice(0, 150)}${oneLine(r.verdict).length > 150 ? '…' : ''} |`);
+}
+out.push('');
+
+out.push('## Every ruling on file');
+out.push('');
+out.push('| Game | Question | Official? | How widely played |');
+out.push('|---|---|---|---|');
+for (const r of allRulings) {
+  out.push(
+    `| [${r.game.name}](docs/games/${r.game.slug}.md) | ${esc(r.question)} | ` +
+      `${r.official ? '✅ yes' : '❌ no'} | ${r.prevalence.replace('-', ' ')} |`
+  );
+}
+out.push('');
+
+out.push('## By the numbers');
+out.push('');
+out.push('| | |');
+out.push('|---|---|');
+out.push(`| Games | ${games.length} |`);
+out.push(`| Rulings | ${allRulings.length} |`);
+out.push(`| Of those, not official rules | ${houseRules.length} |`);
+out.push(`| Not official, yet played nearly everywhere | ${universal.length} |`);
+out.push(`| Games with a runnable scorer | ${games.filter((g) => g.hasScore).length} |`);
+out.push(
+  `| Total minutes the boxes are lying by | ${games.reduce(
+    (a, g) => a + (parseInt(fmtDuration(g.playtime_actual)) - parseInt(fmtDuration(g.playtime_box))),
+    0
+  )} |`
+);
+out.push('');
+
+const generated = out.join('\n');
+const MARK = '<!-- Everything below this line is generated';
+const readmePath = `${ROOT}README.md`;
+let readme = '';
+try {
+  readme = readFileSync(readmePath, 'utf8');
+} catch {
+  readme = '';
+}
+const head = readme.includes(MARK) ? readme.slice(0, readme.indexOf(MARK)) : readme;
+writeFileSync(readmePath, head + generated);
+
+console.log(
+  `✓ built README.md and ${games.length} game pages — ${allRulings.length} rulings, ` +
+    `${universal.length} of them universally played and entirely made up`
+);

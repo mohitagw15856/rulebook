@@ -1,0 +1,45 @@
+name: Go Fish
+type: card
+family: matching
+players:
+  min: 2
+  max: 6
+  best: 4
+playtime_box: 15m
+playtime_actual: 20m
+teach_time: 60s
+weight: 1.0
+luck: 80
+components:
+  - Standard 52-card deck
+objective: >
+  Collect more complete sets of four matching ranks than anyone else.
+setup_by_players:
+  - players: "2-3"
+    setup: Deal 7 each.
+  - players: "4-6"
+    setup: Deal 5 each.
+    note: Five cards keeps enough in the pond for the game to last.
+turn_structure:
+  - Ask one named player for a specific rank you already hold at least one of.
+  - If they have any, they hand over all of them and you take another turn.
+  - If they do not, they say "go fish" and you draw one card from the pond.
+  - Lay down any complete set of four as soon as you hold it.
+win_condition: >
+  Play ends when all thirteen sets are complete. Whoever laid down the most
+  sets wins.
+editions:
+  - name: Memory-driven variants
+    changed: >
+      Some versions require you to ask for a specific card rather than a rank,
+      turning it into a much harder memory game for older players.
+substitutions: >
+  Works with any deck. With a partial deck, remove whole ranks rather than
+  individual cards so that every set is still completable.
+accessibility: >
+  Rank-based rather than colour-based, so colour vision is not needed. Holding a
+  large fan of cards is the main dexterity barrier — a card holder or a stand
+  solves it for small hands and for anyone with limited grip.
+sources:
+  - https://www.pagat.com/quartet/gofish.html
+verified: null

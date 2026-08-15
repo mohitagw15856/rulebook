@@ -1,0 +1,48 @@
+name: Chess
+type: abstract
+family: abstract-strategy
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 45m
+teach_time: 10m
+weight: 3.6
+luck: 0
+components:
+  - 8x8 board
+  - 32 pieces in two colours
+  - Optional clock
+objective: >
+  Attack the opposing king so that no legal move escapes the attack.
+setup_by_players:
+  - players: "2"
+    setup: "White on ranks 1 and 2, Black on 7 and 8. Queen goes on her own colour; the right-hand corner square is light for both players."
+    note: Queen on her own colour is the setup error people make most often.
+turn_structure:
+  - White moves first; players alternate single moves with no passing.
+  - Move a piece according to its movement rule, capturing by occupying.
+  - You may never make a move that leaves your own king in check.
+win_condition: >
+  Checkmate — the king is attacked and no legal move removes the attack. Games
+  also end by resignation, or in a draw by stalemate, agreement, threefold
+  repetition, the fifty-move rule, or insufficient material.
+editions:
+  - name: FIDE laws
+    changed: >
+      The competitive rules are maintained by FIDE and are periodically revised,
+      mostly on clock handling, illegal-move penalties and tournament conduct.
+      The movement of the pieces has been stable since the fifteenth century.
+substitutions: >
+  A missing piece can be stood in for by a coin or an upturned pawn, agreed
+  before the game. A missing queen is traditionally represented by an upturned
+  rook.
+accessibility: >
+  Piece shape carries the information, not colour, so colour vision is rarely a
+  barrier — but light-versus-dark squares can be. Tactile sets with pegged
+  pieces and raised dark squares exist and are the standard accommodation for
+  blind players, who typically use algebraic notation spoken aloud.
+sources:
+  - https://handbook.fide.com/chapter/E012023
+verified: null

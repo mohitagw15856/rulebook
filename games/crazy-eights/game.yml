@@ -1,0 +1,47 @@
+name: Crazy Eights
+type: card
+family: shedding
+players:
+  min: 2
+  max: 7
+  best: 4
+playtime_box: 20m
+playtime_actual: 25m
+teach_time: 90s
+weight: 1.0
+luck: 88
+components:
+  - Standard 52-card deck (two decks shuffled together for five or more players)
+objective: >
+  Empty your hand before anyone else by matching the top discard by rank or suit.
+setup_by_players:
+  - players: "2"
+    setup: Deal 7 each.
+  - players: "3-4"
+    setup: Deal 5 each.
+  - players: "5-7"
+    setup: Deal 5 each from two shuffled decks.
+    note: One deck runs out too quickly above four players.
+turn_structure:
+  - Play a card matching the top discard by suit or by rank.
+  - An Eight is wild and may be played at any time; name the suit that follows.
+  - If you cannot play, draw from the stock until you can, or until the stock is empty.
+win_condition: >
+  First player with an empty hand wins the round and scores the value of every
+  card left in the other hands.
+editions:
+  - name: Commercial descendants
+    year: 1971
+    changed: >
+      Uno is a commercial reworking of this public-domain game, replacing suits
+      with colours and adding dedicated action cards.
+substitutions: >
+  Needs nothing but a standard deck, which makes it the game to fall back on
+  when a boxed game is missing pieces. If you are short of cards, deal fewer.
+accessibility: >
+  Standard playing cards have small corner indices; a large-index or jumbo deck
+  helps considerably. The wild card is defined by rank rather than colour, so
+  colour vision is not required.
+sources:
+  - https://www.pagat.com/eights/crazy8s.html
+verified: null
