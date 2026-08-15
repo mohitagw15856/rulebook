@@ -16,6 +16,12 @@
   <img alt="works offline" src="https://img.shields.io/badge/works-offline-0f5138?style=flat-square">
   <a href="https://www.npmjs.com/package/@mohitagw15856/rulebook"><img alt="npm" src="https://img.shields.io/npm/v/@mohitagw15856/rulebook?style=flat-square&color=c02b2b&label=npm"></a>
   <a href="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml"><img alt="ci" src="https://github.com/mohitagw15856/rulebook/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://mohitagw15856.github.io/rulebook/"><img alt="live site" src="https://img.shields.io/badge/site-live-35f5d0?style=flat-square"></a>
+</p>
+
+<p align="center">
+  <b><a href="https://mohitagw15856.github.io/rulebook/">→ Settle an argument right now, in your browser ←</a></b><br>
+  <sub>No install. Works on your phone at the table.</sub>
 </p>
 
 <p align="center">
@@ -67,7 +73,16 @@ plays — clearly labelled, so the table can pick one and get on with it.
 | **The scorer** | `rulebook score poker "As Ks Qs Js Ts"` — no arithmetic arguments. |
 | **The finder** | `rulebook find --players 5 --minutes 30` — what fits tonight. |
 
-## Use it
+## Use it without installing anything
+
+**[mohitagw15856.github.io/rulebook](https://mohitagw15856.github.io/rulebook/)**
+
+The whole registry, in the browser. Search every ruling at once, filter the
+games by what fits tonight, and run the scorers — those are the *same* modules
+the CLI uses, imported directly and running on your machine. Nothing is sent
+anywhere, and there is no backend to go down.
+
+## Use it in the terminal
 
 ```console
 $ npx @mohitagw15856/rulebook ruling monopoly "free parking"

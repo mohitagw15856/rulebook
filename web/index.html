@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rulebook — settle the argument</title>
+<meta name="description" content="Board and card game rules, the house rules everyone plays, and which of them are actually real. 13 games, 68 rulings, works offline.">
+<meta property="og:title" content="rulebook — settle the argument">
+<meta property="og:description" content="Somebody just played a Draw Four and the table has stopped. One of them is right, and it is not who you think.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🃏</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- The synthwave horizon, drawn on canvas behind everything. -->
+<canvas id="grid" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cursor-glow" id="glow" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="suits" aria-hidden="true">
+    <span style="--x:6%;--d:0s;--s:1.2">♠</span>
+    <span style="--x:22%;--d:3s;--s:.8">♥</span>
+    <span style="--x:41%;--d:6s;--s:1.4">♦</span>
+    <span style="--x:63%;--d:1.5s;--s:.9">♣</span>
+    <span style="--x:79%;--d:4.5s;--s:1.1">♠</span>
+    <span style="--x:92%;--d:7.5s;--s:.7">♥</span>
+  </div>
+
+  <div class="deal" aria-hidden="true">
+    <div class="pcard c1"><b>K</b><i>♠</i></div>
+    <div class="pcard c2 red"><b>A</b><i>♥</i></div>
+    <div class="pcard c3"><b>+2</b><i>?</i></div>
+  </div>
+
+  <h1 class="glitch" data-text="rulebook">rulebook</h1>
+  <p class="tagline"><span id="type-out"></span><span class="caret" aria-hidden="true"></span></p>
+  <p class="sub">
+    Somebody just played a Draw Four and the table has stopped.<br>
+    One of them is right, and <em>it is not who you think.</em>
+  </p>
+
+  <div class="hero-cta">
+    <a class="btn primary" href="#settle">Settle an argument</a>
+    <a class="btn" href="#games">Browse the games</a>
+    <a class="btn ghost" href="https://github.com/mohitagw15856/rulebook">Source</a>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div class="scrollhint" aria-hidden="true"><span></span></div>
+</header>
+
+<main>
+
+<!-- ------------------------------------------------------------------ -->
+<section id="settle" class="reveal">
+  <h2 class="sec"><span class="num">01</span> Settle it</h2>
+  <p class="lede">
+    Type the argument the way it gets said at the table. This searches every
+    ruling in the registry, not just one game.
+  </p>
+
+  <div class="searchbox">
+    <input id="q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="can I stack a draw 2" aria-label="Ask a rules question">
+    <div class="beam" aria-hidden="true"></div>
+  </div>
+
+  <div class="chips" id="examples">
+    <button data-q="can I stack a draw 2">can I stack a draw 2</button>
+    <button data-q="free parking money">free parking money</button>
+    <button data-q="trading on other players turns">trading on someone else's turn</button>
+    <button data-q="is it a word if it is not in the dictionary">is that even a word</button>
+    <button data-q="touch move">I touched it but I didn't move it</button>
+    <button data-q="one word clue">can a clue be two words</button>
+  </div>
+
+  <div id="verdicts" class="verdicts" aria-live="polite"></div>
+</section>
+
+<!-- ------------------------------------------------------------------ -->
+<section id="fake" class="reveal">
+  <h2 class="sec"><span class="num">02</span> Rules that are not rules</h2>
+  <p class="lede">
+    Every one of these is a house rule. None of them is official. Most people
+    have played them their whole lives without knowing that.
+  </p>
+  <div id="fakes" class="fakes"></div>
+</section>
+
+<!-- ------------------------------------------------------------------ -->
+<section id="games" class="reveal">
+  <h2 class="sec"><span class="num">03</span> What should we play?</h2>
+  <p class="lede">
+    Filtered on the time a game <em>actually</em> takes, not the number on
+    the box. The gap between those two is why game night overruns.
+  </p>
+
+  <div class="filters">
+    <label>Players
+      <select id="f-players">
+        <option value="">any</option>
+        <option>2</option><option>3</option><option>4</option>
+        <option>5</option><option>6</option><option>7</option><option>8</option>
+      </select>
+    </label>
+    <label>Under
+      <select id="f-minutes">
+        <option value="">any length</option>
+        <option value="20">20 min</option>
+        <option value="30">30 min</option>
+        <option value="45">45 min</option>
+        <option value="60">1 hour</option>
+        <option value="90">1.5 hours</option>
+      </select>
+    </label>
+    <label>Max weight
+      <select id="f-weight">
+        <option value="">any</option>
+        <option value="1.5">1.5 — trivial</option>
+        <option value="2">2 — light</option>
+        <option value="3">3 — medium</option>
+        <option value="5">5 — anything</option>
+      </select>
+    </label>
+    <label>Type
+      <select id="f-type">
+        <option value="">all</option>
+        <option value="card">card</option>
+        <option value="board">board</option>
+        <option value="word">word</option>
+        <option value="party">party</option>
+        <option value="abstract">abstract</option>
+      </select>
+    </label>
+    <button id="f-reset" class="btn tiny">reset</button>
+  </div>
+
+  <div id="grid-games" class="game-grid"></div>
+  <p id="nogames" class="empty" hidden>
+    Nothing fits. Loosen a filter — these are real playtimes, so they run
+    longer than you expect.
+  </p>
+</section>
+
+<!-- ------------------------------------------------------------------ -->
+<section id="score" class="reveal">
+  <h2 class="sec"><span class="num">04</span> Scoring, settled</h2>
+  <p class="lede">
+    The same scoring engines the CLI uses, running here in your browser.
+    Nothing is sent anywhere.
+  </p>
+
+  <div class="tabs" id="score-tabs"></div>
+  <div class="scorer">
+    <label id="score-label" for="score-in"></label>
+    <div class="score-row">
+      <input id="score-in" autocomplete="off" spellcheck="false">
+      <button id="score-go" class="btn primary">Work it out</button>
+    </div>
+    <div class="score-egs" id="score-egs"></div>
+    <pre id="score-out" class="out" aria-live="polite"></pre>
+  </div>
+</section>
+
+<!-- ------------------------------------------------------------------ -->
+<section id="cli" class="reveal">
+  <h2 class="sec"><span class="num">05</span> At the table, offline</h2>
+  <p class="lede">
+    The wifi at your friend's flat is not going to hold. The whole registry
+    ships inside the package — no network calls, ever.
+  </p>
+  <div class="terminal">
+    <div class="tbar"><i></i><i></i><i></i><span>zsh</span></div>
+    <pre id="term" class="tbody"></pre>
+  </div>
+  <div class="install">
+    <code id="install-cmd">npm install -g @mohitagw15856/rulebook</code>
+    <button class="btn tiny" id="copy">copy</button>
+  </div>
+</section>
+
+</main>
+
+<!-- Game detail, opened from the grid -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="close" id="m-close" aria-label="Close">×</button>
+    <div id="m-body"></div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <strong>rulebook</strong> — <span id="foot-stats"></span>
+  </p>
+  <p class="fine">
+    How a game is played is not copyrightable; a publisher's wording is. Every
+    word of rules here was written from scratch, and CI enforces it. Game names
+    and trademarks belong to their owners. Not affiliated with any publisher.
+  </p>
+  <p class="fine">
+    Code MIT · data CC BY 4.0 ·
+    <a href="https://github.com/mohitagw15856/rulebook">GitHub</a> ·
+    <a href="https://www.npmjs.com/package/@mohitagw15856/rulebook">npm</a>
+  </p>
+</footer>
+
+<script>window.RULEBOOK = __DATA__;</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
