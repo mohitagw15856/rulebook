@@ -64,7 +64,7 @@ Nothing to install, nothing to sign up for, no network calls.
 
 ---
 
-## 🎉 It runs your game night now
+## 🎉&nbsp; It runs your game night now
 
 <table>
 <tr><td width="50%">
@@ -137,7 +137,7 @@ No further comment.
 
 ---
 
-## 🖨️ Print it and put it in the box
+## 🖨️&nbsp; Print it and put it in the box
 
 ```console
 $ rulebook card catan --out catan.svg
@@ -163,7 +163,7 @@ trusting my eyes. `rulebook qr <game>` prints one straight to your terminal.
 
 ---
 
-## 🏠 Your table's constitution
+## 🏠&nbsp; Your table's constitution
 
 Every group plays differently. Say so **once**, in a `.rulebookrc`, and every
 ruling answers with *your* version first and the published rule second:
@@ -181,7 +181,7 @@ before they start than any amount of looking things up afterwards.
 
 ---
 
-## 🌐 The website
+## 🌐&nbsp; The website
 
 **[mohitagw15856.github.io/rulebook](https://mohitagw15856.github.io/rulebook/)**
 
@@ -206,7 +206,7 @@ https://mohitagw15856.github.io/rulebook/r/uno/stacking-draw-cards/
 
 ---
 
-## ✍️ Add an argument
+## ✍️&nbsp; Add an argument
 
 **This is the valuable bit, and it takes two minutes.** One entry in one YAML
 file. No code, no build step, and
@@ -251,7 +251,7 @@ it), **`min_age`** (the age it genuinely works at, not the age on the box), and
 
 ---
 
-## ⚖️ About the rules themselves
+## ⚖️&nbsp; About the rules themselves
 
 **How a game is played isn't copyrightable.** That's the idea/expression split —
 settled since *Baker v. Selden* (1879) and stated flatly in 37 CFR 202.1(b),
