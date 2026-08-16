@@ -1,5 +1,7 @@
 # Azul
 
+<img src="../../assets/games/azul.svg" alt="Azul" width="400">
+
 > Draft tiles and place them on your wall in patterns, scoring for adjacency and for completed rows, columns and colours.
 
 |  |  |
@@ -187,6 +189,10 @@ ending it while behind.
 ## Variants worth knowing
 
 **Grey board** — The reverse of the player board removes the fixed colour positions, letting you choose where each colour goes on your wall. Substantially harder.
+
+## Play it online, free
+
+- **[Board Game Arena](https://boardgamearena.com/gamepanel?game=azul)** — Free with an account. It scores the wall for you, which removes the most common source of error.
 
 ## When it is fair to stop
 

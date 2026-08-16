@@ -1,5 +1,7 @@
 # Coup
 
+<img src="../../assets/games/coup.svg" alt="Coup" width="400">
+
 > Be the last player with any influence remaining, by bluffing about which characters you hold and calling other players' bluffs.
 
 |  |  |

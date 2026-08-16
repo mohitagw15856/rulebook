@@ -1,5 +1,7 @@
 # Chess
 
+<img src="../../assets/games/chess.svg" alt="Chess" width="400">
+
 > Attack the opposing king so that no legal move escapes the attack.
 
 |  |  |
@@ -182,6 +184,10 @@ have finished a whole game. The first game is about legality, not quality.
 | Edition | Year | What changed |
 |---|---|---|
 | FIDE laws | — | The competitive rules are maintained by FIDE and are periodically revised, mostly on clock handling, illegal-move penalties and tournament conduct. The movement of the pieces has been stable since the fifteenth century. |
+
+## Play it online, free
+
+- **[Lichess](https://lichess.org)** — Free and open source, funded by donations. No account needed to play a computer, and no advertising anywhere.
 
 ## When it is fair to stop
 

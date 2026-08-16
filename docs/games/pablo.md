@@ -1,5 +1,7 @@
 # Pablo
 
+<img src="../../assets/games/pablo.svg" alt="Pablo" width="400">
+
 > Finish with the lowest total in front of you, while remembering cards you are only allowed to look at twice.
 
 |  |  |

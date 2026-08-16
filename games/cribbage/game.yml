@@ -87,6 +87,13 @@ scores:
   note: >
     The famous 29-hand is roughly a one-in-216,000 deal. A 24 is the 
     highest most players will hold in a lifetime of play.
+play_online:
+  - name: PlayOK
+    url: https://www.playok.com/en/cribbage/
+    free: true
+    note: >
+      Free browser play, and it counts the hands for you — useful 
+      while you are still learning to spot fifteens.
 substitutions: >
   The board is only a counter. A pen and paper replaces it entirely, and a
   missing peg can be a coin or a match. Losing the board is inconvenient, never

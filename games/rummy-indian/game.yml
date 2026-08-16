@@ -55,6 +55,14 @@ lineage:
   note: >
     A thirteen-card Rummy variant that became the dominant form across 
     South Asia. The compulsory pure sequence is its defining departure.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/rummy/
+    free: true
+    note: >
+      Free browser rummy. It is not the thirteen-card Indian form, so 
+      treat it as practice for the melding rather than the game 
+      itself.
 substitutions: >
   Two ordinary decks with their jokers are all that is required. If the printed
   jokers are missing, nominate a rank — commonly twos — as permanent wild cards

@@ -1,5 +1,7 @@
 # Jaipur
 
+<img src="../../assets/games/jaipur.svg" alt="Jaipur" width="400">
+
 > Sell goods at better moments than your opponent across three rounds, taking the higher-value tokens before they run out.
 
 |  |  |
@@ -178,6 +180,10 @@ or wait for a third and hope they're still there?" That question is Jaipur.
 
 **Mention it is best of three** so nobody treats the first round as the whole
 game and plays it recklessly.
+
+## Play it online, free
+
+- **[Board Game Arena](https://boardgamearena.com/gamepanel?game=jaipur)** — Free to play with an account. The free tier cannot start games of some titles, but it can always join one.
 
 ## When it is fair to stop
 

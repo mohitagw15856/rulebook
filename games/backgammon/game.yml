@@ -70,6 +70,12 @@ opening: >
   The strong opening rolls make points rather than run. 3-1 makes 
   your five point and is the best roll in the game; 6-5 runs a 
   checker all the way out.
+play_online:
+  - name: PlayOK
+    url: https://www.playok.com/en/backgammon/
+    free: true
+    note: >
+      Free, no account needed, with a doubling cube.
 substitutions: >
   Checkers can be coins or draughts pieces without any loss. The doubling cube
   can be a scrap of paper with a number written on it and a note of who owns it.

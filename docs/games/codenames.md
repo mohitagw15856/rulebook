@@ -1,5 +1,7 @@
 # Codenames
 
+<img src="../../assets/games/codenames.svg" alt="Codenames" width="400">
+
 > Guide your team to identify all of your agents from a grid of words, using one-word clues, without hitting the assassin.
 
 |  |  |
@@ -175,6 +177,10 @@ it is the only thing this game reliably produces an argument about.
 | Edition | Year | What changed |
 |---|---|---|
 | Codenames Duet | — | A fully cooperative two-player version with a different key card and a shared turn limit, rather than an adaptation of the competitive rules. |
+
+## Play it online, free
+
+- **[codenames.game](https://codenames.game)** — Free, no account, and you can play with people in the room by sharing one link. Made by the publisher.
 
 ## When it is fair to stop
 

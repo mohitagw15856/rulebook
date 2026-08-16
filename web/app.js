@@ -309,6 +309,7 @@ function games() {
         const over = Math.round(mins(g.playtime_actual) - mins(g.playtime_box));
         return `
       <article class="gcard" data-slug="${g.slug}" style="animation-delay:${i * 40}ms" tabindex="0" role="button">
+        <img class="gart" src="assets/games/${g.slug}.svg" alt="" loading="lazy" width="400" height="240">
         <div class="top">
           <span class="fam">${esc(g.type)} · ${esc(g.family)}</span>
           <span class="cnt">${g.rulings.length}</span>
@@ -359,6 +360,7 @@ function openGame(slug, focusRuling = null) {
   const over = Math.round(mins(g.playtime_actual) - mins(g.playtime_box));
 
   $('#m-body').innerHTML = `
+    <img class="mart" src="assets/games/${g.slug}.svg" alt="A stylised illustration of ${esc(g.name)}" width="400" height="240">
     <h2 id="m-title">${esc(g.name)}</h2>
     <p>${esc(g.objective)}</p>
 
@@ -405,6 +407,12 @@ function openGame(slug, focusRuling = null) {
             </div>`
           )
           .join('')}`
+      : ''}
+
+    ${g.play_online?.length
+      ? `<h3>Play it online, free</h3><ul class="playlinks">${g.play_online
+          .map((p) => `<li><a href="${esc(p.url)}" rel="noopener" target="_blank"><b>${esc(p.name)}</b> ↗</a> ${esc(p.note)}</li>`)
+          .join('')}</ul>`
       : ''}
 
     ${g.tiebreak ? `<h3>If the scores tie</h3><p>${esc(g.tiebreak)}</p>` : ''}

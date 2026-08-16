@@ -1,5 +1,7 @@
 # Werewolf
 
+<img src="../../assets/games/werewolf.svg" alt="Werewolf" width="400">
+
 > The villagers must identify and eliminate every werewolf. The werewolves must reduce the villagers to their own number without being caught.
 
 |  |  |

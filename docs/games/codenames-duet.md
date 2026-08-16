@@ -1,5 +1,7 @@
 # Codenames Duet
 
+<img src="../../assets/games/codenames-duet.svg" alt="Codenames Duet" width="400">
+
 > Find all fifteen agents between you, giving each other one-word clues, before you run out of turns or hit the assassin.
 
 |  |  |

@@ -1,5 +1,7 @@
 # Backgammon
 
+<img src="../../assets/games/backgammon.svg" alt="Backgammon" width="400">
+
 > Move all fifteen of your checkers around the board into your home quarter, then bear them off before your opponent does.
 
 |  |  |
@@ -191,6 +193,10 @@ to play one and skip the other because the second move is bad for them.
 **Nackgammon** — A different starting arrangement that puts more checkers deep in enemy territory, producing longer and more tactical games.
 
 **Hypergammon** — Three checkers each instead of fifteen. Very short, very sharp, and solved by computers.
+
+## Play it online, free
+
+- **[PlayOK](https://www.playok.com/en/backgammon/)** — Free, no account needed, with a doubling cube.
 
 ## When it is fair to stop
 

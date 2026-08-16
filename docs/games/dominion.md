@@ -1,5 +1,7 @@
 # Dominion
 
+<img src="../../assets/games/dominion.svg" alt="Dominion" width="400">
+
 > Build a deck that buys victory points faster than anyone else, then have the most points when the game ends.
 
 |  |  |

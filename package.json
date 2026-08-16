@@ -1,7 +1,7 @@
 {
   "name": "@mohitagw15856/rulebook",
-  "version": "0.4.0",
-  "description": "Settle the argument. 36 board and card games, 196 rulings, the house rules everyone plays and which are actually real. MCP server, JSON API, chat bots, printable cards.",
+  "version": "0.5.0",
+  "description": "Settle the argument. 37 board and card games including Xiangqi, 203 rulings, illustrations, free places to play, an MCP server and a JSON API.",
   "type": "module",
   "bin": {
     "rulebook": "bin/rulebook.mjs",

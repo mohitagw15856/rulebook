@@ -1,5 +1,7 @@
 # Patchwork
 
+<img src="../../assets/games/patchwork.svg" alt="Patchwork" width="400">
+
 > Fill your quilt board with patches while keeping ahead on buttons, and avoid leaving empty squares.
 
 |  |  |
@@ -177,6 +179,10 @@ finish with fourteen empty squares and a shocked expression.
 **Mention the seven-by-seven bonus once,** and add: "It's worth seven and only
 one of us can get it." That is enough to make it a target without making a first
 game about chasing it.
+
+## Play it online, free
+
+- **[Board Game Arena](https://boardgamearena.com/gamepanel?game=patchwork)** — Free with an account, and it handles the turn order that confuses everybody.
 
 ## When it is fair to stop
 

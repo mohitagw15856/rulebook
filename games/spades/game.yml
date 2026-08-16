@@ -72,6 +72,13 @@ misplays:
 etiquette: >
   Do not criticise your partner's bid during the hand. Whatever you 
   say is also information for the opponents.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/spades/
+    free: true
+    note: >
+      Free with a computer partner, which is a gentle way to learn 
+      bidding.
 substitutions: >
   Nothing beyond the deck. If a card is lost, the deal no longer divides evenly
   at four players, which the game cannot tolerate.

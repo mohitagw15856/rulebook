@@ -81,6 +81,12 @@ scores:
     The upper bonus accounts for 35 of those points and is the 
     difference between an average game and a good one. A solo personal 
     best over 400 is rare.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/yahtzee/
+    free: true
+    note: >
+      Free, and it does the two-section arithmetic for you.
 substitutions: >
   Any five dice work, and score sheets are trivially reproduced on plain paper —
   the categories are the game, not the pad. A missing die genuinely stops play,

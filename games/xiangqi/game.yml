@@ -1,0 +1,114 @@
+name: Xiangqi
+type: abstract
+family: chess-variant
+players:
+  min: 2
+  max: 2
+  best: 2
+playtime_box: 30m
+playtime_actual: 35m
+teach_time: 10m
+weight: 2.7
+luck: 0
+components:
+  - A board of nine files and ten ranks, with pieces on the intersections
+  - Sixteen pieces per side, marked with Chinese characters rather than shaped
+  - A river dividing the two halves, and a three-by-three palace in each camp
+downtime: 45s
+min_age: 8
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Unlike international chess, stalemate is a loss rather than a draw — a player
+  with no legal move has lost. Perpetual check is also forbidden and the
+  offender must vary. Genuine draws are therefore much rarer, and a repeated
+  position with neither side willing to change is the usual cause.
+concession: >
+  Resigning a lost endgame is normal and expected. Because stalemate loses
+  rather than draws, a hopeless position is genuinely hopeless — there is no
+  saving half point to play towards.
+objective: >
+  Checkmate the enemy general, who never leaves the nine points of his own
+  palace.
+setup_by_players:
+  - players: "2"
+    setup: Pieces sit on the intersections, not the squares. Each side has one general, two advisors, two elephants, two horses, two chariots, two cannons and five soldiers.
+    note: Strictly two-player. The asymmetry between the red and black sides is only that red moves first.
+turn_structure:
+  - Move one piece, following that piece's rule.
+  - Capture by landing on an enemy piece, except the cannon, which captures by jumping.
+  - You may not leave your own general in check, and the two generals may never face each other down an open file.
+win_condition: >
+  Checkmate, or a position where the opponent has no legal move at all. Both are
+  wins — there is no stalemate draw.
+handicaps:
+  - for: A much stronger player
+    method: >
+      Remove a horse, then a chariot. Handicap play is a long-established part
+      of the game and carries no stigma at all.
+  - for: A player who knows international chess
+    method: >
+      Nothing needs removing — the cannon and the river will do it. Expect them
+      to lose several games to the cannon's jump capture before it becomes
+      instinctive.
+misplays:
+  - move: >
+      Playing the elephant like a bishop and expecting it to cross the board.
+    instead: >
+      Elephants cannot cross the river at all. They are purely defensive, and
+      planning an attack around one is planning to be a piece down.
+  - move: >
+      Treating the cannon like a chariot because it moves the same way.
+    instead: >
+      It moves like a chariot but captures only by jumping exactly one piece.
+      An empty file makes it harmless; a crowded one makes it lethal.
+opening: >
+  The central cannon opening — moving a cannon to the middle file — is by far
+  the most common first move and the one most theory is written about. Develop
+  horses towards the centre, and do not push soldiers early, since they cannot
+  move backwards.
+etiquette: >
+  Announcing check is customary but not required. Because perpetual check is
+  illegal rather than merely futile, a player who keeps repeating a check should
+  be told once, plainly, rather than allowed to continue.
+lineage:
+  from:
+    - Chaturanga
+  note: >
+    Shares an ancestor with international chess rather than descending from it.
+    Both trace back to Indian Chaturanga; Xiangqi took the eastern route and
+    added the river, the palace and the cannon — the last of which has no
+    equivalent in the western game.
+variants:
+  - name: Janggi
+    changed: >
+      The Korean cousin, with a differently shaped palace, a general that may
+      move within it diagonally, and the option to pass a turn.
+  - name: Blind and handicap play
+    changed: >
+      Removing a piece or playing without sight of the board are both
+      long-standing traditions rather than novelties.
+play_online:
+  - name: PlayOK
+    url: https://www.playok.com/en/xiangqi/
+    free: true
+    note: >
+      Free browser play against people or a computer, no account 
+      required. The interface is plain and the servers are busy.
+substitutions: >
+  Pieces are flat discs marked with characters, so a lost piece can be replaced
+  by a coin with the character written on it. The board is a grid of lines and
+  can simply be drawn. Note that a set marked in traditional characters and one
+  in simplified characters mix perfectly well.
+accessibility: >
+  The pieces are distinguished by the character written on them rather than by
+  shape, which is a genuine barrier for anyone who cannot read them and for
+  low-vision players — Western-style sets with figurine pieces exist and are
+  worth seeking out. The two sides are conventionally red and black, a pairing
+  that is legible to almost everyone. Playing on the intersections rather than
+  in the squares confuses newcomers from international chess more than any rule
+  does.
+sources:
+  - https://en.wikipedia.org/wiki/Xiangqi
+  - https://www.pagat.com/
+verified: null

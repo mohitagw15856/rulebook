@@ -1,5 +1,7 @@
 # Go Fish
 
+<img src="../../assets/games/go-fish.svg" alt="Go Fish" width="400">
+
 > Collect more complete sets of four matching ranks than anyone else.
 
 |  |  |
@@ -129,6 +131,10 @@ game a nine-year-old tolerates and one they want to play again.
 | Edition | Year | What changed |
 |---|---|---|
 | Memory-driven variants | — | Some versions require you to ask for a specific card rather than a rank, turning it into a much harder memory game for older players. |
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/gofish/)** — Free and simple enough for a child to use unaided.
 
 ## When it is fair to stop
 

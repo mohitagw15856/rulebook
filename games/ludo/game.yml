@@ -70,6 +70,13 @@ etiquette: >
   Capturing a child's token is the whole game and should not be 
   softened silently. If you intend to go easy, say so at the start 
   rather than throwing the game quietly.
+play_online:
+  - name: PlayOK
+    url: https://www.playok.com/en/ludo/
+    free: true
+    note: >
+      Free, and it plays with the blockade rule — worth noticing if 
+      your family plays without it.
 substitutions: >
   Everything here is replaceable. Tokens can be coins, buttons or torn paper,
   and the board can be drawn. A missing die is the only genuine stopper, and a

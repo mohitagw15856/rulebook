@@ -71,6 +71,13 @@ misplays:
 opening: >
   Pass high spades before high hearts, and keep low clubs — the two 
   of clubs lead is the one trick you can shape from the start.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/hearts/
+    free: true
+    note: >
+      Free against three computer players, no account, works on a 
+      phone.
 substitutions: >
   Nothing to lose beyond the deck itself. A missing card means a missing card,
   and the hand cannot be dealt evenly, so retire the deck.

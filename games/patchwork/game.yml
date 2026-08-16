@@ -60,6 +60,13 @@ scores:
   note: >
     A negative final score is not a bad game. The two-point penalty 
     per empty square means most first games finish below zero.
+play_online:
+  - name: Board Game Arena
+    url: https://boardgamearena.com/gamepanel?game=patchwork
+    free: true
+    note: >
+      Free with an account, and it handles the turn order that 
+      confuses everybody.
 substitutions: >
   The patches are the puzzle and cannot be improvised. Buttons can be any counter.
   The time board is easily drawn on paper.

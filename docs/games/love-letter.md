@@ -1,5 +1,7 @@
 # Love Letter
 
+<img src="../../assets/games/love-letter.svg" alt="Love Letter" width="400">
+
 > Be the last player standing in a round, or hold the highest card when the deck runs out.
 
 |  |  |

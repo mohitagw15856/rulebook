@@ -1,5 +1,7 @@
 # Monopoly
 
+<img src="../../assets/games/monopoly.svg" alt="Monopoly" width="400">
+
 > Bankrupt everyone else by acquiring property and charging rent.
 
 |  |  |

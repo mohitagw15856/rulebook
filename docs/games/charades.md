@@ -1,5 +1,7 @@
 # Charades
 
+<img src="../../assets/games/charades.svg" alt="Charades" width="400">
+
 > Act out a title or phrase without speaking, while your team tries to guess it before time runs out.
 
 |  |  |

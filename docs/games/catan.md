@@ -1,5 +1,7 @@
 # Catan
 
+<img src="../../assets/games/catan.svg" alt="Catan" width="400">
+
 > Be first to ten victory points, earned from settlements, cities, the longest road, the largest army and some development cards.
 
 |  |  |

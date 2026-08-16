@@ -1,5 +1,7 @@
 # Fishbowl
 
+<img src="../../assets/games/fishbowl.svg" alt="Fishbowl" width="400">
+
 > Get your team to guess as many names from the bowl as possible, across three rounds that use the same slips with progressively harsher restrictions.
 
 |  |  |

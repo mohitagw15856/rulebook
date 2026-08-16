@@ -20,6 +20,7 @@
     "name",
     "objective",
     "opening",
+    "play_online",
     "players",
     "playtime_actual",
     "playtime_box",

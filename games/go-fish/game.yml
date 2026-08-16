@@ -66,6 +66,12 @@ misplays:
     instead: >
       Ask for what you have three of. You only need one more, and you 
       have three chances of somebody holding it.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/gofish/
+    free: true
+    note: >
+      Free and simple enough for a child to use unaided.
 substitutions: >
   Works with any deck. With a partial deck, remove whole ranks rather than
   individual cards so that every set is still completable.

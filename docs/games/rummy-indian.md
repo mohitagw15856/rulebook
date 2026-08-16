@@ -1,5 +1,7 @@
 # Indian Rummy
 
+<img src="../../assets/games/rummy-indian.svg" alt="Indian Rummy" width="400">
+
 > Arrange all thirteen cards into valid sets and runs, including at least two runs of which one contains no joker.
 
 |  |  |
@@ -186,6 +188,10 @@ mandatory, and you can drop out of a bad hand.
 | Edition | Year | What changed |
 |---|---|---|
 | Points, pool and deals rummy | — | The same hand rules are used in three tournament formats — points rummy (single hand for stakes), pool rummy (eliminate at 101 or 201), and deals rummy (fixed number of hands). |
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/rummy/)** — Free browser rummy. It is not the thirteen-card Indian form, so treat it as practice for the melding rather than the game itself.
 
 ## When it is fair to stop
 

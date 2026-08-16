@@ -1,5 +1,7 @@
 # Ticket to Ride
 
+<img src="../../assets/games/ticket-to-ride.svg" alt="Ticket to Ride" width="400">
+
 > Claim railway routes to connect the cities named on your secret destination tickets, scoring for the routes you build and losing points for tickets you fail to finish.
 
 |  |  |

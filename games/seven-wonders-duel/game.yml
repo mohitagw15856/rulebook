@@ -63,6 +63,13 @@ opening: >
   Age one is about resources and setting up chains. Take the brown 
   and grey cards early — buying from the bank all game is how you 
   lose without noticing.
+play_online:
+  - name: Board Game Arena
+    url: https://boardgamearena.com/gamepanel?game=sevenwondersduel
+    free: true
+    note: >
+      Free with an account, and it enforces every timing rule you 
+      would otherwise argue about.
 substitutions: >
   Nothing here is improvisable — the card costs and the pyramid structure are
   the game. Coins can be replaced with any counters.

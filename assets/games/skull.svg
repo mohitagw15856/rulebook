@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240" role="img" aria-label="A stylised illustration of Skull"><rect width="400" height="240" fill="#0a0c11"/>
+       <circle cx="90" cy="40" r="120" fill="#1c5c4d" fill-opacity="0.30"/>
+       <circle cx="330" cy="215" r="130" fill="#3b2a72" fill-opacity="0.30"/><g filter="none">
+    <circle cx="160" cy="130" r="22" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/><circle cx="200" cy="130" r="22" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/><circle cx="240" cy="130" r="22" fill="#fffdf7" stroke="#d9d2c2" stroke-width="2"/>
+    <path d="M154 126 a6 6 0 1 1 12 0 v6 h-12z" fill="#c02b2b"/>
+    <circle cx="200" cy="130" r="9" fill="#2f9e7e"/>
+    <g transform="translate(240 130)"><circle cx="0" cy="-3" r="7" fill="#1b1b1b"/><rect x="-6" y="2" width="12" height="6" rx="2" fill="#1b1b1b"/></g></g><text x="20" y="222" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#f4f6fa">Skull</text><text x="380" y="222" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#6a7383">illustration, not a photograph</text></svg>

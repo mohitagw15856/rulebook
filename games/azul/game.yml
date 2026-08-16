@@ -79,6 +79,13 @@ opening: >
   Take from a factory that leaves the fewest useful tiles in the 
   centre. Denying the player after you is worth as much as what you 
   take.
+play_online:
+  - name: Board Game Arena
+    url: https://boardgamearena.com/gamepanel?game=azul
+    free: true
+    note: >
+      Free with an account. It scores the wall for you, which removes 
+      the most common source of error.
 substitutions: >
   The tiles are the game and cannot sensibly be improvised. Player boards are
   printable. The bag can be any opaque container.

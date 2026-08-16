@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240" role="img" aria-label="A stylised illustration of Scrabble"><rect width="400" height="240" fill="#0a0c11"/>
+       <circle cx="90" cy="40" r="120" fill="#1c5c4d" fill-opacity="0.30"/>
+       <circle cx="330" cy="215" r="130" fill="#3b2a72" fill-opacity="0.30"/><g filter="none">
+    
+  <g transform="translate(140 122)">
+    <rect x="-19" y="-19" width="38" height="38" rx="5" fill="#efe0bd" stroke="#d9d2c2" stroke-width="1.2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#1b1b1b">W</text>
+    <text x="13" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7a7364">4</text>
+  </g>
+    
+  <g transform="translate(182 122)">
+    <rect x="-19" y="-19" width="38" height="38" rx="5" fill="#efe0bd" stroke="#d9d2c2" stroke-width="1.2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#1b1b1b">O</text>
+    <text x="13" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7a7364">1</text>
+  </g>
+    
+  <g transform="translate(224 122)">
+    <rect x="-19" y="-19" width="38" height="38" rx="5" fill="#efe0bd" stroke="#d9d2c2" stroke-width="1.2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#1b1b1b">R</text>
+    <text x="13" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7a7364">1</text>
+  </g>
+    
+  <g transform="translate(266 122)">
+    <rect x="-19" y="-19" width="38" height="38" rx="5" fill="#efe0bd" stroke="#d9d2c2" stroke-width="1.2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#1b1b1b">D</text>
+    <text x="13" y="15" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#7a7364">2</text>
+  </g></g><text x="20" y="222" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#f4f6fa">Scrabble</text><text x="380" y="222" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#6a7383">illustration, not a photograph</text></svg>

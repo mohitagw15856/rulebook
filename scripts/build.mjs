@@ -9,6 +9,7 @@ import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { load, validate, fmtDuration, minutes, TYPES, PREVALENCE } from '../lib/registry.mjs';
+import { illustration } from '../lib/art.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 const games = load();
@@ -31,10 +32,19 @@ const oneLine = (s) => esc(s).replace(/\s+/g, ' ');
 // Per-game pages
 // ---------------------------------------------------------------------------
 mkdirSync(`${ROOT}docs/games`, { recursive: true });
+mkdirSync(`${ROOT}assets/games`, { recursive: true });
+
+// One illustration per game, committed so the README, the docs pages and the
+// printed booklet can all use the same file.
+for (const g of games) {
+  writeFileSync(`${ROOT}assets/games/${g.slug}.svg`, illustration(g));
+}
 
 for (const g of games) {
   const p = [];
   p.push(`# ${g.name}`);
+  p.push('');
+  p.push(`<img src="../../assets/games/${g.slug}.svg" alt="${esc(g.name)}" width="400">`);
   p.push('');
   p.push(`> ${oneLine(g.objective)}`);
   p.push('');
@@ -125,6 +135,13 @@ for (const g of games) {
     p.push('## Variants worth knowing');
     p.push('');
     for (const v of g.variants) p.push(`**${v.name}** — ${oneLine(v.changed)}`, '');
+  }
+
+  if (g.play_online?.length) {
+    p.push('## Play it online, free');
+    p.push('');
+    for (const pl of g.play_online) p.push(`- **[${pl.name}](${pl.url})** — ${oneLine(pl.note)}`);
+    p.push('');
   }
 
   p.push('## When it is fair to stop');

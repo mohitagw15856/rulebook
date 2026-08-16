@@ -1,5 +1,7 @@
 # Uno
 
+<img src="../../assets/games/uno.svg" alt="Uno" width="400">
+
 > Be the first player to get rid of every card in your hand.
 
 |  |  |

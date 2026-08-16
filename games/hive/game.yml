@@ -50,6 +50,13 @@ lineage:
   note: >
     A boardless abstract; the play area is whatever shape the tiles 
     make, which is unusual enough to have no obvious ancestor.
+play_online:
+  - name: Board Game Arena
+    url: https://boardgamearena.com/gamepanel?game=hive
+    free: true
+    note: >
+      Free with an account, and it will not let you make an illegal 
+      move — the fastest way to learn the one-hive rule.
 substitutions: >
   Nothing to lose but tiles, and a lost tile changes the game rather than
   stopping it. The tiles are chunky bakelite and famously durable; the pocket

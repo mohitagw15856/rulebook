@@ -52,6 +52,14 @@ lineage:
     A shedding game of the Eights family that spread through the 
     mid-twentieth century. Mau Mau is its closest European relative and 
     shares most of its variations.
+play_online:
+  - name: cardgames.io
+    url: https://cardgames.io/crazyeights/
+    free: true
+    note: >
+      Free in the browser. Note that it makes its own choices about 
+      which action cards exist, which is exactly the ambiguity this 
+      game is known for.
 substitutions: >
   Needs nothing but a standard deck, which makes it the game to fall back on
   when a boxed game is missing pieces. If you are short of cards, deal fewer.

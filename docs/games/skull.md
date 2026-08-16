@@ -1,5 +1,7 @@
 # Skull
 
+<img src="../../assets/games/skull.svg" alt="Skull" width="400">
+
 > Win two bidding challenges by successfully flipping the number of flowers you promised, without turning over a skull.
 
 |  |  |

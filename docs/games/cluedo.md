@@ -1,5 +1,7 @@
 # Cluedo
 
+<img src="../../assets/games/cluedo.svg" alt="Cluedo" width="400">
+
 > Work out which suspect, weapon and room are hidden in the case envelope, and say so before anybody else does.
 
 |  |  |

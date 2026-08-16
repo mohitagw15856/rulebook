@@ -1,5 +1,7 @@
 # Spades
 
+<img src="../../assets/games/spades.svg" alt="Spades" width="400">
+
 > Bid how many tricks your partnership will take, then take exactly that many. Overshooting is punished almost as harshly as falling short.
 
 |  |  |
@@ -160,6 +162,10 @@ a hand with no high cards and look upset about it. That is the perfect moment:
 
 **The sentence that saves the most confusion:** "You can't lead a spade until
 somebody's already been forced to play one." Say it before the opening lead.
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/spades/)** — Free with a computer partner, which is a gentle way to learn bidding.
 
 ## When it is fair to stop
 

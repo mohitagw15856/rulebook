@@ -1,5 +1,7 @@
 # Crazy Eights
 
+<img src="../../assets/games/crazy-eights.svg" alt="Crazy Eights" width="400">
+
 > Empty your hand before anyone else by matching the top discard by rank or suit.
 
 |  |  |
@@ -127,6 +129,10 @@ sentence long and the game teaches itself from the second turn onward.
 | Edition | Year | What changed |
 |---|---|---|
 | Commercial descendants | 1971 | Uno is a commercial reworking of this public-domain game, replacing suits with colours and adding dedicated action cards. |
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/crazyeights/)** — Free in the browser. Note that it makes its own choices about which action cards exist, which is exactly the ambiguity this game is known for.
 
 ## When it is fair to stop
 

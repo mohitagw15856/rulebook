@@ -1,5 +1,7 @@
 # Blackjack
 
+<img src="../../assets/games/blackjack.svg" alt="Blackjack" width="400">
+
 > Beat the dealer's hand without going over 21.
 
 |  |  |

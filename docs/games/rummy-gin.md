@@ -1,5 +1,7 @@
 # Gin Rummy
 
+<img src="../../assets/games/rummy-gin.svg" alt="Gin Rummy" width="400">
+
 > Arrange your ten cards into sets and runs, then knock before your opponent does.
 
 |  |  |
@@ -173,6 +175,10 @@ This game has a scorer. `rulebook score rummy-gin "..."` works out the total for
 | Edition | Year | What changed |
 |---|---|---|
 | Oklahoma Gin | — | The first upcard sets the maximum knock value for the hand rather than it always being ten, which makes early hands far tighter. |
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/ginrummy/)** — Free against a computer, with the deadwood counted automatically.
 
 ## When it is fair to stop
 

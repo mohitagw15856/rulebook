@@ -24,7 +24,12 @@ const add = (url, where) => {
 
 for (const g of games) {
   for (const s of g.sources || []) add(s, `${g.__dir}/game.yml`);
-  for (const r of g.rulings) add(r.source, `${g.__dir}/rulings.yml#${r.id}`);
+  for (const r of g.rulings) {
+    add(r.source, `${g.__dir}/rulings.yml#${r.id}`);
+    for (const src of r.sources || []) add(src.url, `${g.__dir}/rulings.yml#${r.id}`);
+  }
+  // Somewhere to play is a promise too — a dead one wastes somebody's evening.
+  for (const p of g.play_online || []) add(p.url, `${g.__dir}/game.yml (play: ${p.name})`);
 }
 
 const dead = [];

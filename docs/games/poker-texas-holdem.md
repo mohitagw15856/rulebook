@@ -1,5 +1,7 @@
 # Texas Hold'em
 
+<img src="../../assets/games/poker-texas-holdem.svg" alt="Texas Hold'em" width="400">
+
 > Win chips, either by holding the best five-card hand at showdown or by making everyone else fold.
 
 |  |  |

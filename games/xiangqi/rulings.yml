@@ -1,0 +1,109 @@
+rulings:
+  - id: flying-general
+    question: Can the two generals face each other down an open file?
+    asked_as:
+      - flying general rule
+      - generals facing each other
+      - can kings see each other xiangqi
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. If the two generals stand on the same file with no piece between them,
+      the position is illegal. In practice this means the general may capture the
+      opposing general along an empty file, so no player may ever create that
+      alignment. Clearing the central file at the wrong moment loses on the spot.
+  - id: stalemate-is-a-loss
+    question: Is stalemate a draw?
+    asked_as:
+      - stalemate xiangqi
+      - no legal move
+      - is it a draw if I cannot move
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No — a player with no legal move has lost. This is the opposite of
+      international chess, and it makes the endgame far sharper because there is
+      no half point to scramble towards.
+    effect: >
+      Beginners arriving from chess routinely play for stalemate in lost
+      positions and are surprised to find they have simply resigned slowly.
+  - id: horse-blocking
+    question: Does the horse jump like a knight?
+    asked_as:
+      - horse blocked xiangqi
+      - does the knight jump
+      - hobbling the horse
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      No. The horse moves one point orthogonally and then one diagonally
+      outward, and if the orthogonal point is occupied by any piece, the move is
+      blocked entirely. Blocking an enemy horse with a single soldier is a
+      standard defensive idea and has no equivalent in the western game.
+  - id: cannon-capture
+    question: How exactly does the cannon capture?
+    asked_as:
+      - cannon rules xiangqi
+      - jumping capture
+      - how does the cannon work
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      It captures only by jumping exactly one piece — of either colour — along a
+      straight line, landing on an enemy piece immediately beyond. It cannot
+      capture without a screen, and it cannot jump two. Moving without capturing
+      works exactly like a chariot, with nothing in the way.
+  - id: perpetual-check
+    question: Can you draw by repeating check forever?
+    asked_as:
+      - perpetual check xiangqi
+      - repetition draw
+      - can I just keep checking
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      No. Endless checking is forbidden and the checking player must vary or
+      forfeit the game. Rules for other kinds of repetition are detailed and vary
+      slightly between Chinese and Asian federation codes, but perpetual check
+      losing is common to all of them.
+    effect: >
+      It removes the standard western escape from a lost position, which is one
+      reason draws are far less common here.
+  - id: elephant-crossing-river
+    question: Can the elephant cross the river?
+    asked_as:
+      - elephant river xiangqi
+      - can the bishop cross
+      - elephant movement
+    kind: clarification
+    official: true
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Never. Elephants are confined to their own half for the whole game, which
+      makes them purely defensive pieces. They also move exactly two points
+      diagonally and are blocked if the point in between is occupied.
+  - id: soldier-sideways
+    question: When can a soldier move sideways?
+    asked_as:
+      - pawn sideways xiangqi
+      - soldier after the river
+      - can soldiers move back
+    kind: clarification
+    official: true
+    prevalence: common
+    regions: [global]
+    verdict: >
+      Only after it has crossed the river, and even then only one point at a
+      time. A soldier may never move backwards under any circumstances, so
+      pushing one is a permanent commitment.

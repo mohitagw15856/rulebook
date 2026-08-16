@@ -1,5 +1,7 @@
 # The Mind
 
+<img src="../../assets/games/the-mind.svg" alt="The Mind" width="400">
+
 > Play every card in the group's hands in ascending order, without anyone saying a single word.
 
 |  |  |

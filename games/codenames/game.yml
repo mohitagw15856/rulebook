@@ -72,6 +72,13 @@ etiquette: >
   The spymaster may not react to guesses — no wincing, no nodding. 
   It is the single hardest piece of etiquette in the game and the 
   one most often broken.
+play_online:
+  - name: codenames.game
+    url: https://codenames.game
+    free: true
+    note: >
+      Free, no account, and you can play with people in the room by 
+      sharing one link. Made by the publisher.
 substitutions: >
   Missing word cards barely matter — the grid only needs twenty-five words, and
   any twenty-five from the set work. A lost key card can be replaced by dealing

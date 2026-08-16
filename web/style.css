@@ -797,3 +797,27 @@ footer a:hover { color: var(--mint); }
 .branch:has(.kid:nth-child(3)) .kids { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 @media (max-width: 720px) { .branch:has(.kid:nth-child(3)) { grid-column: span 1; } }
 .originals .ancestor { color: var(--dimmer); }
+
+/* --- game illustrations --------------------------------------------------- */
+
+.gcard .gart {
+  display: block; width: calc(100% + 2.6rem); margin: -1.3rem -1.3rem 1rem;
+  border-radius: var(--r) var(--r) 0 0;
+  aspect-ratio: 400 / 240; object-fit: cover;
+  opacity: 0.85; transition: opacity 0.3s;
+}
+.gcard:hover .gart { opacity: 1; }
+
+.mart {
+  display: block; width: 100%; max-width: 400px;
+  border-radius: 14px; margin-bottom: 1.2rem;
+  border: 1px solid var(--stroke);
+}
+
+.playlinks { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
+.playlinks li {
+  border: 1px solid var(--stroke); border-radius: 12px; padding: 0.8rem 1rem;
+  background: rgba(0,0,0,0.22); color: var(--dim); font-size: 0.9rem;
+}
+.playlinks a { color: var(--mint); text-decoration: none; }
+.playlinks a b { font-weight: 600; }

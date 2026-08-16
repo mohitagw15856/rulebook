@@ -1,5 +1,7 @@
 # Scrabble
 
+<img src="../../assets/games/scrabble.svg" alt="Scrabble" width="400">
+
 > Score the most points by forming interlocking words on the board.
 
 |  |  |
@@ -196,6 +198,10 @@ This game has a scorer. `rulebook score scrabble "..."` works out the total for 
 | Edition | Year | What changed |
 |---|---|---|
 | Word lists | — | There is no single global dictionary. North America uses the TWL/NWL list, most other countries use Collins, and Collins is considerably larger. A word can be legal in one and not the other, which is why the list should be agreed before the first tile is placed. |
+
+## Play it online, free
+
+- **[Woogles](https://woogles.io/)** — Free and open source. It is the same game under a different name for trademark reasons, and it is where competitive players actually play.
 
 ## When it is fair to stop
 

@@ -1,5 +1,7 @@
 # Yahtzee
 
+<img src="../../assets/games/yahtzee.svg" alt="Yahtzee" width="400">
+
 > Fill thirteen scoring categories with dice combinations, choosing which category to spend each roll on.
 
 |  |  |
@@ -155,6 +157,10 @@ too delighted to mind the pause.
 **With children, do the addition with them rather than for them.** The rolling
 is not the hard part; the two-section total at the end is, and it is also the
 part that is quietly teaching them something.
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/yahtzee/)** — Free, and it does the two-section arithmetic for you.
 
 ## When it is fair to stop
 

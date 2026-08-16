@@ -24,6 +24,7 @@ import { deckSheets } from '../lib/deck.mjs';
 import { answer, verifySlack, verifyDiscord } from '../bots/server.mjs';
 import { TOOLS } from '../mcp/server.mjs';
 import { RANKS, SUITS } from '../lib/cards.mjs';
+import { illustration, motifFor } from '../lib/art.mjs';
 import { isStale, verificationAge } from '../lib/registry.mjs';
 
 let pass = 0;
@@ -553,6 +554,46 @@ t('the deck produces a back for every front, mirrored', () => {
 t('the deck escapes game text rather than injecting it', () => {
   const evil = { ...load()[0], name: '<script>x</script>', rulings: [load()[0].rulings[0]] };
   eq(deckSheets([evil]).join('').includes('<script>'), false);
+});
+
+// --- illustrations ---------------------------------------------------------
+t('every game gets a self-contained illustration', () => {
+  for (const g of load()) {
+    const svg = illustration(g);
+    eq(svg.startsWith('<svg'), true, `${g.name}: `);
+    eq(svg.endsWith('</svg>'), true, `${g.name}: `);
+    // No external anything: these must render on GitHub, in print, and offline.
+    eq(/<script|xlink:href|href=|url\(|<image/.test(svg), false, `${g.name}: `);
+  }
+});
+t('illustrations name themselves as illustrations', () => {
+  eq(illustration(load()[0]).includes('illustration, not a photograph'), true);
+});
+t('a game name cannot inject markup into its illustration', () => {
+  const evil = { ...load()[0], name: '<script>x</script>' };
+  eq(illustration(evil).includes('<script>'), false);
+});
+t('every game has a motif, and none falls through to a blank', () => {
+  for (const g of load()) eq(typeof motifFor(g), 'string', `${g.name}: `);
+});
+
+// --- play online -----------------------------------------------------------
+t('play links are https, named, and say what you get', () => {
+  for (const g of load()) {
+    for (const p of g.play_online || []) {
+      eq(p.url.startsWith('https://'), true, `${g.name}: `);
+      eq(Boolean(p.name && p.note), true, `${g.name}: `);
+      eq(typeof p.free, 'boolean', `${g.name}: `);
+    }
+  }
+});
+t('no gambling links slipped in beside the card games', () => {
+  const banned = /casino|bet365|pokerstars|888|stake\.com|gambl/i;
+  for (const g of load()) {
+    for (const p of g.play_online || []) {
+      eq(banned.test(p.url) || banned.test(p.name), false, `${g.name} links ${p.url}: `);
+    }
+  }
 });
 
 // --- translations ----------------------------------------------------------

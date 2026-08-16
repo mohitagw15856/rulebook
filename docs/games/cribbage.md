@@ -1,5 +1,7 @@
 # Cribbage
 
+<img src="../../assets/games/cribbage.svg" alt="Cribbage" width="400">
+
 > Be first to peg 121 points, scored from card combinations during play and from the hands counted afterwards.
 
 |  |  |
@@ -169,6 +171,10 @@ That is the sentence that explains why cribbage is tense.
 **The most common beginner error to pre-empt:** a run of three in the play does
 not have to be laid in order. Five, seven, six is a run. Say it once, in
 advance.
+
+## Play it online, free
+
+- **[PlayOK](https://www.playok.com/en/cribbage/)** — Free browser play, and it counts the hands for you — useful while you are still learning to spot fifteens.
 
 ## When it is fair to stop
 

@@ -1,5 +1,7 @@
 # Hive
 
+<img src="../../assets/games/hive.svg" alt="Hive" width="400">
+
 > Completely surround your opponent's queen bee with tiles of any colour.
 
 |  |  |
@@ -177,6 +179,10 @@ reconsider everything, and it lands best as a surprise.
 **Expansion pieces** — The mosquito, ladybug and pillbug each add one tile per player with a new movement rule. The pillbug in particular changes the balance significantly.
 
 **Tournament rule** — Neither player may open with the queen bee, which removes a known strong opening and is standard in competitive play.
+
+## Play it online, free
+
+- **[Board Game Arena](https://boardgamearena.com/gamepanel?game=hive)** — Free with an account, and it will not let you make an illegal move — the fastest way to learn the one-hive rule.
 
 ## When it is fair to stop
 

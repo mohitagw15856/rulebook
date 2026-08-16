@@ -1,5 +1,7 @@
 # Ludo
 
+<img src="../../assets/games/ludo.svg" alt="Ludo" width="400">
+
 > Get all four of your tokens around the board and into the home column before the other players manage it.
 
 |  |  |
@@ -174,6 +176,10 @@ than pretending the game is fairer than it is.
 **Doubling up** — Two of your tokens on one square form a block that opponents cannot pass. Standard in Indian and Parcheesi play, absent from most British sets.
 
 **Capture to enter home** — A player must capture at least one opposing token before any of their own may enter the home column. Lengthens the game considerably.
+
+## Play it online, free
+
+- **[PlayOK](https://www.playok.com/en/ludo/)** — Free, and it plays with the blockade rule — worth noticing if your family plays without it.
 
 ## When it is fair to stop
 

@@ -1,5 +1,7 @@
 # Hearts
 
+<img src="../../assets/games/hearts.svg" alt="Hearts" width="400">
+
 > Avoid taking tricks containing hearts or the queen of spades — unless you decide to take every single one of them, which flips the whole game.
 
 |  |  |
@@ -165,6 +167,10 @@ matters about once an evening."
 **The sentence that pre-empts the most questions:** "You can only lead a heart
 after somebody has already thrown one away." Say it before the first trick and
 you will not have to adjudicate it.
+
+## Play it online, free
+
+- **[cardgames.io](https://cardgames.io/hearts/)** — Free against three computer players, no account, works on a phone.
 
 ## When it is fair to stop
 

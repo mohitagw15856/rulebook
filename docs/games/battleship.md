@@ -1,5 +1,7 @@
 # Battleship
 
+<img src="../../assets/games/battleship.svg" alt="Battleship" width="400">
+
 > Find and sink all five of your opponent's hidden ships before they sink yours.
 
 |  |  |

@@ -104,6 +104,14 @@ etiquette: >
   Challenge freely and without apology if you have agreed challenges 
   are free. Sulking about a successful challenge is worse manners 
   than the challenge.
+play_online:
+  - name: Woogles
+    url: https://woogles.io/
+    free: true
+    note: >
+      Free and open source. It is the same game under a different name 
+      for trademark reasons, and it is where competitive players 
+      actually play.
 substitutions: >
   Lost tiles can be written on card, but the tile distribution is carefully
   balanced and a missing high-value letter changes the game. Note the count on

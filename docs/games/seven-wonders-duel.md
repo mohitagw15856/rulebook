@@ -1,5 +1,7 @@
 # 7 Wonders Duel
 
+<img src="../../assets/games/seven-wonders-duel.svg" alt="7 Wonders Duel" width="400">
+
 > Win outright by military or scientific supremacy, or accumulate the most victory points across three ages.
 
 |  |  |
@@ -179,6 +181,10 @@ special powers up front is what makes people bounce off this game.
 **Set the expectation clearly:** "The symbols are a lot. You'll be checking the
 reference sheet all game and that's completely normal." Saying that removes the
 embarrassment that otherwise makes people guess instead of asking.
+
+## Play it online, free
+
+- **[Board Game Arena](https://boardgamearena.com/gamepanel?game=sevenwondersduel)** — Free with an account, and it enforces every timing rule you would otherwise argue about.
 
 ## When it is fair to stop
 

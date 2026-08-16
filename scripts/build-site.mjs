@@ -288,6 +288,10 @@ writeFileSync(
   )
 );
 
+mkdirSync(`${OUT}/assets/games`, { recursive: true });
+for (const g of games) {
+  copyFileSync(`${ROOT}assets/games/${g.slug}.svg`, `${OUT}/assets/games/${g.slug}.svg`);
+}
 mkdirSync(`${OUT}/assets`, { recursive: true });
 for (const a of ['banner.svg', 'logo.svg', 'demo.gif']) {
   copyFileSync(`${ROOT}assets/${a}`, `${OUT}/assets/${a}`);

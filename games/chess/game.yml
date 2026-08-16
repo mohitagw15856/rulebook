@@ -91,6 +91,13 @@ etiquette: >
   Offer a draw only on your own move, after moving and before 
   pressing the clock. Resigning a lost position is polite; playing 
   on hoping for a blunder is not, past a certain point.
+play_online:
+  - name: Lichess
+    url: https://lichess.org
+    free: true
+    note: >
+      Free and open source, funded by donations. No account needed to 
+      play a computer, and no advertising anywhere.
 substitutions: >
   A missing piece can be stood in for by a coin or an upturned pawn, agreed
   before the game. A missing queen is traditionally represented by an upturned
