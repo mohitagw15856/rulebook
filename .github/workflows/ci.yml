@@ -89,6 +89,19 @@ jobs:
             if (bad) { console.error(bad + ' answer key mismatches'); process.exit(1); }
             console.log('benchmark answer key verified against every verdict');
           "
+      - name: The service worker refuses to cache error responses
+        run: |
+          npm run build:site
+          node -e "
+            const sw = require('fs').readFileSync('site/sw.js','utf8');
+            if (!/res\.ok && res\.status === 200/.test(sw)) {
+              throw new Error('sw.js caches responses without checking status — a 404 or 503 during a deploy would be cached forever');
+            }
+            const n = (sw.match(/assets\/games\//g) || []).length;
+            if (n < 30) throw new Error('illustrations are not precached (' + n + ')');
+            console.log('sw guards status and precaches ' + n + ' illustrations');
+          "
+
       - name: The embed widget and feed are valid
         run: |
           npm run build:site

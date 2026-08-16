@@ -227,7 +227,22 @@ writeFileSync(
 // for a project whose whole point is being right.
 const CACHE = 'rulebook-${buildHash}';
 const BUILD = '${buildHash}';
-const ASSETS = ${JSON.stringify(['./', './index.html', './style.css', './app.js', './lib/search.mjs', './lib/cards.mjs', ...scorerPaths], null, 2)};
+const ASSETS = ${JSON.stringify(
+  [
+    './',
+    './index.html',
+    './style.css',
+    './app.js',
+    './lib/search.mjs',
+    './lib/cards.mjs',
+    ...scorerPaths,
+    // The illustrations, so an offline visitor sees the games rather than
+    // thirty-seven broken image icons. About 70 kB for the lot.
+    ...games.map((g) => `./assets/games/${g.slug}.svg`),
+  ],
+  null,
+  2
+)};
 
 self.addEventListener('install', (e) => {
   // Two defences against caching a stale build, which is the worst possible
@@ -241,6 +256,8 @@ self.addEventListener('install', (e) => {
   // Both are needed. This worker is installed seconds after a deploy, which is
   // exactly when an edge is most likely to still hold the previous build.
   const fresh = ASSETS.map((u) => new Request(u + (u.includes('?') ? '&' : '?') + 'v=' + BUILD, { cache: 'reload' }));
+  // addAll already rejects the whole install on a non-2xx, which is what we
+  // want: a half-built cache is worse than no cache at all.
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(fresh)).then(() => self.skipWaiting()));
 });
 
@@ -261,8 +278,15 @@ self.addEventListener('fetch', (e) => {
   // the page's own requests do not.
   e.respondWith(
     caches.match(e.request, { ignoreSearch: true }).then((hit) => hit || fetch(e.request).then((res) => {
-      const copy = res.clone();
-      caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+      // Only ever cache a real success. fetch() does NOT reject on 404 or 503 —
+      // it resolves with the error response — so an unguarded put during a
+      // deploy window stores GitHub's error page under the asset's URL and
+      // serves it, from cache, forever. Every illustration on this site was
+      // broken by exactly that.
+      if (res.ok && res.status === 200 && res.type !== 'opaque') {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+      }
       return res;
     }).catch(() => caches.match('./index.html', { ignoreSearch: true })))
   );
