@@ -226,10 +226,22 @@ writeFileSync(
 // reaches anyone who has already visited, which is the worst possible failure
 // for a project whose whole point is being right.
 const CACHE = 'rulebook-${buildHash}';
+const BUILD = '${buildHash}';
 const ASSETS = ${JSON.stringify(['./', './index.html', './style.css', './app.js', './lib/search.mjs', './lib/cards.mjs', ...scorerPaths], null, 2)};
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  // Two defences against caching a stale build, which is the worst possible
+  // failure here: the cache name would be correct while its contents were not,
+  // and it would stay wrong until the next deploy.
+  //
+  //   cache: 'reload'  bypasses the browser's own HTTP cache
+  //   ?v=<hash>        is a URL the CDN has never seen, so no edge can serve
+  //                    an older object for it
+  //
+  // Both are needed. This worker is installed seconds after a deploy, which is
+  // exactly when an edge is most likely to still hold the previous build.
+  const fresh = ASSETS.map((u) => new Request(u + (u.includes('?') ? '&' : '?') + 'v=' + BUILD, { cache: 'reload' }));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(fresh)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {
@@ -245,12 +257,14 @@ self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
   // Cache first: the registry never changes between deploys, and being fast
   // with no signal matters more here than being seconds-fresh.
+  // ignoreSearch, because the precached entries carry a ?v= build stamp that
+  // the page's own requests do not.
   e.respondWith(
-    caches.match(e.request).then((hit) => hit || fetch(e.request).then((res) => {
+    caches.match(e.request, { ignoreSearch: true }).then((hit) => hit || fetch(e.request).then((res) => {
       const copy = res.clone();
       caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
       return res;
-    }).catch(() => caches.match('./index.html')))
+    }).catch(() => caches.match('./index.html', { ignoreSearch: true })))
   );
 });
 `
