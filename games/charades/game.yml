@@ -20,6 +20,11 @@ concession: >
   It ends when the room's energy drops, not at a score. Somebody should say
   "last round each" out loud rather than letting it fizzle, because charades
   that stops cleanly is remembered far better than charades that trails off.
+setup_time: 4m
+teardown_time: 60s
+tiebreak: >
+  Play one more round each. Nobody has ever been satisfied by a drawn game 
+  of charades.
 objective: >
   Act out a title or phrase without speaking, while your team tries to guess it
   before time runs out.

@@ -18,6 +18,12 @@ min_age: 8
 concession: >
   A single round takes about two minutes, so there is never a reason to leave
   mid-round. Stop after any round; the token count carries no partial state.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Compare the values of the cards discarded during the round; highest total 
+  wins. Some printings instead award a token to each tied player, so check 
+  the edition in front of you.
 objective: >
   Be the last player standing in a round, or hold the highest card when the deck
   runs out.

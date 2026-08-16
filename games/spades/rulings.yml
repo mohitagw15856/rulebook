@@ -17,6 +17,8 @@ rulings:
     effect: >
       It is the rule that turns Spades from a race into a game of control, since
       deliberately dumping a trick is often correct.
+    interacts_with:
+      - spades/spades-blind-nil
   - id: spades-table-talk
     question: Can you signal to your partner?
     asked_as:

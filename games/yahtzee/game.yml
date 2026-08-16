@@ -19,6 +19,12 @@ concession: >
   There is nothing to concede. Every player fills the same thirteen boxes
   regardless of what anyone else rolls, so a losing position costs nothing to
   finish and the last few rounds are often the funniest part.
+setup_time: 40s
+teardown_time: 40s
+tiebreak: >
+  A tie is a tie. Yahtzee has no tiebreak and shared wins are common enough 
+  that groups usually agree one in advance — highest upper section is the 
+  popular choice.
 objective: >
   Fill thirteen scoring categories with dice combinations, choosing which
   category to spend each roll on.
@@ -41,6 +47,18 @@ win_condition: >
   After thirteen rounds every category is full. Add the upper and lower
   sections, including the thirty-five point bonus if the upper section reached
   sixty-three. Highest total wins.
+cheats:
+  - move: >
+      Rerolling a fourth time, which is astonishingly easy to do by 
+      accident in a loud room.
+    spot: >
+      Say the roll number aloud. One, two, three. It stops the argument 
+      and the accident.
+handicaps:
+  - for: Young children
+    method: >
+      Let them reroll one die a fourth time. It barely shifts the odds 
+      and it removes the worst turns.
 substitutions: >
   Any five dice work, and score sheets are trivially reproduced on plain paper —
   the categories are the game, not the pad. A missing die genuinely stops play,

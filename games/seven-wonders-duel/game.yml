@@ -20,6 +20,11 @@ concession: >
   position can evaporate in one turn. Conceding a civilian defeat on points is
   reasonable in the third age; conceding while your opponent is two steps from a
   military victory is simply accepting what is about to happen anyway.
+setup_time: 5m
+teardown_time: 5m
+tiebreak: >
+  Most points from blue civilian cards. Still level after that, the game is 
+  a draw.
 objective: >
   Win outright by military or scientific supremacy, or accumulate the most
   victory points across three ages.
@@ -35,6 +40,11 @@ win_condition: >
   Push the military marker into your opponent's capital for an immediate win, or
   collect six different scientific symbols for an immediate win. Otherwise the
   highest points after three ages takes it.
+handicaps:
+  - for: A stronger player
+    method: >
+      They start with three coins instead of seven. The economy is tight 
+      enough that it matters.
 substitutions: >
   Nothing here is improvisable — the card costs and the pyramid structure are
   the game. Coins can be replaced with any counters.

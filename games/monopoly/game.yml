@@ -18,6 +18,12 @@ downtime: 4m
 min_age: 10
 concession: >
   Agree a finish time before you start, and when it arrives, count cash plus property value and declare a winner. Almost nobody plays to the bankruptcy of every opponent, and pretending otherwise is how the game got its reputation.
+setup_time: 6m
+teardown_time: 8m
+tiebreak: >
+  Only arises when a game is stopped by agreement rather than played to 
+  bankruptcy. Count cash plus the face value of property, and highest total 
+  wins.
 objective: >
   Bankrupt everyone else by acquiring property and charging rent.
 setup_by_players:
@@ -44,6 +50,24 @@ editions:
       payout since the 1930s. The versions most households play descend from
       folk rules that were never in any box, and are the direct cause of the
       game's reputation for lasting forever.
+cheats:
+  - move: >
+      The banker paying themselves from the bank, usually in small 
+      amounts across a long game.
+    spot: >
+      Never let the banker also be a player if you can avoid it, and 
+      keep the bank's cash physically separate from theirs.
+  - move: >
+      Quietly under-declaring rent owed, or collecting rent on a 
+      property somebody else owns.
+    spot: >
+      Title deeds face up in front of their owner, always. Most rent 
+      errors are genuine and this fixes those too.
+handicaps:
+  - for: Young children
+    method: >
+      Give them a larger starting bank and allow rent to be waived once 
+      per player.
 substitutions: >
   Money is the component most often lost and the easiest to replace with paper
   or a phone. Missing houses can be represented by anything of the right size —

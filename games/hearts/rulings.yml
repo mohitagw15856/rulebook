@@ -83,3 +83,5 @@ rulings:
     effect: >
       It gives players a reason to want a trick, which softens a game whose whole
       texture is avoidance. Purists find it dilutes the point.
+    interacts_with:
+      - hearts/shooting-the-moon-scoring

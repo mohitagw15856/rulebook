@@ -33,6 +33,14 @@ rulings:
     effect: >
       Pushes the game toward Uno. Agree the set before dealing, because there is
       no canonical version to appeal to.
+    sources:
+      - url: https://www.pagat.com/eights/crazy8s.html
+        says: >
+          Places twos and queens under a separate Special Cards section 
+          describing typical additions, and states that almost every 
+          group has its own house rules. The basic game lists only 
+          eights as special.
+        agrees: true
   - id: draw-until-playable
     question: Do you draw until you can play, or just one card?
     asked_as:
@@ -46,3 +54,10 @@ rulings:
       In the traditional game you draw until you can play, or until the stock
       runs out — the opposite of Uno, where you draw exactly one. Many groups
       import the Uno rule without realising they have swapped games.
+    sources:
+      - url: https://www.pagat.com/eights/crazy8s.html
+        says: >
+          Describes both the draw-one and the draw-until-playable 
+          conventions as coexisting variations, rather than establishing 
+          either as the standard.
+        agrees: true

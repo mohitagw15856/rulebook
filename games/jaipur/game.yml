@@ -19,6 +19,11 @@ concession: >
   Each round takes about ten minutes and the match is best of three, so there is
   no reason to abandon one. A player who has lost the first two rounds has lost
   the match already and the third need not be played.
+setup_time: 3m
+teardown_time: 3m
+tiebreak: >
+  Higher token count first, then the largest single bonus token. Rounds 
+  cannot realistically end level after that.
 objective: >
   Sell goods at better moments than your opponent across three rounds, taking
   the higher-value tokens before they run out.
@@ -34,6 +39,11 @@ win_condition: >
   Win two rounds out of three to take the match. Each round ends when three
   token stacks are exhausted or the deck runs out; the higher total takes the
   round, with the camel bonus going to whoever holds more camels.
+handicaps:
+  - for: A stronger player
+    method: >
+      They may not take camels on their first two turns, which delays 
+      the big swaps that decide early rounds.
 substitutions: >
   The tokens are the scoring system and their descending values matter, so they
   cannot be replaced casually — though a written list of the values would do at

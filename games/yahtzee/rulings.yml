@@ -17,6 +17,8 @@ rulings:
     effect: >
       A player who scored their Yahtzee box zero gets no bonus for later ones,
       which is why writing a zero there is far more costly than it looks.
+    interacts_with:
+      - yahtzee/yahtzee-must-score-something
   - id: yahtzee-keep-and-reroll
     question: Can you pick up dice you already set aside?
     asked_as:

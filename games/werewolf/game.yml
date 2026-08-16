@@ -19,6 +19,10 @@ concession: >
   Nobody may leave mid-game. A player who walks out takes hidden information
   with them and breaks the deduction for everyone still playing. Eliminated
   players may leave the circle but should stay silent rather than commentate.
+setup_time: 3m
+teardown_time: 60s
+tiebreak: >
+  A side wins outright or it does not. There is no drawn result.
 objective: >
   The villagers must identify and eliminate every werewolf. The werewolves must
   reduce the villagers to their own number without being caught.
@@ -41,6 +45,18 @@ win_condition: >
   Villagers win when the last werewolf is eliminated. Werewolves win when their
   number equals the number of surviving villagers, at which point they can no
   longer be outvoted.
+cheats:
+  - move: >
+      A dead player reacting — a laugh, a glance, a sharp intake of 
+      breath.
+    spot: >
+      Eliminated players face away from the circle, or leave the room. 
+      It is the single most common way the game breaks.
+  - move: >
+      Peeking during the night phase.
+    spot: >
+      The moderator watches for it and simply says so. In a group that 
+      plays often, the shame is sufficient enforcement.
 substitutions: >
   There is nothing to lose. Roles can be dealt with playing cards, written on
   torn paper, or assigned by the moderator tapping shoulders in the dark. The

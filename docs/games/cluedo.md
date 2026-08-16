@@ -202,7 +202,8 @@ Tracking shown cards on a small printed grid is the main barrier; larger hand-ru
 
 ## Sources
 
-- <https://www.hasbro.com/common/instruct/clue.pdf>
+- <https://www.hasbro.com/common/instruct/Clue_(2002).pdf>
+- <https://en.wikipedia.org/wiki/Cluedo>
 
 ---
 

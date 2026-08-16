@@ -19,6 +19,11 @@ downtime: 3m
 min_age: 10
 concession: >
   Do not concede Catan. A trailing player still controls who gets the wheat, and quitting hands the game to whoever they were blocking. If you must stop, agree to end at a lower points target instead.
+setup_time: 8m
+teardown_time: 6m
+tiebreak: >
+  Ties cannot happen. Victory points are checked only on your own turn, so 
+  the first player to reach ten ends it before anyone else can match.
 objective: >
   Be first to ten victory points, earned from settlements, cities, the longest
   road, the largest army and some development cards.
@@ -47,6 +52,28 @@ editions:
       The 5th edition changed the art and box, made the sea frame standard, and
       adjusted some component counts. The rules of play are essentially the
       same, so mixed-edition games work fine.
+cheats:
+  - move: >
+      Taking two resources when one was earned, during a busy collection 
+      phase.
+    spot: >
+      Collect one hex at a time, out loud, when the table is large. 
+      Slower, and it ends the problem.
+  - move: >
+      Miscounting a trade — handing over two of something when three was 
+      agreed.
+    spot: >
+      Complete trades in the middle of the table rather than hand to 
+      hand.
+handicaps:
+  - for: A first-time player
+    method: >
+      Let them place last and first in the snake, and allow them to take 
+      back a placement in the first two turns.
+  - for: A much stronger player
+    method: >
+      Set their target to eleven victory points while everyone else 
+      plays to ten.
 substitutions: >
   Lost number tokens can be replaced by writing numbers on card. A missing
   robber can be any distinctive object. Resource cards are the one component

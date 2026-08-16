@@ -20,6 +20,10 @@ concession: >
   Eliminated players are out for the whole game rather than the round, so a
   short game is a real risk. Playing best of three is the usual fix, and anyone
   knocked out in the first two minutes should be offered the next deal quickly.
+setup_time: 90s
+teardown_time: 90s
+tiebreak: >
+  Impossible — the game ends when one player is the last with influence.
 objective: >
   Be the last player with any influence remaining, by bluffing about which
   characters you hold and calling other players' bluffs.
@@ -41,6 +45,13 @@ turn_structure:
 win_condition: >
   Every other player has lost both cards. Losing a card is permanent, and losing
   both eliminates you from the game entirely.
+cheats:
+  - move: >
+      Looking at your revealed influence card after it has been turned 
+      face up, to remind yourself what is left.
+    spot: >
+      It is public information anyway. This one is barely cheating and 
+      mostly forgetfulness.
 substitutions: >
   Coins are trivially replaced by anything countable. The character cards are
   the game. Reference cards are the component people lose first and miss most —

@@ -169,7 +169,7 @@ The discs are chunky and easy to handle, which is unusual and welcome. The game 
 
 ## Sources
 
-- <https://en.wikipedia.org/wiki/Skull_(board_game)>
+- <https://en.wikipedia.org/wiki/Skull_(card_game)>
 
 ---
 

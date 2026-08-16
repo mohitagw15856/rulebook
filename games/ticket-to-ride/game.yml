@@ -20,6 +20,12 @@ concession: >
   Do not leave early. Your trains block routes other players are counting on,
   and removing them mid-game rewrites everybody's plans. If the group must stop,
   score it where it stands — completed tickets count, incomplete ones subtract.
+setup_time: 7m
+teardown_time: 8m
+tiebreak: >
+  Most completed destination tickets wins. Still level, the longest 
+  continuous route decides it — and if that is also shared, the game is a 
+  draw.
 objective: >
   Claim railway routes to connect the cities named on your secret destination
   tickets, scoring for the routes you build and losing points for tickets you
@@ -42,6 +48,18 @@ win_condition: >
   When a player is down to two trains or fewer, everybody takes one final turn.
   Add route points, add completed tickets, subtract incomplete ones, and add ten
   for the longest continuous path.
+cheats:
+  - move: >
+      Claiming a route with one card too few while everyone is watching 
+      the board.
+    spot: >
+      Discards go face up in a single shared pile. The count is then 
+      checkable after the fact.
+handicaps:
+  - for: A new player
+    method: >
+      Let them see everyone's opening tickets, or allow one free route 
+      claim of length two.
 substitutions: >
   Trains can be replaced with any small markers of a distinct colour, though you
   need forty-five of each. Losing destination tickets is the real problem — they

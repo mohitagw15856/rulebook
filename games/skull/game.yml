@@ -19,6 +19,11 @@ concession: >
   A player down to one disc is still genuinely dangerous, so conceding is both
   unnecessary and premature. If the group wants to stop, finish the current
   round and count who is closest to two wins.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Impossible — the game ends the moment a player wins their second 
+  challenge.
 objective: >
   Win two bidding challenges by successfully flipping the number of flowers you
   promised, without turning over a skull.
@@ -40,6 +45,13 @@ turn_structure:
 win_condition: >
   Two successful challenges wins the game outright. A player who loses all four
   discs is eliminated.
+cheats:
+  - move: >
+      Adding a disc to your stack during the bidding, when all eyes are 
+      on the bidder.
+    spot: >
+      Discs are placed one at a time, in turn order, and the placing 
+      phase ends when bidding starts.
 substitutions: >
   Beer mats and coins reproduce this exactly — the game is four tokens per
   player where one is distinguishable. It is one of the easiest games here to
@@ -50,5 +62,12 @@ accessibility: >
   it a poor fit for players who find that kind of social pressure unpleasant and
   a superb fit for those who do not.
 sources:
-  - https://en.wikipedia.org/wiki/Skull_(board_game)
-verified: null
+  - https://en.wikipedia.org/wiki/Skull_(card_game)
+verified:
+  on: 2026-08-16
+  by: mohitagw15856
+  checked:
+    - disc composition — three roses and one skull each
+    - the bid winner must flip their entire own stack first
+    - a flipped skull costs a disc chosen at random by its owner
+    - two won challenges wins the game

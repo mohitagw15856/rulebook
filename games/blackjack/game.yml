@@ -17,6 +17,11 @@ downtime: 45s
 min_age: 8
 concession: >
   Anyone may leave between hands. That is the whole appeal — the game has no arc to interrupt, so walking away after a round costs nobody anything.
+setup_time: 30s
+teardown_time: 30s
+tiebreak: >
+  A hand tied with the dealer is a push — your stake is returned and nobody 
+  wins. It is not a loss, whatever the table mutters.
 objective: >
   Beat the dealer's hand without going over 21.
 setup_by_players:
@@ -39,6 +44,17 @@ editions:
       Many modern casino tables pay 6:5 on blackjack rather than the traditional
       3:2, which roughly triples the house edge. It is the single most important
       number on the table.
+cheats:
+  - move: >
+      Capping a bet — adding a chip after seeing the cards.
+    spot: >
+      Bets are settled before the deal and not touched afterwards. Say 
+      it once at the start of a home game.
+handicaps:
+  - for: A beginner
+    method: >
+      Play with a printed basic strategy card face up on the table for 
+      everyone. It is not cheating, it is the correct play.
 substitutions: >
   Any deck and any counters work — coins, matches, dried beans. The dealer role
   can rotate each round so that nobody is stuck as the house all evening.

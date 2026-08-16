@@ -19,6 +19,11 @@ downtime: 90s
 min_age: 10
 concession: >
   Rounds are short enough that finishing is easier than quitting. If the room has lost interest, play the current round out and stop there.
+setup_time: 3m
+teardown_time: 3m
+tiebreak: >
+  Play a decider round with the roles swapped. Most groups instead simply 
+  play best of three from the start.
 objective: >
   Guide your team to identify all of your agents from a grid of words, using
   one-word clues, without hitting the assassin.
@@ -45,6 +50,11 @@ editions:
     changed: >
       A fully cooperative two-player version with a different key card and a
       shared turn limit, rather than an adaptation of the competitive rules.
+handicaps:
+  - for: A group with one very strong clue-giver
+    method: >
+      Cap their clues at two words maximum, or make them give clues for 
+      exactly one card.
 substitutions: >
   Missing word cards barely matter — the grid only needs twenty-five words, and
   any twenty-five from the set work. A lost key card can be replaced by dealing

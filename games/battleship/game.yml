@@ -19,6 +19,11 @@ min_age: 6
 concession: >
   Once four of your five ships are sunk, conceding costs nothing and saves five
   minutes of being shot at. Nobody has ever come back from that position.
+setup_time: 2m
+teardown_time: 90s
+tiebreak: >
+  Impossible. One fleet is sunk before the other, and the player who fired 
+  second cannot equalise.
 objective: >
   Find and sink all five of your opponent's hidden ships before they sink yours.
 setup_by_players:
@@ -33,6 +38,18 @@ turn_structure:
 win_condition: >
   Sink all five enemy ships. The game is entirely symmetrical, so the player who
   shoots first has a genuine and unavoidable edge.
+cheats:
+  - move: >
+      Claiming a miss on a square that was a hit, and moving the ship 
+      later in the game.
+    spot: >
+      Play on paper and swap sheets at the end. A fleet that never had a 
+      home square is obvious immediately.
+handicaps:
+  - for: A young child
+    method: >
+      The adult plays with four ships instead of five, and announces 
+      near-misses.
 substitutions: >
   This game does not need its box at all. Two sheets of squared paper per player
   and a pen reproduce it exactly, which is how most people first played it.

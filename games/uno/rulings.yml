@@ -26,7 +26,8 @@ rulings:
       Stacking turns a mild setback into a potential ten-card catastrophe and
       makes the game swingier and considerably longer.
     source: https://en.wikipedia.org/wiki/Uno_(card_game)
-
+    interacts_with:
+      - uno/draw-until-playable
   - id: wild-draw-four-legality
     question: Can you play a Wild Draw Four whenever you like?
     asked_as:
@@ -84,7 +85,15 @@ rulings:
     effect: >
       Hands balloon, rounds run long, and the player with bad luck early is
       buried for the rest of the round.
-
+    interacts_with:
+      - uno/stacking-draw-cards
+    sources:
+      - url: https://www.mattelgames.com/en-us/cards/uno
+        says: >
+          Mattel's own page for the card game describes drawing a single 
+          card when you cannot play, with no provision for drawing 
+          repeatedly.
+        agrees: true
   - id: finishing-on-action-card
     question: Can you win by playing an action card as your last card?
     asked_as:

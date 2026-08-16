@@ -16,6 +16,11 @@ downtime: 30s
 min_age: 5
 concession: >
   End it whenever. There is no accumulated position to waste, and a hand can be abandoned mid-trick without anyone losing anything they built.
+setup_time: 30s
+teardown_time: 30s
+tiebreak: >
+  If two players go out on the same round, which requires a house rule to 
+  occur at all, the lower card total wins.
 objective: >
   Empty your hand before anyone else by matching the top discard by rank or suit.
 setup_by_players:

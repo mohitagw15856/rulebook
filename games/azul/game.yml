@@ -20,6 +20,11 @@ concession: >
   A player who has taken heavy floor penalties two rounds running is unlikely to
   recover, but rounds are short and the endgame bonuses are large enough that
   conceding early is usually premature. Finish the round at minimum.
+setup_time: 3m
+teardown_time: 4m
+tiebreak: >
+  Most complete horizontal rows wins. Still tied, the tie stands — Azul has 
+  no further tiebreak and a shared win is a legitimate result.
 objective: >
   Draft tiles and place them on your wall in patterns, scoring for adjacency and
   for completed rows, columns and colours.
@@ -42,6 +47,11 @@ win_condition: >
   The game ends after the round in which any player completes a horizontal row
   on their wall. Add bonuses for completed rows, columns and colours, then
   compare totals.
+handicaps:
+  - for: A first-timer
+    method: >
+      Ignore the floor line penalty for the first round only. It is the 
+      rule that punishes inexperience hardest.
 substitutions: >
   The tiles are the game and cannot sensibly be improvised. Player boards are
   printable. The bag can be any opaque container.

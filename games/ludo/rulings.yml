@@ -43,14 +43,32 @@ rulings:
     prevalence: regional
     regions: [India, South Asia]
     verdict: >
-      Not in the standard British commercial rules, where tokens simply stack and
-      opponents pass freely.
+      Genuinely disputed, and the sources do not agree. Most British commercial
+      sets describe tokens as simply stacking, with opponents passing freely.
+      General descriptions of the game — including Wikipedia — present the
+      blockade as part of the standard game. Treat it as a rule to agree before
+      you start rather than one to look up mid-argument.
     house_rule: >
       Two of your own tokens on a single square form a blockade that no opponent
-      may pass or land on. This is standard in Indian play and in Parcheesi.
+      may pass or land on. This is universal in Indian play and in Parcheesi, and
+      absent from many British sets.
     effect: >
       It introduces the only genuine strategy the game has, and lengthens it
       substantially. Tables that grew up with it find blockade-free Ludo shapeless.
+    sources:
+      - url: https://en.wikipedia.org/wiki/Ludo
+        says: >
+          Describes the blockade as part of the game — two tokens of the same
+          colour form a block, and an opposing token landing there is sent home.
+        agrees: false
+      - url: https://www.mastersofgames.com/rules/pachisi-rules.htm
+        says: >
+          Sets out the Pachisi tradition the blockade comes from, where it is
+          long-established, supporting the reading that it is regional
+          inheritance rather than a universal rule.
+        agrees: true
+    interacts_with:
+      - ludo/ludo-exact-roll-home
   - id: ludo-capture-safe-squares
     question: Are the starting squares safe from capture?
     asked_as:

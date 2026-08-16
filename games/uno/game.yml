@@ -16,6 +16,11 @@ downtime: 25s
 min_age: 6
 concession: >
   Rounds are short and scores carry, so lower the target rather than stopping. Ending mid-round wastes the one hand somebody had actually engineered.
+setup_time: 40s
+teardown_time: 40s
+tiebreak: >
+  If two players cross the target score in the same round, the lower total 
+  wins.
 objective: >
   Be the first player to get rid of every card in your hand.
 setup_by_players:
@@ -41,6 +46,19 @@ editions:
       Mattel publicly confirmed that Draw Two and Draw Four cards cannot be
       stacked, which surprised most of the internet.
     source: https://www.bbc.co.uk/news/newsbeat-48195272
+cheats:
+  - move: >
+      Palming a card into a sleeve or under a leg when the table looks 
+      away, then declaring Uno with one card left.
+    spot: >
+      Count the discard pile against the deck at the end of a suspicious 
+      round. The arithmetic does not lie.
+  - move: >
+      Playing a card of a colour that does not match while everyone is 
+      talking, especially late in a fast round.
+    spot: >
+      The discard pile is face up. Turn the top three cards over at the 
+      end of any round somebody won unusually quickly.
 substitutions: >
   A standard 52-card deck plays a near-identical game as Crazy Eights: Jack is
   Skip, Queen is Reverse, Ace is Draw Two, and Eight is Wild. If a single Uno
@@ -54,4 +72,10 @@ accessibility: >
 sources:
   - https://www.mattelgames.com/en-us/cards/uno
   - https://en.wikipedia.org/wiki/Uno_(card_game)
-verified: null
+verified:
+  on: 2026-08-16
+  by: mohitagw15856
+  checked:
+    - no stacking of Draw Two or Wild Draw Four in the published rules
+    - Mattel stated this publicly in May 2019
+    - the official mobile game offers stacking as a setting, which is separate

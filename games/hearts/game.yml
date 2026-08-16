@@ -19,6 +19,11 @@ concession: >
   Hearts is played to a target score, so the graceful exit is to lower the
   target rather than abandon the sheet. A player sitting on ninety points is
   one bad hand from ending it anyway.
+setup_time: 30s
+teardown_time: 30s
+tiebreak: >
+  If two players are level on the lowest score when somebody crosses the 
+  target, play another hand. Sudden death is the usual convention.
 objective: >
   Avoid taking tricks containing hearts or the queen of spades — unless you
   decide to take every single one of them, which flips the whole game.
@@ -44,6 +49,13 @@ win_condition: >
   Play until somebody reaches the agreed target, usually a hundred points. The
   player with the lowest score at that moment wins, which means the winner is
   whoever avoided the most damage rather than whoever collected anything.
+cheats:
+  - move: >
+      Reneging — failing to follow suit while holding the suit, usually 
+      to dump the queen.
+    spot: >
+      When a hand ends strangely, the trick pile shows it. Anyone may 
+      ask to check the last trick.
 substitutions: >
   Nothing to lose beyond the deck itself. A missing card means a missing card,
   and the hand cannot be dealt evenly, so retire the deck.

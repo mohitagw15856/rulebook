@@ -19,6 +19,11 @@ concession: >
   The board makes the gap visible, so a player twenty holes from home against
   an opponent still in the first street can simply be conceded to. Skunk lines
   exist precisely so that a hopeless position has a name.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  The board makes ties impossible: the game ends the moment somebody pegs 
+  121, mid-count if necessary.
 objective: >
   Be first to peg 121 points, scored from card combinations during play and
   from the hands counted afterwards.
@@ -40,6 +45,25 @@ turn_structure:
 win_condition: >
   The first player to peg 121 wins the instant they get there, mid-count if
   necessary. Games do end halfway through somebody's hand, and that is correct.
+cheats:
+  - move: >
+      Over-pegging by a hole or two on a crowded board, especially on 
+      long counts.
+    spot: >
+      Peg with two pegs so the previous position is always visible. That 
+      is what the second peg is for.
+  - move: >
+      Undercounting an opponent's hand out loud while they are 
+      distracted.
+    spot: >
+      Everyone counts their own hand, aloud, in turn. If you play 
+      muggins, this matters even more.
+handicaps:
+  - for: A beginner
+    method: >
+      The experienced player counts both hands aloud, including their 
+      opponent's, until the beginner is confident. Then switch muggins 
+      off.
 substitutions: >
   The board is only a counter. A pen and paper replaces it entirely, and a
   missing peg can be a coin or a match. Losing the board is inconvenient, never

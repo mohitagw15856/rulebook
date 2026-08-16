@@ -21,6 +21,11 @@ concession: >
   Never concede Cluedo. A player who has been eliminated by a wrong accusation
   still holds cards and must keep answering suggestions, so leaving the table
   breaks the game for everyone else.
+setup_time: 4m
+teardown_time: 4m
+tiebreak: >
+  Not possible. Exactly one player makes a correct accusation and the game 
+  stops there.
 objective: >
   Work out which suspect, weapon and room are hidden in the case envelope, and
   say so before anybody else does.
@@ -42,6 +47,13 @@ turn_structure:
 win_condition: >
   Make a correct accusation and reveal the envelope. Get it wrong and you are
   out of the running, though you remain in the game to disprove others.
+cheats:
+  - move: >
+      Glancing at another player's cards when they show them to a third 
+      player.
+    spot: >
+      Cards are shown low and close, to one person. Sit so this is 
+      physically possible before you deal.
 substitutions: >
   Weapon tokens are decoration and can be anything, including scraps of paper
   with names on. Losing a card from the deck ruins the game outright — the
@@ -73,5 +85,6 @@ variants:
       Allow an accusation to be made from any square rather than requiring the
       accused room. Speeds up endgames considerably.
 sources:
-  - https://www.hasbro.com/common/instruct/clue.pdf
+  - https://www.hasbro.com/common/instruct/Clue_(2002).pdf
+  - https://en.wikipedia.org/wiki/Cluedo
 verified: null

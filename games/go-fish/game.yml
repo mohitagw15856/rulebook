@@ -16,6 +16,10 @@ downtime: 40s
 min_age: 4
 concession: >
   Stop the moment the youngest player stops enjoying it. Nothing is lost, and a game abandoned happily is better than one finished grimly.
+setup_time: 40s
+teardown_time: 40s
+tiebreak: >
+  Most sets wins; if level, the game is drawn. Nobody minds.
 objective: >
   Collect more complete sets of four matching ranks than anyone else.
 setup_by_players:
@@ -37,6 +41,18 @@ editions:
     changed: >
       Some versions require you to ask for a specific card rather than a rank,
       turning it into a much harder memory game for older players.
+cheats:
+  - move: >
+      Denying holding a card you were asked for, then playing it two 
+      turns later.
+    spot: >
+      It is usually a child and usually not malice. Ask to see the hand 
+      rather than accusing.
+handicaps:
+  - for: Mixed ages
+    method: >
+      Adults play with their hand face up on the table. Children find 
+      this hilarious and it evens the memory gap completely.
 substitutions: >
   Works with any deck. With a partial deck, remove whole ranks rather than
   individual cards so that every set is still completable.

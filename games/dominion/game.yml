@@ -20,6 +20,11 @@ concession: >
   A player whose deck has failed to come together by the midpoint is unlikely to
   win, but the province race can end abruptly and second place is genuinely
   contested. Playing on costs five minutes, so finish it.
+setup_time: 6m
+teardown_time: 7m
+tiebreak: >
+  Fewer turns taken wins. If both have taken the same number, it is a 
+  genuine shared victory, which the rules explicitly allow.
 objective: >
   Build a deck that buys victory points faster than anyone else, then have the
   most points when the game ends.
@@ -41,6 +46,17 @@ win_condition: >
   The game ends when the province pile empties, or when three supply piles run
   out — four with four players. Count the victory points in your whole deck;
   most wins, with fewer turns taken breaking a tie.
+cheats:
+  - move: >
+      Drawing an extra card during a busy turn with a lot of chaining.
+    spot: >
+      Play cards in a visible row rather than a pile, and leave them 
+      there until clean-up.
+handicaps:
+  - for: A first-time player
+    method: >
+      Give them an extra Silver in the opening deck, and use the 
+      recommended First Game card set.
 substitutions: >
   The cards are the entire game. Nothing here can be improvised, and a missing
   kingdom pile simply means playing without that card, which is fine since only

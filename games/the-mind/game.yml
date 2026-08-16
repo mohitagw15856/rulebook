@@ -19,6 +19,10 @@ concession: >
   There is no opponent to concede to. If the group is losing badly, restart at
   level one rather than abandoning — the game takes twenty minutes and the
   attempt is the entire point.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Cooperative. The group either finishes the level or does not.
 objective: >
   Play every card in the group's hands in ascending order, without anyone saying
   a single word.

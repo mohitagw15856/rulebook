@@ -17,6 +17,11 @@ downtime: 50s
 min_age: 9
 concession: >
   A player who is clearly out of it can drop for a fixed penalty rather than play the hand out, which is a rule rather than a courtesy.
+setup_time: 40s
+teardown_time: 40s
+tiebreak: >
+  Lowest points wins. Level scores are split, since there is no further 
+  criterion in common play.
 objective: >
   Arrange all thirteen cards into valid sets and runs, including at least two
   runs of which one contains no joker.

@@ -21,6 +21,11 @@ concession: >
   Resigning is built into the game rather than being an act of grace. Declining
   a double is a formal resignation of that game at its current stake, and doing
   it early in a hopeless race is correct play rather than poor sportsmanship.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  A single game cannot be tied. A match is played to an odd number of points 
+  precisely so that it cannot end level.
 objective: >
   Move all fifteen of your checkers around the board into your home quarter,
   then bear them off before your opponent does.
@@ -37,6 +42,11 @@ win_condition: >
   Bear off all fifteen checkers first. Winning while your opponent has borne off
   none doubles the stake as a gammon, and if they still have a checker in your
   home board or on the bar it triples as a backgammon.
+handicaps:
+  - for: A weaker player
+    method: >
+      Give them the doubling cube at 2 to start, or let them roll first 
+      every game.
 substitutions: >
   Checkers can be coins or draughts pieces without any loss. The doubling cube
   can be a scrap of paper with a number written on it and a note of who owns it.

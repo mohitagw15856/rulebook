@@ -80,6 +80,8 @@ rulings:
       It strongly favours the werewolves, who lose nobody that round while still
       killing at night. Groups that allow it usually add a rule that it can only
       happen once.
+    interacts_with:
+      - werewolf/werewolf-parity-win
   - id: werewolf-wolves-kill-each-other
     question: Can werewolves eliminate one of their own?
     asked_as:

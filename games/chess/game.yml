@@ -18,6 +18,12 @@ downtime: 1m
 min_age: 7
 concession: >
   Resigning is normal and, at any level of seriousness, polite. Playing on two pawns down against someone who obviously has it is a way of asking them to prove it, which is fine between friends and tiresome otherwise.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  A drawn game is a genuine result, not a failure to finish. In a 
+  tournament, tiebreaks run on head-to-head, then most games won with black, 
+  then a blitz playoff.
 objective: >
   Attack the opposing king so that no legal move escapes the attack.
 setup_by_players:
@@ -38,6 +44,26 @@ editions:
       The competitive rules are maintained by FIDE and are periodically revised,
       mostly on clock handling, illegal-move penalties and tournament conduct.
       The movement of the pieces has been stable since the fifteenth century.
+cheats:
+  - move: >
+      Taking back a move after seeing the reply, framed as 'I hadn't let 
+      go'.
+    spot: >
+      Touch-move is the rule and it is unambiguous. Agree at the start 
+      whether you are playing it, and then play it.
+  - move: >
+      Nudging the clock, or hitting it before completing the move.
+    spot: >
+      The move ends when the clock is pressed. Anyone can call it.
+handicaps:
+  - for: A much stronger player
+    method: >
+      Remove material — a knight, then a rook, then the queen. Odds 
+      chess is a centuries-old tradition and there is no shame in it.
+  - for: A large gap in thinking time
+    method: >
+      Give the weaker player twice the clock. It levels far more 
+      precisely than material does.
 substitutions: >
   A missing piece can be stood in for by a coin or an upturned pawn, agreed
   before the game. A missing queen is traditionally represented by an upturned

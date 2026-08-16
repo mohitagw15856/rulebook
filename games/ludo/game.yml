@@ -20,6 +20,10 @@ concession: >
   A player with every token still in base after twenty minutes is entitled to
   stop, and it is kinder to let them. Nothing in the game rewards persistence,
   so nobody is giving up an advantage by leaving.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Impossible. One player brings all four tokens home before the others.
 objective: >
   Get all four of your tokens around the board and into the home column before
   the other players manage it.
@@ -42,6 +46,11 @@ win_condition: >
   Move all four of your tokens the whole way round and up your home column. The
   final approach requires an exact roll, which is where most games are actually
   decided.
+handicaps:
+  - for: Adults against small children
+    method: >
+      The adult must roll a six to move at all, not merely to enter. It 
+      slows them dramatically and children find it very funny.
 substitutions: >
   Everything here is replaceable. Tokens can be coins, buttons or torn paper,
   and the board can be drawn. A missing die is the only genuine stopper, and a
@@ -73,5 +82,13 @@ variants:
       A player must capture at least one opposing token before any of their own
       may enter the home column. Lengthens the game considerably.
 sources:
-  - https://www.mastersofgames.com/rules/ludo-rules.htm
-verified: null
+  - https://en.wikipedia.org/wiki/Ludo
+verified:
+  on: 2026-08-16
+  by: mohitagw15856
+  checked:
+    - a six is required to enter a token
+    - a six grants another roll
+    - three consecutive sixes forfeit the turn
+    - an exact roll is needed to reach home
+    - the blockade rule — recorded as disputed, sources disagree

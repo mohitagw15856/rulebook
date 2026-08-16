@@ -21,6 +21,14 @@ rulings:
       It injects money into a game whose entire design depends on money draining
       out. It is the single biggest reason Monopoly games last three hours
       instead of ninety minutes.
+    interacts_with:
+      - monopoly/auction-rule
+    sources:
+      - url: https://www.hasbro.com/common/instruct/00009.pdf
+        says: >
+          The published Hasbro rules describe Free Parking as a free 
+          resting place where no money is collected or paid.
+        agrees: true
   - id: auction-rule
     question: What happens if you land on a property and do not buy it?
     asked_as:
@@ -38,6 +46,8 @@ rulings:
       nobody can win.
     effect: >
       Playing the auction rule alone shortens a typical game dramatically.
+    interacts_with:
+      - monopoly/free-parking-jackpot
   - id: double-rent-unimproved-set
     question: Do you charge double rent on a full colour group?
     asked_as:

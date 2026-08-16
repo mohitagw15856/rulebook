@@ -20,6 +20,11 @@ concession: >
   Both players can see the whole board state, so a hopeless quilt is visible to
   everyone. That said, the game is half an hour and the second half is the
   interesting part, so finishing is usually worth it.
+setup_time: 3m
+teardown_time: 3m
+tiebreak: >
+  The player who reached the final space first wins. It is the only tiebreak 
+  in the game and it decides a surprising number of close ones.
 objective: >
   Fill your quilt board with patches while keeping ahead on buttons, and avoid
   leaving empty squares.
@@ -35,6 +40,11 @@ win_condition: >
   When both time tokens reach the end, score your buttons and subtract two for
   every empty square on your quilt. Highest total wins, with the seven-by-seven
   bonus tile worth seven if you claimed it.
+handicaps:
+  - for: A first-timer
+    method: >
+      Ignore the two-point penalty for empty squares in their first 
+      game, and tell them you are doing it.
 substitutions: >
   The patches are the puzzle and cannot be improvised. Buttons can be any counter.
   The time board is easily drawn on paper.

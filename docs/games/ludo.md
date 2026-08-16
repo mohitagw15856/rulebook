@@ -99,9 +99,9 @@ $ rulebook ruling ludo "exact number to finish"
 
 **Not an official rule.** Standard in some places, unheard of in others.
 
-Not in the standard British commercial rules, where tokens simply stack and opponents pass freely.
+Genuinely disputed, and the sources do not agree. Most British commercial sets describe tokens as simply stacking, with opponents passing freely. General descriptions of the game — including Wikipedia — present the blockade as part of the standard game. Treat it as a rule to agree before you start rather than one to look up mid-argument.
 
-*The house version:* Two of your own tokens on a single square form a blockade that no opponent may pass or land on. This is standard in Indian play and in Parcheesi.
+*The house version:* Two of your own tokens on a single square form a blockade that no opponent may pass or land on. This is universal in Indian play and in Parcheesi, and absent from many British sets.
 
 *What it changes:* It introduces the only genuine strategy the game has, and lengthens it substantially. Tables that grew up with it find blockade-free Ludo shapeless.
 
@@ -189,7 +189,7 @@ The four colours are traditionally red, green, yellow and blue, and the red and 
 
 ## Sources
 
-- <https://www.mastersofgames.com/rules/ludo-rules.htm>
+- <https://en.wikipedia.org/wiki/Ludo>
 
 ---
 

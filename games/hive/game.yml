@@ -19,6 +19,11 @@ concession: >
   Resigning a lost position is normal, as in any abstract with no hidden
   information. Both players can usually see the surround coming three moves out,
   and playing it through teaches the loser nothing they have not already grasped.
+setup_time: 20s
+teardown_time: 30s
+tiebreak: >
+  Both queens surrounded on the same move is a draw. It is the only drawn 
+  result in the game and it is rare.
 objective: >
   Completely surround your opponent's queen bee with tiles of any colour.
 setup_by_players:
@@ -33,6 +38,11 @@ win_condition: >
   Surround the enemy queen on all six sides. Tiles of either colour count, so
   your own pieces can trap your own queen. If both queens are surrounded at once,
   the game is a draw.
+handicaps:
+  - for: A stronger player
+    method: >
+      They start without one grasshopper. Removing the ant is too severe 
+      and removing a spider too mild.
 substitutions: >
   Nothing to lose but tiles, and a lost tile changes the game rather than
   stopping it. The tiles are chunky bakelite and famously durable; the pocket

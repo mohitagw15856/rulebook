@@ -36,6 +36,13 @@ rulings:
     effect: >
       Peek powers reward memory; blind-swap powers reward aggression. Groups
       that use both play a noticeably sharper game.
+    sources:
+      - url: https://www.pagat.com/draw/golf.html#power
+        says: >
+          Documents several incompatible power-card sets across the 
+          Cabo, Pablo and Cambio family, with no single authoritative 
+          version.
+        agrees: true
   - id: penalty-for-failed-call
     question: What happens if you call Pablo and are not lowest?
     asked_as:
@@ -54,6 +61,12 @@ rulings:
     effect: >
       A large penalty makes calling rare and the game longer; a small one turns
       it into a race. Agree it before the first round.
+    sources:
+      - url: https://www.pagat.com/draw/golf.html#power
+        says: >
+          Records a penalty for calling and failing to be lowest, while 
+          noting that the size of the penalty varies between versions.
+        agrees: true
   - id: snapping
     question: Can you get rid of a card by matching the discard?
     asked_as:

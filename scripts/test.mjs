@@ -17,6 +17,8 @@ import { encode, toSvg } from '../lib/qr.mjs';
 import { shuffled, quizQuestions, planNight, hottest, rank } from '../lib/party.mjs';
 import { tally } from '../lib/store.mjs';
 import { referenceCard } from '../lib/refcard.mjs';
+import { parseYaml } from '../lib/yaml.mjs';
+import { isStale, verificationAge } from '../lib/registry.mjs';
 
 let pass = 0;
 const fails = [];
@@ -179,6 +181,36 @@ t('a single word buried in one verdict is not a match', () => {
 });
 t('an empty query matches nothing', () => eq(search(g('uno'), '').length, 0));
 
+
+// --- YAML ------------------------------------------------------------------
+// The Norway problem, which has now bitten this codebase twice: once on a
+// value (`recoverable: no`) and once on a key (`on: 2026-08-16`).
+t('keys that look like booleans stay keys', () => {
+  const y = parseYaml('verified:\n  on: 2026-08-16\n  by: someone\n');
+  eq(Object.keys(y.verified), ['on', 'by']);
+  eq(y.verified.on, '2026-08-16');
+});
+t('the Norway problem is still handled on values', () => {
+  const y = parseYaml('a: no\nb: yes\nc: on\n');
+  eq([y.a, y.b, y.c], [false, true, true]);
+});
+t('quoted keys keep their quotes off', () => {
+  eq(Object.keys(parseYaml('"yes": 1\n')), ['yes']);
+});
+
+// --- verification ----------------------------------------------------------
+t('a game with no verification block is stale', () => {
+  eq(isStale({ verified: null }), true);
+  eq(verificationAge({ verified: null }), null);
+});
+t('a verification older than a year is stale', () => {
+  const today = new Date('2026-08-16');
+  eq(isStale({ verified: { on: '2026-08-01' } }, today), false);
+  eq(isStale({ verified: { on: '2025-01-01' } }, today), true);
+});
+t('an unparseable verification date counts as unverified', () => {
+  eq(isStale({ verified: { on: 'last tuesday' } }), true);
+});
 
 // --- QR encoder ------------------------------------------------------------
 // Verified end to end against Chrome's BarcodeDetector when it was written;

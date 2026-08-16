@@ -18,6 +18,11 @@ downtime: 30s
 min_age: 12
 concession: >
   Announce your last hand before it is dealt, never after you win one. Leaving immediately after a big pot is the single rudest thing you can do at a home game.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Identical five-card hands split the pot exactly. Suits never break a tie 
+  in Hold'em, whatever anyone at the table claims.
 objective: >
   Win chips, either by holding the best five-card hand at showdown or by making
   everyone else fold.
@@ -46,6 +51,24 @@ editions:
       Tournaments raise the blinds on a timer and you cannot rebuy after the
       late stage; cash games have fixed blinds and you can leave whenever. The
       rules of a hand are identical, the correct strategy is not.
+cheats:
+  - move: >
+      Looking at the next card while gathering the deck, or peeking at 
+      the bottom card during a sloppy shuffle.
+    spot: >
+      Cut the deck every deal and burn a card before each street. Both 
+      are standard practice for exactly this reason.
+  - move: >
+      Soft play — two friends deliberately avoiding raising each other 
+      in a bigger game.
+    spot: >
+      It is very hard to prove and very easy to feel. Change the 
+      seating.
+handicaps:
+  - for: A beginner at a table of regulars
+    method: >
+      Play with cards face up for the first three hands and talk through 
+      the decisions. It costs one round and saves an evening.
 substitutions: >
   Any chips will do — coins, sweets, buttons — provided everyone agrees the
   denominations before starting. The dealer button can be any distinctive

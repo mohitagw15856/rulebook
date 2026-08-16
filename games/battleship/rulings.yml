@@ -68,6 +68,8 @@ rulings:
       It shortens the game a great deal and hugely magnifies the first-player
       advantage, since a lucky opening run can end things before the second
       player has properly begun.
+    interacts_with:
+      - battleship/battleship-first-shot-advantage
   - id: battleship-diagonal-ships
     question: Can ships be placed diagonally?
     asked_as:

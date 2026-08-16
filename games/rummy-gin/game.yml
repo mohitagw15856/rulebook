@@ -17,6 +17,11 @@ downtime: 35s
 min_age: 8
 concession: >
   Stop at the end of a hand. Gin is scored across hands to a target, so agreeing a lower target mid-game is more graceful than abandoning it.
+setup_time: 30s
+teardown_time: 30s
+tiebreak: >
+  If both players cross the target in the same hand, the higher score wins 
+  outright.
 objective: >
   Arrange your ten cards into sets and runs, then knock before your opponent
   does.
@@ -36,6 +41,13 @@ editions:
     changed: >
       The first upcard sets the maximum knock value for the hand rather than it
       always being ten, which makes early hands far tighter.
+cheats:
+  - move: >
+      Knocking with more than ten deadwood and hoping the count is not 
+      checked.
+    spot: >
+      The count is always checked. That is not distrust, it is how the 
+      score is worked out.
 substitutions: >
   Any deck. If cards are missing, remove whole ranks so runs and sets stay
   possible, and adjust the target score down.

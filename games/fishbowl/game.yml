@@ -19,6 +19,11 @@ concession: >
   Stop after a completed round rather than mid-round, because the same slips
   carry across all three rounds and abandoning one wastes the writing everybody
   did. Finishing round two and stopping is a perfectly respectable end.
+setup_time: 6m
+teardown_time: 60s
+tiebreak: >
+  Add a fourth round with a new restriction, or accept the draw. The scores 
+  usually stopped being tracked long before this matters.
 objective: >
   Get your team to guess as many names from the bowl as possible, across three
   rounds that use the same slips with progressively harsher restrictions.

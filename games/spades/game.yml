@@ -19,6 +19,11 @@ concession: >
   Partnerships play to five hundred, and a side four hundred behind is not
   coming back. Agreeing to stop at the end of the current hand is normal; both
   partners should agree, since one of them may still be enjoying it.
+setup_time: 30s
+teardown_time: 30s
+tiebreak: >
+  If both partnerships cross five hundred in the same hand, the higher score 
+  wins.
 objective: >
   Bid how many tricks your partnership will take, then take exactly that many.
   Overshooting is punished almost as harshly as falling short.
@@ -44,6 +49,13 @@ win_condition: >
   First partnership to five hundred points. Making your combined bid scores ten
   per trick bid; every extra trick is a single point that will eventually cost
   you a hundred.
+cheats:
+  - move: >
+      Table talk between partners, disguised as commentary about a 
+      previous hand.
+    spot: >
+      The bid and the cards are the only legal communication. Say it out 
+      loud before dealing with a new group.
 substitutions: >
   Nothing beyond the deck. If a card is lost, the deal no longer divides evenly
   at four players, which the game cannot tolerate.

@@ -19,6 +19,8 @@ rulings:
     effect: >
       It sharpens the game enormously and makes it considerably less friendly.
       Teaching a beginner with muggins switched on is close to cruelty.
+    interacts_with:
+      - cribbage/cribbage-crib-flush
   - id: cribbage-run-order
     question: Does a run have to be played in order during the pegging?
     asked_as:

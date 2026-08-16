@@ -16,6 +16,11 @@ downtime: 45s
 min_age: 8
 concession: >
   Fine to stop after any completed round, since scores carry cleanly and a part-finished round can simply be dropped.
+setup_time: 60s
+teardown_time: 60s
+tiebreak: >
+  Lowest total wins; if two players tie, the one who did not call Pablo 
+  takes it.
 objective: >
   Finish with the lowest total in front of you, while remembering cards you are
   only allowed to look at twice.
@@ -51,4 +56,10 @@ accessibility: >
   harming the game. Card values are numeric, so colour vision is not required.
 sources:
   - https://www.pagat.com/draw/golf.html#power
-verified: null
+verified:
+  on: 2026-08-16
+  by: mohitagw15856
+  checked:
+    - the Cabo and Pablo family sits under the Golf group on pagat
+    - the Pablo variant uses sevens and eights as power cards
+    - calling Pablo and not being lowest is penalised
