@@ -794,11 +794,27 @@ function offline() {
     el.textContent = 'This browser cannot cache the site for offline use.';
     return;
   }
+
+  // Cache-first is right for a registry that has to work with no signal, but
+  // it means a returning visitor reads the *previous* deploy for a whole visit.
+  // For a project whose entire value is being correct, that is not acceptable:
+  // when a new worker takes over, reload once so the corrected ruling is the
+  // one on screen.
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloading) return;
+    reloading = true;
+    location.reload();
+  });
+
   navigator.serviceWorker
     .register(new URL('sw.js', location.href).pathname)
-    .then(() => {
+    .then((reg) => {
       el.innerHTML = '<b>Saved for offline.</b> Every ruling works with no signal.';
       el.classList.add('ok');
+      // Ask straight away whether a newer deploy exists, rather than waiting
+      // for the browser's own update schedule.
+      reg.update().catch(() => {});
     })
     .catch(() => {
       el.textContent = 'Offline caching unavailable here.';
