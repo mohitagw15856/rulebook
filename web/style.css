@@ -776,13 +776,13 @@ footer a:hover { color: var(--mint); }
 
 /* --- family tree --------------------------------------------------------- */
 
-.tree { display: grid; gap: 1.4rem; }
+.tree { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); align-items: start; }
 .branch { border: 1px solid var(--stroke); border-radius: var(--r); padding: 1.2rem 1.3rem; background: var(--glass); }
 .branch .ancestor {
   font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--violet); padding-bottom: 0.7rem; margin-bottom: 0.9rem; border-bottom: 1px solid var(--stroke);
 }
-.branch .kids { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.branch .kids { display: grid; gap: 0.5rem; }
 .kid {
   display: block; text-decoration: none; padding: 0.75rem 0.9rem;
   border: 1px solid var(--stroke); border-radius: 12px; background: rgba(0,0,0,0.22);
@@ -791,5 +791,9 @@ footer a:hover { color: var(--mint); }
 .kid:hover { border-color: var(--mint); transform: translateY(-2px); }
 .kid b { color: var(--ink); font-weight: 600; }
 .kid .yr { font-family: var(--mono); font-size: 0.7rem; color: var(--dimmer); margin-left: 0.5rem; }
-.kid .why { display: block; margin-top: 0.35rem; font-size: 0.8rem; color: var(--dimmer); line-height: 1.45; }
+.kid .why { display: block; margin-top: 0.3rem; font-size: 0.78rem; color: var(--dimmer); line-height: 1.4; }
+/* The biggest families are the interesting ones, so let them span. */
+.branch:has(.kid:nth-child(3)) { grid-column: span 2; }
+.branch:has(.kid:nth-child(3)) .kids { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+@media (max-width: 720px) { .branch:has(.kid:nth-child(3)) { grid-column: span 1; } }
 .originals .ancestor { color: var(--dimmer); }

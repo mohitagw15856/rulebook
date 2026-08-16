@@ -980,11 +980,16 @@ function tree() {
 
   for (const g of DATA.games) {
     const from = (g.lineage?.from || []).filter((f) => f && !f.startsWith('('));
-    if (!from.length) originals.push(g);
-    else for (const f of from) {
-      roots.set(f, roots.get(f) || []);
-      roots.get(f).push(g);
+    if (!from.length) {
+      originals.push(g);
+      continue;
     }
+    // Only the first ancestor places the game. Listing Chess under both
+    // Chaturanga and Shatranj is accurate and unreadable — the note carries the
+    // full descent, and the tree shows one clear line each.
+    const primary = from[0];
+    roots.set(primary, roots.get(primary) || []);
+    roots.get(primary).push(g);
   }
 
   const branch = ([ancestor, kids]) => `
