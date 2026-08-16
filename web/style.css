@@ -803,7 +803,9 @@ footer a:hover { color: var(--mint); }
 .gcard .gart {
   display: block; width: calc(100% + 2.6rem); margin: -1.3rem -1.3rem 1rem;
   border-radius: var(--r) var(--r) 0 0;
-  aspect-ratio: 400 / 240; object-fit: cover;
+  /* Height follows the natural ratio. object-fit: cover cropped the game name
+     off the illustration — "Battleship" arrived as "attleship". */
+  height: auto;
   opacity: 0.85; transition: opacity 0.3s;
 }
 .gcard:hover .gart { opacity: 1; }
