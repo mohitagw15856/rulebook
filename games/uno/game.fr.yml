@@ -1,0 +1,5 @@
+# Traduction partielle. Seuls les champs en prose sont traduits ; tous les
+# faits (durées, nombre de joueurs, âge) sont hérités de game.yml.
+objective: >
+  Être le premier à se débarrasser de toutes ses cartes en jouant une carte de
+  la même couleur ou du même chiffre que celle du dessus de la défausse.

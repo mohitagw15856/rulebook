@@ -19,6 +19,8 @@ import { search } from '../lib/search.mjs';
 import { loadConfig, tableRuling } from '../lib/config.mjs';
 import { logDispute, record, quizQuestions, logQuiz, rank, planNight, hottest } from '../lib/party.mjs';
 import { encode, toText, toSvg } from '../lib/qr.mjs';
+import { loadVotes, measure, impliedPrevalence, LEARNED_FROM } from '../lib/votes.mjs';
+import { isStale, verificationAge } from '../lib/registry.mjs';
 import { referenceCard } from '../lib/refcard.mjs';
 
 const SITE = 'https://mohitagw15856.github.io/rulebook';
@@ -36,13 +38,27 @@ const ask = (q) =>
     });
   });
 
-const argv = process.argv.slice(2);
+const rawArgv = process.argv.slice(2);
+
+// --lang is global, so pull it out before anything treats it as a command or a
+// search term. Leaving it in argv made `rulebook --lang fr ruling uno` print
+// the help text, because the first argument was no longer the command.
+const LANG_FLAG = (() => {
+  const i = rawArgv.indexOf('--lang');
+  if (i === -1) return null;
+  const value = rawArgv[i + 1] || null;
+  rawArgv.splice(i, value ? 2 : 1);
+  return value;
+})();
+
+const argv = rawArgv;
 const COLOR = process.stdout.isTTY && !process.env.NO_COLOR;
 const c = (code, s) => (COLOR ? `[${code}m${s}[0m` : s);
 const bold = (s) => c(1, s);
 const dim = (s) => c(90, s);
 
-const games = load();
+// --lang picks a translation where one exists, English everywhere else.
+const games = load(LANG_FLAG);
 const byName = (q) => {
   const n = String(q).toLowerCase().replace(/[^a-z0-9]/g, '');
   return (
@@ -71,10 +87,16 @@ ${bold('at the table')}
   rulebook timer  [--minutes N]           shame the slow player
   rulebook odds   <game>                  the numbers people guess wrong
   rulebook hottest                        the rules that cause most arguments
+  rulebook cheats <game>                  how people cheat, and how to catch it
 
 ${bold('take it with you')}
   rulebook card   <game> [--out f.svg]    printable fold-up reference card
   rulebook qr     <game> [--ruling id]    a QR code for the box lid
+
+${bold('keep it honest')}
+  rulebook vote   <game> "<question>"     report how YOUR table plays it
+  rulebook verify                         which facts have been checked, and when
+  rulebook mcp                            serve the registry to an AI assistant
 
 ${dim('find filters:')} --players N  --minutes N  --max-weight N  --type card|board|... --kids AGE
 
@@ -139,6 +161,26 @@ function cmdRuling(args) {
     if (mine.note) console.log(wrap(mine.note, 76, '  '));
   }
 
+  // Sources that contradict the verdict are shown, not hidden. A ruling where
+  // the sources disagree is a more useful thing to know than a tidy one.
+  for (const src of r.sources || []) {
+    console.log(
+      `\n  ${src.agrees ? dim('Source (supports this):') : c(33, 'Source (CONTRADICTS this):')} ${dim(src.url)}`
+    );
+    console.log(dim(wrap(src.says, 72, '    ')));
+  }
+
+  if ((r.interacts_with || []).length) {
+    console.log(`\n  ${dim('Interacts with: ' + r.interacts_with.join(', '))}`);
+  }
+
+  const m = measure(loadVotes(), `${game.slug}/${r.id}`);
+  console.log(
+    m
+      ? `\n  ${dim(`Reported by players: ${m.pct}% ± ${m.margin} play the house version (n=${m.n}).`)}`
+      : `\n  ${dim('Prevalence here is a judgement, not a survey. Add yours: rulebook vote')}`
+  );
+
   if (r.source) console.log(`\n  ${dim('Source: ' + r.source)}`);
   console.log(`\n  ${dim('Link: ' + SITE + '/#' + game.slug + '/' + r.id)}`);
 
@@ -198,8 +240,7 @@ async function cmdTeach(args) {
     console.error(`Unknown game "${args[0]}". Try: rulebook list`);
     process.exit(2);
   }
-  const path = fileURLToPath(new URL(`../games/${game.slug}/teach.md`, import.meta.url));
-  const md = readFileSync(path, 'utf8').trim();
+  const md = readFileSync(game.__teachFile, 'utf8').trim();
 
   if (!args.includes('--live')) {
     console.log('\n' + md + '\n');
@@ -580,7 +621,7 @@ function cmdAbout(args) {
   console.log(wrap(g.objective, 76, '  '));
   console.log();
 
-  const row = (k, v) => console.log(`  ${dim(k.padEnd(16))} ${v}`);
+  const row = (k, v) => console.log(`  ${dim(k.padEnd(18))} ${v}`);
   row('players', g.players.min === g.players.max ? String(g.players.min) : `${g.players.min}–${g.players.max}${g.players.best ? `, best at ${g.players.best}` : ''}`);
   row('box says', fmtDuration(g.playtime_box));
   row('actually takes', `${fmtDuration(g.playtime_actual)}${over > 0 ? c(33, `  — over by ${over} min`) : ''}`);
@@ -589,7 +630,16 @@ function cmdAbout(args) {
   row('works at age', `${g.min_age}+`);
   row('weight', `${'●'.repeat(Math.round(g.weight))}${'○'.repeat(5 - Math.round(g.weight))}  ${g.weight} / 5`);
   row('luck', `${g.luck}% chance, ${100 - g.luck}% skill`);
+  row('setup / pack away', `${g.setup_time ? fmtDuration(g.setup_time) : '—'} / ${g.teardown_time ? fmtDuration(g.teardown_time) : '—'}`);
   row('rulings', `${g.rulings.length}${g.hasScore ? ' · has a scorer' : ''}${g.hasOdds ? ' · has odds' : ''}`);
+  row('verified', isStale(g)
+    ? c(33, 'not checked against a source recently')
+    : `${g.verified.on} by ${g.verified.by} ${dim(`(${verificationAge(g)} days ago)`)}`);
+
+  if (g.tiebreak) {
+    console.log(`\n${bold('  If the scores tie')}\n`);
+    console.log(wrap(g.tiebreak, 74, '  '));
+  }
 
   console.log(`\n${bold('  Setup by player count')}\n`);
   for (const sp of g.setup_by_players) {
@@ -607,6 +657,24 @@ function cmdAbout(args) {
     }
   }
 
+  if (g.handicaps?.length) {
+    console.log(`${bold('  Levelling it up')}\n`);
+    for (const h of g.handicaps) {
+      console.log(`  ${bold(h.for)}`);
+      console.log(wrap(h.method, 74, '    '));
+      console.log();
+    }
+  }
+
+  if (g.cheats?.length) {
+    console.log(`${bold('  How people cheat')}\n`);
+    for (const ch of g.cheats) {
+      console.log(wrap(ch.move, 74, '  '));
+      console.log(c(36, wrap('Spot it: ' + ch.spot.replace(/\s+/g, ' ').trim(), 74, '    ')));
+      console.log();
+    }
+  }
+
   console.log(`${bold('  When it is fair to stop')}\n`);
   console.log(wrap(g.concession, 74, '  '));
 
@@ -616,6 +684,107 @@ function cmdAbout(args) {
   console.log(`\n${bold('  Accessibility')}\n`);
   console.log(wrap(g.accessibility, 74, '  '));
   console.log(`\n  ${dim(SITE + '/#' + g.slug)}\n`);
+}
+
+
+// ---------------------------------------------------------------------------
+// vote — turn "prevalence" from my judgement into somebody's measurement
+// ---------------------------------------------------------------------------
+async function cmdVote(args) {
+  const game = byName(args[0]);
+  if (!game) {
+    console.error(`Which game? Try: rulebook vote uno`);
+    process.exit(2);
+  }
+  const query = args.slice(1).filter((a) => !a.startsWith('--')).join(' ').trim();
+  const ranked = query ? search(game.rulings, query) : [];
+  const r = ranked.length ? ranked[0].r : null;
+
+  if (!r) {
+    console.log(`\n${bold(game.name)} — which rule do you want to report on?\n`);
+    for (const x of game.rulings) console.log(`  ${dim('·')} ${x.question}`);
+    console.log(`\n${dim(`Then: rulebook vote ${game.slug} "<a few words from it>"`)}\n`);
+    return;
+  }
+
+  console.log(`\n${bold(r.question)}`);
+  console.log(`${dim(r.official ? 'Officially: yes.' : 'Officially: no — this is a house rule.')}\n`);
+  if (r.house_rule) console.log(wrap('The house version: ' + r.house_rule.replace(/\s+/g, ' ').trim(), 74, '  ') + '\n');
+
+  const plays = (await ask('  Does your table play the house version? [y/n] ')).toLowerCase();
+  if (!plays) {
+    console.log(dim('\n  (nothing recorded)\n'));
+    return;
+  }
+  const region = await ask('  Where do you play? (country or region, enter to skip) ');
+  const learned = await ask(`  Where did you learn it? [${LEARNED_FROM.join('/')}] `);
+  const decade = await ask('  Roughly when? (e.g. 1990s, enter to skip) ');
+
+  const entry = [
+    `  - ruling: ${game.slug}/${r.id}`,
+    `    plays: ${plays.startsWith('y') ? 'yes' : 'no'}`,
+    region && `    region: ${region}`,
+    LEARNED_FROM.includes(learned) && `    learned_from: ${learned}`,
+    decade && `    decade: ${decade}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  console.log(`\n${bold('  Add this to data/votes.yml:')}\n`);
+  console.log(entry.split('\n').map((l) => '  ' + l).join('\n'));
+
+  const url =
+    'https://github.com/mohitagw15856/rulebook/issues/new?labels=vote&title=' +
+    encodeURIComponent(`[vote] ${game.slug}/${r.id}`) +
+    '&body=' +
+    encodeURIComponent('```yaml\n' + entry + '\n```\n');
+  console.log(`\n  ${dim('Or open a pre-filled issue:')}\n  ${dim(url)}\n`);
+}
+
+// ---------------------------------------------------------------------------
+function cmdCheats(args) {
+  const game = byName(args[0]);
+  if (!game) {
+    const have = games.filter((g) => g.cheats?.length);
+    console.error(`Which game? Recorded for: ${have.map((g) => g.slug).join(', ')}`);
+    process.exit(2);
+  }
+  if (!game.cheats?.length) {
+    console.error(`Nothing recorded for ${game.name}. Games with cheats on file: ${games.filter((g) => g.cheats?.length).map((g) => g.slug).join(', ')}`);
+    process.exit(2);
+  }
+  console.log(`\n${bold('How people cheat at ' + game.name)}\n`);
+  for (const ch of game.cheats) {
+    console.log(wrap(ch.move, 74, '  '));
+    console.log(c(36, wrap('Spot it: ' + ch.spot.replace(/\s+/g, ' ').trim(), 74, '    ')));
+    console.log();
+  }
+  console.log(`  ${dim('Recorded so you can catch it, not so you can do it.')}\n`);
+}
+
+function cmdVerify() {
+  const stale = games.filter((g) => isStale(g));
+  const fresh = games.filter((g) => !isStale(g));
+
+  console.log(`\n${bold('Verification')}\n`);
+  console.log(`  ${c(32, String(fresh.length))} of ${games.length} games checked against a source in the last year.\n`);
+
+  for (const g of fresh) {
+    console.log(`  ${c(32, '✓')} ${g.slug.padEnd(22)} ${dim(`${g.verified.on} · ${g.verified.checked.length} facts checked`)}`);
+  }
+  if (stale.length) {
+    console.log();
+    for (const g of stale) {
+      const age = verificationAge(g);
+      console.log(`  ${c(33, '·')} ${g.slug.padEnd(22)} ${dim(age === null ? 'never checked' : `${age} days ago`)}`);
+    }
+    console.log(
+      `\n  ${dim('Unverified is not the same as wrong — it means nobody has re-read the')}\n` +
+        `  ${dim('source recently. Pick one up at: npm run coverage')}\n`
+    );
+  } else {
+    console.log();
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -663,6 +832,21 @@ switch (cmd) {
   case 'about':
     cmdAbout(argv.slice(1));
     break;
+  case 'vote':
+    await cmdVote(argv.slice(1));
+    break;
+  case 'cheats':
+    cmdCheats(argv.slice(1));
+    break;
+  case 'verify':
+    cmdVerify();
+    break;
+  case 'mcp': {
+    // Hand the process over to the MCP server; it owns stdio from here.
+    const { serve } = await import('../mcp/server.mjs');
+    serve();
+    break;
+  }
   case 'qr':
     cmdQr(argv.slice(1));
     break;

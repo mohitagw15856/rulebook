@@ -5,7 +5,8 @@
 // are the parts that get tested. Every case below is a real situation somebody
 // has argued about at a table, or a bug that actually shipped.
 
-import { parseHand, parseCard } from '../lib/cards.mjs';
+import { createHmac, generateKeyPairSync, sign } from 'node:crypto';
+import { parseHand, parseCard, deadwoodValue } from '../lib/cards.mjs';
 import { evaluate, compare } from '../games/poker-texas-holdem/score.mjs';
 import { analyse } from '../games/rummy-gin/score.mjs';
 import { score as scrabble } from '../games/scrabble/score.mjs';
@@ -18,6 +19,11 @@ import { shuffled, quizQuestions, planNight, hottest, rank } from '../lib/party.
 import { tally } from '../lib/store.mjs';
 import { referenceCard } from '../lib/refcard.mjs';
 import { parseYaml } from '../lib/yaml.mjs';
+import { measure, impliedPrevalence, validateVotes } from '../lib/votes.mjs';
+import { deckSheets } from '../lib/deck.mjs';
+import { answer, verifySlack, verifyDiscord } from '../bots/server.mjs';
+import { TOOLS } from '../mcp/server.mjs';
+import { RANKS, SUITS } from '../lib/cards.mjs';
 import { isStale, verificationAge } from '../lib/registry.mjs';
 
 let pass = 0;
@@ -181,6 +187,43 @@ t('a single word buried in one verdict is not a match', () => {
 });
 t('an empty query matches nothing', () => eq(search(g('uno'), '').length, 0));
 
+// Cross-game search is what the site and the bots do, and it is much easier to
+// fool than searching one game.
+const EVERY = games.flatMap((x) => x.rulings.map((r) => ({ ...r, _game: x })));
+
+t('a word must match at a word boundary, not anywhere in the string', () => {
+  // "fold" must not match "threefold repetition", which is how a question
+  // about paper cranes once came back with a chess ruling.
+  const chess = g('chess').find((r) => /draw/.test(r.question));
+  eq(scoreMatch(chess, 'fold'), 0);
+  eq(search(g('chess'), 'threefold repetition').length > 0, true);
+});
+t('a prefix still counts, so stack finds stacking', () => {
+  eq(top('uno', 'stack'), 'stacking-draw-cards');
+});
+t('a match must cover at least half the question', () => {
+  eq(search(EVERY, 'how do I fold a paper crane').length, 0);
+  eq(search(EVERY, 'what should we have for dinner tonight').length, 0);
+});
+t('short real questions still match across every game', () => {
+  eq(search(EVERY, 'free parking')[0].r._game.slug, 'monopoly');
+  eq(search(EVERY, 'stacking')[0].r._game.slug, 'uno');
+  eq(search(EVERY, 'touch move')[0].r._game.slug, 'chess');
+});
+t('symbol tokens like +2 still match, despite the word-boundary anchor', () => {
+  // \b cannot match before "+", so anchoring has to be conditional.
+  eq(top('uno', '+2 on +2'), 'stacking-draw-cards');
+  eq(top('uno', '+4'), 'wild-draw-four-legality');
+});
+t('repeated words count once towards query coverage', () => {
+  eq(search(g('uno'), 'stacking stacking stacking').length > 0, true);
+});
+t('regex characters in a query do not blow up the search', () => {
+  for (const q of ['+2', 'a(b', 'c[d', '*', '\\']) {
+    search(EVERY, `can I play a ${q} card`);
+  }
+});
+
 
 // --- YAML ------------------------------------------------------------------
 // The Norway problem, which has now bitten this codebase twice: once on a
@@ -331,6 +374,202 @@ t('every game produces a printable reference card', () => {
 t('the reference card escapes game text rather than injecting it', () => {
   const g = { ...load()[0], name: 'Bad <script>alert(1)</script>' };
   eq(referenceCard(g).includes('<script>'), false);
+});
+
+
+// --- property tests for the scorers ----------------------------------------
+// The example-based tests above check hands somebody argued about. These check
+// that the rules hold for hands nobody has thought of, using a seeded
+// generator so a failure can always be reproduced.
+function prng(seed) {
+  let s = seed >>> 0 || 1;
+  return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
+}
+function deck() {
+  const out = [];
+  for (const r of RANKS) for (const su of Object.keys(SUITS)) out.push(r + su);
+  return out;
+}
+function dealer(seed) {
+  const rand = prng(seed);
+  const d = deck();
+  for (let i = d.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [d[i], d[j]] = [d[j], d[i]];
+  }
+  let at = 0;
+  return (n) => d.slice(at, (at += n)).join(' ');
+}
+
+t('poker: any 5-7 card hand evaluates without throwing, 400 deals', () => {
+  for (let seed = 1; seed <= 400; seed++) {
+    const deal = dealer(seed);
+    const n = 5 + (seed % 3);
+    const hand = deal(n);
+    const h = evaluate(parseHand(hand));
+    if (!(h.rank[0] >= 0 && h.rank[0] <= 8)) throw new Error(`${hand} → category ${h.rank[0]}`);
+    if (!h.name || !h.detail) throw new Error(`${hand} → unnamed`);
+  }
+});
+t('poker: comparison is a total order, 300 pairs', () => {
+  for (let seed = 1; seed <= 300; seed++) {
+    const deal = dealer(seed);
+    const a = evaluate(parseHand(deal(5)));
+    const b = evaluate(parseHand(deal(5)));
+    const ab = compare(a, b);
+    const ba = compare(b, a);
+    if (ab !== -ba) throw new Error(`asymmetry at seed ${seed}: ${ab} vs ${ba}`);
+    if (compare(a, a) !== 0) throw new Error(`a hand does not equal itself at seed ${seed}`);
+  }
+});
+t('poker: seven cards are never worse than the best five inside them', () => {
+  for (let seed = 1; seed <= 200; seed++) {
+    const cards = parseHand(dealer(seed)(7));
+    const seven = evaluate(cards);
+    const five = evaluate(cards.slice(0, 5));
+    if (compare(seven, five) < 0) throw new Error(`seed ${seed}: 7 cards scored below 5 of them`);
+  }
+});
+t('gin: deadwood never exceeds the ungrouped card values, 300 hands', () => {
+  for (let seed = 1; seed <= 300; seed++) {
+    const cards = parseHand(dealer(seed)(10));
+    const { melds, deadwood, total } = analyse(cards);
+    const melded = melds.flat().length;
+    if (melded + deadwood.length !== cards.length) {
+      throw new Error(`seed ${seed}: ${melded} melded + ${deadwood.length} loose != 10`);
+    }
+    if (total < 0 || total > 100) throw new Error(`seed ${seed}: implausible deadwood ${total}`);
+    for (const m of melds) if (m.length < 3) throw new Error(`seed ${seed}: meld of ${m.length}`);
+  }
+});
+t('gin: melding can only ever reduce deadwood', () => {
+  for (let seed = 1; seed <= 200; seed++) {
+    const cards = parseHand(dealer(seed)(10));
+    const raw = cards.reduce((a, c) => a + deadwoodValue(c), 0);
+    if (analyse(cards).total > raw) throw new Error(`seed ${seed}: melding made it worse`);
+  }
+});
+t('scrabble: score rises monotonically with premiums', () => {
+  for (const w of ['CAT', 'QUIZ', 'JUMBO', 'SYZYGY']) {
+    const base = scrabble(w).total;
+    if (scrabble(w, { dl: [1] }).total < base) throw new Error(`${w}: double letter lowered it`);
+    if (scrabble(w, { dw: true }).total !== base * 2) throw new Error(`${w}: double word wrong`);
+    if (scrabble(w, { bingo: true }).total !== base + 50) throw new Error(`${w}: bingo wrong`);
+  }
+});
+t('scrabble: a blank never adds value', () => {
+  for (const w of ['CAT', 'QUIZ', 'JUMBO']) {
+    for (let i = 1; i <= w.length; i++) {
+      if (scrabble(w, { blank: [i] }).total >= scrabble(w).total && w[i - 1] !== 'A') {
+        throw new Error(`${w}: blank at ${i} did not reduce the score`);
+      }
+    }
+  }
+});
+t('pablo: a black king is always the cheapest card to hold', () => {
+  for (const c of ['Ks', 'Kc']) eq(pablo(parseHand(c)).total, 0);
+  for (const c of ['Kh', 'Kd', 'Ah', '2c', 'Ts']) {
+    if (pablo(parseHand(c)).total < 0) throw new Error(`${c} scored negative`);
+  }
+});
+
+// --- votes -----------------------------------------------------------------
+t('no votes reads as unmeasured, not as zero', () => {
+  eq(measure([], 'uno/stacking-draw-cards'), null);
+  eq(impliedPrevalence(null), null);
+});
+t('a handful of votes is not treated as confident', () => {
+  const few = Array.from({ length: 3 }, () => ({ ruling: 'x/y', plays: true }));
+  const m = measure(few, 'x/y');
+  eq(m.n, 3);
+  eq(m.confident, false);
+  eq(impliedPrevalence(m), null); // under 5 votes implies nothing at all
+});
+t('a clear majority across enough votes implies a prevalence', () => {
+  const many = Array.from({ length: 30 }, (_, i) => ({ ruling: 'x/y', plays: i < 28 }));
+  eq(impliedPrevalence(measure(many, 'x/y')), 'near-universal');
+});
+t('votes are validated rather than trusted', () => {
+  eq(validateVotes([{ ruling: 'nope', plays: 'sometimes' }]).length, 2);
+  eq(validateVotes([{ ruling: 'uno/stacking-draw-cards', plays: true }]).length, 0);
+});
+
+// --- bots ------------------------------------------------------------------
+t('the bot answers a bare rule question with no game named', () => {
+  eq(answer('free parking').title.startsWith('Monopoly'), true);
+  eq(answer('free parking').official, false);
+});
+t('the bot refuses to invent an answer', () => {
+  eq(answer('how do I fold a paper crane').official, null);
+  eq(answer('').official, null);
+});
+t('slack signatures are verified, and replays rejected', () => {
+  const secret = 'shh';
+  const ts = Math.floor(Date.now() / 1000).toString();
+  const body = 'text=uno';
+  const sig = 'v0=' + createHmac('sha256', secret).update(`v0:${ts}:${body}`).digest('hex');
+  eq(verifySlack(body, ts, sig, secret), true);
+  eq(verifySlack(body, ts, sig, 'wrong'), false);
+  eq(verifySlack('text=other', ts, sig, secret), false);
+  eq(verifySlack(body, '1000000000', sig, secret), false); // too old to accept
+  eq(verifySlack(body, ts, sig, ''), false);
+});
+t('discord signatures are verified', () => {
+  const { publicKey, privateKey } = generateKeyPairSync('ed25519');
+  const pub = publicKey.export({ format: 'der', type: 'spki' }).subarray(12).toString('hex');
+  const ts = '1700000000';
+  const body = '{"type":1}';
+  const sig = sign(null, Buffer.from(ts + body), privateKey).toString('hex');
+  eq(verifyDiscord(body, ts, sig, pub), true);
+  eq(verifyDiscord(body, ts, '00'.repeat(64), pub), false);
+  eq(verifyDiscord('{"type":2}', ts, sig, pub), false);
+  eq(verifyDiscord(body, ts, sig, 'not-hex'), false);
+});
+
+// --- MCP -------------------------------------------------------------------
+t('every MCP tool has a schema and runs', () => {
+  eq(TOOLS.length, 4);
+  for (const tool of TOOLS) {
+    eq(typeof tool.description, 'string', `${tool.name}: `);
+    eq(tool.inputSchema.type, 'object', `${tool.name}: `);
+    eq(typeof tool.run, 'function', `${tool.name}: `);
+  }
+});
+t('the MCP dispute tool tells the model not to invent an answer', () => {
+  const out = TOOLS.find((t2) => t2.name === 'settle_rules_dispute').run({ question: 'how do I fold a paper crane' });
+  eq(/do not invent/i.test(out), true);
+});
+t('the MCP dispute tool leads with whether the rule is official', () => {
+  const out = TOOLS.find((t2) => t2.name === 'settle_rules_dispute').run({ game: 'uno', question: 'stacking' });
+  eq(out.includes('NOT AN OFFICIAL RULE'), true);
+});
+
+// --- printable deck --------------------------------------------------------
+t('the deck produces a back for every front, mirrored', () => {
+  const sheets = deckSheets(load().slice(0, 3));
+  eq(sheets.length % 2, 0, 'fronts and backs must pair up: ');
+  for (const s2 of sheets) eq(s2.startsWith('<svg') && s2.endsWith('</svg>'), true);
+});
+t('the deck escapes game text rather than injecting it', () => {
+  const evil = { ...load()[0], name: '<script>x</script>', rulings: [load()[0].rulings[0]] };
+  eq(deckSheets([evil]).join('').includes('<script>'), false);
+});
+
+// --- translations ----------------------------------------------------------
+t('a partial translation falls back to English per ruling', () => {
+  const fr = load('fr').find((x) => x.slug === 'uno');
+  const en = load().find((x) => x.slug === 'uno');
+  eq(fr.rulings.length, en.rulings.length);
+  eq(fr.rulings.find((r) => r.id === 'stacking-draw-cards').question.includes('empiler'), true);
+  // An untranslated one keeps its English text rather than disappearing.
+  eq(fr.rulings.find((r) => r.id === 'uno-declaration-penalty')?.question, en.rulings.find((r) => r.id === 'uno-declaration-penalty')?.question);
+});
+t('a translation inherits the facts it does not restate', () => {
+  const fr = load('fr').find((x) => x.slug === 'uno');
+  const en = load().find((x) => x.slug === 'uno');
+  eq(fr.players, en.players);
+  eq(fr.playtime_actual, en.playtime_actual);
+  eq(fr.objective === en.objective, false); // but the prose is translated
 });
 
 // ---------------------------------------------------------------------------

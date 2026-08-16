@@ -136,8 +136,52 @@ No further comment.
 | 🧮 `score` | Poker hands, gin deadwood, Scrabble premiums, Uno and Pablo totals |
 | 🗣️ `teach <game> --live` | Walks the teach script one beat at a time, against the clock |
 | 🔍 `find --players 5 --kids 7` | What fits tonight — filtered on **real** playtime, not the box |
+| 🕵️ `cheats <game>` | How people cheat at it, and how to catch them |
+| 🗳️ `vote <game> "<rule>"` | Report how *your* table plays it |
+| ✅ `verify` | Which facts have been checked against a source, and when |
+| 🌍 `--lang fr` | Any translation, falling back to English per ruling |
 
 ---
+
+## 🤖&nbsp; Give it to your AI
+
+Ask any assistant whether you can stack a +2 in Uno and it will usually say yes,
+confidently, because that is what most of the internet says. This hands it the
+sourced answer instead.
+
+```json
+{ "mcpServers": {
+    "rulebook": { "command": "npx", "args": ["-y", "@mohitagw15856/rulebook", "mcp"] }
+} }
+```
+
+Four tools, no dependencies, ~200 lines of MCP over stdio:
+`settle_rules_dispute` · `get_game_facts` · `plan_game_night` · `list_contested_rules`
+
+The dispute tool is explicitly told **not to invent an answer** when the
+registry has nothing — it returns a "file it" link instead. That is the whole
+point of pointing a model at a registry rather than at its own memory.
+
+## 🌐&nbsp; The JSON API
+
+Static files on a CDN. No key, no rate limit, nothing to go down on its own.
+
+```console
+$ curl https://mohitagw15856.github.io/rulebook/api/games/uno.json
+$ curl https://mohitagw15856.github.io/rulebook/api/hottest.json
+```
+
+| | |
+|---|---|
+| `/api/index.json` | Counts, endpoints, the game list |
+| `/api/games.json` | Everything, one array |
+| `/api/games/{slug}.json` | One game, rulings included |
+| `/api/rulings.json` | All 196 rulings, flat |
+| `/api/hottest.json` | The 40 most contested |
+
+There is also a [Slack and Discord bot](bots/server.mjs) — one file, no
+dependencies, signature verification via `node:crypto` — and an
+[iOS Shortcut recipe](shortcuts/README.md) that reads the same API.
 
 ## 🖨️&nbsp; Print it and put it in the box
 
@@ -183,7 +227,7 @@ before they start than any amount of looking things up afterwards.
 
 ---
 
-## 🌐&nbsp; The website
+## 💻&nbsp; The website
 
 **[mohitagw15856.github.io/rulebook](https://mohitagw15856.github.io/rulebook/)**
 
@@ -252,6 +296,31 @@ it), **`min_age`** (the age it genuinely works at, not the age on the box), and
 </details>
 
 ---
+
+## 🔍&nbsp; How much of this should you believe?
+
+A registry that says "everyone plays it this way" had better be able to show
+its working. Three mechanisms, all visible:
+
+**Verification.** Every game records who checked its facts, when, and against
+what. `rulebook verify` lists them. Right now **4 of 36 are verified** and the
+other 32 say so plainly — unverified is not the same as wrong, and inventing 36
+dates would be exactly the dishonesty this project argues against.
+
+**Sources that disagree.** A ruling can carry several sources, each recording
+what it claims and whether it *supports* the verdict. The Ludo blockade is the
+first real case: Wikipedia presents it as standard, British sets omit it, and
+the entry now says so rather than quietly picking a winner.
+
+**Votes.** `prevalence` is currently somebody's judgement. `rulebook vote` lets
+you report how your table actually plays, and every ruling shows `n=` beside
+its claim. With no votes it says *"a judgement, not a survey"* rather than
+showing a confident zero.
+
+```console
+$ npm run coverage     # what is missing, and how old the facts are
+$ rulebook verify      # which games have been checked, and when
+```
 
 ## ⚖️&nbsp; About the rules themselves
 

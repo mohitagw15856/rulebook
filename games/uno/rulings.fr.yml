@@ -1,0 +1,19 @@
+rulings:
+  - id: stacking-draw-cards
+    question: Peut-on empiler un +2 sur un +2, ou un +4 sur un +4 ?
+    asked_as:
+      - empiler les +2
+      - est-ce qu'on peut cumuler les pioches
+      - empilement uno
+    kind: house-rule
+    official: false
+    prevalence: near-universal
+    regions: [global]
+    verdict: >
+      Non. Les règles publiées ne prévoient aucun empilement. Le joueur visé par
+      un +2 pioche deux cartes et passe son tour ; il ne peut pas transmettre la
+      pénalité. Mattel l'a confirmé publiquement en mai 2019.
+    house_rule: >
+      La version maison, quasi universelle, permet de répondre à un +2 par un
+      autre +2, la pénalité s'accumulant jusqu'à ce qu'un joueur ne puisse plus
+      répondre et pioche la totalité.

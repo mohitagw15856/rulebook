@@ -1,0 +1,20 @@
+# How people actually play.
+#
+# Every `prevalence` value in this registry is currently somebody's judgement.
+# This file is how that becomes measurement instead. One entry per person per
+# ruling, recording how their table plays it and where they learned it.
+#
+# Add yours with `rulebook vote`, which prints a ready-made block and a
+# pre-filled issue link, or open a pull request adding to this list directly.
+#
+#   - ruling: uno/stacking-draw-cards
+#     plays: yes            # does your table play the house version?
+#     region: India         # where you play, not where you were born
+#     learned_from: family  # family | friends | club | online | published
+#     decade: 1990s         # roughly when you learned it
+#
+# There is deliberately no seed data. An empty file is an honest empty file;
+# inventing votes to make the numbers look established would be exactly the
+# thing this project exists to argue against.
+
+votes: []

@@ -107,6 +107,44 @@ A few fields people skip, and shouldn't:
   common reason a game does not get played.
 - **`accessibility`** — colour pairs, print size, dexterity. Say which colours
   clash; nearly every set has a red/green problem.
+- **`setup_time` / `teardown_time`** — real friction nobody prints. A
+  twenty-minute setup quietly ruins a thirty-minute game.
+- **`tiebreak`** — what happens on a tied score. Every game has an answer,
+  including "it cannot happen" and "there isn't one", and both are worth saying.
+- **`cheats`** — how people actually cheat, each with `move` and `spot`.
+  Recorded so it can be caught, not so it can be done.
+- **`handicaps`** — how to level an expert against a beginner, each with `for`
+  and `method`.
+- **`verified`** — who checked the facts, when, and what they checked. Leave it
+  `null` rather than guessing; `npm run coverage` shows the gaps and that is
+  the point of them being visible.
+
+### Sources that disagree
+
+A ruling can carry a `sources` list where each entry says what that source
+claims and whether it `agrees` with the verdict:
+
+```yaml
+    sources:
+      - url: https://en.wikipedia.org/wiki/Ludo
+        says: Describes the blockade as part of the standard game.
+        agrees: false
+      - url: https://www.mastersofgames.com/rules/pachisi-rules.htm
+        says: Places the blockade in the Pachisi tradition it descends from.
+        agrees: true
+```
+
+**Do not resolve a genuine disagreement by deleting the inconvenient source.**
+Recording that two credible sources conflict is more useful than a tidy answer,
+and the validator will reject a ruling where *every* source disagrees with its
+own verdict — that means the verdict is wrong, not the sources.
+
+### Rulings that interact
+
+`interacts_with` links a ruling to others it compounds with, as
+`game-slug/ruling-id`. Targets are checked at build time. Uno's stacking and
+draw-until-playable are the clearest pair: play both house versions and hands
+reach sizes neither rule alone predicts.
 
 ### teach.md
 
@@ -157,6 +195,32 @@ A clean run is not a legal opinion. It means nothing obvious is wrong. The
 judgement is still yours.
 
 ---
+
+## Reporting how you actually play
+
+`prevalence` is the weakest thing in this registry: it is somebody's judgement
+about the whole world. `rulebook vote` fixes that one table at a time.
+
+```console
+$ rulebook vote uno "stacking"
+```
+
+It prints a block for `data/votes.yml` and a pre-filled issue link. Where you
+learned a rule matters more than which country you are in — rules travel
+through families and clubs — so `learned_from` and `decade` are worth filling in.
+
+There is deliberately **no seed data**. An empty file is an honest empty file.
+
+## Translating
+
+Prose files take a language suffix — `rules.fr.md`, `rulings.fr.yml`,
+`game.fr.yml` — and anything missing falls back to English *per ruling*, so a
+partial translation is genuinely useful. See [i18n/README.md](i18n/README.md).
+
+Two rules of the road: never paste a publisher's translated rulebook (their
+French wording is as copyrighted as their English), and translate `asked_as`
+into what somebody would actually shout in that language rather than word for
+word — it is the field search depends on.
 
 ## Before you open a PR
 

@@ -62,6 +62,36 @@ jobs:
       - run: node bin/rulebook.mjs hottest
       - run: node bin/rulebook.mjs odds catan
       - run: node bin/rulebook.mjs record
+      - run: node bin/rulebook.mjs verify
+      - run: node bin/rulebook.mjs cheats scrabble
+      - run: node bin/rulebook.mjs --lang fr ruling uno "empiler"
+      - run: npm run coverage
+      - name: The MCP server speaks MCP
+        run: |
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05"}}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' \
+            '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"settle_rules_dispute","arguments":{"game":"uno","question":"stacking"}}}' \
+            | node mcp/server.mjs > /tmp/mcp.out
+          grep -q '"tools"' /tmp/mcp.out
+          grep -q 'NOT AN OFFICIAL RULE' /tmp/mcp.out
+          echo "MCP responded on all three calls"
+      - name: The JSON API is complete and parseable
+        run: |
+          npm run build:site
+          node -e "
+            const fs=require('fs');
+            const idx=JSON.parse(fs.readFileSync('site/api/index.json'));
+            const all=JSON.parse(fs.readFileSync('site/api/games.json'));
+            if (all.length !== idx.counts.games) throw new Error('games.json disagrees with index.json');
+            for (const g of all) JSON.parse(fs.readFileSync('site/api/games/'+g.slug+'.json'));
+            console.log('API: '+all.length+' games, all parse');
+          "
+      - name: Print output builds
+        run: |
+          test -s site/print/index.html
+          test -s site/print/deck.html
+          grep -q 'ruling cards' site/print/deck.html
       - run: node bin/rulebook.mjs qr uno --ruling stacking-draw-cards
       - name: Reference cards generate for every game
         run: |

@@ -61,8 +61,7 @@ for (const g of games) {
     problems.push(`${at}/game.yml: no "sources" — every game must say what its rules were checked against`);
   }
 
-  for (const file of ['rules.md', 'teach.md']) {
-    const path = `${ROOT}${at}/${file}`;
+  for (const [file, path] of [['rules.md', g.__rulesFile], ['teach.md', g.__teachFile]]) {
     let text;
     try {
       text = readFileSync(path, 'utf8');

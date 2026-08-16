@@ -155,7 +155,19 @@ function verdictCard(r, i) {
     ${r.house_rule ? `<div class="lbl">The house version</div><p>${esc(r.house_rule)}</p>` : ''}
     ${r.effect ? `<div class="lbl">What it changes</div><p>${esc(r.effect)}</p>` : ''}
     ${r.regions && !r.regions.includes('global') ? `<p class="src">Played mostly in: ${esc(r.regions.join(', '))}</p>` : ''}
+    ${(r.sources || [])
+      .map(
+        (s) => `<p class="src ${s.agrees ? '' : 'conflict'}">
+          <b>${s.agrees ? 'Source' : 'A source disagrees'}:</b> ${esc(s.says)}
+          <a href="${esc(s.url)}" rel="noopener">${esc(s.url)}</a></p>`
+      )
+      .join('')}
     ${r.source ? `<p class="src">Source: <a href="${esc(r.source)}" rel="noopener">${esc(r.source)}</a></p>` : ''}
+    <p class="src">${
+      r.votes
+        ? `Reported by players: <b>${r.votes.pct}%</b> play the house version (n=${r.votes.n}).`
+        : 'Prevalence here is a judgement, not a survey. <a href="https://github.com/mohitagw15856/rulebook/issues/new?labels=vote" rel="noopener">Report how your table plays it.</a>'
+    }</p>
     <button class="share" data-share="${esc(r._game.slug)}/${esc(r.id)}">share this ruling</button>
   </article>`;
 }
@@ -359,6 +371,12 @@ function openGame(slug, focusRuling = null) {
       <tr><td>works at age</td><td>${g.min_age}+</td></tr>
       <tr><td>brain</td><td>${dots(g.weight)} ${g.weight} / 5</td></tr>
       <tr><td>luck</td><td>${g.luck}% chance, ${100 - g.luck}% skill</td></tr>
+      <tr><td>setup / pack away</td><td>${g.setup_time ? fmt(g.setup_time) : '—'} / ${g.teardown_time ? fmt(g.teardown_time) : '—'}</td></tr>
+      <tr><td>verified</td><td>${
+        g.stale
+          ? '<span class="unver">not checked against a source recently</span>'
+          : `${esc(g.verified.on)} by ${esc(g.verified.by)}`
+      }</td></tr>
     </table>
 
     <h3>How many players changes what</h3>
@@ -386,6 +404,26 @@ function openGame(slug, focusRuling = null) {
               <button class="share" data-share="${esc(g.slug)}/${esc(r.id)}">share this ruling</button>
             </div>`
           )
+          .join('')}`
+      : ''}
+
+    ${g.tiebreak ? `<h3>If the scores tie</h3><p>${esc(g.tiebreak)}</p>` : ''}
+
+    ${g.editions?.length
+      ? `<h3>How it changed</h3><ol class="timeline">${g.editions
+          .map((e) => `<li><b>${esc(e.name)}</b>${e.year ? ` <span class="yr">${e.year}</span>` : ''}<br>${esc(e.changed)}</li>`)
+          .join('')}</ol>`
+      : ''}
+
+    ${g.handicaps?.length
+      ? `<h3>Levelling it up</h3>${g.handicaps
+          .map((h) => `<p><b style="color:var(--ink)">${esc(h.for)}</b> — ${esc(h.method)}</p>`)
+          .join('')}`
+      : ''}
+
+    ${g.cheats?.length
+      ? `<h3>How people cheat</h3>${g.cheats
+          .map((ch) => `<div class="cheat"><p>${esc(ch.move)}</p><p class="spot">Spot it: ${esc(ch.spot)}</p></div>`)
           .join('')}`
       : ''}
 

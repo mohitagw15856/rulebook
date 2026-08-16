@@ -701,3 +701,27 @@ footer a:hover { color: var(--mint); }
 }
 .offline.ok { border-style: solid; border-color: color-mix(in srgb, var(--mint) 35%, transparent); color: var(--dim); }
 .offline b { color: var(--mint); }
+
+/* --- new data on the game page ------------------------------------------ */
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li {
+  position: relative; padding-left: 1.4rem; margin: 0 0 1rem;
+  border-left: 1px solid var(--stroke);
+  padding-bottom: 0.2rem; color: var(--dim);
+}
+.timeline li::before {
+  content: ""; position: absolute; left: -4.5px; top: 8px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--violet); box-shadow: 0 0 10px var(--violet);
+}
+.timeline b { color: var(--ink); }
+.timeline .yr { font-family: var(--mono); font-size: 0.74rem; color: var(--dimmer); }
+
+.cheat { border-left: 2px solid var(--red); padding-left: 0.9rem; margin: 0.9rem 0; }
+.cheat p { margin: 0; }
+.cheat .spot { color: var(--mint); font-size: 0.9rem; margin-top: 0.3rem; }
+
+.unver { color: var(--gold); }
+.src.conflict { border-left: 2px solid var(--gold); padding-left: 0.7rem; color: var(--dim); }
+.src.conflict b { color: var(--gold); }

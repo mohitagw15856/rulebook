@@ -62,7 +62,7 @@ for (const g of games) {
 
   p.push('## Rules');
   p.push('');
-  p.push(readFileSync(`${ROOT}${g.__dir}/rules.md`, 'utf8').trim().replace(/^# .*\n+/, ''));
+  p.push(readFileSync(g.__rulesFile, 'utf8').trim().replace(/^# .*\n+/, ''));
   p.push('');
 
   if (g.rulings.length) {
@@ -102,7 +102,7 @@ for (const g of games) {
 
   p.push('## Teaching it');
   p.push('');
-  p.push(readFileSync(`${ROOT}${g.__dir}/teach.md`, 'utf8').trim().replace(/^# .*\n+/, ''));
+  p.push(readFileSync(g.__teachFile, 'utf8').trim().replace(/^# .*\n+/, ''));
   p.push('');
 
   if (g.hasScore) {
