@@ -185,12 +185,17 @@ dependencies, signature verification via `node:crypto` — and an
 
 ## 🖨️&nbsp; Print it and put it in the box
 
-```console
-$ rulebook card catan --out catan.svg
-```
+Three things print straight from a browser. No PDF library, no dependency —
+just HTML and SVG with `@page` rules.
 
-One A4 sheet. Fold it twice, leave it in the lid. Setup by player count, the
-turn, the four rules your table gets wrong, and a QR code to every ruling.
+| | |
+|---|---|
+| **[The booklet](https://mohitagw15856.github.io/rulebook/print/)** | The entire registry as a printable book. Every game, every ruling, every tiebreak. |
+| **[The card deck](https://mohitagw15856.github.io/rulebook/print/deck.html)** | 196 poker-sized ruling cards. Print double-sided — the backs are laid out mirrored so each answer lands behind its own question. Hold one up, everyone guesses official or made up, turn it over. |
+| `rulebook card catan` | One A4 sheet per game. Fold twice, leave it in the lid. |
+
+The per-game card carries setup by player count, the turn, the four rules your
+table gets wrong, and a QR code to every ruling.
 
 <details>
 <summary>The QR encoder is written from scratch, and it didn't work at first</summary>
@@ -208,6 +213,24 @@ trusting my eyes. `rulebook qr <game>` prints one straight to your terminal.
 </details>
 
 ---
+
+## 📋&nbsp; The facts no box prints
+
+`rulebook about <game>` is where the unglamorous, genuinely useful stuff lives.
+
+| | |
+|---|---|
+| **Setup and pack-away time** | A 20-minute setup quietly ruins a 30-minute game, and no box mentions it |
+| **Downtime between *your* turns** | The honest measure of whether a game is bearable to sit through. It is why Monopoly is hated and Codenames is not |
+| **The tiebreak** | Every game has one — including *"it cannot happen"* — and almost nobody knows it. All 36 recorded |
+| **Handicaps** | How to make it fair between an expert and a beginner, or an adult and a seven-year-old |
+| **[How people cheat](https://github.com/mohitagw15856/rulebook/blob/main/games/scrabble/game.yml)** | And how to spot it. Recorded so it can be caught, not so it can be done |
+| **When to give up** | Every game has a fair moment to stop. None of them print it |
+| **How it changed** | Edition timelines, so you know which rule arrived in 2015 |
+
+Rulings can also link to rulings they **compound with**. Play both Uno house
+rules — stacking *and* draw-until-playable — and hands reach sizes neither rule
+alone predicts. Those links are cross-checked at build time.
 
 ## 🏠&nbsp; Your table's constitution
 
@@ -313,13 +336,22 @@ first real case: Wikipedia presents it as standard, British sets omit it, and
 the entry now says so rather than quietly picking a winner.
 
 **Votes.** `prevalence` is currently somebody's judgement. `rulebook vote` lets
-you report how your table actually plays, and every ruling shows `n=` beside
-its claim. With no votes it says *"a judgement, not a survey"* rather than
-showing a confident zero.
+you report how your table actually plays, and every ruling shows `n=` beside its
+claim. With no votes it says *"a judgement, not a survey"* rather than showing a
+confident zero. It records **where you learned a rule** — family, friends, club,
+online — because rules travel through families far more than through countries,
+and [`data/votes.yml`](https://github.com/mohitagw15856/rulebook/blob/main/data/votes.yml)
+ships deliberately empty.
+
+**Tests that do not rely on my imagination.** The scorers carry property tests
+over ~1,400 generated deals, checking rules rather than examples: poker
+comparison is a total order, seven cards never score below the best five inside
+them, and melding can only ever *reduce* deadwood. 97 tests in total.
 
 ```console
 $ npm run coverage     # what is missing, and how old the facts are
 $ rulebook verify      # which games have been checked, and when
+$ npm test             # 97 tests, including the property tests
 ```
 
 ## ⚖️&nbsp; About the rules themselves
