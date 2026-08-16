@@ -68,6 +68,42 @@ handicaps:
     method: >
       Start them at minus fifty, or bar them from using the two-letter 
       word list.
+lineage:
+  from:
+    - Criss-Cross Words
+  year: 1948
+  note: >
+    Alfred Butts's Criss-Cross Words, refined and renamed by James 
+    Brunot. The letter values come from Butts counting letter 
+    frequencies in newspapers.
+misplays:
+  - move: >
+      Playing the highest-scoring word available every turn.
+    instead: >
+      Keeping a balanced rack — roughly three vowels and four consonants 
+      — is worth more over a game than fifteen points now.
+  - move: >
+      Opening the triple word lines to reach a premium square.
+    instead: >
+      Look at what your word leaves open. Handing an opponent a triple 
+      costs more than the play gains.
+scores:
+  typical: >
+    220–280 in a casual game between adults
+  good: >
+    350 is a strong game; 400 is a very good one
+  note: >
+    Club and tournament players average around 350–400. A single bingo 
+    is worth about a fifth of a typical score, which is why rack 
+    management matters more than any individual word.
+opening: >
+  The opening play sits on a double-word line. A modest word that 
+  keeps a balanced rack beats a big word that leaves you with four 
+  consonants.
+etiquette: >
+  Challenge freely and without apology if you have agreed challenges 
+  are free. Sulking about a successful challenge is worse manners 
+  than the challenge.
 substitutions: >
   Lost tiles can be written on card, but the tile distribution is carefully
   balanced and a missing high-value letter changes the game. Note the count on

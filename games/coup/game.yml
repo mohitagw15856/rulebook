@@ -52,6 +52,13 @@ cheats:
     spot: >
       It is public information anyway. This one is barely cheating and 
       mostly forgetfulness.
+lineage:
+  from:
+    - The Resistance
+  year: 2012
+  note: >
+    Set in the same universe as The Resistance, but a game of open 
+    claims and challenges rather than hidden voting.
 substitutions: >
   Coins are trivially replaced by anything countable. The character cards are
   the game. Reference cards are the component people lose first and miss most —

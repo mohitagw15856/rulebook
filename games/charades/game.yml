@@ -46,6 +46,13 @@ turn_structure:
 win_condition: >
   Highest number of correct guesses across an agreed number of rounds. Most
   tables stop keeping score halfway through, which is not a failure of the game.
+lineage:
+  from:
+    - (no clear ancestor)
+  note: >
+    An eighteenth-century parlour game that predates every published 
+    game here and has never had an owner, which is why no version is 
+    official.
 substitutions: >
   There is nothing to substitute. Paper, a bowl and a phone timer are the whole
   requirement, and any of the three can be improvised.

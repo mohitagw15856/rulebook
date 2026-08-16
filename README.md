@@ -299,8 +299,15 @@ if you'd rather not touch YAML at all.
 what they'd genuinely shout across a table.
 
 Run `npm run ci` before opening a PR — it validates, checks your prose is your
-own, runs 61 tests and rebuilds this file. **[CONTRIBUTING.md](CONTRIBUTING.md)**
-has the rest.
+own, runs 97 tests, verifies nothing changed shape, and rebuilds this file.
+
+**[CONTRIBUTING.md](CONTRIBUTING.md)** has the rest, and
+**[MAINTAINERS.md](MAINTAINERS.md)** explains adopting a game — about an hour a
+year, and the single most useful thing anybody can do here. **4 of 36** games
+are currently verified.
+
+Not sure where to start? `node scripts/starter-issues.mjs` lists twenty games
+worth adding, each with an argument it is already known for.
 
 <details>
 <summary>Adding a whole game, or a scorer</summary>
@@ -346,12 +353,12 @@ ships deliberately empty.
 **Tests that do not rely on my imagination.** The scorers carry property tests
 over ~1,400 generated deals, checking rules rather than examples: poker
 comparison is a total order, seven cards never score below the best five inside
-them, and melding can only ever *reduce* deadwood. 97 tests in total.
+them, and melding can only ever *reduce* deadwood.
 
 ```console
 $ npm run coverage     # what is missing, and how old the facts are
 $ rulebook verify      # which games have been checked, and when
-$ npm test             # 97 tests, including the property tests
+$ npm test             # every test, including the property tests
 ```
 
 ## ⚖️&nbsp; About the rules themselves

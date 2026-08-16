@@ -59,6 +59,33 @@ cheats:
     spot: >
       The discard pile is face up. Turn the top three cards over at the 
       end of any round somebody won unusually quickly.
+lineage:
+  from:
+    - Crazy Eights
+  year: 1971
+  note: >
+    Merle Robbins built Uno on the Crazy Eights family, replacing the 
+    standard deck with a bespoke one. The house rules people argue about 
+    are largely Crazy Eights house rules inherited wholesale.
+misplays:
+  - move: >
+      Saving Wild cards for the perfect moment.
+    instead: >
+      A Wild in your hand at the end of the round is fifty points 
+      against you. Spend them.
+scores:
+  typical: >
+    Play to 500; a round typically scores the winner 40–80
+  good: >
+    Going out while opponents still hold Wilds, which is where the big 
+    rounds come from
+  note: >
+    A single round where an opponent is caught with two Wild cards is 
+    worth more than three ordinary rounds.
+etiquette: >
+  Calling somebody out for forgetting to say Uno is part of the 
+  game, not an act of aggression. Agree before you start whether it 
+  is allowed after the next player has moved.
 substitutions: >
   A standard 52-card deck plays a near-identical game as Crazy Eights: Jack is
   Skip, Queen is Reverse, Ace is Draw Two, and Eight is Wild. If a single Uno

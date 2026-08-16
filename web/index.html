@@ -31,6 +31,8 @@
     <a href="#settle">Settle</a>
     <a href="#fake">Fake rules</a>
     <a href="#games">Games</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#tree">Family tree</a>
     <a href="#world">World</a>
     <a href="#score">Score</a>
     <a href="#keep">Scorepad</a>
@@ -161,9 +163,78 @@
 </section>
 
 <!-- ---------------------------------------------------------------- -->
+<section id="quiz" class="reveal">
+  <div class="head">
+    <span class="tag">03 — the party game about the rules</span>
+    <h2>Official rule,<br><em>or made up?</em></h2>
+    <p class="lede">
+      Ten rulings. You guess. Most people score worse than they expect, which is
+      the entire point of the registry.
+    </p>
+  </div>
+
+  <div class="panel quiz-panel">
+    <div id="quiz-start">
+      <button id="quiz-go" class="btn primary">Start the quiz</button>
+      <span class="dimnote">10 questions · about a minute</span>
+    </div>
+
+    <div id="quiz-play" hidden>
+      <div class="quiz-bar"><div id="quiz-progress"></div></div>
+      <div class="quiz-meta"><span id="quiz-count"></span><span id="quiz-game"></span></div>
+      <h3 id="quiz-q"></h3>
+      <div class="quiz-answers">
+        <button class="btn" data-a="official">It's official</button>
+        <button class="btn" data-a="house">Somebody made it up</button>
+      </div>
+      <div id="quiz-feedback" class="quiz-feedback" hidden></div>
+      <button id="quiz-next" class="btn primary" hidden>Next</button>
+    </div>
+
+    <div id="quiz-done" hidden>
+      <div class="quiz-score"><b id="quiz-final"></b><span id="quiz-rank"></span></div>
+      <p id="quiz-blurb" class="lede"></p>
+      <div class="quiz-actions">
+        <button id="quiz-share" class="btn primary">Copy score card</button>
+        <button id="quiz-again" class="btn">Play again</button>
+      </div>
+      <pre id="quiz-card" class="out"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
+<section id="museum" class="reveal">
+  <div class="head">
+    <span class="tag">04 — the hall of shame</span>
+    <h2>The museum of<br><em>rules that never were</em></h2>
+    <p class="lede">
+      Ranked by how certain everybody is. A rule played almost everywhere that
+      appears in no rulebook sits at the top, because that is the one where both
+      sides will fight you.
+    </p>
+  </div>
+  <div id="museum-list" class="museum"></div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
+<section id="tree" class="reveal">
+  <div class="head">
+    <span class="tag">05 — where they came from</span>
+    <h2>The family tree</h2>
+    <p class="lede">
+      Uno is Crazy Eights wearing a hat. Ludo is Pachisi with the interesting
+      rule removed. <em>House rules cluster by descent</em>, which is why the
+      same arguments keep reappearing in different games.
+    </p>
+  </div>
+  <div id="tree-graph" class="tree"></div>
+</section>
+
+<!-- ---------------------------------------------------------------- -->
 <section id="world" class="reveal">
   <div class="head">
-    <span class="tag">04 — not everyone plays it your way</span>
+    <span class="tag">06 — not everyone plays it your way</span>
     <h2>The same game,<br><em>played differently</em></h2>
     <p class="lede">
       Some of these rules are standard in one country and unheard of in the next.
@@ -177,7 +248,7 @@
 <!-- ---------------------------------------------------------------- -->
 <section id="score" class="reveal">
   <div class="head">
-    <span class="tag">05 — no arithmetic arguments</span>
+    <span class="tag">07 — no arithmetic arguments</span>
     <h2>Scoring, settled</h2>
     <p class="lede">
       The <em>same</em> engines the command line uses, imported straight from the
@@ -200,7 +271,7 @@
 <!-- ---------------------------------------------------------------- -->
 <section id="keep" class="reveal">
   <div class="head">
-    <span class="tag">06 — the back of an envelope, but better</span>
+    <span class="tag">08 — the back of an envelope, but better</span>
     <h2>Keep score</h2>
     <p class="lede">
       Round-by-round scoring for whatever you are playing. Saved on your device,
@@ -223,7 +294,7 @@
 <!-- ---------------------------------------------------------------- -->
 <section id="install" class="reveal">
   <div class="head">
-    <span class="tag">07 — at the table</span>
+    <span class="tag">09 — at the table</span>
     <h2>The wifi will not hold</h2>
     <p class="lede">
       The whole registry ships inside the package. No network calls, ever —

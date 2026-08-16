@@ -1,0 +1,20 @@
+name: rule of the day
+
+# 196 rulings is over six months of daily posts, generated rather than written.
+# It writes to the job summary and an artifact; wiring it to a social account is
+# left to whoever owns the account.
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Pick today's rule
+        run: node scripts/daily.mjs | tee "$GITHUB_STEP_SUMMARY"

@@ -68,6 +68,33 @@ handicaps:
     method: >
       Give them a larger starting bank and allow rent to be waived once 
       per player.
+lineage:
+  from:
+    - The Landlord's Game
+  year: 1935
+  note: >
+    Descends from Lizzie Magie's Landlord's Game, patented in 1904 as a 
+    demonstration of how rent enriches landlords. The irony of what it 
+    became is well documented.
+misplays:
+  - move: >
+      Skipping auctions when nobody wants to buy.
+    instead: >
+      An unsold property must be auctioned, often going for far under 
+      face value. Groups that skip it play much longer and much flatter 
+      games.
+  - move: >
+      Hoarding cash rather than building.
+    instead: >
+      Money does nothing sitting in your hand. Three houses on an orange 
+      set is the fastest return in the game.
+opening: >
+  Buy everything you land on for the first lap. You cannot trade for 
+  a set you never owned a piece of.
+etiquette: >
+  Do not negotiate on behalf of a child by talking them into a bad 
+  trade. Free-form trading makes Monopoly a social game, and it only 
+  works if everybody is trading in good faith.
 substitutions: >
   Money is the component most often lost and the easiest to replace with paper
   or a phone. Missing houses can be represented by anything of the right size —

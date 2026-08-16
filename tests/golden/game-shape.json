@@ -1,0 +1,152 @@
+{
+  "all_keys": [
+    "accessibility",
+    "cheats",
+    "components",
+    "concession",
+    "downtime",
+    "editions",
+    "etiquette",
+    "family",
+    "handicaps",
+    "hasOdds",
+    "hasRules",
+    "hasScore",
+    "hasTeach",
+    "lineage",
+    "luck",
+    "min_age",
+    "misplays",
+    "name",
+    "objective",
+    "opening",
+    "players",
+    "playtime_actual",
+    "playtime_box",
+    "rulings",
+    "scores",
+    "setup_by_players",
+    "setup_time",
+    "slug",
+    "sources",
+    "substitutions",
+    "teach_time",
+    "teardown_time",
+    "tiebreak",
+    "turn_structure",
+    "type",
+    "variants",
+    "verified",
+    "weight",
+    "win_condition"
+  ],
+  "example_uno": {
+    "accessibility": "string",
+    "cheats": [
+      {
+        "move": "string",
+        "spot": "string"
+      }
+    ],
+    "components": [
+      "string"
+    ],
+    "concession": "string",
+    "downtime": "string",
+    "editions": [
+      {
+        "changed": "string",
+        "name": "string",
+        "source": "string",
+        "year": "number"
+      }
+    ],
+    "etiquette": "string",
+    "family": "string",
+    "hasOdds": "boolean",
+    "hasRules": "boolean",
+    "hasScore": "boolean",
+    "hasTeach": "boolean",
+    "lineage": {
+      "from": [
+        "string"
+      ],
+      "note": "string",
+      "year": "number"
+    },
+    "luck": "number",
+    "min_age": "number",
+    "misplays": [
+      {
+        "instead": "string",
+        "move": "string"
+      }
+    ],
+    "name": "string",
+    "objective": "string",
+    "players": {
+      "best": "number",
+      "max": "number",
+      "min": "number"
+    },
+    "playtime_actual": "string",
+    "playtime_box": "string",
+    "rulings": [
+      {
+        "asked_as": [
+          "string"
+        ],
+        "effect": "string",
+        "heat": "number",
+        "house_rule": "string",
+        "id": "string",
+        "interacts_with": [
+          "string"
+        ],
+        "kind": "string",
+        "official": "boolean",
+        "prevalence": "string",
+        "question": "string",
+        "regions": [
+          "string"
+        ],
+        "source": "string",
+        "verdict": "string"
+      }
+    ],
+    "scores": {
+      "good": "string",
+      "note": "string",
+      "typical": "string"
+    },
+    "setup_by_players": [
+      {
+        "note": "string",
+        "players": "string",
+        "setup": "string"
+      }
+    ],
+    "setup_time": "string",
+    "slug": "string",
+    "sources": [
+      "string"
+    ],
+    "substitutions": "string",
+    "teach_time": "string",
+    "teardown_time": "string",
+    "tiebreak": "string",
+    "turn_structure": [
+      "string"
+    ],
+    "type": "string",
+    "verified": {
+      "by": "string",
+      "checked": [
+        "string"
+      ],
+      "on": "string"
+    },
+    "weight": "number",
+    "win_condition": "string"
+  }
+}

@@ -55,6 +55,23 @@ handicaps:
     method: >
       Cap their clues at two words maximum, or make them give clues for 
       exactly one card.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2015
+  note: >
+    Vlaada Chvátil's word-association design, and the game that made 
+    one-word clue-giving a mainstream mechanic.
+misplays:
+  - move: >
+      Giving a clue for four to look clever.
+    instead: >
+      Two right and stopping beats three right and the assassin. 
+      Ambition is how new spymasters lose.
+etiquette: >
+  The spymaster may not react to guesses — no wincing, no nodding. 
+  It is the single hardest piece of etiquette in the game and the 
+  one most often broken.
 substitutions: >
   Missing word cards barely matter — the grid only needs twenty-five words, and
   any twenty-five from the set work. A lost key card can be replaced by dealing

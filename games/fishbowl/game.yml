@@ -45,6 +45,12 @@ turn_structure:
 win_condition: >
   Add up the slips each team guessed across all three rounds. The highest total
   wins, though by round three most groups have stopped checking.
+lineage:
+  from:
+    - Celebrity
+  note: >
+    A three-round elaboration of Celebrity, which is itself a party-game 
+    refinement of charades.
 substitutions: >
   Nothing to lose beyond paper and a bowl, both of which are improvised anyway.
   A hat, a mug or an upturned hood all work.

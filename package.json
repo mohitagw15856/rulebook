@@ -1,6 +1,6 @@
 {
   "name": "@mohitagw15856/rulebook",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Settle the argument. 36 board and card games, 196 rulings, the house rules everyone plays and which are actually real. MCP server, JSON API, chat bots, printable cards.",
   "type": "module",
   "bin": {
@@ -34,7 +34,12 @@
     "mcp": "node mcp/server.mjs",
     "bot": "node bots/server.mjs",
     "test": "node scripts/test.mjs",
-    "ci": "npm run validate && npm run check && npm test && npm run build && npm run build:site"
+    "ci": "npm run validate && npm run check && npm test && npm run golden && npm run build && npm run build:site",
+    "eval": "node scripts/eval.mjs",
+    "archive": "node scripts/archive.mjs",
+    "golden": "node scripts/golden.mjs",
+    "daily": "node scripts/daily.mjs",
+    "digest": "node scripts/digest.mjs"
   },
   "keywords": [
     "board-games",
@@ -60,7 +65,11 @@
     "slack-bot",
     "tiebreak",
     "house-rules",
-    "game-night"
+    "game-night",
+    "llm-benchmark",
+    "eval",
+    "atom-feed",
+    "embeddable-widget"
   ],
   "author": "Mohit (mohitagw15856)",
   "license": "MIT",

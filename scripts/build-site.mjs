@@ -29,10 +29,17 @@ mkdirSync(`${OUT}/lib`, { recursive: true });
 
 // The page only needs the data, not the internal bookkeeping.
 const votes = loadVotes();
+const esc2 = (s2) => String(s2 ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+const para = (s2) => esc2(String(s2).replace(/\s+/g, ' ').trim());
+// One timestamp for the whole build, so the feed does not churn between files.
+const BUILD_TIME = process.env.SOURCE_DATE_EPOCH
+  ? Number(process.env.SOURCE_DATE_EPOCH) * 1000
+  : Date.now();
 const payload = {
   games: games.map(({ __dir, __rulesFile, __teachFile, ...g }) => ({
     ...g,
     stale: isStale(g),
+    lineage: g.lineage || null,
     rulings: g.rulings.map((r) => ({ ...r, votes: measure(votes, `${g.slug}/${r.id}`) })),
   })),
 };
@@ -41,6 +48,15 @@ const html = readFileSync(`${ROOT}web/index.html`, 'utf8').replace(
   '__DATA__',
   JSON.stringify(payload).replace(/</g, '\\u003c') // never let data close the script tag
 );
+// Duplicate ids silently break querySelector — a section and its own render
+// target sharing a name once wiped the heading it was supposed to sit under.
+const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
+if (dupes.length) {
+  console.error(`Refusing to build: duplicate element ids — ${[...new Set(dupes)].join(', ')}`);
+  process.exit(1);
+}
+
 writeFileSync(`${OUT}/index.html`, html);
 
 copyFileSync(`${ROOT}web/style.css`, `${OUT}/style.css`);
@@ -264,13 +280,113 @@ for (const a of ['banner.svg', 'logo.svg', 'demo.gif']) {
 }
 
 // -----------------------------------------------------------------------------
+// An embeddable widget. One script tag drops a ruling into a forum post, a
+// wiki, or a BGG thread — which is where these arguments actually happen.
+// -----------------------------------------------------------------------------
+const widgetData = games.flatMap((g) =>
+  g.rulings.map((r) => ({
+    k: `${g.slug}/${r.id}`,
+    g: g.name,
+    q: r.question,
+    o: r.official ? 1 : 0,
+    p: r.prevalence,
+    v: r.verdict.replace(/\s+/g, ' ').trim(),
+  }))
+);
+
+writeFileSync(
+  `${OUT}/embed.js`,
+  `/* rulebook embed — drop a ruling anywhere.
+ *
+ *   <div data-rulebook="uno/stacking-draw-cards"></div>
+ *   <script src="https://mohitagw15856.github.io/rulebook/embed.js" async></script>
+ *
+ * No tracking, no network call after this file, no framework. Styles are
+ * inline so it cannot fight with the host page's CSS.
+ */
+(function () {
+  var D = ${JSON.stringify(widgetData)};
+  var BASE = 'https://mohitagw15856.github.io/rulebook';
+  var byKey = {};
+  for (var i = 0; i < D.length; i++) byKey[D[i].k] = D[i];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function render(el) {
+    var key = el.getAttribute('data-rulebook');
+    var r = byKey[key];
+    if (!r) {
+      el.innerHTML = '<a href="' + BASE + '">rulebook</a>: no ruling called "' + esc(key) + '"';
+      return;
+    }
+    var accent = r.o ? '#1a7f5a' : '#b8860b';
+    el.innerHTML =
+      '<div style="all:initial;display:block;font:14px/1.55 -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;color:#1b1b1b;background:#fffdf7;border:1px solid #e0dacb;border-left:3px solid ' + accent + ';border-radius:10px;padding:14px 16px;max-width:38em">' +
+        '<div style="all:unset;display:block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#7a7364">' + esc(r.g) + '</div>' +
+        '<div style="all:unset;display:block;font-weight:600;font-size:15px;margin:6px 0 4px">' + esc(r.q) + '</div>' +
+        '<div style="all:unset;display:block;font:600 10px/1 ui-monospace,monospace;letter-spacing:.1em;color:' + accent + '">' + (r.o ? 'OFFICIAL RULE' : 'NOT AN OFFICIAL RULE') + '</div>' +
+        '<p style="all:unset;display:block;margin:8px 0 0;color:#3a3a3a">' + esc(r.v) + '</p>' +
+        '<a style="all:unset;display:inline-block;margin-top:10px;font-size:12px;color:#1a7f5a;cursor:pointer" href="' + BASE + '/r/' + esc(key) + '/">rulebook →</a>' +
+      '</div>';
+  }
+
+  function boot() {
+    var nodes = document.querySelectorAll('[data-rulebook]');
+    for (var i = 0; i < nodes.length; i++) render(nodes[i]);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+`
+);
+
+// -----------------------------------------------------------------------------
+// A feed, so people can follow new rulings without visiting anything.
+// -----------------------------------------------------------------------------
+const feedItems = games
+  .flatMap((g) => g.rulings.map((r) => ({ g, r })))
+  .sort((a, b) => b.r.heat - a.r.heat)
+  .slice(0, 50);
+
+const rfc = (d) => d.toISOString().replace(/\.\d+Z$/, 'Z');
+const built = new Date(BUILD_TIME);
+
+writeFileSync(
+  `${OUT}/feed.xml`,
+  `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>rulebook — the rules, the house rules, and which are real</title>
+  <subtitle>Board and card game rulings, each marked official or not.</subtitle>
+  <link href="https://mohitagw15856.github.io/rulebook/feed.xml" rel="self"/>
+  <link href="https://mohitagw15856.github.io/rulebook/"/>
+  <id>https://mohitagw15856.github.io/rulebook/</id>
+  <updated>${rfc(built)}</updated>
+${feedItems
+  .map(
+    ({ g, r }) => `  <entry>
+    <title>${esc2(g.name)}: ${esc2(r.question)}</title>
+    <link href="https://mohitagw15856.github.io/rulebook/r/${g.slug}/${r.id}/"/>
+    <id>tag:mohitagw15856.github.io,2026:rulebook/${g.slug}/${r.id}</id>
+    <updated>${rfc(built)}</updated>
+    <category term="${r.official ? 'official' : 'house-rule'}"/>
+    <summary>${esc2((r.official ? 'OFFICIAL RULE. ' : 'NOT AN OFFICIAL RULE. ') + para(r.verdict))}</summary>
+  </entry>`
+  )
+  .join('\n')}
+</feed>
+`
+);
+
+// -----------------------------------------------------------------------------
 // Print. A booklet of the whole registry, and a deck of ruling cards. Both are
 // plain HTML with @page rules, so a browser is the only tool required.
 // -----------------------------------------------------------------------------
 mkdirSync(`${OUT}/print`, { recursive: true });
 
-const esc2 = (s2) => String(s2 ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
-const para = (s2) => esc2(String(s2).replace(/\s+/g, ' ').trim());
 
 // A very small markdown renderer — headings, bold, italic, lists, paragraphs.
 // Enough for rules.md, and far less than a dependency.
@@ -415,5 +531,5 @@ const kb = Math.round(JSON.stringify(payload).length / 1024);
 console.log(
   `✓ built site/ — ${games.length} games, ${rulings} rulings (${kb} kB of data), ` +
     `${scorers} scorers client-side, ${sharePages} share pages, ${games.length + 4} API files, ` +
-    `a ${Math.round(booklet.length / 1024)} kB booklet and a printable deck, offline-ready`
+    `a ${Math.round(booklet.length / 1024)} kB booklet, a printable deck, an embed widget and a feed`
 );

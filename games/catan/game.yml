@@ -74,6 +74,45 @@ handicaps:
     method: >
       Set their target to eleven victory points while everyone else 
       plays to ten.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 1995
+  note: >
+    The game usually credited with bringing German-style design to an 
+    international audience.
+misplays:
+  - move: >
+      Placing your first settlements on high-value numbers regardless of 
+      resource mix.
+    instead: >
+      Two settlements that between them touch brick, wood, wheat and ore 
+      beat two on 6 and 8 that only produce sheep.
+  - move: >
+      Refusing every trade so nobody gains.
+    instead: >
+      You lose to whoever is trading. Trade freely and early; refuse 
+      only when the trade obviously completes somebody's tenth point.
+scores:
+  typical: >
+    10 victory points wins; losers typically finish on 6–8
+  good: >
+    Winning in under an hour with a road-and-city engine rather than 
+    development-card luck
+  note: >
+    There is no score beyond the target, so "good" means the shape of 
+    the win: a player who wins on production rather than on a late run 
+    of victory-point cards played the stronger game.
+opening: >
+  Your two opening settlements decide most of the game. Prioritise a 
+  spread of resources over raw probability, make sure you can reach 
+  both brick and wood early for roads, and take ore only if you 
+  intend to build cities.
+etiquette: >
+  Kingmaking is the live issue: refusing a fair trade purely to stop 
+  the leader is accepted, but making a deliberately terrible trade 
+  to hand somebody the win is not. Announce your points honestly 
+  when asked.
 substitutions: >
   Lost number tokens can be replaced by writing numbers on card. A missing
   robber can be any distinctive object. Resource cards are the one component

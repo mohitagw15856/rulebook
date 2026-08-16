@@ -69,6 +69,41 @@ handicaps:
     method: >
       Play with cards face up for the first three hands and talk through 
       the decisions. It costs one round and saves an evening.
+lineage:
+  from:
+    - Poker
+  note: >
+    A community-card variant of poker that spread from Texas through Las 
+    Vegas in the mid-twentieth century, and became dominant after 
+    televised hole-card cameras arrived.
+misplays:
+  - move: >
+      Playing too many starting hands because folding feels passive.
+    instead: >
+      Folding is the most-used action in winning poker. Play fewer 
+      hands, and play them harder.
+  - move: >
+      Calling to 'see one more card' with no plan.
+    instead: >
+      Count your outs and compare them to the price. If the pot is not 
+      offering the odds, folding is not weakness, it is arithmetic.
+scores:
+  typical: >
+    Nothing to score — the measure is chips over many sessions
+  good: >
+    Winning consistently over hundreds of hands rather than any single 
+    pot
+  note: >
+    Single-session results are almost entirely noise. Judging your 
+    play by one evening is the most common beginner error.
+opening: >
+  From an early seat, play a tight range and raise rather than call. 
+  Position is worth more than cards, and the button is the most 
+  profitable seat at the table.
+etiquette: >
+  Never slow-roll — showing a winning hand slowly after pretending 
+  to hesitate is the rudest act at a table. Do not discuss a hand 
+  you have folded while it is still being played.
 substitutions: >
   Any chips will do — coins, sweets, buttons — provided everyone agrees the
   denominations before starting. The dealer button can be any distinctive

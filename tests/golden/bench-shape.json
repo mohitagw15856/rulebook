@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    "is_it_official",
+    "rule_qa"
+  ],
+  "question_keys": [
+    "answer",
+    "game",
+    "id",
+    "prompt",
+    "question",
+    "tags",
+    "task"
+  ],
+  "answers": [
+    "NO",
+    "YES"
+  ],
+  "tags": [
+    "common",
+    "house-rule",
+    "near-universal",
+    "official",
+    "practice",
+    "rare",
+    "regional",
+    "trap"
+  ]
+}

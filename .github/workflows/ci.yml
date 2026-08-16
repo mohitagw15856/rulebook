@@ -28,6 +28,9 @@ jobs:
       - name: Run the scoring tests
         run: npm test
 
+      - name: Generated output has not silently changed shape
+        run: npm run golden
+
       - name: Rebuild the generated files
         run: npm run build
 
@@ -66,6 +69,37 @@ jobs:
       - run: node bin/rulebook.mjs cheats scrabble
       - run: node bin/rulebook.mjs --lang fr ruling uno "empiler"
       - run: npm run coverage
+      - run: node scripts/eval.mjs
+      - run: node scripts/daily.mjs
+      - run: node scripts/digest.mjs 2026-01-01
+      - run: node scripts/starter-issues.mjs
+      - name: The benchmark answer key matches the verdicts
+        run: |
+          node --input-type=module -e "
+            import { benchmark } from './scripts/eval.mjs';
+            import { load } from './lib/registry.mjs';
+            const games = load();
+            let bad = 0;
+            for (const q of benchmark().filter(x => x.task === 'rule_qa')) {
+              const [slug, rid] = q.id.split('/');
+              const r = games.find(g => g.slug === slug).rulings.find(x => x.id === rid);
+              const expect = /^yes/i.test(r.verdict.trim()) ? 'YES' : 'NO';
+              if (expect !== q.answer) { bad++; console.error('MISMATCH ' + q.id); }
+            }
+            if (bad) { console.error(bad + ' answer key mismatches'); process.exit(1); }
+            console.log('benchmark answer key verified against every verdict');
+          "
+      - name: The embed widget and feed are valid
+        run: |
+          npm run build:site
+          node --check site/embed.js
+          node -e "
+            const x = require('fs').readFileSync('site/feed.xml','utf8');
+            if (!x.includes('<feed xmlns=\"http://www.w3.org/2005/Atom\">')) throw new Error('feed is not Atom');
+            const n = (x.match(/<entry>/g)||[]).length;
+            if (n < 10) throw new Error('feed has only ' + n + ' entries');
+            console.log('feed: ' + n + ' entries');
+          "
       - name: The MCP server speaks MCP
         run: |
           printf '%s\n' \

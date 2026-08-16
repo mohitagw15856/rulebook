@@ -56,6 +56,21 @@ cheats:
     spot: >
       When a hand ends strangely, the trick pile shows it. Anyone may 
       ask to check the last trick.
+lineage:
+  from:
+    - Reversis
+  note: >
+    Descends from the Reversis family of trick-avoidance games. Shooting 
+    the moon is the modern addition that gives it a second dimension.
+misplays:
+  - move: >
+      Passing your highest hearts.
+    instead: >
+      High spades and the queen are the danger. Hearts come to you 
+      whether you like it or not.
+opening: >
+  Pass high spades before high hearts, and keep low clubs — the two 
+  of clubs lead is the one trick you can shape from the start.
 substitutions: >
   Nothing to lose beyond the deck itself. A missing card means a missing card,
   and the hand cannot be dealt evenly, so retire the deck.

@@ -1,0 +1,24 @@
+{
+  "commands": [
+    "about",
+    "card",
+    "cheats",
+    "find",
+    "hottest",
+    "list",
+    "mcp",
+    "night",
+    "odds",
+    "qr",
+    "quiz",
+    "record",
+    "ref",
+    "rule",
+    "ruling",
+    "score",
+    "teach",
+    "timer",
+    "verify",
+    "vote"
+  ]
+}

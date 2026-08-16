@@ -45,6 +45,24 @@ handicaps:
     method: >
       They start with three coins instead of seven. The economy is tight 
       enough that it matters.
+lineage:
+  from:
+    - 7 Wonders
+  year: 2015
+  note: >
+    A two-player redesign of 7 Wonders rather than a cut-down version — 
+    the drafting pyramid replaces passing hands entirely.
+misplays:
+  - move: >
+      Building an engine while ignoring what your opponent is 
+      collecting.
+    instead: >
+      Two of the three victory conditions end the game instantly. Watch 
+      the science symbols and the military track every single turn.
+opening: >
+  Age one is about resources and setting up chains. Take the brown 
+  and grey cards early — buying from the bank all game is how you 
+  lose without noticing.
 substitutions: >
   Nothing here is improvisable — the card costs and the pyramid structure are
   the game. Coins can be replaced with any counters.

@@ -55,6 +55,19 @@ handicaps:
     method: >
       Play with a printed basic strategy card face up on the table for 
       everyone. It is not cheating, it is the correct play.
+lineage:
+  from:
+    - Vingt-et-Un
+  note: >
+    Descends from the French Vingt-et-Un. The name comes from an early 
+    American bonus for a black jack alongside the ace of spades, a 
+    payout that no longer exists.
+misplays:
+  - move: >
+      Taking insurance when you have a good hand.
+    instead: >
+      Insurance is a losing side bet at any hand. It is never correct 
+      without card counting.
 substitutions: >
   Any deck and any counters work — coins, matches, dried beans. The dealer role
   can rotate each round so that nobody is stuck as the house all evening.

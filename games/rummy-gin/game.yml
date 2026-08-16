@@ -48,6 +48,14 @@ cheats:
     spot: >
       The count is always checked. That is not distrust, it is how the 
       score is worked out.
+lineage:
+  from:
+    - Rummy
+    - Conquian
+  year: 1909
+  note: >
+    A two-player member of the Rummy family, itself descended from 
+    Conquian. Gin trades Rummy's sprawl for a tight knocking rule.
 substitutions: >
   Any deck. If cards are missing, remove whole ranks so runs and sets stay
   possible, and adjust the target score down.

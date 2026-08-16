@@ -52,6 +52,13 @@ cheats:
     spot: >
       Discs are placed one at a time, in turn order, and the placing 
       phase ends when bidding starts.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2011
+  note: >
+    A bluffing microgame with almost no components, descended in spirit 
+    from bar games rather than published ones.
 substitutions: >
   Beer mats and coins reproduce this exactly — the game is four tokens per
   player where one is distinguishable. It is one of the easiest games here to

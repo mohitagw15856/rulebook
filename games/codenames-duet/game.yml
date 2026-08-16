@@ -43,6 +43,13 @@ turn_structure:
 win_condition: >
   Identify all fifteen agents together before the turn tokens run out. Touching
   the assassin on either key ends the mission in immediate failure.
+lineage:
+  from:
+    - Codenames
+  year: 2017
+  note: >
+    Turns Codenames from a team contest into a cooperative game by 
+    giving each player a different key card.
 substitutions: >
   The key card holder is essential and cannot be improvised easily, since it must
   show each player a different pattern. The word cards can be replaced with any

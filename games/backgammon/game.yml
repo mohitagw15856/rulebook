@@ -47,6 +47,29 @@ handicaps:
     method: >
       Give them the doubling cube at 2 to start, or let them roll first 
       every game.
+lineage:
+  from:
+    - Tables
+    - Nard
+  note: >
+    One of the oldest games still played, descending through the 
+    medieval Tables family and Persian Nard. The doubling cube is a 
+    twentieth-century American addition.
+misplays:
+  - move: >
+      Always hitting because hitting feels strong.
+    instead: >
+      Hitting sends a checker back but often leaves you exposed. Count 
+      the return shots first.
+  - move: >
+      Never doubling because losing double feels worse.
+    instead: >
+      The cube is where the equity is. A position you would win seven 
+      times in ten is a double.
+opening: >
+  The strong opening rolls make points rather than run. 3-1 makes 
+  your five point and is the best roll in the game; 6-5 runs a 
+  checker all the way out.
 substitutions: >
   Checkers can be coins or draughts pieces without any loss. The doubling cube
   can be a scrap of paper with a number written on it and a note of who owns it.

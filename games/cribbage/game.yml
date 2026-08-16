@@ -64,6 +64,29 @@ handicaps:
       The experienced player counts both hands aloud, including their 
       opponent's, until the beginner is confident. Then switch muggins 
       off.
+lineage:
+  from:
+    - Noddy
+  note: >
+    Credited to Sir John Suckling in the seventeenth century, built on 
+    the older game of Noddy. The board is older than most of the games 
+    in this registry.
+misplays:
+  - move: >
+      Throwing whatever looks least useful into the crib.
+    instead: >
+      The crib is yours half the time and your opponent's the other 
+      half. Throw fives and touching cards to your own; break them up 
+      for theirs.
+scores:
+  typical: >
+    A hand averages about 8 points; the crib about 4
+  good: >
+    12 or more in a hand is a good count; 24 is the practical ceiling 
+    most players ever see
+  note: >
+    The famous 29-hand is roughly a one-in-216,000 deal. A 24 is the 
+    highest most players will hold in a lifetime of play.
 substitutions: >
   The board is only a counter. A pen and paper replaces it entirely, and a
   missing peg can be a coin or a match. Losing the board is inconvenient, never

@@ -56,6 +56,22 @@ cheats:
     spot: >
       The bid and the cards are the only legal communication. Say it out 
       loud before dealing with a new group.
+lineage:
+  from:
+    - Whist
+  note: >
+    A twentieth-century American member of the Whist family, 
+    distinguished by bidding a precise number of tricks rather than 
+    simply winning them.
+misplays:
+  - move: >
+      Bidding what your hand could take at best.
+    instead: >
+      Bid what it will take on an ordinary day. Bags are cheap; a failed 
+      contract is ten times the price.
+etiquette: >
+  Do not criticise your partner's bid during the hand. Whatever you 
+  say is also information for the opponents.
 substitutions: >
   Nothing beyond the deck. If a card is lost, the deal no longer divides evenly
   at four players, which the game cannot tolerate.

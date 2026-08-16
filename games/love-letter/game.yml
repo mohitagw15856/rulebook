@@ -45,6 +45,13 @@ win_condition: >
   Rounds are won by elimination or by holding the highest-numbered card when the
   deck is exhausted. Winning a round earns a token, and the match runs to an
   agreed number of tokens — usually four at two players, three at four.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2012
+  note: >
+    Seiji Kanai's sixteen-card design, which largely created the modern 
+    microgame category.
 substitutions: >
   The tokens are purely a counter and can be coins, sweets or tally marks. The
   cards themselves are the game and cannot be improvised without a printout.

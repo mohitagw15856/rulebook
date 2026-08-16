@@ -725,3 +725,71 @@ footer a:hover { color: var(--mint); }
 .unver { color: var(--gold); }
 .src.conflict { border-left: 2px solid var(--gold); padding-left: 0.7rem; color: var(--dim); }
 .src.conflict b { color: var(--gold); }
+
+/* --- quiz ---------------------------------------------------------------- */
+
+.quiz-panel { min-height: 18rem; }
+.dimnote { color: var(--dimmer); font-size: 0.85rem; margin-left: 0.8rem; }
+
+.quiz-bar { height: 3px; border-radius: 2px; background: rgba(255,255,255,0.07); overflow: hidden; margin-bottom: 1.2rem; }
+#quiz-progress { height: 100%; width: 0; border-radius: 2px; background: linear-gradient(90deg, var(--mint), var(--violet)); transition: width 0.4s cubic-bezier(.16,1,.3,1); }
+
+.quiz-meta { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--dimmer); letter-spacing: 0.1em; text-transform: uppercase; }
+#quiz-q { font-size: clamp(1.15rem, 3vw, 1.6rem); font-weight: 620; letter-spacing: -0.025em; margin: 0.6rem 0 1.4rem; }
+
+.quiz-answers { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.quiz-answers .btn { flex: 1 1 200px; justify-content: center; padding: 1rem; font-size: 1rem; }
+.quiz-answers .btn.right { background: color-mix(in srgb, var(--mint) 22%, transparent); border-color: var(--mint); color: var(--mint); }
+.quiz-answers .btn.wrong { background: color-mix(in srgb, var(--red) 18%, transparent); border-color: var(--red); color: var(--red); }
+.quiz-answers .btn:disabled { cursor: default; transform: none; }
+
+.quiz-feedback { margin-top: 1.2rem; padding: 1rem 1.2rem; border-radius: 12px; border-left: 2px solid var(--stroke-2); background: rgba(0,0,0,0.28); animation: springIn 0.4s cubic-bezier(.2,1.1,.3,1); }
+.quiz-feedback.ok { border-left-color: var(--mint); }
+.quiz-feedback.no { border-left-color: var(--red); }
+.quiz-feedback p { color: var(--dim); margin: 0.5rem 0; font-size: 0.94rem; }
+.quiz-feedback a { color: var(--mint); font-size: 0.86rem; text-decoration: none; }
+#quiz-next { margin-top: 1.1rem; }
+
+.quiz-score { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.quiz-score b { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 680; letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--mint), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.quiz-score span { font-family: var(--mono); font-size: 0.86rem; color: var(--gold); letter-spacing: 0.06em; }
+.quiz-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1.2rem 0; }
+
+/* --- museum -------------------------------------------------------------- */
+
+.museum { display: grid; gap: 0.9rem; }
+.exhibit {
+  display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: start;
+  border: 1px solid var(--stroke); border-radius: var(--r); padding: 1.3rem;
+  background: var(--glass); backdrop-filter: blur(10px);
+  transition: border-color 0.3s, transform 0.3s cubic-bezier(.16,1,.3,1);
+}
+.exhibit:hover { border-color: color-mix(in srgb, var(--red) 40%, transparent); transform: translateX(4px); }
+.exhibit .no { font-family: var(--mono); font-size: 1.6rem; font-weight: 700; color: var(--stroke-2); line-height: 1; }
+.exhibit .game { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); }
+.exhibit h4 { margin: 0.3rem 0 0.5rem; font-size: 1.06rem; font-weight: 620; letter-spacing: -0.02em; }
+.exhibit p { margin: 0; color: var(--dim); font-size: 0.92rem; }
+.exmeta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem; font-size: 0.78rem; color: var(--dimmer); }
+.exmeta .heat { color: var(--gold); letter-spacing: 2px; }
+.exmeta a { color: var(--mint); text-decoration: none; }
+
+/* --- family tree --------------------------------------------------------- */
+
+.tree { display: grid; gap: 1.4rem; }
+.branch { border: 1px solid var(--stroke); border-radius: var(--r); padding: 1.2rem 1.3rem; background: var(--glass); }
+.branch .ancestor {
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--violet); padding-bottom: 0.7rem; margin-bottom: 0.9rem; border-bottom: 1px solid var(--stroke);
+}
+.branch .kids { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.kid {
+  display: block; text-decoration: none; padding: 0.75rem 0.9rem;
+  border: 1px solid var(--stroke); border-radius: 12px; background: rgba(0,0,0,0.22);
+  transition: 0.22s cubic-bezier(.16,1,.3,1);
+}
+.kid:hover { border-color: var(--mint); transform: translateY(-2px); }
+.kid b { color: var(--ink); font-weight: 600; }
+.kid .yr { font-family: var(--mono); font-size: 0.7rem; color: var(--dimmer); margin-left: 0.5rem; }
+.kid .why { display: block; margin-top: 0.35rem; font-size: 0.8rem; color: var(--dimmer); line-height: 1.45; }
+.originals .ancestor { color: var(--dimmer); }

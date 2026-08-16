@@ -43,6 +43,13 @@ handicaps:
     method: >
       They start without one grasshopper. Removing the ant is too severe 
       and removing a spider too mild.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2001
+  note: >
+    A boardless abstract; the play area is whatever shape the tiles 
+    make, which is unusual enough to have no obvious ancestor.
 substitutions: >
   Nothing to lose but tiles, and a lost tile changes the game rather than
   stopping it. The tiles are chunky bakelite and famously durable; the pocket

@@ -50,6 +50,13 @@ handicaps:
     method: >
       The adult plays with four ships instead of five, and announces 
       near-misses.
+lineage:
+  from:
+    - (no clear ancestor)
+  note: >
+    Began as a pencil-and-paper game in the early twentieth century and 
+    was only later commercialised. The paper version is still the better 
+    one.
 substitutions: >
   This game does not need its box at all. Two sheets of squared paper per player
   and a pen reproduce it exactly, which is how most people first played it.

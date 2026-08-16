@@ -64,6 +64,33 @@ handicaps:
     method: >
       Give the weaker player twice the clock. It levels far more 
       precisely than material does.
+lineage:
+  from:
+    - Chaturanga
+    - Shatranj
+  note: >
+    Descends through Persian Shatranj from Indian Chaturanga. The modern 
+    queen and bishop moves are a late-fifteenth-century European change 
+    that made the game dramatically faster.
+misplays:
+  - move: >
+      Moving the same piece repeatedly in the opening to chase a threat.
+    instead: >
+      Develop a new piece nearly every move, castle early, and connect 
+      the rooks.
+  - move: >
+      Grabbing a pawn that pulls your queen out of play.
+    instead: >
+      An early queen raid usually loses time — every developing move 
+      your opponent makes comes with a free attack.
+opening: >
+  Control the centre, develop a knight before a bishop, and castle 
+  within the first ten moves. Any opening that does those three 
+  things is a good opening at club level.
+etiquette: >
+  Offer a draw only on your own move, after moving and before 
+  pressing the clock. Resigning a lost position is polite; playing 
+  on hoping for a blunder is not, past a certain point.
 substitutions: >
   A missing piece can be stood in for by a coin or an upturned pawn, agreed
   before the game. A missing queen is traditionally represented by an upturned

@@ -57,6 +57,18 @@ cheats:
     spot: >
       The moderator watches for it and simply says so. In a group that 
       plays often, the shame is sufficient enforcement.
+lineage:
+  from:
+    - Mafia
+  year: 1986
+  note: >
+    Dimitry Davidoff created Mafia at Moscow State University; the 
+    werewolf theme was added later and is now the more common name in 
+    English.
+etiquette: >
+  Do not make accusations personal. The game runs on lying, and the 
+  group has to trust that everything said stops at the end of the 
+  round.
 substitutions: >
   There is nothing to lose. Roles can be dealt with playing cards, written on
   torn paper, or assigned by the moderator tapping shoulders in the dark. The

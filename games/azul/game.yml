@@ -52,6 +52,33 @@ handicaps:
     method: >
       Ignore the floor line penalty for the first round only. It is the 
       rule that punishes inexperience hardest.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2017
+  note: >
+    A tile-drafting design whose central idea — that you must take 
+    everything of one colour — has been imitated repeatedly.
+misplays:
+  - move: >
+      Filling long pattern lines early because they score more.
+    instead: >
+      A five-tile line takes five rounds of the right colour. Short 
+      lines score reliably; long lines are where floor penalties come 
+      from.
+scores:
+  typical: >
+    50–70 points
+  good: >
+    90 or more, which needs at least one completed column
+  note: >
+    A completed column is seven points and a completed colour is ten, 
+    so the endgame bonuses are worth more than most rounds of ordinary 
+    scoring.
+opening: >
+  Take from a factory that leaves the fewest useful tiles in the 
+  centre. Denying the player after you is worth as much as what you 
+  take.
 substitutions: >
   The tiles are the game and cannot sensibly be improvised. Player boards are
   printable. The bag can be any opaque container.

@@ -60,6 +60,40 @@ handicaps:
     method: >
       Let them see everyone's opening tickets, or allow one free route 
       claim of length two.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2004
+  note: >
+    A deliberate gateway design — three possible actions, no direct 
+    conflict — and the template most modern introductory games follow.
+misplays:
+  - move: >
+      Claiming lots of short routes because they are cheap and 
+      available.
+    instead: >
+      Six one-train routes score six points; one six-train route scores 
+      fifteen. Build long, and take the short ones only to complete a 
+      ticket.
+  - move: >
+      Refusing to draw more destination tickets because they might not 
+      be completed.
+    instead: >
+      Late tickets that overlap track you already own are nearly free 
+      points. Draw when your network is dense, not when it is sparse.
+scores:
+  typical: >
+    70–90 points in a four-player game
+  good: >
+    110 or more, usually meaning several long routes and every ticket 
+    completed
+  note: >
+    The ten-point longest-route bonus and a single failed twenty-point 
+    ticket are frequently the whole margin.
+opening: >
+  Keep two tickets that share a city if you can — overlapping routes 
+  are how the big scores happen. Discard the third unless it is 
+  nearly free.
 substitutions: >
   Trains can be replaced with any small markers of a distinct colour, though you
   need forty-five of each. Losing destination tickets is the real problem — they

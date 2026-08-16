@@ -44,6 +44,22 @@ handicaps:
     method: >
       They may not take camels on their first two turns, which delays 
       the big swaps that decide early rounds.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2009
+  note: >
+    A two-player market game whose token-decay economy has been widely 
+    copied.
+misplays:
+  - move: >
+      Selling goods as soon as you have two.
+    instead: >
+      Selling three or more earns a bonus token, and those bonuses 
+      decide rounds. Hold, unless the top tokens are about to go.
+opening: >
+  Take camels early only if the market is poor. Otherwise grab the 
+  expensive goods before the top tokens go.
 substitutions: >
   The tokens are the scoring system and their descending values matter, so they
   cannot be replaced casually — though a written list of the values would do at

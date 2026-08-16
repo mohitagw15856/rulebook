@@ -51,6 +51,25 @@ handicaps:
     method: >
       The adult must roll a six to move at all, not merely to enter. It 
       slows them dramatically and children find it very funny.
+lineage:
+  from:
+    - Pachisi
+  year: 1896
+  note: >
+    A simplified commercial version of the much older Indian game 
+    Pachisi, patented in England in 1896. The blockade rule that British 
+    sets dropped is Pachisi inheritance, which is why Indian play keeps 
+    it.
+misplays:
+  - move: >
+      Bringing every token out as soon as you roll a six.
+    instead: >
+      Tokens strung out across the board are all capturable. Move in 
+      pairs where your set allows blocking.
+etiquette: >
+  Capturing a child's token is the whole game and should not be 
+  softened silently. If you intend to go easy, say so at the start 
+  rather than throwing the game quietly.
 substitutions: >
   Everything here is replaceable. Tokens can be coins, buttons or torn paper,
   and the board can be drawn. A missing die is the only genuine stopper, and a

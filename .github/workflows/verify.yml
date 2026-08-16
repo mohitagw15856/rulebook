@@ -1,0 +1,64 @@
+name: verify
+
+# Facts rot. This re-checks that every source still resolves and reports which
+# games have not been verified against one within a year. It never rewrites a
+# verification date — only a human who has actually re-read the source may do
+# that, which is the entire point of the field.
+on:
+  schedule:
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Are the sources still there?
+        id: links
+        run: node scripts/check-links.mjs 2>&1 | tee /tmp/links.txt
+
+      - name: Which facts have aged out?
+        if: always()
+        run: node scripts/coverage.mjs | tee /tmp/coverage.txt
+
+      - name: Are the archived snapshots still recorded?
+        if: always()
+        run: node scripts/archive.mjs | tail -5
+
+      - name: Open an issue if anything has rotted
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const links = fs.readFileSync('/tmp/links.txt', 'utf8');
+            const title = 'Sources need attention';
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'needs-source',
+            });
+            const body = [
+              'The monthly source check failed. A claim whose source is gone needs a new',
+              'source, not a quiet deletion.', '', '```', links.slice(-3000), '```', '',
+              'Archived copies of most sources are in `data/archive.yml`.',
+            ].join('\n');
+            if (open.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['needs-source'],
+              });
+            }

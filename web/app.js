@@ -805,6 +805,204 @@ function offline() {
     });
 }
 
+
+// ---------------------------------------------------------------------------
+// Quiz — official rule, or made up? The CLI has had this for a while; it was
+// the best thing in the repo and it required Node to play.
+// ---------------------------------------------------------------------------
+const RANKS = [
+  [90, 'Rules Lawyer, First Class'],
+  [75, 'Reads The Rulebook'],
+  [60, 'Reliable At The Table'],
+  [40, 'Confidently Wrong'],
+  [20, 'Has Been Playing It Wrong For Years'],
+  [0, 'Making It Up Entirely'],
+];
+const rankFor = (pct) => RANKS.find(([floor]) => pct >= floor)[1];
+
+function quiz() {
+  const N = 10;
+  let qs = [];
+  let at = 0;
+  let right = 0;
+  let answered = false;
+
+  const pick = () => {
+    // Half house rules, half official, shuffled — a quiz made only of traps is
+    // a trick, and people stop believing the answers.
+    const house = ALL.filter((r) => !r.official).sort(() => Math.random() - 0.5);
+    const official = ALL.filter((r) => r.official).sort(() => Math.random() - 0.5);
+    const want = Math.min(house.length, Math.floor(N / 2));
+    return [...house.slice(0, want), ...official.slice(0, N - want)].sort(() => Math.random() - 0.5);
+  };
+
+  const show = () => {
+    const q = qs[at];
+    answered = false;
+    $('#quiz-count').textContent = `Question ${at + 1} of ${qs.length}`;
+    $('#quiz-game').textContent = q._game.name;
+    $('#quiz-q').textContent = q.question;
+    $('#quiz-progress').style.width = `${(at / qs.length) * 100}%`;
+    $('#quiz-feedback').hidden = true;
+    $('#quiz-next').hidden = true;
+    $$('.quiz-answers .btn').forEach((b) => {
+      b.disabled = false;
+      b.classList.remove('right', 'wrong');
+    });
+  };
+
+  const answer = (said) => {
+    if (answered) return;
+    answered = true;
+    const q = qs[at];
+    const correct = (said === 'official') === q.official;
+    if (correct) right++;
+
+    $$('.quiz-answers .btn').forEach((b) => {
+      b.disabled = true;
+      const isTruth = (b.dataset.a === 'official') === q.official;
+      if (isTruth) b.classList.add('right');
+      else if (b.dataset.a === said) b.classList.add('wrong');
+    });
+
+    const fb = $('#quiz-feedback');
+    fb.hidden = false;
+    fb.className = `quiz-feedback ${correct ? 'ok' : 'no'}`;
+    fb.innerHTML =
+      `<b>${correct ? 'Correct.' : 'Wrong.'}</b> ${
+        q.official ? 'It is genuinely official.' : `Not a real rule — ${esc(PREVALENCE[q.prevalence] || '')}.`
+      }<p>${esc(q.verdict)}</p>` +
+      `<a href="#${esc(q._game.slug)}/${esc(q.id)}">Read the full ruling →</a>`;
+    $('#quiz-next').hidden = false;
+    $('#quiz-next').textContent = at === qs.length - 1 ? 'See your score' : 'Next';
+  };
+
+  const finish = () => {
+    const pct = Math.round((right / qs.length) * 100);
+    $('#quiz-play').hidden = true;
+    $('#quiz-done').hidden = false;
+    $('#quiz-final').textContent = `${right} / ${qs.length}`;
+    $('#quiz-rank').textContent = rankFor(pct);
+    $('#quiz-blurb').textContent =
+      pct >= 75
+        ? 'You have read more rulebooks than is normal.'
+        : pct >= 45
+          ? 'About average — which means the house rules got you at least twice.'
+          : 'Almost everybody scores like this. The rules you are surest about are the invented ones.';
+
+    const card =
+      `rulebook quiz — ${right}/${qs.length}\n` +
+      `${rankFor(pct)}\n\n` +
+      `Official rule, or made up? Most people do worse than they expect.\n` +
+      `https://mohitagw15856.github.io/rulebook/#quiz`;
+    $('#quiz-card').textContent = card;
+    $('#quiz-share').onclick = async () => {
+      try {
+        if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ text: card });
+        else await navigator.clipboard.writeText(card);
+        $('#quiz-share').textContent = 'copied';
+        setTimeout(() => ($('#quiz-share').textContent = 'Copy score card'), 1500);
+      } catch {
+        /* dismissed */
+      }
+    };
+  };
+
+  const start = () => {
+    qs = pick();
+    at = 0;
+    right = 0;
+    $('#quiz-start').hidden = true;
+    $('#quiz-done').hidden = true;
+    $('#quiz-play').hidden = false;
+    show();
+  };
+
+  $('#quiz-go').addEventListener('click', start);
+  $('#quiz-again').addEventListener('click', start);
+  $$('.quiz-answers .btn').forEach((b) => b.addEventListener('click', () => answer(b.dataset.a)));
+  $('#quiz-next').addEventListener('click', () => {
+    if (at === qs.length - 1) finish();
+    else {
+      at++;
+      show();
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// The museum of rules that never were
+// ---------------------------------------------------------------------------
+function museum() {
+  const rows = HOUSE.slice().sort((a, b) => b.heat - a.heat);
+  $('#museum-list').innerHTML = rows
+    .map(
+      (r, i) => `
+      <article class="exhibit">
+        <div class="no">${String(i + 1).padStart(2, '0')}</div>
+        <div class="exbody">
+          <div class="game">${esc(r._game.name)}</div>
+          <h4>${esc(r.question)}</h4>
+          <p>${esc(r.verdict.slice(0, 200))}${r.verdict.length > 200 ? '…' : ''}</p>
+          <div class="exmeta">
+            <span class="heat" title="how certain both sides tend to be">${'▰'.repeat(Math.round(r.heat))}${'▱'.repeat(Math.max(0, 5 - Math.round(r.heat)))}</span>
+            <span>${esc(PREVALENCE[r.prevalence] || r.prevalence)}</span>
+            <a href="#${esc(r._game.slug)}/${esc(r.id)}">the actual rule →</a>
+          </div>
+        </div>
+      </article>`
+    )
+    .join('');
+}
+
+// ---------------------------------------------------------------------------
+// Family tree — grouped by ancestor, because that is how the rules travel
+// ---------------------------------------------------------------------------
+function tree() {
+  const roots = new Map();
+  const originals = [];
+
+  for (const g of DATA.games) {
+    const from = (g.lineage?.from || []).filter((f) => f && !f.startsWith('('));
+    if (!from.length) originals.push(g);
+    else for (const f of from) {
+      roots.set(f, roots.get(f) || []);
+      roots.get(f).push(g);
+    }
+  }
+
+  const branch = ([ancestor, kids]) => `
+    <div class="branch">
+      <div class="ancestor">${esc(ancestor)}</div>
+      <div class="kids">${kids
+        .sort((a, b) => (a.lineage?.year || 9999) - (b.lineage?.year || 9999))
+        .map(
+          (g) => `<a class="kid" href="#${esc(g.slug)}">
+            <b>${esc(g.name)}</b>${g.lineage?.year ? `<span class="yr">${g.lineage.year}</span>` : ''}
+            <span class="why">${esc(g.lineage.note.slice(0, 120))}…</span>
+          </a>`
+        )
+        .join('')}</div>
+    </div>`;
+
+  $('#tree-graph').innerHTML =
+    [...roots.entries()]
+      .sort((a, b) => b[1].length - a[1].length)
+      .map(branch)
+      .join('') +
+    `<div class="branch originals">
+      <div class="ancestor">No clear ancestor</div>
+      <div class="kids">${originals
+        .sort((a, b) => (a.lineage?.year || 9999) - (b.lineage?.year || 9999))
+        .map(
+          (g) => `<a class="kid" href="#${esc(g.slug)}"><b>${esc(g.name)}</b>${
+            g.lineage?.year ? `<span class="yr">${g.lineage.year}</span>` : ''
+          }</a>`
+        )
+        .join('')}</div>
+    </div>`;
+}
+
 // ---------------------------------------------------------------------------
 chrome();
 eyebrow();
@@ -814,6 +1012,9 @@ fakes();
 lying();
 games();
 regions();
+quiz();
+museum();
+tree();
 scorepad();
 offline();
 modal();

@@ -59,6 +59,28 @@ handicaps:
     method: >
       Let them reroll one die a fourth time. It barely shifts the odds 
       and it removes the worst turns.
+lineage:
+  from:
+    - Yacht
+  year: 1956
+  note: >
+    A commercial version of the older dice game Yacht, itself one of a 
+    long line of category-scoring dice games.
+misplays:
+  - move: >
+      Ignoring the upper section until it is too late.
+    instead: >
+      Sixty-three earns a thirty-five point bonus, which is larger than 
+      most single categories. Three of each number is the target.
+scores:
+  typical: >
+    200–250
+  good: >
+    300 is a good game; anything over 350 usually means a Yahtzee
+  note: >
+    The upper bonus accounts for 35 of those points and is the 
+    difference between an average game and a good one. A solo personal 
+    best over 400 is rare.
 substitutions: >
   Any five dice work, and score sheets are trivially reproduced on plain paper —
   the categories are the game, not the pad. A missing die genuinely stops play,

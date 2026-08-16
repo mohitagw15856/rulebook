@@ -44,6 +44,14 @@ editions:
     changed: >
       Uno is a commercial reworking of this public-domain game, replacing suits
       with colours and adding dedicated action cards.
+lineage:
+  from:
+    - Eights
+    - Mau Mau
+  note: >
+    A shedding game of the Eights family that spread through the 
+    mid-twentieth century. Mau Mau is its closest European relative and 
+    shares most of its variations.
 substitutions: >
   Needs nothing but a standard deck, which makes it the game to fall back on
   when a boxed game is missing pieces. If you are short of cards, deal fewer.

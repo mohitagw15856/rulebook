@@ -1,0 +1,21 @@
+name: 'Check rules prose is original'
+description: >
+  Fails if game-rules prose looks copied from a publisher — copyright notices,
+  ® or ™, long attributed quotations, or a sentence appearing in two games.
+  How a game is played is not copyrightable; a publisher's wording is.
+author: 'mohitagw15856'
+branding:
+  icon: 'shield'
+  color: 'green'
+inputs:
+  path:
+    description: 'Directory holding the game folders'
+    required: false
+    default: 'games'
+runs:
+  using: 'composite'
+  steps:
+    - shell: bash
+      run: |
+        echo "Checking prose in ${{ inputs.path }}"
+        node "${{ github.action_path }}/../../../scripts/check-original.mjs"

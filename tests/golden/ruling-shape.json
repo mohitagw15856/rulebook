@@ -1,0 +1,18 @@
+{
+  "all_keys": [
+    "asked_as",
+    "effect",
+    "heat",
+    "house_rule",
+    "id",
+    "interacts_with",
+    "kind",
+    "official",
+    "prevalence",
+    "question",
+    "regions",
+    "source",
+    "sources",
+    "verdict"
+  ]
+}

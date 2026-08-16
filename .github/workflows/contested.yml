@@ -1,0 +1,60 @@
+name: contested
+
+# When enough people report playing a rule differently from what the registry
+# asserts, that is a signal worth surfacing rather than burying. This opens an
+# issue; a human decides whether the registry or the votes are wrong.
+on:
+  push:
+    paths: ['data/votes.yml']
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Do the votes contradict the registry?
+        id: dis
+        run: |
+          node -e "
+            import('./lib/registry.mjs').then(async ({load}) => {
+              const { loadVotes, disagreements } = await import('./lib/votes.mjs');
+              const rows = disagreements(load(), loadVotes());
+              require('fs').writeFileSync('/tmp/contested.json', JSON.stringify(rows.map(r => ({
+                key: r.key, question: r.ruling.question, asserted: r.ruling.prevalence,
+                implied: r.implied, n: r.measured.n, pct: r.measured.pct,
+              })), null, 2));
+              console.log(rows.length + ' contested');
+            });
+          "
+          echo "count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('/tmp/contested.json')).length)")" >> $GITHUB_OUTPUT
+
+      - name: Flag them
+        if: steps.dis.outputs.count != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const rows = JSON.parse(require('fs').readFileSync('/tmp/contested.json', 'utf8'));
+            const body = [
+              'Player reports disagree with the prevalence this registry asserts.',
+              'Votes are not automatically right — a small sample from one country is',
+              'not the world — but each of these is worth a look.', '',
+              '| ruling | asserted | votes say | n | % playing the house version |',
+              '|---|---|---|---|---|',
+              ...rows.map(r => `| \`${r.key}\` | ${r.asserted} | ${r.implied} | ${r.n} | ${r.pct}% |`),
+            ].join('\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `${rows.length} ruling(s) contested by player reports`,
+              body, labels: ['ruling', 'contested'],
+            });

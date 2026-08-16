@@ -45,6 +45,21 @@ handicaps:
     method: >
       Ignore the two-point penalty for empty squares in their first 
       game, and tell them you are doing it.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2014
+  note: >
+    Uwe Rosenberg turned his polyomino tile system into a two-player 
+    game where turn order itself is the puzzle.
+scores:
+  typical: >
+    Around 0 to 15 for the winner; negative scores are entirely normal
+  good: >
+    Anything over 20, which means button income started early
+  note: >
+    A negative final score is not a bad game. The two-point penalty 
+    per empty square means most first games finish below zero.
 substitutions: >
   The patches are the puzzle and cannot be improvised. Buttons can be any counter.
   The time board is easily drawn on paper.

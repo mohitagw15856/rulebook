@@ -44,6 +44,16 @@ turn_structure:
 win_condition: >
   Complete the final level with at least one life remaining. There is no
   individual winner and no score beyond how far the group got.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2018
+  note: >
+    A cooperative game whose only mechanism is how long you wait, which 
+    was novel enough to divide opinion sharply.
+etiquette: >
+  Do not sigh, wince or stare. The temptation to communicate is 
+  constant and every group has to police it themselves.
 substitutions: >
   A deck of a hundred numbered slips reproduces it exactly, and lives can be
   coins. What cannot be improvised is the silence, which is the actual component.

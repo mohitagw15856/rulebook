@@ -53,6 +53,19 @@ handicaps:
     method: >
       Adults play with their hand face up on the table. Children find 
       this hilarious and it evens the memory gap completely.
+lineage:
+  from:
+    - Authors
+    - Quartets
+  note: >
+    A children's simplification of the Quartets family, played across 
+    Europe under many names.
+misplays:
+  - move: >
+      Asking for whatever you drew most recently.
+    instead: >
+      Ask for what you have three of. You only need one more, and you 
+      have three chances of somebody holding it.
 substitutions: >
   Works with any deck. With a partial deck, remove whole ranks rather than
   individual cards so that every set is still completable.

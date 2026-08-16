@@ -57,6 +57,32 @@ handicaps:
     method: >
       Give them an extra Silver in the opening deck, and use the 
       recommended First Game card set.
+lineage:
+  from:
+    - (no clear ancestor)
+  year: 2008
+  note: >
+    Invented the deck-building genre outright. Almost every game where 
+    you buy cards that shuffle into your own deck descends from it.
+misplays:
+  - move: >
+      Buying every interesting-looking action card.
+    instead: >
+      A deck full of actions you cannot chain is a deck that stalls. 
+      Money is boring and money wins.
+  - move: >
+      Buying Provinces too early with a thin deck.
+    instead: >
+      Each one is a dead card you will draw for the rest of the game. 
+      Build first, then convert.
+opening: >
+  Your first two buys are almost always a Silver and one cheap 
+  action, or a Silver and a Silver. Resist buying the most 
+  interesting card on the table.
+etiquette: >
+  Play at a pace that lets others follow. Long chained turns are 
+  fine; long chained turns done silently while everybody waits are 
+  not.
 substitutions: >
   The cards are the entire game. Nothing here can be improvised, and a missing
   kingdom pile simply means playing without that card, which is fine since only

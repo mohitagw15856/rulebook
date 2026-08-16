@@ -47,6 +47,14 @@ editions:
       powers and the penalty for a failed call. Pablo, Cabo and Cambio are
       effectively the same game; four-card Golf is a close cousin without the
       card powers.
+lineage:
+  from:
+    - Golf
+    - Cabo
+  note: >
+    Part of the Cabo, Cambio and Golf family of low-score 
+    draw-and-discard games. No version is authoritative, which is 
+    exactly why its rulings are so contested.
 substitutions: >
   Any deck. Without jokers, drop their power and treat Kings as the zero-value
   card, which many groups do anyway.

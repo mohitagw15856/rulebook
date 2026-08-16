@@ -1,0 +1,34 @@
+name: Adopt a game
+description: Become the person who keeps one game honest
+title: "[adopt] "
+labels: [adopt]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        About an hour a year: re-read the source, update the `verified` block,
+        and add one ruling you have personally argued about. See
+        [MAINTAINERS.md](../blob/main/MAINTAINERS.md).
+  - type: input
+    id: game
+    attributes:
+      label: Which game?
+      placeholder: Catan
+    validations:
+      required: true
+  - type: dropdown
+    id: how_often
+    attributes:
+      label: How often do you play it?
+      options:
+        - Weekly or more
+        - Monthly
+        - A few times a year
+        - Rarely, but I know it well
+    validations:
+      required: true
+  - type: textarea
+    id: argument
+    attributes:
+      label: One rule your table argues about (optional)
+      description: The best possible start — it becomes your first ruling.
